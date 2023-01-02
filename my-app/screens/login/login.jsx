@@ -69,7 +69,10 @@ const Login = ({ navigation }) => {
             borderTopLeftRadius: 130,
             // borderTopRightRadius:130,
             paddingTop: 100,
-            alignItems: 'center',
+
+            paddingRight: 40,
+            alignItems: "center",
+
           }}
         >
           <Image
