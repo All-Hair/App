@@ -7,6 +7,7 @@ import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
 import Navbar from './components/Navbar';
 import Shop from './screens/shop/Shop';
+import OneShop from './screens/shop/OneShop';
 const Stack = createNativeStackNavigator();
 
 const App =() => {
@@ -19,6 +20,8 @@ const App =() => {
 <Stack.Screen name ='Forgotpassword'    component={Forgotpassword}/>
 <Stack.Screen name ='Home' options = {{headerShown :false}}  component={Home}/> 
 <Stack.Screen name ="shop" component={Shop} />
+<Stack.Screen name ="oneShop" component={OneShop} />
+
 {/* <Stack.Screen name ='Navbar'   component={Navbar}/>  */}
 </Stack.Navigator>
 </NavigationContainer>
