@@ -2,19 +2,40 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  cart: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  items: {
+    margin: 0,
+    padding: 0,
+  },
   item: {
-    flexDirection: 'row',
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginVertical: 10,
+    marginBottom: 10,
   },
-  itemText: {
+  itemName: {
     fontSize: 16,
+  },
+  removeButton: {
+    backgroundColor: '#ff0000',
+    color: '#ffffff',
+    borderWidth: 0,
+    borderRadius: 4,
+    padding: 8,
+    fontSize: 14,
+  },
+  addButton: {
+    backgroundColor: '#00ff00',
+    color: '#ffffff',
+    borderWidth: 0,
+    borderRadius: 4,
+    padding: 8,
+    fontSize: 14,
+    marginTop: 10,
   },
 });
 
@@ -32,15 +53,29 @@ const cart = () => {
   };
 
   return (
-    <View style={styles.container}>
-      {items.map((item, index) => (
-        <View key={item.name} style={styles.item}>
-          <Text style={styles.itemText}>{item.name}</Text>
-          <Button title="Remove" onPress={() => removeItem(index)} />
-        </View>
-      ))}
-      <Button title="Add Item" onPress={addItem} />
+   
+    <View style={styles.cart}>
+      <Text>Cart</Text>
+      <Text>Shopping Cart</Text>
+      <View style={styles.items}>
+        {items.map((item, index) => (
+          <View key={item.name} style={styles.item}>
+            <Text style={styles.itemName}>{item.name}</Text>
+            <Button
+              title="Remove"
+              onPress={() => removeItem(index)}
+              buttonStyle={styles.removeButton}
+            />
+          </View>
+        ))}
+      </View>
+      <Button
+        title="Add Item"
+        onPress={addItem}
+        buttonStyle={styles.addButton}
+      />
     </View>
+   
   );
 };
 
