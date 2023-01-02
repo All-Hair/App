@@ -27,10 +27,10 @@ console.log(auth.currentUser?.email);
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={()=>{ navigation.navigate("Navbar")}}
+        onPress={()=>{ navigation.navigate("Sprofile")}}
         style={styles.button}
       >
-        <Text style={styles.buttonText}>Sign out</Text>
+        <Text style={styles.buttonText}>Sprofile</Text>
       </TouchableOpacity>
       
     </View>

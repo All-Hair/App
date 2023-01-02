@@ -63,7 +63,7 @@ const handleLogin = () => {
             borderTopLeftRadius: 130,
             // borderTopRightRadius:130,
             paddingTop: 100,
-            paddingRight: 40,
+            // paddingRight: 40,
             alignItems: "center",
           }}
         >
