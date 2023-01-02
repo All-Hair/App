@@ -8,6 +8,7 @@ import Forgotpassword from './screens/login/forgotpassword.jsx';
 import Navbar from './components/Navbar';
 import Shop from './screens/shop/Shop';
 import OneShop from './screens/shop/OneShop';
+import cart from './screens/cart/cart';
 const Stack = createNativeStackNavigator();
 
 const App =() => {
@@ -21,6 +22,7 @@ const App =() => {
 <Stack.Screen name ='Home' options = {{headerShown :false}}  component={Home}/> 
 <Stack.Screen name ="shop" component={Shop} />
 <Stack.Screen name ="oneShop" component={OneShop} />
+<Stack.Screen name ="cart" component={cart} />
 
 {/* <Stack.Screen name ='Navbar'   component={Navbar}/>  */}
 </Stack.Navigator>

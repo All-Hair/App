@@ -1,7 +1,7 @@
 import { Button, Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const OneShop = () => {
+const OneShop = ({navigation}) => {
   return (
     <View style={{ alignItems: "center"}}>
       <Text  style={{
@@ -19,7 +19,9 @@ const OneShop = () => {
                />
                <Text style={{fontSize: 35,}}>Product description</Text>
                <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
-               <Button title=''/>
+               <Button title='Buy 'onPress={()=>{navigation.navigate('cart')}}/>
+
+              
     </View>
   )
 }
