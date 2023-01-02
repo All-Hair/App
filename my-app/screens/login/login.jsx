@@ -63,7 +63,6 @@ const handleLogin = () => {
             borderTopLeftRadius: 130,
             // borderTopRightRadius:130,
             paddingTop: 100,
-            paddingRight: 40,
             alignItems: "center",
           }}
         >
@@ -78,7 +77,8 @@ const handleLogin = () => {
               fontSize: 19,
               fontWeight: "bold",
               marginBottom: 20,
-              paddingTop: 60,
+              paddingTop: 100,
+              shadowColor:'#CCC9C0'
             }}
           >
             Login to your account
@@ -95,7 +95,7 @@ const handleLogin = () => {
               alignItems: "flex-end",
               width: "78%",
               paddingRight: 19,
-              marginBottom: 100,
+              marginBottom: 80,
             }}
           >
             <TouchableOpacity
