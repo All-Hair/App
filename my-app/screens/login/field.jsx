@@ -1,13 +1,32 @@
 import React from 'react';
-import {TextInput} from 'react-native';
-import {black} from './constants';
+import { TextInput } from 'react-native';
+// import DropShadow from "react-native-drop-shadow";
+import { black } from './constants';
 
-const Field = props => {
+const Field = (props) => {
   return (
     <TextInput
       {...props}
-      style={{borderRadius: 10, color: black,  paddingHorizontal: 18, width: '70%', backgroundColor: 'rgb(220,220, 220)', marginVertical: 20 , height:40}}
-      ></TextInput>
+      style={{
+        borderRadius: 10,
+        color: black,
+        paddingHorizontal: 18,
+        width: '70%',
+        backgroundColor: 'white',
+        borderColor: '#CCC9C0',
+        borderWidth: 1,
+        marginVertical: 30,
+        height: 70,shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 6,
+        },
+        shadowOpacity: 0.37,
+        shadowRadius: 7.49,
+        
+        elevation: 12,
+      }}
+    ></TextInput>
   );
 };
 

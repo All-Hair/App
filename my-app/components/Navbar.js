@@ -1,6 +1,8 @@
-import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, Animated, Text, Alert } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, Animated, Text, Alert,Dimensions} from 'react-native';
 
 import React from 'react'
+const { width, height } = Dimensions.get('window');
+
 
 const Navbar = () => {
     
@@ -11,6 +13,7 @@ const Navbar = () => {
             <View style={{
                 flex: 1,
                 flexDirection: 'column',
+                width: width,                
                 backgroundColor: 'grey'
 
             }}>
@@ -32,9 +35,9 @@ const Navbar = () => {
                     <TouchableWithoutFeedback >
                         <View style={[styles.button, styles.actionBtn]}>
 
-                            <Image style={{ width: 60, height: 60 }}
+                            <Image style={{ width: 50, height: 50 }}
                                 resizeMode="contain"
-                                source={{ uri: 'https://icon-library.net/images/android-plus-icon/android-plus-icon-0.jpg' }} />
+                                source={ require('my-app/assets/noti.png')} />
                         </View>
                     </TouchableWithoutFeedback>
                 </View> 
@@ -154,7 +157,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'blue'
+        backgroundColor: '#CCC9C0'
     },
     button: {
         width: 60,
