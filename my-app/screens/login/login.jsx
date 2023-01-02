@@ -1,12 +1,14 @@
 import React ,{useState,useEffect} from "react";
-import { View, Text, Touchable, TouchableOpacity, Image } from "react-native";
+import { View, Text, Touchable, TouchableOpacity, Image ,Dimensions } from "react-native";
 import Background from "./background.jsx";
 import Btn from "./button.jsx";
 import { primary } from "./constants.jsx";
 import Field from "./field.jsx";
 import { auth } from '../../firebase';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
+const {width, height} = Dimensions.get('window');
 
 
 const Login = ({navigation}) => {
@@ -41,8 +43,8 @@ const handleLogin = () => {
 
   return (
     <Background>
-      <View
-        style={{ alignItems: "center", width: 460, backgroundColor: "#CCC9C0" }}
+      <SafeAreaView
+        style={{ alignItems: "center", width: width,height:height, backgroundColor: "#CCC9C0" }}
       >
         <Text
           style={{
@@ -56,10 +58,10 @@ const handleLogin = () => {
         <View
           style={{
             backgroundColor: "white",
-            height: 700,
-            width: 460,
+            height: height,
+            width: width,
             borderTopLeftRadius: 130,
-            // borderTopEndRadius:130,
+            // borderTopRightRadius:130,
             paddingTop: 100,
             paddingRight: 40,
             alignItems: "center",
@@ -152,7 +154,7 @@ const handleLogin = () => {
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </SafeAreaView>
     </Background>
   );
 };
