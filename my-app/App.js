@@ -6,6 +6,9 @@ import Signup from './screens/signup/signup';
 import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
 
+
+//app
+
 import Sprofile from './screens/sprofile/sprofile';
 import Uprofile from './screens/UserProfile/Uprofile';
 import Navbar from './components/Navbar';
