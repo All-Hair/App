@@ -12,7 +12,7 @@ const Navbar = ({navigation}) => {
         return (
             <View style={{
                 flex: 1,
-                top:height-30,
+                top:height -70,
                 flexDirection: 'column',
                 width: width,                
                 position: 'absolute',
