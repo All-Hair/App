@@ -84,7 +84,7 @@ const Login = ({ navigation }) => {
           <Text
             style={{
               color: 'grey',
-              fontSize: 30,
+              fontSize: 20,
               fontWeight: 'bold',
               // marginBottom: 0,
               paddingTop: 80,
@@ -122,7 +122,7 @@ const Login = ({ navigation }) => {
             </TouchableOpacity>
           </View>
           <Btn
-            textColor="grey"
+            textColor="white"
             bgColor={primary}
             btnLabel="Login"
             Press={handleLogin}
