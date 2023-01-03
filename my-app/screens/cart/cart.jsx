@@ -53,7 +53,7 @@ const cart = () => {
   };
 
   return (
-   
+    
     <View style={styles.cart}>
       <Text>Cart</Text>
       <Text>Shopping Cart</Text>
@@ -75,6 +75,8 @@ const cart = () => {
         buttonStyle={styles.addButton}
       />
     </View>
+    
+
    
   );
 };
