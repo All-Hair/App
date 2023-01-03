@@ -1,4 +1,4 @@
-import { Button, Image, StyleSheet, Text, View } from 'react-native'
+import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
 const OneShop = ({navigation}) => {
@@ -13,7 +13,10 @@ const OneShop = ({navigation}) => {
                <Text style={{fontSize: 35,}}>Product description</Text>
                <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
     </View>
-               <Button style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('cart')}}/>
+      <TouchableOpacity
+                style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('cart')}}>
+                   <Text style={styles.buttonText}>Buy</Text>
+                </TouchableOpacity>
     </View>
   )
 }
@@ -43,7 +46,7 @@ const styles = StyleSheet.create({
   },
   avatar: {
     height: 200,
-    width: 200,
+    width: 250,
     // borderRadius: 100
   },
   description: {
@@ -52,11 +55,13 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   button: {
-    backgroundColor: '#22d3ee',
-    alignSelf: 'flex-start',
-    paddingHorizontal: 12,
-    paddingVertical: 4,
-    borderRadius: 2
+    backgroundColor: '#0782F9',
+    width: '60%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 40,
+    alignSelf: 'center'
   },
   buttonText: {
     fontWeight: 'bold',
