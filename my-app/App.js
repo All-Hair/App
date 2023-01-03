@@ -5,10 +5,15 @@ import Home from './screens/home/home';
 import Signup from './screens/signup/signup';
 import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
+
+import Sprofile from './screens/sprofile/sprofile';
 import Navbar from './components/Navbar';
 import Shop from './screens/shop/Shop';
 import OneShop from './screens/shop/OneShop';
 import cart from './screens/cart/cart';
+
+
+
 const Stack = createNativeStackNavigator();
 
 const App =() => {
@@ -25,6 +30,12 @@ const App =() => {
 <Stack.Screen name ="cart" component={cart} />
 
 {/* <Stack.Screen name ='Navbar'   component={Navbar}/>  */}
+
+<Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
+
+
+
+
 </Stack.Navigator>
 </NavigationContainer>
    

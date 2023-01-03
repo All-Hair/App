@@ -4,52 +4,58 @@ import { auth } from '../../firebase';
 import Shop from '../shop/Shop'
 import { NavigationContainer } from '@react-navigation/native';
 // import  Navbar from '../../components/Navbar';
+import  Navbar from '../../components/Navbar';
 
 
 
-const Home = ({navigation} ) => {
 
+
+
+
+
+
+const Home = ({ navigation }) => {
   const handleSignOut = () => {
     auth
       .signOut()
       .then(() => {
-        navigation.replace("Login")
+        navigation.replace('Login');
       })
-      .catch(error => alert(error.message))
-  }
-console.log(auth.currentUser?.email);
+      .catch((error) => alert(error.message));
+  };
+  console.log(auth.currentUser?.email);
   return (
   
    <View style={styles.container}>
       <Text>Email: {auth.currentUser?.email}</Text>
-      <TouchableOpacity
-        onPress={handleSignOut}
-        style={styles.button}
-      >
+      <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={()=>{ navigation.navigate("Navbar")}}
+
+        onPress={()=>{ navigation.navigate("Sprofile")}}
+
         style={styles.button}
       >
-      {/* <Shop/> */}
-        <Text style={styles.buttonText}>Sign out</Text>
+        <Text style={styles.buttonText}>Sprofile</Text>
+     
       </TouchableOpacity>
       <Button title="Go to Shop" onPress={()=>navigation.navigate("shop")}/>
-    </View>
-    
-  )
-}
+        <Navbar />
 
-export default Home
+    </View>
+  );
+};
+
+export default Home;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-   button: {
+  button: {
     backgroundColor: '#0782F9',
     width: '60%',
     padding: 15,
@@ -62,4 +68,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
-})
+});

@@ -1,82 +1,94 @@
-import React ,{useState,useEffect} from "react";
-import { View, Text, Touchable, TouchableOpacity, Image } from "react-native";
-import Background from "./background.jsx";
-import Btn from "./button.jsx";
-import { primary } from "./constants.jsx";
-import Field from "./field.jsx";
+import React, { useEffect, useState } from 'react';
+import {
+  Dimensions,
+  Image,
+  Text,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { auth } from '../../firebase';
 import {MaterialIcons } from '@expo/vector-icons'
+import Background from './background.jsx';
+import Btn from './button.jsx';
+import { primary } from './constants.jsx';
+import Field from './field.jsx';
 
+const { width, height } = Dimensions.get('window');
 
+const Login = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-const Login = ({navigation}) => {
-   const [email,setEmail]=useState('');
-   const [password,setPassword]=useState('');
-
-// console.log(password)
-
+  // console.log(password)
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.replace("Home")
+        navigation.replace('Home');
       }
-      
+    });
 
-    })
+    return unsubscribe;
+  }, []);
 
-    return unsubscribe
-  }, [])
-
-
-const handleLogin = () => {
-  auth
-    .signInWithEmailAndPassword(email, password)
-    .then(userCredentials => {
-      const user = userCredentials.user;
-      console.log('Logged in with:', user.email);
-    })
-    .catch(error => alert(error.message))
-}
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log('Logged in with:', user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <Background>
-      <View
-        style={{ alignItems: "center", width: 460, backgroundColor: "#CCC9C0" }}
+      <SafeAreaView
+        style={{
+          alignItems: 'center',
+          width: width,
+          height: height,
+          backgroundColor: '#CCC9C0',
+        }}
       >
         <Text
           style={{
-            color: "#000000",
+            color: '#000000',
             fontSize: 64,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             marginVertical: 20,
             paddingBottom: 90,
           }}
         ></Text>
         <View
           style={{
-            backgroundColor: "white",
-            height: 700,
-            width: 460,
+            backgroundColor: 'white',
+            height: height,
+            width: width,
             borderTopLeftRadius: 130,
-            // borderTopEndRadius:130,
+            // borderTopRightRadius:130,
             paddingTop: 100,
+
             paddingRight: 40,
             alignItems: "center",
+
           }}
         >
           <Image
-            source={require("my-app/assets/logo-removebg-preview.png")}
+            source={require('my-app/assets/logo-removebg-preview.png')}
             style={{ width: 170, height: 170, marginTop: -285 }}
           />
 
           <Text
             style={{
-              color: "grey",
-              fontSize: 19,
-              fontWeight: "bold",
-              marginBottom: 20,
+              color: 'grey',
+              fontSize: 30,
+              fontWeight: 'bold',
+              marginBottom: 40,
               paddingTop: 60,
+              shadowColor: '#CCC9C0',
             }}
           >
             Login to your account
@@ -84,24 +96,27 @@ const handleLogin = () => {
           <Field
             placeholder="Email"
             value={email}
-            keyboardType={"email-address"}
-            onChangeText={text=>setEmail(text)}
+            keyboardType={'email-address'}
+            onChangeText={(text) => setEmail(text)}
           />
-          <Field  value={password} onChangeText={text=>setPassword(text)} placeholder="Password" secureTextEntry={true} />
+          <Field
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            placeholder="Password"
+            secureTextEntry={true}
+          />
           <View
             style={{
-              alignItems: "flex-end",
-              width: "78%",
+              alignItems: 'flex-end',
+              width: '78%',
               paddingRight: 19,
-              marginBottom: 100,
+              marginBottom: 80,
             }}
           >
             <TouchableOpacity
-              onPress={() => navigation.navigate("Forgotpassword")}
+              onPress={() => navigation.navigate('Forgotpassword')}
             >
-              <Text
-                style={{ color: "grey", fontWeight: "bold", fontSize: 16 }}
-              >
+              <Text style={{ color: 'grey', fontWeight: 'bold', fontSize: 16 }}>
                 Forgot password ?
               </Text>
             </TouchableOpacity>
@@ -110,49 +125,45 @@ const handleLogin = () => {
             textColor="grey"
             bgColor={primary}
             btnLabel="Login"
-            Press={handleLogin } 
+            Press={handleLogin}
           />
           <TouchableOpacity
             style={{
               backgroundColor: '#ffffff',
-              alignItems: "center",
+              alignItems: 'center',
               borderRadius: 100,
               width: 150,
               paddingVertical: 4,
               marginVertical: 10,
             }}
           >
-            
-              
-              <Image
-                source={require("my-app/assets/281764-removebg-preview.png")}
-                style={{ width: 30, height: 30 }}
-              />
-           
+            <Image
+              source={require('my-app/assets/281764-removebg-preview.png')}
+              style={{ width: 30, height: 30 }}
+            />
           </TouchableOpacity>
-          
+
           <View
             style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
             }}
           >
-            <Text style={{ fontSize: 16, fontWeight: "bold" }}>
-              Don't have an account ?{" "}
+            <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+              Don't have an account ?{' '}
             </Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Signup")}
-            >
+            <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
               <Text
-                style={{ color: primary, fontWeight: "bold", fontSize: 16 }}
+                style={{ color: primary, fontWeight: 'bold', fontSize: 16 }}
               >
                 Signup
               </Text>
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </SafeAreaView>
+      
     </Background>
   );
 };
