@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { auth } from '../../firebase';
 import  Navbar from '../../components/Navbar';
-// import { TabBar } from '../../components/Curved-Bottom-bar/TabBar';
+
 
 const Home = ({ navigation }) => {
   const handleSignOut = () => {
@@ -20,15 +21,8 @@ const Home = ({ navigation }) => {
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-
-        onPress={()=>{ navigation.navigate("Sprofile")}}
-
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Sprofile</Text>
-      </TouchableOpacity>
-        <Navbar />
+      
+        <Navbar  navigation ={navigation}/>
     </View>
   );
 };
