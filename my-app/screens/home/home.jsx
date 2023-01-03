@@ -10,13 +10,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import  Navbar from '../../components/Navbar';
 
 
-
-
-
-
-
-
-
 const Home = ({ navigation }) => {
   const handleSignOut = () => {
     auth
