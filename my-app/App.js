@@ -1,7 +1,7 @@
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import Home from './screens/home/home';
+import Home from './screens/home/home.jsx';
 import Signup from './screens/signup/signup';
 import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
@@ -11,9 +11,9 @@ import Forgotpassword from './screens/login/forgotpassword.jsx';
 
 import Sprofile from './screens/sprofile/sprofile';
 
-import Shop from './screens/shop/shop';
+import Shop from './screens/shop/Shop';
 import OneShop from './screens/shop/OneShop';
-import Cart from './screens/cart/cart.jsx';
+import Cart from './screens/cart/cart';
 
 import Uprofile from './screens/UserProfile/Uprofile';
 import Navbar from './components/Navbar';

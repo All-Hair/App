@@ -1,8 +1,5 @@
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-
-
-
 import { auth } from '../../firebase';
 // import Shop from '../shop/shop'
 import { NavigationContainer } from '@react-navigation/native';
@@ -34,6 +31,15 @@ const Home = ({ navigation }) => {
       <Text>Email: {auth.currentUser?.email}</Text>
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+
+        onPress={()=>{ navigation.navigate("Sprofile")}}
+
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Sprofile</Text>
+     
       </TouchableOpacity>
       
       <Button title="Go to Shop" onPress={()=>navigation.navigate("Shop")}/>
