@@ -4,7 +4,7 @@ import React from 'react'
 
 
 import { auth } from '../../firebase';
-import Shop from '../shop/shop'
+// import Shop from '../shop/shop'
 import { NavigationContainer } from '@react-navigation/native';
 // import  Navbar from '../../components/Navbar';
 import  Navbar from '../../components/Navbar';
