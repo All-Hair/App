@@ -2,41 +2,54 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  cart: {
-    flex: 1,
+  container: {
+    // backgroundColor: '#0891b2',
+    paddingVertical: 50,
+    paddingHorizontal: 120,
+    borderRadius: 50,
+    alignSelf: 'center',
+    // width: 500,
+    maxWidth: '100%',
+    alignSelf: 'center',
+    alignItems: 'center'
+
+  },
+  timings: {
+    color: '#fff',
+    fontSize: '14px'
+  },
+  metaContainer: {
+    justifyContent: 'space-between'
+  },
+  topContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  avatar: {
+    height: 200,
+    width: 250,
+    // borderRadius: 100
+  },
+  description: {
+    color: 'white',
+    marginTop: 5,
+    fontSize: 20
+  },
+  button: {
+    backgroundColor: '#CCC9C0',
+    width: '60%',
+    padding: 15,
+    borderRadius: 10,
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 40,
+    alignSelf: 'center'
   },
-  items: {
-    margin: 0,
-    padding: 0,
-  },
-  item: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-  },
-  itemName: {
-    fontSize: 16,
-  },
-  removeButton: {
-    backgroundColor: '#ff0000',
-    color: '#ffffff',
-    borderWidth: 0,
-    borderRadius: 4,
-    padding: 8,
-    fontSize: 14,
-  },
-  addButton: {
-    backgroundColor: '#00ff00',
-    color: '#ffffff',
-    borderWidth: 0,
-    borderRadius: 4,
-    padding: 8,
-    fontSize: 14,
-    marginTop: 10,
-  },
+  buttonText: {
+    fontWeight: 'bold',
+    color: 'white',
+    textTransform: 'uppercase',
+    fontSize: 14
+  }
 });
 
 const cart = () => {
@@ -53,9 +66,17 @@ const cart = () => {
   };
 
   return (
-    
-    <View style={styles.cart}>
-      <Text>Cart</Text>
+    <View>
+      <Text style={{
+            fontSize: 45,
+            fontWeight: "bold",
+            marginVertical: 20,
+            marginTop: 20 ,
+            alignSelf: 'center',
+
+            }}>Cart</Text>
+    <View style={styles.container} >
+      
       <Text>Shopping Cart</Text>
       <View style={styles.items}>
         {items.map((item, index) => (
@@ -75,10 +96,12 @@ const cart = () => {
         buttonStyle={styles.addButton}
       />
     </View>
+    </View>
     
 
    
   );
 };
+
 
 export default cart;

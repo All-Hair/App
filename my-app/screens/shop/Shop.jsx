@@ -20,7 +20,7 @@ const shop = ({navigation}) => {
         <View  style={styles.container}>
      
             </View>
-            <View >
+            <View style={styles.container1}>
             <TouchableOpacity onPress={()=>navigation.navigate("oneShop")}>
             <Image
             style={styles.avatar}
@@ -28,7 +28,7 @@ const shop = ({navigation}) => {
                />
               <View style={{  backgroundColor: '#E1E2E2',height: 50,width: 200,}}>
              <Text style={{ fontSize: 15, }}>Name of product</Text>
-             <Text >Price</Text>
+             <Text >150 dt</Text>
              </View>
             </TouchableOpacity>
             </View>
@@ -86,5 +86,17 @@ const styles = StyleSheet.create({
     color: 'white',
     textTransform: 'uppercase',
     fontSize: 14
-  }
+  },
+  container1: {
+    // backgroundColor: '#0891b2',
+    paddingVertical: 25,
+    paddingHorizontal: 10,
+    borderRadius: 50,
+    // alignSelf: 'center',
+    width: 500,
+    maxWidth: '100%',
+    // alignSelf: 'center',
+    // alignItems: 'center'
+
+  },
 });
