@@ -1,25 +1,25 @@
-import { Button, Image, StyleSheet, Text, View } from 'react-native'
+import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
 const OneShop = ({navigation}) => {
   return (
-    <View style={{ alignItems: "center"}}>
-      <Text  style={{
-            // color: "#000000",
-            fontSize: 35,
-            fontWeight: "bold",
-            marginVertical: 10,
-            marginTop: 20 ,
-            paddingBottom: 50,
-            alignItems: "center"
-            }}>DETAIL PRODUCT </Text>
+    <View>
+      <Text  style={{  alignSelf: 'center',fontSize: 35,}}>DETAIL PRODUCT </Text> 
+    <View style={styles.container}>
             <Image
-            style={{width: '70%', height: '50%'}}
+           style={styles.avatar}
             source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
                />
-               <Text style={{fontSize: 35,}}>Product description</Text>
+               <View style={{  backgroundColor: '#E1E2E2',height: 200,width: 250,}}>
+               <Text style={{fontSize: 35,}}> Description</Text>
                <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
-               <Button title='Buy 'onPress={()=>{navigation.navigate('Cart')}}/>
+               </View>
+    </View>
+                <TouchableOpacity
+                style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('Cart')}}>
+                   <Text style={styles.buttonText}>Buy</Text>
+                </TouchableOpacity>
+             
 
               
     </View>
@@ -28,4 +28,53 @@ const OneShop = ({navigation}) => {
 
 export default OneShop
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    // backgroundColor: '#0891b2',
+    paddingVertical: 50,
+    paddingHorizontal: 120,
+    borderRadius: 50,
+    alignSelf: 'center',
+    // width: 500,
+    maxWidth: '100%',
+    alignSelf: 'center',
+    alignItems: 'center'
+
+  },
+  timings: {
+    color: '#fff',
+    fontSize: '14px'
+  },
+  metaContainer: {
+    justifyContent: 'space-between'
+  },
+  topContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  avatar: {
+    height: 200,
+    width: 250,
+    // borderRadius: 100
+  },
+  description: {
+    color: 'white',
+    marginTop: 5,
+    fontSize: 20
+  },
+  button: {
+    backgroundColor: '#CCC9C0',
+    width: '60%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 40,
+    alignSelf: 'center'
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    color: 'white',
+    textTransform: 'uppercase',
+    fontSize: 14
+  }
+});
