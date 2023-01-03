@@ -7,7 +7,7 @@ import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
 
 import Sprofile from './screens/sprofile/sprofile';
-import Navbar from './components/Navbar';
+
 
 
 

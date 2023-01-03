@@ -4,7 +4,7 @@ import React from 'react'
 const { width, height } = Dimensions.get('window');
 
 
-const Navbar = () => {
+const Navbar = ({navigation}) => {
     
 
 
@@ -12,15 +12,15 @@ const Navbar = () => {
         return (
             <View style={{
                 flex: 1,
+                top:height-30,
                 flexDirection: 'column',
                 width: width,                
-                backgroundColor: 'grey'
-
+                position: 'absolute',
             }}>
 
                  <View style={{
 
-                    position: 'absolute',
+                   
                     alignSelf: 'center',
                     backgroundColor: 'grey',
                     width: 70,
@@ -32,19 +32,19 @@ const Navbar = () => {
 
                 }}>
 
-                    <TouchableWithoutFeedback >
+                    <TouchableOpacity >
                         <View style={[styles.button, styles.actionBtn]}>
-
+                           
                             <Image style={{ width: 50, height: 50 }}
                                 resizeMode="contain"
-                                source={ require('my-app/assets/noti.png')} />
+                                source={ require('my-app/assets/logo-removebg-preview.png')}  onPress={()=>{Alert.alert("ok")}}/>
                         </View>
-                    </TouchableWithoutFeedback>
+                    </TouchableOpacity>
                 </View> 
                 <View style={{
 
                     position: 'absolute',
-                    backgroundColor: 'white',
+                    backgroundColor: '#CCC9C0',
                     border: 2,
                     radius: 3,
                     shadowOpacity: 0.3,
@@ -77,7 +77,7 @@ const Navbar = () => {
 
                                 style={{ width: 30, height: 30 }}
 
-                                source={{ uri: 'http://pluspng.com/img-png/home-icon-png-home-house-icon-image-202-512.png' }}
+                                source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/6178238-removebg-preview_cpuyde.png' }}
 
                                 onPress={()=>{Alert.alert("")}}
                             >
@@ -97,7 +97,7 @@ const Navbar = () => {
                         >
                             <Image
                                 style={{  width: 30, height: 30 }}
-                                source={{ uri: 'http://simpleicon.com/wp-content/uploads/active-search.png' }}
+                                source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/5043688-removebg-preview_v3u4hm.png' }}
                                 onPress={() => { Alert.alert("click") }}
                             />
                        
@@ -113,31 +113,32 @@ const Navbar = () => {
                                 onPress={() => { Alert.alert("click") }}
                             >
                                 <Image
-                                    source={{ uri: 'http://pixsector.com/cache/a1dd5a90/av895b2bd52a42e99ee3c.png' }}
+                                    source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/2838838-removebg-preview_xksvd2.png' }}
                                     onPress={() => { Alert.alert("click") }}
                                     style={{ marginHorizontal: 16, width: 30, height: 30 }}
                                     containerStyle={{ marginHorizontal: 16 }}
                                 />
                        
                             </TouchableOpacity>
-                            <Text style={{justifyContent:'center',alignItems:'center' }}>Menu </Text>
+                            <Text style={{justifyContent:'center',alignItems:'center' }}>Shop</Text>
                         </View>
                         <View style={{
                             flexDirection: 'column', alignItems: 'center',justifyContent:'flex-end',
                           
                         }}>
                             <TouchableOpacity
-                                onPress={() => { Alert.alert("click") }}
+                                onPress={() => {navigation.navigate("Sprofile")}}
                             >
                                 <Image
-                                    source={{ uri: 'http://pixsector.com/cache/a1dd5a90/av895b2bd52a42e99ee3c.png' }}
+                                    source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/3661442-removebg-preview_cwdejl.png' }}
 
+                                    
                                     style={{ marginHorizontal: 16, width: 30, height: 30 }}
                                     containerStyle={{ marginHorizontal: 16 }}
                                 />
                      
                             </TouchableOpacity>
-                            <Text style={{justifyContent:'center',alignItems:'center' }}>Setting </Text>
+                            <Text style={{justifyContent:'center',alignItems:'center' }}> Profile </Text>
                            
                         </View>
 
@@ -174,17 +175,17 @@ const styles = StyleSheet.create({
         right: 0,
         top: 5,
         left: 5,
-        shadowOpacity: 5.0,
+        shadowOpacity: 6.0,
 
     },
     actionBtn: {
 
-        backgroundColor: '#1E90FF',
+        backgroundColor: '#CCC9C0',
         textShadowOffset: { width: 5, height: 5 },
         textShadowRadius: 10,
         borderWidth: 2,
         borderColor: '#fff'
-
+        
 
     }
 
