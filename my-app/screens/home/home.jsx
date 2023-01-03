@@ -4,7 +4,7 @@ import React from 'react'
 
 
 import { auth } from '../../firebase';
-import Shop from '../shop/Shop'
+import Shop from '../shop/shop'
 import { NavigationContainer } from '@react-navigation/native';
 // import  Navbar from '../../components/Navbar';
 import  Navbar from '../../components/Navbar';
@@ -43,7 +43,7 @@ const Home = ({ navigation }) => {
         <Text style={styles.buttonText}>Sprofile</Text>
      
       </TouchableOpacity>
-      <Button title="Go to Shop" onPress={()=>navigation.navigate("shop")}/>
+      <Button title="Go to Shop" onPress={()=>navigation.navigate("Shop")}/>
         <Navbar />
 
       

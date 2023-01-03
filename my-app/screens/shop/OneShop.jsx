@@ -19,7 +19,7 @@ const OneShop = ({navigation}) => {
                />
                <Text style={{fontSize: 35,}}>Product description</Text>
                <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
-               <Button title='Buy 'onPress={()=>{navigation.navigate('cart')}}/>
+               <Button title='Buy 'onPress={()=>{navigation.navigate('Cart')}}/>
 
               
     </View>
