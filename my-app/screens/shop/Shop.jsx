@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View,Image, Button } from 'react-native'
+import { StyleSheet, Text, View,Image, TouchableOpacity  } from 'react-native'
 import React from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+
 // import { Image } from 'react-native-svg'
 
-const shop = ({navigation}) => {
+const Shop = ({navigation}) => {
   return (
     <View >
        <Text  style={{
@@ -21,7 +21,9 @@ const shop = ({navigation}) => {
      
             </View>
             <View style={styles.container1}>
-            <TouchableOpacity onPress={()=>navigation.navigate("oneShop")}>
+           
+            <View >
+            <TouchableOpacity onPress={()=>navigation.navigate("OneShop")}>
             <Image
             style={styles.avatar}
             source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
@@ -33,10 +35,11 @@ const shop = ({navigation}) => {
             </TouchableOpacity>
             </View>
     </View>
+    </View>
   )
 }
 
-export default shop
+export default Shop
 
 const styles = StyleSheet.create({
   container: {

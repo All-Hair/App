@@ -12,7 +12,7 @@ const Navbar = ({navigation}) => {
         return (
             <View style={{
                 flex: 1,
-                top:height-30,
+                top:height-70,
                 flexDirection: 'column',
                 width: width,                
                 position: 'absolute',
@@ -110,7 +110,7 @@ const Navbar = ({navigation}) => {
                         }}>
 
                             <TouchableOpacity
-                             onPress={() => { navigation.navigate('shop') }}
+                             onPress={() => { navigation.navigate('Shop') }}
 
                             >
                                 <Image

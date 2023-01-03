@@ -16,9 +16,12 @@ const OneShop = ({navigation}) => {
                </View>
     </View>
                 <TouchableOpacity
-                style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('cart')}}>
+                style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('Cart')}}>
                    <Text style={styles.buttonText}>Buy</Text>
                 </TouchableOpacity>
+             
+
+              
     </View>
   )
 }

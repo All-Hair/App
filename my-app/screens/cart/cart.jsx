@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const cart = () => {
+const Cart = () => {
   const [items, setItems] = React.useState([]);
 
   const addItem = () => {
@@ -108,4 +108,5 @@ const cart = () => {
 };
 
 
-export default cart;
+
+export default Cart;
