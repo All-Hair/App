@@ -12,7 +12,7 @@ const Navbar = ({navigation}) => {
         return (
             <View style={{
                 flex: 1,
-                top:height-30,
+                top:height-70,
                 flexDirection: 'column',
                 width: width,                
                 position: 'absolute',
@@ -110,11 +110,12 @@ const Navbar = ({navigation}) => {
                         }}>
 
                             <TouchableOpacity
-                                onPress={() => { Alert.alert("click") }}
+                             onPress={() => { navigation.navigate('Shop') }}
+
                             >
                                 <Image
                                     source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/2838838-removebg-preview_xksvd2.png' }}
-                                    onPress={() => { Alert.alert("click") }}
+                                    onPress={() => { navigation.navigate('shop') }}
                                     style={{ marginHorizontal: 16, width: 30, height: 30 }}
                                     containerStyle={{ marginHorizontal: 16 }}
                                 />
