@@ -1,7 +1,7 @@
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import Home from './screens/home/home';
+import Home from './screens/home/home.jsx';
 import Signup from './screens/signup/signup';
 import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
@@ -10,10 +10,11 @@ import Forgotpassword from './screens/login/forgotpassword.jsx';
 //app
 
 import Sprofile from './screens/sprofile/sprofile';
-// import Navbar from './components/Navbar';
-import Shop from './screens/shop/shop';
-import OneShop from './screens/shop/oneShop';
+
+import Shop from './screens/shop/Shop';
+import OneShop from './screens/shop/OneShop';
 import Cart from './screens/cart/cart';
+
 import Uprofile from './screens/UserProfile/Uprofile';
 import Navbar from './components/Navbar';
 
@@ -36,7 +37,6 @@ const App =() => {
 <Stack.Screen name ="Cart" component={Cart} />
 <Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
 <Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
-
 </Stack.Navigator>
 </NavigationContainer>
    
