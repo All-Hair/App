@@ -10,10 +10,11 @@ import Forgotpassword from './screens/login/forgotpassword.jsx';
 //app
 
 import Sprofile from './screens/sprofile/sprofile';
-// import Navbar from './components/Navbar';
+
 import Shop from './screens/shop/shop';
 import OneShop from './screens/shop/oneShop';
 import Cart from './screens/cart/cart';
+
 import Uprofile from './screens/UserProfile/Uprofile';
 import Navbar from './components/Navbar';
 
@@ -36,6 +37,7 @@ const App =() => {
 <Stack.Screen name ="Cart" component={Cart} />
 <Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
 <Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
+
 
 </Stack.Navigator>
 </NavigationContainer>
