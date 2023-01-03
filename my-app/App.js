@@ -6,7 +6,11 @@ import Signup from './screens/signup/signup';
 import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
 
+
+//app
+
 import Sprofile from './screens/sprofile/sprofile';
+import Uprofile from './screens/UserProfile/Uprofile';
 import Navbar from './components/Navbar';
 import Shop from './screens/shop/Shop';
 import OneShop from './screens/shop/OneShop';
@@ -33,6 +37,7 @@ const App =() => {
 {/* <Stack.Screen name ='Navbar'   component={Navbar}/>  */}
 
 <Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
+<Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
 
 
 
