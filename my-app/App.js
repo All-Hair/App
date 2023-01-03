@@ -7,7 +7,7 @@ import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
 
 
-//app..
+//app....
 
 import Sprofile from './screens/sprofile/sprofile';
 import Uprofile from './screens/UserProfile/Uprofile';
