@@ -7,6 +7,7 @@ import Login from './screens/login/login.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
 
 import Sprofile from './screens/sprofile/sprofile';
+import Uprofile from './screens/UserProfile/Uprofile';
 
 
 
@@ -24,6 +25,7 @@ const App =() => {
 <Stack.Screen name ='Home' options = {{headerShown :false}}  component={Home}/> 
 
 <Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
+<Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
 
 
 
