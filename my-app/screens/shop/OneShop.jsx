@@ -4,7 +4,7 @@ import React from 'react'
 const OneShop = ({navigation}) => {
   return (
     <View>
-      <Text  style={{ alignSelf: 'center',fontSize: 35,}}>DETAIL PRODUCT </Text> 
+      <Text  style={{  alignSelf: 'center',fontSize: 35,}}>DETAIL PRODUCT </Text> 
     <View style={styles.container}>
             <Image
            style={styles.avatar}
@@ -32,8 +32,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 120,
     borderRadius: 50,
     alignSelf: 'center',
-    width: 5000,
-    maxWidth: '100%'
+    // width: 500,
+    maxWidth: '100%',
+    alignSelf: 'center',
+    alignItems: 'center'
+
   },
   timings: {
     color: '#fff',
