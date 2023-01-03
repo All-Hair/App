@@ -5,7 +5,8 @@ const app = express()
 
 
 
+const PORT = 5000; 
 
-app.listen(5000,()=>{
-    console.log('your server raning in port 5000');
+app.listen(PORT,()=>{
+    console.log(`your server raning in port ${PORT}`);
 })
