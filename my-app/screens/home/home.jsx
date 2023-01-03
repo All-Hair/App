@@ -1,8 +1,20 @@
-import React from 'react';
+import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react'
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+
 import { auth } from '../../firebase';
+import Shop from '../shop/Shop'
+import { NavigationContainer } from '@react-navigation/native';
+// import  Navbar from '../../components/Navbar';
 import  Navbar from '../../components/Navbar';
+
+
+
+
+
+
+
 
 
 const Home = ({ navigation }) => {
@@ -16,11 +28,24 @@ const Home = ({ navigation }) => {
   };
   console.log(auth.currentUser?.email);
   return (
-    <View style={styles.container}>
+  
+   <View style={styles.container}>
       <Text>Email: {auth.currentUser?.email}</Text>
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+
+        onPress={()=>{ navigation.navigate("Sprofile")}}
+
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Sprofile</Text>
+     
+      </TouchableOpacity>
+      <Button title="Go to Shop" onPress={()=>navigation.navigate("shop")}/>
+        <Navbar />
+
       
         <Navbar  navigation ={navigation}/>
     </View>
