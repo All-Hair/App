@@ -10,12 +10,12 @@ const OneShop = ({navigation}) => {
            style={styles.avatar}
             source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
                />
-               <View style={{  backgroundColor: '#CCC9C0',height: 200,width: 250,}}>
+               <View style={{  backgroundColor: '#E1E2E2',height: 200,width: 250,}}>
                <Text style={{fontSize: 35,}}> Description</Text>
                <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
                </View>
     </View>
-      <TouchableOpacity
+                <TouchableOpacity
                 style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('cart')}}>
                    <Text style={styles.buttonText}>Buy</Text>
                 </TouchableOpacity>

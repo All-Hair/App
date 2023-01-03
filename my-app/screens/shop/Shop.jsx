@@ -5,28 +5,31 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const shop = ({navigation}) => {
   return (
-    <View style={{  width: 430,  }}>
-        <View style={{ alignItems: "center"}}>
-      <Text  style={{
+    <View >
+       <Text  style={{
             // color: "#000000",
             fontSize: 45,
             fontWeight: "bold",
             marginVertical: 20,
             marginTop: 20 ,
             // paddingBottom: 90,
-            alignItems: "center"
+            alignSelf: 'center',
+
             }}>shop
             </Text>
+        <View  style={styles.container}>
+     
             </View>
             <View >
             <TouchableOpacity onPress={()=>navigation.navigate("oneShop")}>
             <Image
-            style={{width: '40%', height: '60%'}}
+            style={styles.avatar}
             source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
                />
-             <Text >Name of product</Text>
+              <View style={{  backgroundColor: '#E1E2E2',height: 50,width: 200,}}>
+             <Text style={{ fontSize: 15, }}>Name of product</Text>
              <Text >Price</Text>
-
+             </View>
             </TouchableOpacity>
             </View>
     </View>
@@ -36,12 +39,52 @@ const shop = ({navigation}) => {
 export default shop
 
 const styles = StyleSheet.create({
-    container: {
-      paddingTop: 50,
-    },
-    stretch: {
-      width: 50,
-      height: 200,
-      resizeMode: 'stretch',
-    },
-  });
+  container: {
+    // backgroundColor: '#0891b2',
+    // paddingVertical: 50,
+    paddingHorizontal: 120,
+    borderRadius: 50,
+    alignSelf: 'center',
+    // width: 500,
+    maxWidth: '100%',
+    alignSelf: 'center',
+    alignItems: 'center'
+
+  },
+  timings: {
+    color: '#fff',
+    fontSize: '14px'
+  },
+  metaContainer: {
+    justifyContent: 'space-between'
+  },
+  topContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  avatar: {
+    height: 200,
+    width: 200,
+    // borderRadius: 100
+  },
+  description: {
+    color: 'white',
+    marginTop: 5,
+    fontSize: 20
+  },
+  button: {
+    backgroundColor: '#0782F9',
+    width: '60%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 40,
+    alignSelf: 'center'
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    color: 'white',
+    textTransform: 'uppercase',
+    fontSize: 14
+  }
+});
