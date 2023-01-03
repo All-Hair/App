@@ -69,16 +69,16 @@ const Login = ({ navigation }) => {
             width: width,
             borderTopLeftRadius: 130,
             // borderTopRightRadius:130,
-            paddingTop: 100,
+           
 
-            paddingRight: 40,
+            
             alignItems: "center",
 
           }}
         >
           <Image
             source={require('my-app/assets/logo-removebg-preview.png')}
-            style={{ width: 170, height: 170, marginTop: -285 }}
+            style={{ width: 170, height: 170, marginTop: -200 }}
           />
 
           <Text
@@ -86,8 +86,8 @@ const Login = ({ navigation }) => {
               color: 'grey',
               fontSize: 30,
               fontWeight: 'bold',
-              marginBottom: 40,
-              paddingTop: 60,
+              // marginBottom: 0,
+              paddingTop: 80,
               shadowColor: '#CCC9C0',
             }}
           >
@@ -116,7 +116,7 @@ const Login = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('Forgotpassword')}
             >
-              <Text style={{ color: 'grey', fontWeight: 'bold', fontSize: 16 }}>
+              <Text style={{ color: primary,  fontSize: 15 }}>
                 Forgot password ?
               </Text>
             </TouchableOpacity>

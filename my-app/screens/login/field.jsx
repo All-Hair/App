@@ -1,7 +1,9 @@
 import React from 'react';
-import { TextInput } from 'react-native';
+import { TextInput ,Dimensions} from 'react-native';
 // import DropShadow from "react-native-drop-shadow";
 import { black } from './constants';
+const { width, height } = Dimensions.get('window');
+
 
 const Field = (props) => {
   return (
@@ -11,12 +13,13 @@ const Field = (props) => {
         borderRadius: 10,
         color: black,
         paddingHorizontal: 18,
-        width: '70%',
+        width:width - 100,
         backgroundColor: 'white',
         borderColor: '#CCC9C0',
         borderWidth: 1,
         marginVertical: 30,
-        height: 70,shadowColor: "#000",
+        height: 50,
+        shadowColor: "#000",
         shadowOffset: {
           width: 0,
           height: 6,
