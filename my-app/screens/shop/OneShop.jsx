@@ -4,14 +4,16 @@ import React from 'react'
 const OneShop = ({navigation}) => {
   return (
     <View>
-      <Text  style={{ alignSelf: 'center',fontSize: 35,}}>DETAIL PRODUCT </Text>
+      <Text  style={{ alignSelf: 'center',fontSize: 35,}}>DETAIL PRODUCT </Text> 
     <View style={styles.container}>
             <Image
            style={styles.avatar}
             source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
                />
-               <Text style={{fontSize: 35,}}>Product description</Text>
+               <View style={{  backgroundColor: '#CCC9C0',height: 200,width: 250,}}>
+               <Text style={{fontSize: 35,}}> Description</Text>
                <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
+               </View>
     </View>
       <TouchableOpacity
                 style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('cart')}}>
