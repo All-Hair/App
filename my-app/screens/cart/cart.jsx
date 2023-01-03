@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Image } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -82,6 +82,10 @@ const cart = () => {
         {items.map((item, index) => (
           <View key={item.name} style={styles.item}>
             <Text style={styles.itemName}>{item.name}</Text>
+            <Image
+           style={styles.avatar}
+            source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
+               />
             <Button
               title="Remove"
               onPress={() => removeItem(index)}
