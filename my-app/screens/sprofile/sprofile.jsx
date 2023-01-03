@@ -7,7 +7,7 @@ import Navbar from '../../components/Navbar';
 
 
 
-
+ 
 const Sprofile = () => {
   return (
     <SafeAreaView style={styles.container}>

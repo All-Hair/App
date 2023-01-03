@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View,Image, Button } from 'react-native'
+import { StyleSheet, Text, View,Image, Button, TouchableOpacity} from 'react-native'
 import React from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 // import { Image } from 'react-native-svg'
 
 const shop = ({navigation}) => {

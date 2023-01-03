@@ -15,6 +15,7 @@ import Navbar from './components/Navbar';
 import Shop from './screens/shop/Shop';
 import OneShop from './screens/shop/OneShop';
 import cart from './screens/cart/cart';
+import UpdateUpro from './screens/UserProfile/UpdateUpro';
 
 
 
@@ -38,6 +39,8 @@ const App =() => {
 
 <Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
 <Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
+<Stack.Screen name ='UpdateUpro' options = {{headerShown :false}}  component={UpdateUpro}/> 
+
 
 
 

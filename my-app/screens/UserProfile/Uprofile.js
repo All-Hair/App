@@ -6,11 +6,12 @@ import {
   SafeAreaView,
   Image,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import Navbar from '../../components/Navbar';
 
-const Uprofile = () => {
+const Uprofile =  ({navigation}) => {
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -27,13 +28,17 @@ const Uprofile = () => {
             ></Image>
           </View>
           <View style={styles.active}></View>
-          <View style={styles.add}>
+          <TouchableOpacity onPress={()=>navigation.navigate("UpdateUpro")}>
+
+          <View style={styles.update} >
             <MaterialIcons
               name="edit"
               size={18}
               color="#DFD8C8"
             ></MaterialIcons>
           </View>
+          </TouchableOpacity>
+
         </View>
 
         <View style={styles.infoContainer}>
@@ -129,7 +134,7 @@ const styles = StyleSheet.create({
     width: 20,
     borderRadius: 10,
   },
-  add: {
+  update: {
     backgroundColor: '#41444B',
     position: 'absolute',
     bottom: 0,
