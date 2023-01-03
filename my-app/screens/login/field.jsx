@@ -17,7 +17,9 @@ const Field = (props) => {
         backgroundColor: 'white',
         borderColor: '#CCC9C0',
         borderWidth: 1,
-        marginVertical: 30,
+        marginTop:14,
+
+        // marginVertical: 30,
         height: 50,
         shadowColor: "#000",
         shadowOffset: {
