@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View,Image, Button, TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View,Image, TouchableOpacity  } from 'react-native'
 import React from 'react'
+
 // import { Image } from 'react-native-svg'
 
-const shop = ({navigation}) => {
+const Shop = ({navigation}) => {
   return (
     <View style={{  width: 430,  }}>
         <View style={{ alignItems: "center"}}>
@@ -18,7 +19,7 @@ const shop = ({navigation}) => {
             </Text>
             </View>
             <View >
-            <TouchableOpacity onPress={()=>navigation.navigate("oneShop")}>
+            <TouchableOpacity onPress={()=>navigation.navigate("OneShop")}>
             <Image
             style={{width: '40%', height: '60%'}}
             source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
@@ -32,7 +33,7 @@ const shop = ({navigation}) => {
   )
 }
 
-export default shop
+export default Shop
 
 const styles = StyleSheet.create({
     container: {

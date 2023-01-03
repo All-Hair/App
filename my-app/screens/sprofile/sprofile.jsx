@@ -90,7 +90,7 @@ const Sprofile = () => {
     </ScrollView>
     <Navbar/>
 </SafeAreaView>
-);Area
+)
 }
 
 const styles = StyleSheet.create({
