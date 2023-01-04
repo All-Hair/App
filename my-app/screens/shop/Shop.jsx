@@ -40,45 +40,7 @@ const Shop = ({navigation}) => {
 
             }}>shop
             </Text>
-        {/* <View  style={{flex: 1}}>
-     
-            </View>
-            <View style={styles.container1}>
-           
-            <View style={{flex: 100}} >
-            <TouchableOpacity onPress={()=>navigation.navigate("OneShop")}>
-            <Image
-             
-            style={styles.avatar}
-            source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU'}}
-               />
-              <View style={{  backgroundColor: '#E1E2E2',height: 50,width: 150,}}>
-             <Text style={{ fontSize: 15, }}>Name of product</Text>
-             <Text >150 dt</Text>
-             </View>
-           
-            </TouchableOpacity>
-            </View>
-           </View>
-           <View style={styles.container}>
-           
-           <View style={{flex: 100}} >
-           <TouchableOpacity onPress={()=>navigation.navigate("OneShop")}>
-           <Image
-           style={styles.avatar}
-           source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU'}}
-              />
-             <View style={{  backgroundColor: '#E1E2E2',height: 50,width: 150,}}>
-            <Text style={{ fontSize: 15, }}>Name of product</Text>
-            <Text >150 dt</Text>
-            </View>
-          
-           </TouchableOpacity>
-           </View>
-          </View> */}
-          {/* {item.map((e,i)=>{
-            
-          })} */}
+
             <View style={styles.item}>
             <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU" }} />
             <View style={styles.itemInfo}>
@@ -87,25 +49,16 @@ const Shop = ({navigation}) => {
               {/* <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text> */}
             </View>
               <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
-            {/* <Button
-              style={styles.itemAdd}
-              title="Add to Cart"
-              onPress={() => addToCart(item)}
-            /> */}
+          
           </View>
           <View style={styles.item}>
             <Image style={styles.itemImage} source={{ uri:"https://m.media-amazon.com/images/I/61N6De+CSdL.jpg" }} />
             <View style={styles.itemInfo}>
               <Text style={styles.itemName}>Tomp </Text>
               <Text style={styles.itemName}>50 DT </Text>
-              {/* <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text> */}
+             
             </View>
               <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
-            {/* <Button
-              style={styles.itemAdd}
-              title="Add to Cart"
-              onPress={() => addToCart(item)}
-            /> */}
           </View>
           <View style={styles.item}>
             <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU" }} />
@@ -115,25 +68,14 @@ const Shop = ({navigation}) => {
               {/* <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text> */}
             </View>
               <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
-            {/* <Button
-              style={styles.itemAdd}
-              title="Add to Cart"
-              onPress={() => addToCart(item)}
-            /> */}
           </View>
           <View style={styles.item}>
             <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU" }} />
             <View style={styles.itemInfo}>
               <Text style={styles.itemName}>Salvator </Text>
               <Text style={styles.itemName}>80 DT </Text>
-              {/* <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text> */}
             </View>
               <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
-            {/* <Button
-              style={styles.itemAdd}
-              title="Add to Cart"
-              onPress={() => addToCart(item)}
-            /> */}
           </View>
 
     <Navbar />
