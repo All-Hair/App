@@ -24,7 +24,8 @@ module.exports=(sequelize,DataType)=>{
             type:DataType.STRING,
             allowNull:false
         },
-       
-
     })
+    User.associate=models=>{
+        User.hasMany(models.Product)
+    }
 }
