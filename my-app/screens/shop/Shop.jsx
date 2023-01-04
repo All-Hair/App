@@ -83,8 +83,10 @@ const Shop = ({navigation}) => {
             <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU" }} />
             <View style={styles.itemInfo}>
               <Text style={styles.itemName}>Water Spray </Text>
+              <Text style={styles.itemName}>150 DT </Text>
               {/* <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text> */}
             </View>
+              <Button  title='More' onPress={()=>{}}/>
             {/* <Button
               style={styles.itemAdd}
               title="Add to Cart"
@@ -141,13 +143,13 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
+    padding: 30,
     marginBottom: 10,
     backgroundColor: '#fff',
   },
   itemImage: {
-    width: 50,
-    height: 50,
+    width: 90,
+    height: 90,
     marginRight: 10,
   },
   itemInfo: {
@@ -163,5 +165,8 @@ const styles = StyleSheet.create({
   itemAdd: {
     alignSelf: 'stretch',
   },
+  button:{
+    marginLeft:10 
+  }
 });
 
