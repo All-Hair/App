@@ -9,13 +9,13 @@ const OneShop = ({navigation}) => {
     <View style={styles.container}>
             <Image
            style={styles.avatar}
-            source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
+            source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU'}}
                />
                <View style={{  backgroundColor: '#E1E2E2',height: 200,width: 250,}}>
                <Text style={{fontSize: 35,}}> Description</Text>
                <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
                </View>
-    </View>
+             </View>
                 <TouchableOpacity
                 style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('Cart')}}>
                    <Text style={styles.buttonText}>Buy</Text>
