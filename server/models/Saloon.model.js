@@ -46,4 +46,5 @@ module.exports=(sequelize,Datatype)=>{
     }
     
  })
+ return Saloon
 }

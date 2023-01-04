@@ -37,4 +37,5 @@ module.exports=(sequelize,DataType)=>{
             allowNull:false
         }
     })
+    return Product
 }
