@@ -1,5 +1,5 @@
 module.exports=(sequelize,DataType)=>{
-    const User = sequelize.define('User',{
+    const Profile = sequelize.define('Profile',{
         name:{
            type:DataType.STRING,
            allowNull:false 
@@ -25,8 +25,8 @@ module.exports=(sequelize,DataType)=>{
             allowNull:false
         },
     })
-    User.associate=models=>{
-        User.hasMany(models.Product,{
+    Profile.associate=models=>{
+        Profile.belongsTo(models.User,{
             onDelete:"cascade"
         })
     }
