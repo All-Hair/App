@@ -1,9 +1,10 @@
-import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Button, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import Navbar from '../../components/Navbar'
 
 const OneShop = ({navigation}) => {
   return (
-    <View>
+    <SafeAreaView>
       <Text  style={{  alignSelf: 'center',fontSize: 35,}}>DETAIL PRODUCT </Text> 
     <View style={styles.container}>
             <Image
@@ -20,9 +21,9 @@ const OneShop = ({navigation}) => {
                    <Text style={styles.buttonText}>Buy</Text>
                 </TouchableOpacity>
              
-
+       <Navbar/>
               
-    </View>
+    </SafeAreaView>
   )
 }
 

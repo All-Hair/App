@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View,Image, TouchableOpacity  } from 'react-native'
+import { StyleSheet, Text, View,Image, TouchableOpacity, SafeAreaView  } from 'react-native'
 import React from 'react'
-
+import Navbar from '../../components/Navbar'
 // import { Image } from 'react-native-svg'
 
 const Shop = ({navigation}) => {
   return (
-    <View >
+    <SafeAreaView >
        <Text  style={{
             // color: "#000000",
             fontSize: 45,
@@ -32,10 +32,15 @@ const Shop = ({navigation}) => {
              <Text style={{ fontSize: 15, }}>Name of product</Text>
              <Text >150 dt</Text>
              </View>
+           
             </TouchableOpacity>
+          
             </View>
+           
     </View>
-    </View>
+
+    <Navbar />
+    </SafeAreaView>
   )
 }
 
