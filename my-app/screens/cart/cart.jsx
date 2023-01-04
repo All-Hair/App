@@ -67,7 +67,7 @@ const Cart = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView >
       
       <Text style={{
             fontSize: 45,
