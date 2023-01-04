@@ -1,4 +1,4 @@
-import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, Animated, Text, Alert,Dimensions} from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, Animated, Text, Alert,Dimensions,SafeAreaView} from 'react-native';
 
 import React from 'react'
 const { width, height } = Dimensions.get('window');
@@ -10,12 +10,12 @@ const Navbar = ({navigation}) => {
 
    
         return (
-            <View style={{
+            <SafeAreaView style={{
                 flex: 1,
-                top:height-70,
+                top:height -20,
                 flexDirection: 'column',
-                width: width,                
-                position: 'absolute',
+                width: width,
+                 position: 'absolute',
             }}>
 
                  <View style={{
@@ -72,14 +72,14 @@ const Navbar = ({navigation}) => {
 
                         flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
                     }}>
-                        <TouchableOpacity onPress={() => { Alert.alert('click') }}>
+                        <TouchableOpacity  onPress={() => {navigation.navigate('Home')}} >
                             <Image
 
                                 style={{ width: 30, height: 30 }}
 
                                 source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/6178238-removebg-preview_cpuyde.png' }}
 
-                                onPress={()=>{Alert.alert("")}}
+                               
                             >
 
                             </Image>
@@ -93,12 +93,12 @@ const Navbar = ({navigation}) => {
                     }}>
 
                         <TouchableOpacity
-                            onPress={() => { Alert.alert("click") }}
+                            
                         >
                             <Image
                                 style={{  width: 30, height: 30 }}
                                 source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/5043688-removebg-preview_v3u4hm.png' }}
-                                onPress={() => { Alert.alert("click") }}
+                                
                             />
                        
                         </TouchableOpacity>
@@ -145,7 +145,7 @@ const Navbar = ({navigation}) => {
 
                     {/* </View> */}
                 </View>
-            </View>
+            </SafeAreaView>
         );
     
 
