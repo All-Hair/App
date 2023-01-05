@@ -7,21 +7,21 @@ import { Button } from 'react-native'
 const data =[
   {
     id: '1',
-    name: 'Product 1',
-    price: 9.99,
-    image: 'https://picsum.photos/200/300',
+    name: 'Water Spray',
+    price: "150 DT ",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU',
   },
   {
     id: '2',
-    name: 'Product 2',
-    price: 14.99,
-    image: 'https://picsum.photos/200/300',
+    name: 'Tomp',
+    price: "50 DT",
+    image: 'https://m.media-amazon.com/images/I/61N6De+CSdL.jpg',
   },
   {
     id: '3',
-    name: 'Product 3',
-    price: 19.99,
-    image: 'https://picsum.photos/200/300',
+    name: 'Salvator',
+    price: "80 DT",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU',
   },
 ]
 const Shop = ({navigation}) => {
@@ -40,7 +40,21 @@ const Shop = ({navigation}) => {
 
             }}>shop
             </Text>
-
+             {item.map((e,i)=>{
+              console.log('<<<<<<<<<',e.price);
+              return (
+                <View style={styles.item} >
+                <Image style={styles.itemImage} source={{ uri:e.image}} />
+                <View style={styles.itemInfo}>
+                  <Text style={styles.itemName}>{e.name} </Text>
+                  <Text style={styles.itemName}>{e.price}</Text>
+                
+                </View>
+                  <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
+              
+              </View>
+              )
+             })}
             <View style={styles.item}>
             <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU" }} />
             <View style={styles.itemInfo}>
@@ -50,32 +64,6 @@ const Shop = ({navigation}) => {
             </View>
               <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
           
-          </View>
-          <View style={styles.item}>
-            <Image style={styles.itemImage} source={{ uri:"https://m.media-amazon.com/images/I/61N6De+CSdL.jpg" }} />
-            <View style={styles.itemInfo}>
-              <Text style={styles.itemName}>Tomp </Text>
-              <Text style={styles.itemName}>50 DT </Text>
-             
-            </View>
-              <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
-          </View>
-          <View style={styles.item}>
-            <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU" }} />
-            <View style={styles.itemInfo}>
-              <Text style={styles.itemName}>Water Spray </Text>
-              <Text style={styles.itemName}>150 DT </Text>
-              {/* <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text> */}
-            </View>
-              <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
-          </View>
-          <View style={styles.item}>
-            <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU" }} />
-            <View style={styles.itemInfo}>
-              <Text style={styles.itemName}>Salvator </Text>
-              <Text style={styles.itemName}>80 DT </Text>
-            </View>
-              <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
           </View>
 
     <Navbar />
