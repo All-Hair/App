@@ -1,5 +1,10 @@
 module.exports=(sequelize,Datatype)=>{
  const Saloon = sequelize.define("Saloon",{
+    id: {
+        type: Datatype.INTEGER,
+        primaryKey: true,
+        autoIncrement: true 
+      },
     name:{
         type:Datatype.STRING,
         allowNull:false

@@ -1,5 +1,10 @@
 module.exports=(sequelize,DataType)=>{
     const Profile = sequelize.define('Profile',{
+        id: {
+            type: DataType.INTEGER,
+            primaryKey: true,
+            autoIncrement: true 
+          },
         name:{
            type:DataType.STRING,
            allowNull:false 
