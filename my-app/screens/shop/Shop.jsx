@@ -41,9 +41,9 @@ const Shop = ({navigation}) => {
             }}>shop
             </Text>
              {item.map((e,i)=>{
-              console.log('<<<<<<<<<',e.price);
+              console.log('<<<<<<<<<',i);
               return (
-                <View style={styles.item} >
+                <View style={styles.item} i={e.id} >
                 <Image style={styles.itemImage} source={{ uri:e.image}} />
                 <View style={styles.itemInfo}>
                   <Text style={styles.itemName}>{e.name} </Text>
@@ -55,16 +55,6 @@ const Shop = ({navigation}) => {
               </View>
               )
              })}
-            <View style={styles.item}>
-            <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU" }} />
-            <View style={styles.itemInfo}>
-              <Text style={styles.itemName}>Water Spray </Text>
-              <Text style={styles.itemName}>150 DT </Text>
-              {/* <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text> */}
-            </View>
-              <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
-          
-          </View>
 
     <Navbar />
     </SafeAreaView>

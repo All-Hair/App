@@ -70,9 +70,9 @@
             <Text
               style={{
                 color: "grey",
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: "bold",
-                marginBottom: 20,
+                marginBottom: 60,
                 paddingTop: 60,
               }}
             >
@@ -85,13 +85,33 @@
               onChangeText={text=>setEmail(text)}
             />
             
-            <Btn
-              textColor="grey"
-              bgColor={primary}
-              btnLabel="Change "
-              Press={()=>{forgotpassword().then(navigation.navigate("Login"))
-                 }}
-            />
+            <TouchableOpacity
+    
+      style={{
+        backgroundColor: '#CCC9C0',
+        borderRadius: 10,
+        alignItems: 'center',
+        width: 200,
+        paddingVertical: 6,
+        marginVertical: 60,
+        
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 6,
+        },
+        shadowOpacity: 0.37,
+        shadowRadius: 7.49,
+        
+        elevation: 5,
+
+
+      }}>
+      <Text style={{color: 'white', fontSize: 25, fontWeight: 'bold'}}>
+         
+      Change
+      </Text>
+    </TouchableOpacity>
             
             
             <View

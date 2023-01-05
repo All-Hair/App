@@ -15,12 +15,14 @@ import Btn from './button.jsx';
 import { primary } from './constants.jsx';
 import Field from './field.jsx';
 
-const { width, height } = Dimensions.get('window');
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  
+  // const { width, height } = Dimensions.get('window');
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
   // console.log(password)
 
   useEffect(() => {
@@ -48,8 +50,8 @@ const Login = ({ navigation }) => {
       <SafeAreaView
         style={{
           alignItems: 'center',
-          width: width,
-          height: height,
+          width: windowWidth,
+          height: windowHeight,
           backgroundColor: '#CCC9C0',
         }}
       >
@@ -65,8 +67,8 @@ const Login = ({ navigation }) => {
         <View
           style={{
             backgroundColor: 'white',
-            height: height,
-            width: width,
+            height: windowHeight,
+            width: windowWidth,
             borderTopLeftRadius: 130,
             // borderTopRightRadius:130,
            

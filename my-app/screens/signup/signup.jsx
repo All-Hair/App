@@ -72,7 +72,7 @@ const handleSignUp = () => {
           <Text
             style={{
               color: "grey",
-              fontSize: 25,
+              fontSize: 20,
               fontWeight: "bold",
               marginBottom: 20,
               paddingTop: 60,
@@ -98,7 +98,7 @@ const handleSignUp = () => {
            
           </View>
           <Btn
-            textColor="grey"
+            textColor="white"
             bgColor={primary}
             btnLabel="Register"
             Press={()=>{handleSignUp()

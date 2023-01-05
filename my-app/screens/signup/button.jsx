@@ -7,11 +7,23 @@ export default function Btn ({bgColor, btnLabel, textColor, Press}) {
     onPress={Press}
       style={{
         backgroundColor: bgColor,
-        borderRadius: 100,
+        borderRadius: 10,
         alignItems: 'center',
-        width: 150,
-        paddingVertical: 5,
-        marginVertical: 10
+        width: 200,
+        paddingVertical: 6,
+        marginVertical: 10,
+        
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 6,
+        },
+        shadowOpacity: 0.37,
+        shadowRadius: 7.49,
+        
+        elevation: 5,
+
+
       }}>
       <Text style={{color: textColor, fontSize: 25, fontWeight: 'bold'}}>
         {btnLabel}
