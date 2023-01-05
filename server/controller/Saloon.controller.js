@@ -11,7 +11,7 @@ module.exports = {
         }
 
     },
-   add: async (req,res) =>{
+    add: async (req,res) =>{
     try {
        const saloon = await Saloon.create(req.body)
        res.status(201).json(saloon) 
@@ -20,12 +20,16 @@ module.exports = {
         res.status(404).json(error)
     }
    },
-//    deleteSaloon :async (req,res)=>{
-//     let id = req.params.id
-//     try{
-//         const deletesaloon  =await Saloon.
-//     }
-//    }
+   deleteSaloon :async (req,res)=>{
+    let id = req.params.id
+    try{
+        const deletesaloon  =await Saloon.destroy({where:{id:id}})
+        res.status(200).json(deletesaloon)
+    }
+    catch(error){
+        res.status(404).json(error)
+    }
+   }
    
 
 }
