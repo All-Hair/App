@@ -43,14 +43,14 @@ const Shop = ({navigation}) => {
              {item.map((e,i)=>{
               console.log('<<<<<<<<<',i);
               return (
-                <View style={styles.item} i={e.id} >
+                <View style={styles.item} key={i}>
                 <Image style={styles.itemImage} source={{ uri:e.image}} />
                 <View style={styles.itemInfo}>
                   <Text style={styles.itemName}>{e.name} </Text>
                   <Text style={styles.itemName}>{e.price}</Text>
                 
                 </View>
-                  <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
+                  <Button  title='More' onPress={()=>{navigation.navigate('OneShop'),e.id}}/>
               
               </View>
               )

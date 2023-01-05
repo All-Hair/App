@@ -50,8 +50,7 @@ const Navbar = ({navigation}) => {
                     shadowOpacity: 0.3,
                     shadowRadius: 3,
                     shadowOffset: {
-
-                        height: 3, width: 3
+                    height: 3, width: 3
                     },
                     x: 0,
                     y: 0,
