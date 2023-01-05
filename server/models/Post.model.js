@@ -1,5 +1,10 @@
 module.exports=(sequelize,DataType)=>{
   const Post =sequelize.define('Post',{
+    id: {
+        type: DataType.INTEGER,
+        primaryKey: true,
+        autoIncrement: true 
+      },
     title:{
         type:DataType.STRING,
         allowNull:false
