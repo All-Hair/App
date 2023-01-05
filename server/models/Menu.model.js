@@ -10,7 +10,7 @@ module.exports=(sequelize,DataType)=>{
             allowNull:false
         },
         price:{
-            type:DataType.STRING,
+            type:DataType.INTEGER,
             allowNull:false
         },
         image:{

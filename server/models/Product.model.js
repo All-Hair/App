@@ -23,7 +23,7 @@ module.exports=(sequelize,DataType)=>{
         },
         color:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         },
         category:{
             type:DataType.STRING,
@@ -35,7 +35,7 @@ module.exports=(sequelize,DataType)=>{
         },
         date:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         },
         image:{
             type:DataType.STRING,
