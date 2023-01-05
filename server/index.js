@@ -15,7 +15,7 @@ const product = require("./routes/product.routes");
 const menu = require("./routes/menu.routes");
 const user = require("./routes/user.routes")
 
-app.use('/api',product)
+app.use('/product',product)
 app.use('/api',menu)
 app.use('/api',user)
 const PORT = 5000; 
