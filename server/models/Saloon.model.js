@@ -7,39 +7,39 @@ module.exports=(sequelize,Datatype)=>{
       },
     name:{
         type:Datatype.STRING,
-        allowNull:false
+        allowNull:true
     },
     adress:{
         type:Datatype.STRING,
-        allowNull:false
+        allowNull:true
     },
     state:{
         type:Datatype.STRING,
-        allowNull:false
+        allowNull:true
     },
     city:{
         type:Datatype.STRING,
-        allowNull:false
+        allowNull:true
     },
     type:{
         type:Datatype.STRING,
-        allowNull:false
+        allowNull:true
     },
     image:{
         type:Datatype.STRING,
-        allowNull:false
+        allowNull:true
     },
     gender:{
         type:Datatype.STRING,
-        allowNull:false
+        allowNull:true
     },
     description:{
-        type:Datatype.STRING,
-        allowNull:false
+        type:Datatype.TEXT,
+        allowNull:true
     },
     email:{
         type:Datatype.STRING,
-        allowNull:false
+        allowNull:true
     },
     home_service:{
         type:Datatype.BOOLEAN,
@@ -47,7 +47,7 @@ module.exports=(sequelize,Datatype)=>{
     },
     rate:{
         type:Datatype.TINYINT,
-        allowNull:false
+        allowNull:true
     }
     
  })

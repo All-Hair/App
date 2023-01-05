@@ -7,23 +7,23 @@ module.exports=(sequelize,DataType)=>{
       },
     title:{
         type:DataType.STRING,
-        allowNull:false
+        allowNull:true
     },
     description:{
-        type:DataType.STRING,
-        allowNull:false
+        type:DataType.TEXT,
+        allowNull:true
     },
     media:{
-        type:DataType.STRING,
-        allowNull:false
+        type:DataType.TEXT,
+        allowNull:true
     },
     date:{
         type:DataType.DATE,
-        allowNull:false
+        allowNull:true
     },
     like:{
         type:DataType.TINYINT,
-        allowNull:false
+        allowNull:true
     }
   }) 
   return Post
