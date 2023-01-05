@@ -143,7 +143,7 @@ const Navbar = ({navigation}) => {
                            
                         </View>
 
-                    {/* </View> */}
+                    
                 </View>
             </SafeAreaView>
         );
