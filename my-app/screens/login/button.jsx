@@ -10,7 +10,7 @@ export default function Btn ({bgColor, btnLabel, textColor, Press}) {
         borderRadius: 10,
         alignItems: 'center',
         width: 200,
-        paddingVertical: 5,
+        paddingVertical: 6,
         marginVertical: 10,
         
         shadowColor: "#000",

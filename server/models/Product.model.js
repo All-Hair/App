@@ -1,0 +1,41 @@
+module.exports=(sequelize,DataType)=>{
+    const Product = sequelize.define('Product',{
+        brand:{
+            type:DataType.STRING,
+            allowNull:false
+        },
+        name:{
+            type:DataType.STRING,
+            allowNull:false
+        },
+        price:{
+            type:DataType.TINYINT,
+            allowNull:false
+        },
+        stack:{
+            type:DataType.TINYINT,
+            allowNull:false
+        },
+        color:{
+            type:DataType.STRING,
+            allowNull:false
+        },
+        category:{
+            type:DataType.STRING,
+            allowNull:false
+        },
+        description:{
+            type:DataType.STRING,
+            allowNull:false
+        },
+        date:{
+            type:DataType.STRING,
+            allowNull:false
+        },
+        image:{
+            type:DataType.STRING,
+            allowNull:false
+        }
+    })
+    return Product
+}

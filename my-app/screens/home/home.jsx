@@ -164,6 +164,9 @@ const Home = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>Profile</Text>
       </TouchableOpacity>
+      
+      <Button title="Go to Shop" onPress={()=>navigation.navigate("Uprofile")}/>
+        <Navbar />
 
         
       <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Shop')} >
