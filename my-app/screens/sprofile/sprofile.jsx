@@ -137,17 +137,21 @@ const Sprofile = ({navigation}) => {
             <View>
               {/* Profile Image */}
               <View style={styles.profileImageView}>
+              
                 <Image
                   style={styles.profileImage}
                   source={{
                     uri: 'https://img.freepik.com/vecteurs-premium/gentleman-barber-shop-logo_96485-97.jpg?w=2000',
                   }}
                 />
+                
               </View>
+              
               {/* Profile Name and Bio */}
+              
               <View style={styles.nameAndBioView}>
                 <Text style={styles.userFullName}>{'ALL Hair Saloon'}</Text>
-                <Text style={styles.userBio}>{'everything feels better after a haircut'}</Text>
+                
               </View>
               {/* Posts/Followers/Following View */}
               <View style={styles.countsView}>
@@ -169,7 +173,7 @@ const Sprofile = ({navigation}) => {
                 <TouchableOpacity style={styles.interactButton}>
                   <Text style={styles.interactButtonText}>APPOINTEMENT</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.interactButton}>
+                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Pricelist')}}>
                   <Text style={styles.interactButtonText}>PRICE LIST</Text>
                 </TouchableOpacity>
               </View>
@@ -221,6 +225,7 @@ const Sprofile = ({navigation}) => {
           </View>
         </>
         
+        
       </ScrollView>
       <Navbar  navigation ={navigation} />
     </View>
@@ -234,7 +239,7 @@ const styles = StyleSheet.create({
     // height: 1000,
     backgroundColor: '#fff',
     marginTop: -100,
-    borderTopLeftRadius: 130,
+    borderTopLeftRadius: 110,
     borderTopRightRadius: 0,
   },
   profileImageView: { alignItems: 'center', marginTop: -80 },
@@ -246,12 +251,15 @@ const styles = StyleSheet.create({
     borderColor: '#CCC9C0',
   },
   nameAndBioView: { alignItems: 'center', marginTop: 10 },
-  userFullName: { fontFamily: '', fontSize: 26 },
+  userFullName: { fontFamily: '', fontSize: 26 ,  textDecorationLine: 'underline'},
   userBio: {
     fontFamily: '',
     fontSize: 18,
     color: '#333',
     marginTop: 4,
+    
+    
+  
   },
   countsView: { flexDirection: 'row', marginTop: 20 },
   countView: { flex: 1, alignItems: 'center' },
@@ -306,6 +314,16 @@ const styles = StyleSheet.create({
     
     fontSize: 18,
   },
+  active: {
+    backgroundColor: '#34FFB9',
+    position: 'absolute',
+    bottom: 28,
+    left: 10,
+    padding: 4,
+    height: 20,
+    width: 20,
+    borderRadius: 10,
+  }
 });
 
 export default Sprofile

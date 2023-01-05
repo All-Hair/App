@@ -35,7 +35,7 @@ const Home = ({ navigation }) => {
      
       </TouchableOpacity>
       
-      <Button title="Go to Shop" onPress={()=>navigation.navigate("Shop")}/>
+      <Button title="Go to Shop" onPress={()=>navigation.navigate("Uprofile")}/>
         <Navbar />
 
       
