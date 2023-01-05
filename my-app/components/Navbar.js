@@ -12,7 +12,7 @@ const Navbar = ({navigation}) => {
         return (
             <SafeAreaView style={{
                 flex: 1,
-                top:height -20,
+                top:height -70,
                 flexDirection: 'column',
                 width: width,
                  position: 'absolute',

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, Button, StyleSheet, Image, SafeAreaView } from 'react-native';
+import Navbar from '../../components/Navbar';
 
 const styles = StyleSheet.create({
   container: {
@@ -66,7 +67,8 @@ const Cart = () => {
   };
 
   return (
-    <View>
+    <SafeAreaView >
+      
       <Text style={{
             fontSize: 45,
             fontWeight: "bold",
@@ -84,7 +86,7 @@ const Cart = () => {
             <Text style={styles.itemName}>{item.name}</Text>
             <Image
            style={styles.avatar}
-            source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
+            source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU'}}
                />
             <Button
               title="Remove"
@@ -100,7 +102,9 @@ const Cart = () => {
         buttonStyle={styles.addButton}
       />
     </View>
-    </View>
+    <Navbar />
+  
+    </SafeAreaView>
     
 
    

@@ -1,40 +1,63 @@
-import { StyleSheet, Text, View,Image, TouchableOpacity  } from 'react-native'
-import React from 'react'
-
+import { StyleSheet, Text, View,Image, TouchableOpacity, SafeAreaView  } from 'react-native'
+import React, { useState } from 'react'
+import Navbar from '../../components/Navbar'
+import Header from '../../components/Header'
+import { Button } from 'react-native'
 // import { Image } from 'react-native-svg'
-
+const data =[
+  {
+    id: '1',
+    name: 'Water Spray',
+    price: "150 DT ",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU',
+  },
+  {
+    id: '2',
+    name: 'Tomp',
+    price: "50 DT",
+    image: 'https://m.media-amazon.com/images/I/61N6De+CSdL.jpg',
+  },
+  {
+    id: '3',
+    name: 'Salvator',
+    price: "80 DT",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU',
+  },
+]
 const Shop = ({navigation}) => {
+  const [item,setItem]=useState(data)
+  console.log(item,'<-------->');
   return (
     <View >
+    <SafeAreaView >
        <Text  style={{
-            // color: "#000000",
             fontSize: 45,
             fontWeight: "bold",
             marginVertical: 20,
             marginTop: 20 ,
-            // paddingBottom: 90,
             alignSelf: 'center',
+            
 
             }}>shop
             </Text>
-        <View  style={styles.container}>
-     
-            </View>
-            <View style={styles.container1}>
-           
-            <View >
-            <TouchableOpacity onPress={()=>navigation.navigate("OneShop")}>
-            <Image
-            style={styles.avatar}
-            source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
-               />
-              <View style={{  backgroundColor: '#E1E2E2',height: 50,width: 200,}}>
-             <Text style={{ fontSize: 15, }}>Name of product</Text>
-             <Text >150 dt</Text>
-             </View>
-            </TouchableOpacity>
-            </View>
-    </View>
+             {item.map((e,i)=>{
+              console.log('<<<<<<<<<',i);
+              return (
+                <View style={styles.item} i={e.id} >
+                <Image style={styles.itemImage} source={{ uri:e.image}} />
+                <View style={styles.itemInfo}>
+                  <Text style={styles.itemName}>{e.name} </Text>
+                  <Text style={styles.itemName}>{e.price}</Text>
+                
+                </View>
+                  <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
+              
+              </View>
+              )
+             })}
+
+    <Navbar />
+    </SafeAreaView>
     </View>
   )
 }
@@ -43,63 +66,69 @@ export default Shop
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#0891b2',
-    // paddingVertical: 50,
-    paddingHorizontal: 120,
-    borderRadius: 50,
-    alignSelf: 'center',
-    // width: 500,
-    maxWidth: '100%',
-    alignSelf: 'center',
-    alignItems: 'center'
-
+    flex: 1,
+    paddingTop: 22,
   },
-  timings: {
-    color: '#fff',
-    fontSize: '14px'
-  },
-  metaContainer: {
-    justifyContent: 'space-between'
-  },
-  topContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  avatar: {
-    height: 200,
-    width: 200,
-    // borderRadius: 100
-  },
-  description: {
-    color: 'white',
-    marginTop: 5,
-    fontSize: 20
-  },
-  button: {
-    backgroundColor: '#0782F9',
-    width: '60%',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 40,
-    alignSelf: 'center'
-  },
-  buttonText: {
+  header: {
+    fontSize: 20,
     fontWeight: 'bold',
-    color: 'white',
-    textTransform: 'uppercase',
-    fontSize: 14
+    padding: 10,
   },
-  container1: {
-    // backgroundColor: '#0891b2',
-    paddingVertical: 25,
-    paddingHorizontal: 10,
-    borderRadius: 50,
-    // alignSelf: 'center',
-    width: 500,
-    maxWidth: '100%',
-    // alignSelf: 'center',
-    // alignItems: 'center'
-
+  cart: {
+    marginBottom: 10,
   },
+  cartItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: '#eee',
+  },
+  cartItemImage: {
+    width: 50,
+    height: 50,
+    marginRight: 10,
+  },
+  cartItemInfo: {
+    flex: 1,
+  },
+  cartItemName: {
+    fontSize: 16,
+  },
+  cartItemPrice: {
+    fontSize: 16,
+    color: '#888',
+  },
+  cartItemRemove: {
+    alignSelf: 'stretch',
+  },
+  item: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 30,
+    marginBottom: 10,
+    backgroundColor: '#fff',
+  },
+  itemImage: {
+    width: 90,
+    height: 90,
+    marginRight: 10,
+  },
+  itemInfo: {
+    flex: 1,
+  },
+  itemName: {
+    fontSize: 16,
+  },
+  itemPrice: {
+    fontSize: 16,
+    color: '#888',
+  },
+  itemAdd: {
+    alignSelf: 'stretch',
+  },
+  button:{
+    marginLeft:10 
+  }
 });
+
