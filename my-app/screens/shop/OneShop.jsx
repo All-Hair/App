@@ -1,28 +1,43 @@
-import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Button, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import Navbar from '../../components/Navbar'
 
 const OneShop = ({navigation}) => {
   return (
-    <View>
-      <Text  style={{  alignSelf: 'center',fontSize: 35,}}>DETAIL PRODUCT </Text> 
-    <View style={styles.container}>
+    <SafeAreaView>
+      <Text  style={{    fontSize: 35,
+            fontWeight: "bold",
+            marginVertical: 20,
+            marginTop: 20 ,
+            alignSelf: 'center',}}>DETAIL PRODUCT </Text> 
+             
+          <View style={styles.item}>
+            <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU" }} />
+            <View style={styles.itemInfo}>
+              <Text style={styles.itemName}>Salvator </Text>
+              <Text style={styles.itemName}>80 DT </Text>
+            </View>
+              <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
+          </View>
+    {/* <View style={styles.container}>
             <Image
            style={styles.avatar}
-            source={{uri:'https://engineering.fb.com/wp-content/uploads/2016/04/yearinreview.jpg'}}
+            source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU'}}
                />
                <View style={{  backgroundColor: '#E1E2E2',height: 200,width: 250,}}>
                <Text style={{fontSize: 35,}}> Description</Text>
                <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
                </View>
-    </View>
+             </View>
                 <TouchableOpacity
                 style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('Cart')}}>
                    <Text style={styles.buttonText}>Buy</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                
              
-
+       <Navbar/>
               
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -30,51 +45,68 @@ export default OneShop
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#0891b2',
-    paddingVertical: 50,
-    paddingHorizontal: 120,
-    borderRadius: 50,
-    alignSelf: 'center',
-    // width: 500,
-    maxWidth: '100%',
-    alignSelf: 'center',
-    alignItems: 'center'
-
+    flex: 1,
+    paddingTop: 22,
   },
-  timings: {
-    color: '#fff',
-    fontSize: '14px'
-  },
-  metaContainer: {
-    justifyContent: 'space-between'
-  },
-  topContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  avatar: {
-    height: 200,
-    width: 250,
-    // borderRadius: 100
-  },
-  description: {
-    color: 'white',
-    marginTop: 5,
-    fontSize: 20
-  },
-  button: {
-    backgroundColor: '#CCC9C0',
-    width: '60%',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 40,
-    alignSelf: 'center'
-  },
-  buttonText: {
+  header: {
+    fontSize: 20,
     fontWeight: 'bold',
-    color: 'white',
-    textTransform: 'uppercase',
-    fontSize: 14
+    padding: 10,
+  },
+  cart: {
+    marginBottom: 10,
+  },
+  cartItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: '#eee',
+  },
+  cartItemImage: {
+    width: 500,
+    height: 500,
+    marginRight: 10,
+  },
+  cartItemInfo: {
+    flex: 1,
+  },
+  cartItemName: {
+    fontSize: 16,
+  },
+  cartItemPrice: {
+    fontSize: 16,
+    color: '#888',
+  },
+  cartItemRemove: {
+    alignSelf: 'stretch',
+  },
+  item: {
+    // flexDirection: 'row',
+    alignItems: 'center',
+    padding: 100,
+    marginBottom: 10,
+    backgroundColor: '#fff',
+  },
+  itemImage: {
+    width: 200,
+    height:300,
+    marginRight: 10,
+  },
+  itemInfo: {
+    flex: 1,
+  },
+  itemName: {
+    fontSize: 16,
+  },
+  itemPrice: {
+    fontSize: 16,
+    color: '#888',
+  },
+  itemAdd: {
+    alignSelf: 'stretch',
+  },
+  button:{
+    marginLeft:10 
   }
 });
