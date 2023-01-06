@@ -50,8 +50,7 @@ const Navbar = ({navigation}) => {
                     shadowOpacity: 0.3,
                     shadowRadius: 3,
                     shadowOffset: {
-
-                        height: 3, width: 3
+                    height: 3, width: 3
                     },
                     x: 0,
                     y: 0,
@@ -128,7 +127,7 @@ const Navbar = ({navigation}) => {
                           
                         }}>
                             <TouchableOpacity
-                                onPress={() => {navigation.navigate("Sprofile")}}
+                                onPress={() => {navigation.navigate("Uprofile")}}
                             >
                                 <Image
                                     source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/3661442-removebg-preview_cwdejl.png' }}

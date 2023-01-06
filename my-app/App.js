@@ -14,6 +14,10 @@ import Cart from './screens/cart/cart';
 import Pricelist from './screens/pricelist/Pricelist.jsx';
 import Uprofile from './screens/UserProfile/Uprofile.js';
 import Appointment from './screens/appointment/appointment.js';
+// import Pricelist from './screens/pricelist/pricelist.jsx';
+// import Uprofile from './screens/UserProfile/Uprofile';
+import Navbar from './components/Navbar';
+import UpdateUpro from './screens/UserProfile/UpdateUpro';
 
 
 
@@ -34,13 +38,13 @@ const App =() => {
 <Stack.Screen name ="Cart" options = {{headerShown :false}} component={Cart} />
 <Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
 <Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
+<Stack.Screen name ='UpdateUpro' options = {{headerShown :false}}  component={UpdateUpro}/> 
 <Stack.Screen name ='Pricelist' options = {{headerShown :false}}  component={Pricelist}/>
 <Stack.Screen name ='Appointment' options = {{headerShown :false}}  component={Appointment}/>
 </Stack.Navigator>
 </NavigationContainer>
    
-    
-  );
+);
 }
 
 

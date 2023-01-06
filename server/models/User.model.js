@@ -1,34 +1,42 @@
 module.exports=(sequelize,DataType)=>{
     const User = sequelize.define('User',{
+        // Product: sequelize.import('./Product.model.js'),
+        id: {
+            type: DataType.INTEGER,
+            primaryKey: true,
+            autoIncrement: true 
+          },
         name:{
            type:DataType.STRING,
-           allowNull:false 
+           allowNull:true 
         },
         phone:{
-            type:DataType.TINYINT,
-            allowNull:false
+            type:DataType.INTEGER,
+            allowNull:true
         },
         email:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         },
         gender:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         },
         adress:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         },
         image:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         },
     })
-    User.associate=models=>{
-        User.hasMany(models.Product,{
-            onDelete:"cascade"
-        })
-    }
+    // User.associate=models=>{
+    //     User.hasMany(models.Product,{
+    //         onDelete:"cascade"
+    //     })
+    // }
+    // User.belongsToMany(Product,{through : 'UserProduct'})
+
     return User 
 }
