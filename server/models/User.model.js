@@ -1,5 +1,5 @@
 const {models}=require('../models')
-const Appointment = require('./Appointment')
+// const Appointment = require('./Appointment')
 module.exports=(sequelize,DataType)=>{
     const User = sequelize.define('User',{
         // Product: sequelize.import('./Product.model.js'),
@@ -33,8 +33,12 @@ module.exports=(sequelize,DataType)=>{
             allowNull:true
         },
     })
+    // User.associate=(models)=>{
+    //     User.belongsToMany(models.Product,{through :"Appointment" })
+    // }
     User.associate=(models)=>{
-        User.belongsToMany(models.Product,{through :"Appointment" })
+        User.belongsToMany(models.Product,{through :"UserProduct" })
+        User.belongsToMany(models.Saloon,{through:"Appointment"})
     }
 
     return User 

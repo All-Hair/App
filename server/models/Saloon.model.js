@@ -53,6 +53,9 @@ module.exports=(sequelize,Datatype)=>{
     }
     
    })
+   Saloon.associate=(models)=>{
+    Saloon.belongsToMany(models.User,{through : "Appointment"})
+}
 
  return Saloon
 }
