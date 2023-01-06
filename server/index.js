@@ -21,9 +21,13 @@ app.get('/', (req, res) => {
     res.send('welcome in All-hair')
   })
 
-    // require("./app/routes/product")(app);
+const product = require("./routes/product.routes");
+const menu = require("./routes/menu.routes");
+const user = require("./routes/user.routes")
 
-
+app.use('/product',product)
+app.use('/api',menu)
+app.use('/api',user)
 const PORT = 5000; 
 db.sequelize.sync().then(()=>{
     app.listen(PORT,()=>{

@@ -7,19 +7,19 @@ module.exports=(sequelize,DataType)=>{
           },
         service:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         },
         price:{
-            type:DataType.STRING,
-            allowNull:false
+            type:DataType.INTEGER,
+            allowNull:true
         },
         image:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         },
         category:{
             type:DataType.STRING,
-            allowNull:false
+            allowNull:true
         }
     })
     return Menu

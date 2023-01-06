@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "12345678",
-    "database": "all-hair",
+    "password": "root",
+    "database": "all_hair",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "root",
-    "database": "all-hair",
+    "database": "all_hair",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "root",
-    "database": "all-hair",
+    "database": "all_hair",
     "host": "localhost",
     "dialect": "mysql"
   }
