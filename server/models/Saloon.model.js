@@ -1,3 +1,5 @@
+
+
 module.exports=(sequelize,Datatype)=>{
  const Saloon = sequelize.define("Saloon",{
     id: {
@@ -50,6 +52,7 @@ module.exports=(sequelize,Datatype)=>{
         allowNull:true
     }
     
- })
+   })
+
  return Saloon
 }

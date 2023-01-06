@@ -1,3 +1,4 @@
+const {models}=require('../models')
 module.exports=(sequelize,DataType)=>{
     const User = sequelize.define('User',{
         // Product: sequelize.import('./Product.model.js'),
@@ -31,12 +32,9 @@ module.exports=(sequelize,DataType)=>{
             allowNull:true
         },
     })
-    // User.associate=models=>{
-    //     User.hasMany(models.Product,{
-    //         onDelete:"cascade"
-    //     })
-    // }
-    // User.belongsToMany(Product,{through : 'UserProduct'})
+    User.associate=(models)=>{
+        User.belongsToMany(models.Product,{through : 'UserProduct'})
+    }
 
     return User 
 }

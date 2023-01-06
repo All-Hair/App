@@ -42,5 +42,8 @@ module.exports = (sequelize, DataType) => {
       allowNull: true,
     },
   });
+  Product.associate=(models)=>{
+    Product.belongsToMany(models.User,{through : 'UserProduct'})
+}
   return Product;
 };
