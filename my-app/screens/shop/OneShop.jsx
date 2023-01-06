@@ -1,47 +1,56 @@
-import { Button, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import Navbar from '../../components/Navbar'
+import {
+  Button,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React from "react";
+import Navbar from "../../components/Navbar";
 
-const OneShop = ({navigation}) => {
+const OneShop = ({ navigation }) => {
   return (
     <SafeAreaView>
-      <Text  style={{    fontSize: 35,
-            fontWeight: "bold",
-            marginVertical: 20,
-            marginTop: 20 ,
-            alignSelf: 'center',}}>DETAIL PRODUCT </Text> 
-             
-          <View style={styles.item}>
-            <Image style={styles.itemImage} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU" }} />
-            <View style={styles.itemInfo}>
-              <Text style={styles.itemName}>Salvator </Text>
-              <Text style={styles.itemName}>80 DT </Text>
-            </View>
-              <Button  title='More' onPress={()=>{navigation.navigate('OneShop')}}/>
-          </View>
-    {/* <View style={styles.container}>
-            <Image
-           style={styles.avatar}
-            source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU'}}
-               />
-               <View style={{  backgroundColor: '#E1E2E2',height: 200,width: 250,}}>
-               <Text style={{fontSize: 35,}}> Description</Text>
-               <Text  style={{fontSize: 20,}}>iwhibsibiubiubsuibiusuibuhicsoIO</Text>
-               </View>
-             </View>
-                <TouchableOpacity
-                style={styles.button} title='Buy 'onPress={()=>{navigation.navigate('Cart')}}>
-                   <Text style={styles.buttonText}>Buy</Text>
-                </TouchableOpacity> */}
-                
-             
-       <Navbar/>
-              
-    </SafeAreaView>
-  )
-}
+      <Text
+        style={{
+          fontSize: 35,
+          fontWeight: "bold",
+          marginVertical: 20,
+          marginTop: 20,
+          alignSelf: "center",
+        }}
+      >
+        DETAIL PRODUCT{" "}
+      </Text>
 
-export default OneShop
+      <View style={styles.item}>
+        <Image
+          style={styles.itemImage}
+          source={{
+            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU",
+          }}
+        />
+        <View style={styles.itemInfo}>
+          <Text style={styles.itemName}>Salvator </Text>
+          <Text style={styles.itemName}>80 DT </Text>
+        </View>
+          <TouchableOpacity
+           onPress={() => {
+          navigation.navigate('OneShop');
+        }}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Buy</Text>
+      </TouchableOpacity>
+      </View>
+      <Navbar />
+    </SafeAreaView>
+  );
+};
+
+export default OneShop;
 
 const styles = StyleSheet.create({
   container: {
@@ -50,18 +59,18 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     padding: 10,
   },
   cart: {
     marginBottom: 10,
   },
   cartItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 10,
     marginBottom: 10,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
   },
   cartItemImage: {
     width: 500,
@@ -76,21 +85,29 @@ const styles = StyleSheet.create({
   },
   cartItemPrice: {
     fontSize: 16,
-    color: '#888',
+    color: "#888",
   },
   cartItemRemove: {
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
   },
   item: {
-    // flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+    alignItems: "center",
     padding: 100,
-    marginBottom: 10,
-    backgroundColor: '#fff',
+    // marginBottom: 10,
+    backgroundColor: "#fff",
+    width: 450,
+    height: 600,
+    borderRadius:70,
+    top:30,
+    // left:20
+    right:15
+
+
   },
   itemImage: {
     width: 200,
-    height:300,
+    height: 300,
     marginRight: 10,
   },
   itemInfo: {
@@ -98,15 +115,29 @@ const styles = StyleSheet.create({
   },
   itemName: {
     fontSize: 16,
+    
+
   },
   itemPrice: {
     fontSize: 16,
-    color: '#888',
+    color: "#888",
   },
   itemAdd: {
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
   },
-  button:{
-    marginLeft:10 
-  }
+  button: {
+    backgroundColor: '#CCC9C0',
+    width: '60%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 30,
+
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 16,
+    marginTop:1
+  },
 });
