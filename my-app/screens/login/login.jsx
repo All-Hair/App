@@ -3,7 +3,7 @@ import {
   Dimensions,
   Image,
   Text,
-  Touchable,
+  
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -14,7 +14,7 @@ import Background from './background.jsx';
 import Btn from './button.jsx';
 import { primary } from './constants.jsx';
 import Field from './field.jsx';
-
+ 
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -44,6 +44,8 @@ const Login = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
+ 
+  
 
   return (
     <Background>
