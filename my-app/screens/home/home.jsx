@@ -151,27 +151,26 @@ const Home = ({ navigation }) => {
         <View style={[styles.fake_post]} />
         <View style={[styles.fake_post]} />
       </Animated.ScrollView>
-
+      <View >
       <Text>Email:{auth.currentUser?.email}</Text>
+      
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Sprofile');
+          navigation.navigate('Uprofile');
         }}
         style={styles.button}
       >
         <Text style={styles.buttonText}>Profile</Text>
       </TouchableOpacity>
-      
-      <Button title="Go to Shop" onPress={()=>navigation.navigate("Uprofile")}/>
+      </View>
+   
         <Navbar />
 
         
-      <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Shop')} >
-        <Text>go ot the hell</Text>
-        </TouchableOpacity>
+   
       <Navbar />
 
       <Navbar navigation={navigation} />

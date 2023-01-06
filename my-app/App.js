@@ -1,7 +1,7 @@
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-
+import { NativeBaseProvider } from 'native-base';
 
 import Home from './screens/home/home.jsx';
 import Signup from './screens/signup/signup';
@@ -11,9 +11,9 @@ import Sprofile from './screens/sprofile/sprofile';
 import Shop from './screens/shop/Shop';
 import OneShop from './screens/shop/OneShop';
 import Cart from './screens/cart/cart';
-import Pricelist from './screens/pricelist/pricelist.jsx';
+import Pricelist from './screens/pricelist/Pricelist.jsx';
 import Uprofile from './screens/UserProfile/Uprofile.js';
-
+import Appointment from './screens/appointment/appointment.js';
 
 
 
@@ -25,7 +25,7 @@ const App =() => {
     
 <NavigationContainer>
 <Stack.Navigator>
-<Stack.Screen name ='Login'  component={Login}/>
+<Stack.Screen name ='Login' options = {{headerShown :false}} component={Login}/>
 <Stack.Screen name ='Signup'    component={Signup}/>
 <Stack.Screen name ='Forgotpassword'    component={Forgotpassword}/>
 <Stack.Screen name ='Home' options = {{headerShown :false}}  component={Home}/> 
@@ -35,6 +35,7 @@ const App =() => {
 <Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
 <Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
 <Stack.Screen name ='Pricelist' options = {{headerShown :false}}  component={Pricelist}/>
+<Stack.Screen name ='Appointment' options = {{headerShown :false}}  component={Appointment}/>
 </Stack.Navigator>
 </NavigationContainer>
    
