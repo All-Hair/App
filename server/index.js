@@ -7,6 +7,16 @@ app.use(express.json());
 app.use(cors());
 
 
+//Require application Route modules 
+const SaloonRoute = require ('./routes/Saloon.routes')
+
+ 
+//Add Routes to the middleware 
+app.use('/saloon',SaloonRoute)
+
+
+
+
 app.get('/', (req, res) => {
     res.send('welcome in All-hair')
   })

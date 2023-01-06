@@ -12,13 +12,8 @@ import {
 
 
 
-<<<<<<< HEAD
- 
-const Sprofile = () => {
-=======
 function Photos() {
   const imgWidth = Dimensions.get('screen').width * 0.33333;
->>>>>>> d8719f450ccc696bc1b0c22618a168d95ef2b8f1
   return (
     <View style={{}}>
       <View

@@ -27,7 +27,7 @@ const App =() => {
 <NavigationContainer>
 <Stack.Navigator>
 <Stack.Screen name ='Login'  component={Login}/>
-<Stack.Screen name ='Signup'    component={Signup}/>
+<Stack.Screen name ='Signup'  component={Signup}/>
 <Stack.Screen name ='Forgotpassword'    component={Forgotpassword}/>
 <Stack.Screen name ='Home' options = {{headerShown :false}}  component={Home}/> 
 <Stack.Screen name ="Shop" options = {{headerShown :false}} component={Shop} />
@@ -40,8 +40,7 @@ const App =() => {
 </Stack.Navigator>
 </NavigationContainer>
    
-    
-  );
+);
 }
 
 

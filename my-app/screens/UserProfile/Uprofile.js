@@ -11,8 +11,8 @@ import {
 } from "react-native";
 import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,} from 'react-native-vector-icons'
 
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import Navbar from '../../components/Navbar';
+// import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+// import Navbar from '../../components/Navbar';
 const Uprofile = ({ navigation }) => {
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
