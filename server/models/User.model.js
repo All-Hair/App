@@ -1,5 +1,6 @@
 module.exports=(sequelize,DataType)=>{
     const User = sequelize.define('User',{
+        // Product: sequelize.import('./Product.model.js'),
         id: {
             type: DataType.INTEGER,
             primaryKey: true,
@@ -30,10 +31,12 @@ module.exports=(sequelize,DataType)=>{
             allowNull:false
         },
     })
-    User.associate=models=>{
-        User.hasMany(models.Product,{
-            onDelete:"cascade"
-        })
-    }
+    // User.associate=models=>{
+    //     User.hasMany(models.Product,{
+    //         onDelete:"cascade"
+    //     })
+    // }
+    // User.belongsToMany(Product,{through : 'UserProduct'})
+
     return User 
 }

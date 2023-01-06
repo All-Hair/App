@@ -2,11 +2,11 @@ const {Saloon} = require ("../models")
 
 module.exports = {
     getAll :async(req,res) =>{
-        try{
+    try{
             const saloon = await Saloon.findAll()
             res.status(200).json(saloon)
         }
-        catch(error){
+    catch(error){
             res.status(404).json(error)
         }
 
