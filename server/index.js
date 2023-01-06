@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 const PORT = 5000; 
 
 
-db.sequelize.sync().then(()=>{
+db.sequelize.sync({force:true}).then(()=>{
     app.listen(PORT,()=>{
         console.log(`your server raning in port ${PORT}`);
     })

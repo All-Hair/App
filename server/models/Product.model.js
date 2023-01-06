@@ -1,10 +1,13 @@
+const Appointment = require("./Appointment");
+const {models}=require('../models')
+
 module.exports = (sequelize, DataType) => {
   const Product = sequelize.define("Product", {
-    id: {
-      type: DataType.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
+    // id: {
+    //   type: DataType.INTEGER,
+    //   primaryKey: true,
+    //   autoIncrement: true,
+    // },
     brand: {
       type: DataType.STRING,
       allowNull: true,
@@ -43,7 +46,7 @@ module.exports = (sequelize, DataType) => {
     },
   });
   Product.associate=(models)=>{
-    Product.belongsToMany(models.User,{through : 'UserProduct'})
+    Product.belongsToMany(models.User,{through : "Appointment"})
 }
   return Product;
 };
