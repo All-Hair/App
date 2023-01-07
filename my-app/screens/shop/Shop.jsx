@@ -34,23 +34,24 @@ const data = [
 ];
 const Shop = ({ navigation }) => {
   const [item, setItem] = useState(data);
-  console.log(item, "<-------->");
+  // console.log(item, "<-------->");
   return (
     <View>
       <SafeAreaView>
         <Text
           style={{
-            fontSize: 45,
+            fontSize: 30,
             fontWeight: "bold",
             marginVertical: 20,
-            marginTop: 20,
+            marginTop: 170,
             alignSelf: "center",
+            bottom:85
           }}
         >
           shop
         </Text>
         {item.map((e, i) => {
-          console.log("<<<<<<<<<", i);
+          // console.log("<<<<<<<<<", i);
           return (
             <View style={styles.item} key={i}>
               <Image style={styles.itemImage} source={{ uri: e.image }} />
@@ -58,17 +59,23 @@ const Shop = ({ navigation }) => {
                 <Text style={styles.itemName}>{e.name} </Text>
                 <Text style={styles.itemName}>{e.price}</Text>
               </View>
-              <Button
+              {/* <Button
                 title="More"
                 onPress={() => {
                   navigation.navigate("OneShop"), e.id;
                 }}
-              />
+              /> */}
+                <TouchableOpacity onPress={() => {
+                  navigation.navigate("Slider"), e.id;
+                }}  
+                style={styles.button}>
+        <Text style={styles.buttonText}>More</Text>
+      </TouchableOpacity>
             </View>
           );
         })}
 
-        <Navbar />
+        <Navbar navigation={navigation}/>
       </SafeAreaView>
     </View>
   );
@@ -140,7 +147,20 @@ const styles = StyleSheet.create({
   itemAdd: {
     alignSelf: "stretch",
   },
+  
   button: {
     marginLeft: 10,
+
+    backgroundColor: '#CCC9C0',
+    width: '23%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+  
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 16,
   },
 });

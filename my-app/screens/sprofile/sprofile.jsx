@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-
+// import Pricelist from '../pricelist/Pricelist.jsx';
 
 function Photos() {
   const imgWidth = Dimensions.get('screen').width * 0.33333;
@@ -28,7 +28,7 @@ function Photos() {
             <Image
               style={{ width: imgWidth, height: imgWidth }}
               source={{
-                uri: `https://picsum.photos/200/300?random=2`,
+                uri: `https://previews.123rf.com/images/seamartini/seamartini1809/seamartini180901112/109734896-barber-shop-haircut-salon-vector-retro-poster-man-with-beard-and-mustaches-haircut-made-with-scissor.jpg`,
               }}
             />
           </View>
@@ -41,21 +41,21 @@ function Photos() {
 function Albums() {
   const [albums] = useState([
     {
-      name: 'Animals',
+      name: 'Men',
       images: [
-        'https://i.picsum.photos/id/1074/367/267.jpg?hmac=2YamGD7W1FNtp9UvAVUDdYUm44xzyHCthHqFl6jVT0M',
-        'https://i.picsum.photos/id/237/367/267.jpg?hmac=9Xp8JrOngpF2E_G3tRKnJMhZu5AX8FimulIG_sLj1xg',
-        'https://i.picsum.photos/id/1084/367/267.jpg?hmac=VaCZRCvuoubMR-S6bXItyxmDVwAaumZU2x1ulWE0faU',
-        'https://i.picsum.photos/id/219/367/267.jpg?hmac=S8RAgXxGj5AUho8KQ0hsjW8bhy1d-WunZNm77FCqC3w',
+        'https://www.menshairstylestoday.com/wp-content/uploads/2016/09/Barber-Haircuts.jpg',
+        'https://pbs.twimg.com/media/DQ3w7xPX4AEIABM.jpg',
+        'https://www.menshairstylestoday.com/wp-content/uploads/2016/09/Barber-Haircut-Styles-Fade-with-Brush-Up.jpg',
+        'https://img.freepik.com/free-photo/client-doing-hair-cut-barber-shop-salon_1303-20889.jpg?w=2000',
       ],
     },
     {
-      name: 'Food',
+      name: 'KIDS',
       images: [
-        'https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-        'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-        'https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-        'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+        'https://s3-media0.fl.yelpcdn.com/bphoto/-1myUjtrBvaEul6yHKE3Ag/348s.jpg',
+        'https://d2zdpiztbgorvt.cloudfront.net/region1/us/28132/biz_photo/e5e2f9b131ef473b96eb2542a4b210-rudy-the-barber-biz-photo-bfa72de0de8641299c7e1d482c8609-booksy.jpeg',
+        'https://global-uploads.webflow.com/5cb569e54ca2fddd5451cbb2/5d3078b775ae2c83a149e209_Barber-Industries-Kotara-29.jpg',
+        'https://i.pinimg.com/originals/db/6f/52/db6f52a815dedfac62b5339989470eec.jpg',
       ],
     },
   ]);
@@ -170,12 +170,13 @@ const Sprofile = ({navigation}) => {
               </View>
               {/* Interact Buttons View */}
               <View style={styles.interactButtonsView}>
-                <TouchableOpacity style={styles.interactButton}>
-                  <Text style={styles.interactButtonText}>APPOINTEMENT</Text>
+                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Appointment')}}>
+                  <Text style={styles.interactButtonText}>APPOINTMENT</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Pricelist')}}>
                   <Text style={styles.interactButtonText}>PRICE LIST</Text>
                 </TouchableOpacity>
+                
               </View>
               {/* Mutual Followed By Text */}
               <View style={{ paddingHorizontal: 25, marginTop: 10 }}>
@@ -232,7 +233,7 @@ const Sprofile = ({navigation}) => {
     
   );
 }
-
+export default Sprofile
 const styles = StyleSheet.create({
   coverImage: { height: 300, width: '100%' },
   profileContainer: {
@@ -326,5 +327,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Sprofile
+
 

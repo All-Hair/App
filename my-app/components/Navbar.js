@@ -32,12 +32,12 @@ const Navbar = ({navigation}) => {
 
                 }}>
 
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={()=>navigation.navigate('Mainbutton')} >
                         <View style={[styles.button, styles.actionBtn]}>
                            
                             <Image style={{ width: 50, height: 50 }}
                                 resizeMode="contain"
-                                source={ require('my-app/assets/logo-removebg-preview.png')}  onPress={()=>{Alert.alert("ok")}}/>
+                                source={ require('my-app/assets/logo-removebg-preview.png')}  />
                         </View>
                     </TouchableOpacity>
                 </View> 
@@ -127,7 +127,7 @@ const Navbar = ({navigation}) => {
                           
                         }}>
                             <TouchableOpacity
-                                onPress={() => {navigation.navigate("Uprofile")}}
+                                onPress={() => {navigation.navigate("Sprofile")}}
                             >
                                 <Image
                                     source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/3661442-removebg-preview_cwdejl.png' }}

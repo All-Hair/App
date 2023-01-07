@@ -6,22 +6,39 @@
   import Btn from "./button.jsx";
   import { primary } from "./constants.jsx";
   import Field from "./field.jsx";
-  import { auth,firebase } from '../../firebase';
   
-  
+  import {sendPasswordResetEmail} from 'firebase/auth'
+  import { auth } from '../../firebase';
   
   
   const Forgotpassword = ({navigation}) => {
+
      const [email,setEmail]=useState('');
      
-  
-  const forgotpassword =()=>{
-   firebase.auth().sendPasswordResetEmail(email)
-   .then(()=>{ alert("password reset email sent") }).catch((error)=>{alert(error);})
+    //  const resetPassword =()=>{
+
+    //   if (email!=null)
+    //   {
+    //     sendPasswordResetEmail(auth, email)
+    //     .then(() => {
+    //       alert ("password reset email has been sent successfully")
+    //     })
+    //     .catch((error) => {
+    //       const errorCode = error.code;
+    //       const errorMessage = error.message;
+    //     alert(errorMessage);
+    //     });
+    //   }
+    //   else{
+    //   alert ("Please enter a valid email")
+      // }}
+  // const forgotpassword =()=>{
+  //  firebase.auth().sendPasswordResetEmail(email)
+  //  .then(()=>{ alert("password reset email sent") }).catch((error)=>{alert(error);})
    
 
 
-  }
+  // }
   
   
     // useEffect(() => {
@@ -85,7 +102,7 @@
               onChangeText={text=>setEmail(text)}
             />
             
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=>{resetPassword()}}
     
       style={{
         backgroundColor: '#CCC9C0',

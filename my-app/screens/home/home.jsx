@@ -69,9 +69,9 @@ const Home = ({ navigation }) => {
             backgroundColor: '#D9D9D9',
             borderColor: '#CCC9C0',
             borderWidth: 1,
-            marginTop: 35,
+            marginTop: 40,
             height: 40,
-            marginLeft: width - 390,
+            marginLeft: width - 355,
           }}
           placeholder="search"
         ></TextInput>
@@ -81,10 +81,10 @@ const Home = ({ navigation }) => {
             width: 170,
             height: 170,
             marginTop: 30,
-            marginLeft: width - 320,
+            marginLeft: width - 300,
           }}
         />
-        <TouchableOpacity style={{ marginLeft: 50 }}>
+        <TouchableOpacity style={{ marginLeft: 50 }} >
           <View>
             <Image
               style={{ width: 40, height: 40 }}
@@ -92,7 +92,7 @@ const Home = ({ navigation }) => {
             />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: width - 350, top: 10 }}>
+        <TouchableOpacity style={{ marginLeft: width - 310, top: 10 }}>
           <View>
             <Image
               style={{ width: 40, height: 40 }}
@@ -102,7 +102,7 @@ const Home = ({ navigation }) => {
             />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: width - 245 }}>
+        <TouchableOpacity style={{ marginLeft: width - 235 }}>
           <View>
             <Image
               style={{ width: 40, height: 40 }}
@@ -151,28 +151,21 @@ const Home = ({ navigation }) => {
         <View style={[styles.fake_post]} />
         <View style={[styles.fake_post]} />
       </Animated.ScrollView>
-
-      <Text>Email:{auth.currentUser?.email}</Text>
+      <View >
+      <Text style={{top:-160}}>Email:{auth.currentUser?.email}</Text>
+      
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Sprofile');
+          navigation.navigate('Uprofile');
         }}
         style={styles.button}
       >
         <Text style={styles.buttonText}>Profile</Text>
       </TouchableOpacity>
-      
-      <Button title="Go to Shop" onPress={()=>navigation.navigate("Uprofile")}/>
-        <Navbar />
-
-        
-      <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Shop')} >
-        <Text>go ot the hell</Text>
-        </TouchableOpacity>
-      <Navbar />
+      </View>
 
       <Navbar navigation={navigation} />
     </SafeAreaView>
@@ -194,7 +187,9 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 70,
+    top:-190,
+    left:50
   },
   buttonText: {
     color: 'white',
@@ -203,11 +198,12 @@ const styles = StyleSheet.create({
   },
   header: {
     position: 'absolute',
-    width: width,
+    width: width -10,
     height: height - 440,
     backgroundColor: '#CCC9C0',
     borderBottomLeftRadius: 1000,
     borderBottomRightRadius: 1000,
+    top:8
   },
   circleButton: {
     width: 50,
