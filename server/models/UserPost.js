@@ -10,6 +10,9 @@ module.exports=(sequelize,DataType)=>{
         type:DataType.TINYINT,
       }
  })
+ UserPost.associate=(models)=>{
+    UserPost.hasMany(models.Comments)
+}
  return UserPost
 
 }
