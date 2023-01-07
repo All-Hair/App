@@ -13,12 +13,9 @@ import OneShop from './screens/shop/OneShop';
 import Cart from './screens/cart/cart';
 import Pricelist from './screens/pricelist/Pricelist.jsx';
 import Uprofile from './screens/UserProfile/Uprofile.js';
-import Appointment from './screens/appointment/appointment.js';
-// import Pricelist from './screens/pricelist/pricelist.jsx';
-// import Uprofile from './screens/UserProfile/Uprofile';
-import Navbar from './components/Navbar';
+import Appointment from './screens/rating/rating.jsx'
 import UpdateUpro from './screens/UserProfile/UpdateUpro';
-
+import Mainbutton from './screens/mainbutton/mainbutton.jsx';
 
 
 
@@ -26,12 +23,13 @@ const Stack = createNativeStackNavigator();
 
 const App =() => {
   return (
-    
+    <NativeBaseProvider> 
+
 <NavigationContainer>
-<Stack.Navigator>
+<Stack.Navigator >
 <Stack.Screen name ='Login' options = {{headerShown :false}} component={Login}/>
-<Stack.Screen name ='Signup'    component={Signup}/>
-<Stack.Screen name ='Forgotpassword'    component={Forgotpassword}/>
+<Stack.Screen name ='Signup'  options = {{headerShown :false}}  component={Signup}/>
+<Stack.Screen name ='Forgotpassword'  options = {{headerShown :false}}   component={Forgotpassword}/>
 <Stack.Screen name ='Home' options = {{headerShown :false}}  component={Home}/> 
 <Stack.Screen name ="Shop" options = {{headerShown :false}} component={Shop} />
 <Stack.Screen name ="OneShop" options = {{headerShown :false}} component={OneShop} />
@@ -41,9 +39,11 @@ const App =() => {
 <Stack.Screen name ='UpdateUpro' options = {{headerShown :false}}  component={UpdateUpro}/> 
 <Stack.Screen name ='Pricelist' options = {{headerShown :false}}  component={Pricelist}/>
 <Stack.Screen name ='Appointment' options = {{headerShown :false}}  component={Appointment}/>
+<Stack.Screen name ='Mainbutton' options = {{headerShown :false}}  component={Mainbutton}/>
 </Stack.Navigator>
 </NavigationContainer>
    
+    </NativeBaseProvider>
 );
 }
 
