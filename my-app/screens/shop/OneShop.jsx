@@ -38,7 +38,7 @@ const OneShop = ({ navigation }) => {
         </View>
           <TouchableOpacity
            onPress={() => {
-          navigation.navigate('OneShop');
+          navigation.navigate('Cart');
         }}
         style={styles.button}
       >

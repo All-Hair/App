@@ -4,12 +4,10 @@ import Navbar from '../../components/Navbar';
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#0891b2',
     paddingVertical: 50,
     paddingHorizontal: 120,
     borderRadius: 50,
     alignSelf: 'center',
-    // width: 500,
     maxWidth: '100%',
     alignSelf: 'center',
     alignItems: 'center'
