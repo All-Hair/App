@@ -39,6 +39,7 @@ module.exports=(sequelize,DataType)=>{
     User.associate=(models)=>{
         User.belongsToMany(models.Product,{through :"UserProduct" })
         User.belongsToMany(models.Saloon,{through:"Appointment"})
+        User.belongsToMany(models.Post,{through:"UserPost"})
     }
 
     return User 
