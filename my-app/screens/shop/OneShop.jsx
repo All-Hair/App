@@ -15,14 +15,14 @@ const OneShop = ({ navigation }) => {
     <SafeAreaView>
       <Text
         style={{
-          fontSize: 35,
+          fontSize: 30,
           fontWeight: "bold",
-          marginVertical: 20,
-          marginTop: 20,
+          // marginVertical: 20,
+          marginTop: 50,
           alignSelf: "center",
         }}
       >
-        DETAIL PRODUCT{" "}
+        PRODUCT DETAILS{" "}
       </Text>
 
       <View style={styles.item}>
@@ -45,7 +45,7 @@ const OneShop = ({ navigation }) => {
         <Text style={styles.buttonText}>Buy</Text>
       </TouchableOpacity>
       </View>
-      <Navbar />
+      <Navbar navigation={navigation}/>
     </SafeAreaView>
   );
 };
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 30,
+    top: 40,
 
   },
   buttonText: {

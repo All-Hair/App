@@ -233,7 +233,7 @@ const Sprofile = ({navigation}) => {
     
   );
 }
-
+export default Sprofile
 const styles = StyleSheet.create({
   coverImage: { height: 300, width: '100%' },
   profileContainer: {
@@ -327,5 +327,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Sprofile
+
 

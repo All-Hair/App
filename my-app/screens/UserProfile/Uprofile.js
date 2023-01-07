@@ -111,9 +111,9 @@ const styles = StyleSheet.create({
     borderColor: "#CCC9C0",
   },
   nameAndBioView: { alignItems: "center", marginTop: 10 },
-  userFullName: { fontFamily: "", fontSize: 26 },
+  userFullName: {  'fontSize': 26 },
   userBio: {
-    fontFamily: "",
+  
     fontSize: 18,
     color: "#333",
     marginTop: 4,
@@ -126,8 +126,8 @@ const styles = StyleSheet.create({
   },
   countsView: { flexDirection: "row", marginTop: 20 },
   countView: { flex: 1, alignItems: "center" },
-  countNum: { fontFamily: "", fontSize: 20 },
-  countText: { fontFamily: "", fontSize: 18, color: "#333" },
+  countNum: { fontSize: 20 },
+  countText: {  fontSize: 18, color: "#333" },
   interactButtonsView: {
     flexDirection: "row",
     marginTop: 10,
