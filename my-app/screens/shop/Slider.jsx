@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View,  Text, StyleSheet ,Image, SafeAreaView, TouchableHighlight, Dimensions} from 'react-native';
-import ImageSlider from 'react-native-image-slider';
+// import ImageSlider from 'react-native-image-slider';
 // import { Image } from 'react-native-svg';
-import Slider from '@react-native-community/slider';
+// import Slider from '@react-native-community/slider';
 import { ScrollView } from 'native-base';
 const styles = StyleSheet.create({
   container: {
