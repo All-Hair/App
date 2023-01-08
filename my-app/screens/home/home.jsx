@@ -31,6 +31,7 @@ const Home = ({ navigation }) => {
   console.log(auth.currentUser?.email);
 
   return (
+    <SafeAreaView>
     <ScrollView
       showsVerticalScrollIndicator={false}
       style={{ height: '100%', backgroundColor: '#CCC9C0' }}
@@ -116,8 +117,9 @@ const Home = ({ navigation }) => {
         </View>
       </View>
 
-      <Navbar navigation={navigation} />
     </ScrollView>
+      <Navbar navigation={navigation} />
+    </SafeAreaView>
   );
 };
 
