@@ -2,6 +2,8 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import { NativeBaseProvider } from 'native-base';
+import * as React from 'react';
+
 
 import Home from './screens/home/home.jsx';
 import Signup from './screens/signup/signup';
@@ -23,8 +25,8 @@ const Stack = createNativeStackNavigator();
 
 const App =() => {
   return (
+  
 <NativeBaseProvider> 
-
 <NavigationContainer>
 <Stack.Navigator >
 <Stack.Screen name ='Login' options = {{headerShown :false}} component={Login}/>
@@ -43,9 +45,9 @@ const App =() => {
 <Stack.Screen name ='Slider' options = {{headerShown :false}}  component={SliderPhotos}/>
 
 </Stack.Navigator>
-</NavigationContainer>
-   
- </NativeBaseProvider>
+</NavigationContainer>   
+</NativeBaseProvider>
+
 );
 }
 
