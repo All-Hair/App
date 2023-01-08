@@ -2,7 +2,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Entypo';
 
-
 import {
   Button,
   Dimensions,
@@ -20,6 +19,10 @@ import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
 
 const Home = ({ navigation }) => {
+  const [popularSelected, setPop] = useState(true);
+  onTabPressed = () => {
+    setPop(!popularSelected);
+  };
   const handleSignOut = () => {
     auth
       .signOut()
@@ -32,92 +35,126 @@ const Home = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      style={{ height: '100%', backgroundColor: '#CCC9C0' }}
-    >
-      <View style={{ height: 260, width: '100%', paddingHorizontal: 35 }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            width: '100%',
-            paddingTop: 40,
-            alignItems: 'center',
-          }}
-        >
-          <View style={{ width: '50%'}}>
-            <Image
-              source={require('my-app/assets/logo-removebg-preview.png')}
-              style={{ width:80, height: 80 }}
-            />
-          </View>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{ height: '100%', backgroundColor: '#CCC9C0' }}
+      >
+        <View style={{ height: 260, width: '100%', paddingHorizontal: 35 }}>
           <View
             style={{
-              width: '50%',
-              alignItems: 'flex-end',
+              flexDirection: 'row',
+              width: '100%',
+              paddingTop: 40,
+              alignItems: 'center',
             }}
           >
-            <Icon
-              name="dots-two-vertical"
-              size={22}
-              color="white"
-              style={{ marginRight: -7, marginTop: 7 }}
+            <View style={{ width: '50%' }}>
+              <Image
+                source={require('my-app/assets/logo-removebg-preview.png')}
+                style={{ width: 80, height: 80 }}
+              />
+            </View>
+            <View
+              style={{
+                width: '50%',
+                alignItems: 'flex-end',
+              }}
+            >
+              <Icon
+                name="dots-two-vertical"
+                size={22}
+                color="white"
+                style={{ marginRight: -7, marginTop: 7 }}
+              />
+            </View>
+          </View>
+          <Text
+            style={{
+              fontSize: 40,
+              color: '#FFF',
+              left:55
+            }}
+          >
+            Find Your coiff
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              borderColor: '#9ca1a2',
+              borderRadius: 20,
+              borderWidth: 0.2,
+              paddingVertical: 5,
+              alignContent: 'center',
+            }}
+          >
+            <TextInput
+              placeholder="search"
+              style={{
+                paddingHorizontal: 20,
+                // fontFamily:'Medium',
+                fontSize: 15,
+                width: '90%',
+                color: '#9ca1a2',
+              }}
             />
+            <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
           </View>
         </View>
-        <Text
-          style={{
-            fontSize: 25,
-            color: '#FFF',
-          }}
-        >
-          Find Your coiff
-        </Text>
         <View
           style={{
-            flexDirection: 'row',
-            borderColor: '#9ca1a2',
-            borderRadius: 20,
-            borderWidth: 0.2,
-            paddingVertical: 5,
-            alignContent: 'center',
+            backgroundColor: '#FFF',
+            borderTopLeftRadius: 40,
+            borderTopRightRadius: 40,
+            height: 1000,
+            paddingHorizontal: 35,
           }}
         >
-          <TextInput
-            placeholder="search"
+          <View
             style={{
-              paddingHorizontal: 20,
-              // fontFamily:'Medium',
-              fontSize: 15,
-              width: '90%',
-              color: '#9ca1a2',
+              flexDirection: 'row',
+              paddingTop: 20,
             }}
-          />
-          <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
-        </View>
-      </View>
-      <View
-        style={{
-          backgroundColor: '#FFF',
-          borderTopLeftRadius: 40,
-          borderTopRightRadius: 40,
-          height: 1000,
-          paddingHorizontal: 35,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: 'row',
-            paddingTop: 20,
-          }}
-        >
-          <TouchableOpacity>
+          >
+            <TouchableOpacity
+              onPress={onTabPressed}
+              style={{
+                borderBottomColor: popularSelected ? '#CCC9C0' : '#FFF',
+                borderBottomWidth: 4,
+                paddingVertical: 6,
+              }}
+            >
+              <Text
+                style={{
+                  color: popularSelected ? '#CCC9C0' : '#d9d5ca',
+                }}
+              >
+                MOST POPULAR
+              </Text>
+            </TouchableOpacity>
 
-          </TouchableOpacity>
-        </View>
-      </View>
+            <TouchableOpacity
+              onPress={onTabPressed}
+              style={{
+                borderBottomColor: popularSelected ?  '#FFF' :'#CCC9C0',
+                borderBottomWidth: 4,
+                paddingVertical: 6,
+                marginLeft:30
+              }}
+            >
+              <Text
+                style={{
+                  color: popularSelected ?  '#d9d5ca' :'#CCC9C0',
+                }}
+              >
+                RECENT
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View>
 
-    </ScrollView>
+          </View>
+        </View>
+      </ScrollView>
       <Navbar navigation={navigation} />
     </SafeAreaView>
   );
