@@ -31,6 +31,13 @@ const data = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU",
   },
+  {
+    id: "4",
+    name: "Salvator",
+    price: "80 DT",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU",
+  },
 ];
 const Shop = ({ navigation }) => {
   const [item, setItem] = useState(data);
@@ -40,10 +47,10 @@ const Shop = ({ navigation }) => {
       <SafeAreaView>
         <Text
           style={{
-            fontSize: 30,
+            fontSize: 35,
             fontWeight: "bold",
-            marginVertical: 20,
-            marginTop: 170,
+            marginVertical: -40,
+            marginTop: 100,
             alignSelf: "center",
             bottom:85
           }}
@@ -69,7 +76,15 @@ const Shop = ({ navigation }) => {
                   navigation.navigate("Slider"), e.id;
                 }}  
                 style={styles.button}>
-        <Text style={styles.buttonText}>More</Text>
+            <Text style={styles.buttonText}>More</Text>
+           </TouchableOpacity>
+           <TouchableOpacity
+           onPress={() => {
+          navigation.navigate('Cart');
+        }}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Buy</Text>
       </TouchableOpacity>
             </View>
           );

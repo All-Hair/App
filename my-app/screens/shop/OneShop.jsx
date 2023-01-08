@@ -24,7 +24,7 @@ const OneShop = ({ navigation }) => {
       >
         PRODUCT DETAILS{" "}
       </Text>
-
+       
       <View style={styles.item}>
         <Image
           style={styles.itemImage}
