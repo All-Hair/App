@@ -48,7 +48,6 @@ const App =() => {
 <Stack.Screen name = 'Mainbutton' options = {{headerShown :false}}  component={Mainbutton}/>
 <Stack.Screen name = 'BookList' options = {{headerShown :false}}  component={BookList}/>
 <Stack.Screen name = 'Appointment' options = {{headerShown :false}}  component={Appointment}/>
-<Stack.Screen name ='Appointment' options = {{headerShown :false}}  component={Appointment}/>
 <Stack.Screen name ='Mainbutton' options = {{headerShown :false}}  component={Mainbutton}/>
 <Stack.Screen name ='Slider' options = {{headerShown :false}}  component={SliderPhotos}/>
 
