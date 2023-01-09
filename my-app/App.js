@@ -2,6 +2,8 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import { NativeBaseProvider } from 'native-base';
+import * as React from 'react';
+
 
 import Home from './screens/home/home.jsx';
 import Signup from './screens/signup/signup';
@@ -11,7 +13,7 @@ import Sprofile from './screens/sprofile/sprofile';
 import Shop from './screens/shop/Shop';
 import OneShop from './screens/shop/OneShop';
 import Cart from './screens/cart/cart';
-import Pricelist from './screens/pricelist/Pricelist.jsx';
+import Pricelist from './screens/pricelist/pricelist';
 import Uprofile from './screens/UserProfile/Uprofile.js';
 import BookList from './screens/booking/bookList.js';
 import UpdateUpro from './screens/UserProfile/UpdateUpro';
@@ -19,12 +21,15 @@ import Mainbutton from './screens/mainbutton/mainbutton.jsx';
 import DateSelect from './screens/booking/dateSelect.js';
 import PickTime from  './screens/booking/pickTime.js'
 import Appointment from './screens/booking/appointment.js';
+import SliderPhotos from './screens/shop/Slider'
+
+
 const Stack = createNativeStackNavigator();
 
 const App =() => {
   return (
-    <NativeBaseProvider> 
-
+  
+<NativeBaseProvider> 
 <NavigationContainer>
 <Stack.Navigator >
 <Stack.Screen name ='Login' options = {{headerShown :false}} component={Login}/>
@@ -43,10 +48,14 @@ const App =() => {
 <Stack.Screen name = 'Mainbutton' options = {{headerShown :false}}  component={Mainbutton}/>
 <Stack.Screen name = 'BookList' options = {{headerShown :false}}  component={BookList}/>
 <Stack.Screen name = 'Appointment' options = {{headerShown :false}}  component={Appointment}/>
+<Stack.Screen name ='Appointment' options = {{headerShown :false}}  component={Appointment}/>
+<Stack.Screen name ='Mainbutton' options = {{headerShown :false}}  component={Mainbutton}/>
+<Stack.Screen name ='Slider' options = {{headerShown :false}}  component={SliderPhotos}/>
+
 </Stack.Navigator>
-</NavigationContainer>
-   
-    </NativeBaseProvider>
+</NavigationContainer>   
+</NativeBaseProvider>
+
 );
 }
 

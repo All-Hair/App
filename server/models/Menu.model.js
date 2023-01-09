@@ -1,3 +1,5 @@
+const {models}=require('../models')
+
 module.exports=(sequelize,DataType)=>{
     const Menu = sequelize.define('Menu',{
         id: {
@@ -22,5 +24,9 @@ module.exports=(sequelize,DataType)=>{
             allowNull:true
         }
     })
+    Menu.associate=(models)=>{
+      Menu.belongsTo(models.Saloon)
+    }
+
     return Menu
 }

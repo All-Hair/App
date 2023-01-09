@@ -1,3 +1,6 @@
+
+const {models}=require('../models')
+
 module.exports=(sequelize,Datatype)=>{
  const Saloon = sequelize.define("Saloon",{
     id: {
@@ -50,6 +53,12 @@ module.exports=(sequelize,Datatype)=>{
         allowNull:true
     }
     
- })
+   })
+   Saloon.associate=(models)=>{
+    Saloon.belongsToMany(models.User,{through : "Appointment"})
+    Saloon.hasMany(models.Menu)
+    Saloon.hasMany(models.Post)
+}
+
  return Saloon
 }

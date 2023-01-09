@@ -24,7 +24,7 @@ const OneShop = ({ navigation }) => {
       >
         PRODUCT DETAILS{" "}
       </Text>
-
+       
       <View style={styles.item}>
         <Image
           style={styles.itemImage}
@@ -38,7 +38,7 @@ const OneShop = ({ navigation }) => {
         </View>
           <TouchableOpacity
            onPress={() => {
-          navigation.navigate('OneShop');
+          navigation.navigate('Cart');
         }}
         style={styles.button}
       >

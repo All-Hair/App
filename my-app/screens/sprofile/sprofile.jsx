@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import Pricelist from '../pricelist/Pricelist.jsx';
+// import Pricelist from '../pricelist/Pricelist.jsx';
 
 function Photos() {
   const imgWidth = Dimensions.get('screen').width * 0.33333;

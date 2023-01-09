@@ -34,7 +34,7 @@ module.exports = {
     let id = req.params.id
     const update =req.body
     try{
-        const saloonUpdated =await Saloon.update(update,{where:{id:id}})
+        const saloonUpdated = await Saloon.update(update,{where:{id:id}})
         res.status(201).json(saloonUpdated)
     }
     catch(error){
