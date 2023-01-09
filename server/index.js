@@ -16,8 +16,8 @@ const user = require("./routes/user.routes")
 //Add Routes to the middleware 
 app.use('/saloon',SaloonRoute)
 app.use('/product',product)
-app.use('/api',menu)
-app.use('/api',user)
+app.use('/menu',menu)
+app.use('/user',user)
 
 
 
