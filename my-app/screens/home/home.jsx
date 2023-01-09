@@ -72,7 +72,8 @@ const Home = ({ navigation }) => {
             style={{
               fontSize: 40,
               color: '#FFF',
-              left:55
+              left: 55,
+              paddingTop: 20,
             }}
           >
             Find Your coiff
@@ -80,11 +81,13 @@ const Home = ({ navigation }) => {
           <View
             style={{
               flexDirection: 'row',
-              borderColor: '#9ca1a2',
+              borderColor: '#fff',
               borderRadius: 20,
               borderWidth: 0.2,
               paddingVertical: 5,
               alignContent: 'center',
+              backgroundColor: '#fff',
+              top:10
             }}
           >
             <TextInput
@@ -94,7 +97,7 @@ const Home = ({ navigation }) => {
                 // fontFamily:'Medium',
                 fontSize: 15,
                 width: '90%',
-                color: '#9ca1a2',
+                color: '#fff',
               }}
             />
             <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
@@ -103,8 +106,8 @@ const Home = ({ navigation }) => {
         <View
           style={{
             backgroundColor: '#FFF',
-            borderTopLeftRadius: 40,
-            borderTopRightRadius: 40,
+            borderTopLeftRadius: 100,
+            // borderTopRightRadius: 40,
             height: 1000,
             paddingHorizontal: 35,
           }}
@@ -113,6 +116,7 @@ const Home = ({ navigation }) => {
             style={{
               flexDirection: 'row',
               paddingTop: 20,
+              left:30
             }}
           >
             <TouchableOpacity
@@ -135,24 +139,22 @@ const Home = ({ navigation }) => {
             <TouchableOpacity
               onPress={onTabPressed}
               style={{
-                borderBottomColor: popularSelected ?  '#FFF' :'#CCC9C0',
+                borderBottomColor: popularSelected ? '#FFF' : '#CCC9C0',
                 borderBottomWidth: 4,
                 paddingVertical: 6,
-                marginLeft:30
+                marginLeft: 30,
               }}
             >
               <Text
                 style={{
-                  color: popularSelected ?  '#d9d5ca' :'#CCC9C0',
+                  color: popularSelected ? '#d9d5ca' : '#CCC9C0',
                 }}
               >
                 RECENT
               </Text>
             </TouchableOpacity>
           </View>
-          <View>
-
-          </View>
+          <View></View>
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />
