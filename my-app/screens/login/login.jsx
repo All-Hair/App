@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react';
 import {
   Dimensions,
   Image,
-  Text,
+  
   
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+
 } from 'react-native';
+import { Text } from 'native-base';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { auth } from '../../firebase';
 import {MaterialIcons } from '@expo/vector-icons'
@@ -14,6 +20,8 @@ import Background from './background.jsx';
 import Btn from './button.jsx';
 import { primary } from './constants.jsx';
 import Field from './field.jsx';
+// import { platformSpecificSpaceUnits } from 'native-base/lib/typescript/theme/tools';
+import { he } from 'date-fns/locale';
  
 
 const Login = ({ navigation }) => {
@@ -48,6 +56,9 @@ const Login = ({ navigation }) => {
   
 
   return (
+    
+    <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss}}>
+    <KeyboardAvoidingView behavior = "padding">
     <Background>
       <SafeAreaView
         style={{
@@ -169,6 +180,8 @@ const Login = ({ navigation }) => {
       </SafeAreaView>
       
     </Background>
+    </KeyboardAvoidingView>
+      </TouchableWithoutFeedback>
   );
 };
 

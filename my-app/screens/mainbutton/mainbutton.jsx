@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Box ,Button} from "native-base";
+import { Box ,Button,HStack,Image, VStack} from "native-base";
 import {Video} from 'react-native-video'
 import {
   StyleSheet,
   Text,
   View,
-  Image,
+  
   Dimensions,
   SafeAreaView,
   Animated,
@@ -70,7 +70,7 @@ function Backdrop({ scrollX }) {
         );
       })}
       <LinearGradient
-        colors={["transparent", "white"]}
+        colors={["transparent", "#E2DFDF"]}
         style={{
           width,
           height: HEIGHT_BACKDROP,
@@ -119,7 +119,7 @@ export default function Mainbutton ({navigation}) {
           return (
             
             <View style={{ width: CONTAINER_WIDTH }}>
-               
+                <TouchableOpacity onPress={()=>{navigation.navigate('Sprofile')}}>
               <Animated.View 
                 style={{
                   marginHorizontal: SPACE,
@@ -130,21 +130,44 @@ export default function Mainbutton ({navigation}) {
                   transform: [{ translateY: scrollY }],
                 }}
               >
+               
+                
+                <Image source={{ uri: item }} alt={'walid'} style={styles.posterImage} />  
                 
                 
-                <Image source={{ uri: item }} style={styles.posterImage} />  
-            
-                <Text style={{ fontWeight: "bold", fontSize: 26 }} >
+                
+                <VStack>
+                    
+                <Text style={{ fontWeight: "bold", fontSize: 19 ,padding:8 }} >
                   {" "}
                  boulbeba COIFF
                 </Text>
+                
+                <HStack>
+                    
+                <Image
+                    width={6} height={6} alt={'walid'} 
+                  source={{
+                    uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1673109808/2776067-removebg-preview_gshhgn.png',
+                  }}
+                />
+                <Text style={{ fontSize: 17 } }>
+                  {" "}
+                 ariana tunis
+                </Text>
+                
+                </HStack>
+                
+                </VStack>
+                
+                
                 <Box  width={100} height={20}>
                
                 <Rating />
-                </Box>
+                </Box >
                 
               </Animated.View>
-             
+              </TouchableOpacity>
             </View>
           );
         }}
