@@ -6,6 +6,7 @@ import {
   Button,
   Dimensions,
   Image,
+  ImageBackground,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -39,6 +40,7 @@ const Home = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
         style={{ height: '100%', backgroundColor: '#CCC9C0' }}
       >
+        <ImageBackground source={require('my-app/assets/profilbackground.png')}>
         <View style={{ height: 260, width: '100%', paddingHorizontal: 35 }}>
           <View
             style={{
@@ -72,7 +74,7 @@ const Home = ({ navigation }) => {
             style={{
               fontSize: 40,
               color: '#FFF',
-              left: 55,
+              left: 35,
               paddingTop: 20,
             }}
           >
@@ -103,13 +105,15 @@ const Home = ({ navigation }) => {
             <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
           </View>
         </View>
+        </ImageBackground>
         <View
           style={{
             backgroundColor: '#FFF',
-            borderTopLeftRadius: 100,
+            borderTopLeftRadius: 110,
             // borderTopRightRadius: 40,
             height: 1000,
             paddingHorizontal: 35,
+            
           }}
         >
           <View
