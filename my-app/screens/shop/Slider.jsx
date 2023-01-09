@@ -9,9 +9,6 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-// import ImageSlider from 'react-native-image-slider';
-// import { Image } from 'react-native-svg';
-// import Slider from '@react-native-community/slider';
 import { ScrollView } from "native-base";
 import Navbar from "../../components/Navbar";
 import {
@@ -24,7 +21,6 @@ import {
 const WIDTH = Dimensions.get("window").width;
 const HEIGTH = Dimensions.get("window").height;
 const SliderPhotos = ({ navigation }) => {
-  //   const [currentIndex, setCurrentIndex] = useState(0);
   const [imgActive, setimgActive] = useState(0);
 
   onchange = (nativeEvent) => {
@@ -36,7 +32,7 @@ const SliderPhotos = ({ navigation }) => {
         setimgActive(slide);
       }
     }
-  };
+  }
   const images = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU",
@@ -86,26 +82,24 @@ const SliderPhotos = ({ navigation }) => {
           <Text style={[styles.text, { color: "#000000" }]}>
             <MaterialCommunityIcons size={19}> </MaterialCommunityIcons>
             PRICE :{"                      "}
-            <Text style={{ fontWeight: "600"  }}>150 dt </Text>
+            <Text style={{ fontWeight: "600" }}>150 dt </Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>
             <Fontisto size={19}> </Fontisto>
             DETAILS :{"                   "}
-            <Text style={{ fontWeight: "" }}>
-              csdiubui dbviusdbuidvuibsd {" "}
-            </Text>
+            <Text style={{ fontWeight: "" }}>csdiubui dbviusdbuidvuibsd </Text>
           </Text>
         </View>
       </View>
       <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Cart");
-                }}
-                style={styles.button}
-              >
-                <Text style={styles.buttonText}>Buy</Text>
-              </TouchableOpacity>
+        onPress={() => {
+          navigation.navigate("Cart");
+        }}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Buy</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -144,7 +138,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginTop: 20,
-   
   },
   coverImage: { height: 300, width: "100%" },
   profileContainer: {
@@ -331,8 +324,8 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
-    left:150,
-    top:70
+    left: 150,
+    top: 70,
   },
 });
 export default SliderPhotos;

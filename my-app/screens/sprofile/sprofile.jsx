@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
+  SafeAreaView,
 } from 'react-native';
 
 // import Pricelist from '../pricelist/Pricelist.jsx';
@@ -81,7 +82,7 @@ function Albums() {
               borderRadius: 6,
             }}
           >
-            <Text style={{ color: '#fff', fontFamily: '', fontSize: 20 }}>
+            <Text style={{ color: '#fff', fontSize: 20 }}>
               {album.name}
             </Text>
           </View>
@@ -123,7 +124,7 @@ const Sprofile = ({navigation}) => {
   const [showContent, setShowContent] = useState('Photos');
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView showsVerticalScrollIndicator={true}>
         <>
           <View>
@@ -229,7 +230,7 @@ const Sprofile = ({navigation}) => {
         
       </ScrollView>
       <Navbar  navigation ={navigation} />
-    </View>
+    </SafeAreaView>
     
   );
 }
@@ -252,9 +253,9 @@ const styles = StyleSheet.create({
     borderColor: '#CCC9C0',
   },
   nameAndBioView: { alignItems: 'center', marginTop: 10 },
-  userFullName: { fontFamily: '', fontSize: 26 ,  textDecorationLine: 'underline'},
+  userFullName: { fontSize: 26 ,  textDecorationLine: 'underline'},
   userBio: {
-    fontFamily: '',
+
     fontSize: 18,
     color: '#333',
     marginTop: 4,
@@ -264,8 +265,8 @@ const styles = StyleSheet.create({
   },
   countsView: { flexDirection: 'row', marginTop: 20 },
   countView: { flex: 1, alignItems: 'center' },
-  countNum: { fontFamily: '', fontSize: 20 },
-  countText: { fontFamily: '', fontSize: 18, color: '#333' },
+  countNum: {  fontSize: 20 },
+  countText: {  fontSize: 18, color: '#333' },
   interactButtonsView: {
     flexDirection: 'row',
     marginTop: 10,

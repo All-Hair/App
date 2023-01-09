@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { getBookedData } from './service/StoreData';
@@ -10,7 +10,7 @@ export default (BookList = ({ navigation }) => {
 	const [ showAlert, setShowAlert ] = React.useState(true);
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 		<View style={styles.container1}>
 		<Text style={styles.title}>Booklist</Text>
 			<AwesomeAlert
@@ -57,7 +57,7 @@ export default (BookList = ({ navigation }) => {
 			</View>
 		</View>
 		<Navbar navigation={navigation}/>
-		</View>
+		</SafeAreaView >
 	);
 });
 
