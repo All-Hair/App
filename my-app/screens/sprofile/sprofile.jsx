@@ -170,7 +170,7 @@ const Sprofile = ({navigation}) => {
               </View>
               {/* Interact Buttons View */}
               <View style={styles.interactButtonsView}>
-                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Appointment')}}>
+                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
                   <Text style={styles.interactButtonText}>APPOINTMENT</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Pricelist')}}>
