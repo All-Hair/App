@@ -1,5 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
+import Icon from 'react-native-vector-icons/Entypo';
+
 import {
   Button,
   Dimensions,
@@ -10,17 +12,17 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
-import { auth } from '../../firebase';
 import Animated, { Easing, interpolate } from 'react-native-reanimated';
 import Navbar from '../../components/Navbar';
-
-const { Value, timing } = Animated;
+import { auth } from '../../firebase';
 
 const Home = ({ navigation }) => {
-  // const [_scroll_y,setScroll_y]=useState(0)
-  const _scroll_y = new Animated.Value(0);
+  const [popularSelected, setPop] = useState(true);
+  onTabPressed = () => {
+    setPop(!popularSelected);
+  };
   const handleSignOut = () => {
     auth
       .signOut()
@@ -31,142 +33,128 @@ const Home = ({ navigation }) => {
   };
   console.log(auth.currentUser?.email);
 
-  const _diff_clamp_scroll_y = Animated.diffClamp(_scroll_y, 0, 50);
-  
-  const _header_height = Animated.interpolateNode(_diff_clamp_scroll_y, {
-    inputRange: [0, 410],
-    outputRange: [410, 0],
-    extrapolate: 'clamp',
-  });
-  const _header_translate_y = Animated.interpolateNode(_diff_clamp_scroll_y, {
-    inputRange: [0, 410],
-    outputRange: [0, -410],
-    extrapolate: 'clamp',
-  });
-  const _header_opacity = Animated.interpolateNode(_diff_clamp_scroll_y, {
-    inputRange: [0, 410],
-    outputRange: [1, 0],
-    extrapolate: 'clamp',
-  });
   return (
-    <SafeAreaView style={styles.container}>
-      <Animated.View
-        style={[
-          styles.header,
-          {
-            height: _header_height,
-            transform: [{ translateY: _header_translate_y }],
-            opacity: _header_opacity,
-          },
-        ]}
-      >
-        <TextInput
-          style={{
-            borderRadius: 10,
-            color: 'black',
-            paddingHorizontal: 18,
-            width: width - 120,
-            backgroundColor: '#D9D9D9',
-            borderColor: '#CCC9C0',
-            borderWidth: 1,
-            marginTop: 40,
-            height: 40,
-            marginLeft: width - 355,
-          }}
-          placeholder="search"
-        ></TextInput>
-        <Image
-          source={require('my-app/assets/logo-removebg-preview.png')}
-          style={{
-            width: 170,
-            height: 170,
-            marginTop: 30,
-            marginLeft: width - 300,
-          }}
-        />
-        <TouchableOpacity style={{ marginLeft: 50 }} >
-          <View>
-            <Image
-              style={{ width: 40, height: 40 }}
-              source={require('my-app/assets/noti.png')}
-            />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: width - 310, top: 10 }}>
-          <View>
-            <Image
-              style={{ width: 40, height: 40 }}
-              source={{
-                uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/5043688-removebg-preview_v3u4hm.png',
-              }}
-            />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: width - 235 }}>
-          <View>
-            <Image
-              style={{ width: 40, height: 40 }}
-              source={{
-                uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/6178238-removebg-preview_cpuyde.png',
-              }}
-            />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: width - 160, bottom: 67 }}>
-          <View>
-            <Image
-              style={{ width: 40, height: 40 }}
-              source={{
-                uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/2838838-removebg-preview_xksvd2.png',
-              }}
-            />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: width - 100, bottom: 152 }}>
-          <View>
-            <Image
-              style={{ width: 40, height: 40 }}
-              source={{
-                uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/3661442-removebg-preview_cwdejl.png',
-              }}
-            />
-          </View>
-        </TouchableOpacity>
-        <View style={styles.fake_icon_box}></View>
-      </Animated.View>
-      <Animated.ScrollView
-        style={[styles.scroll_view, {}]}
+    <SafeAreaView>
+      <ScrollView
         showsVerticalScrollIndicator={false}
-        bounces={false}
-        scrollEventThrottle={5}
-        onScroll={Animated.event([
-          {
-            nativeEvent: { contentOffset: { y: _scroll_y } },
-          },
-        ])}
+        style={{ height: '100%', backgroundColor: '#CCC9C0' }}
       >
-        <View style={[styles.fake_post]} />
-        <View style={[styles.fake_post]} />
-        <View style={[styles.fake_post]} />
-        <View style={[styles.fake_post]} />
-        <View style={[styles.fake_post]} />
-      </Animated.ScrollView>
-      <View >
-      <Text style={{top:-160}}>Email:{auth.currentUser?.email}</Text>
-      
-      <TouchableOpacity onPress={handleSignOut} style={styles.button}>
-        <Text style={styles.buttonText}>Sign out</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Uprofile');
-        }}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Profile</Text>
-      </TouchableOpacity>
-      </View>
+        <View style={{ height: 260, width: '100%', paddingHorizontal: 35 }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              width: '100%',
+              paddingTop: 40,
+              alignItems: 'center',
+            }}
+          >
+            <View style={{ width: '50%' }}>
+              <Image
+                source={require('my-app/assets/logo-removebg-preview.png')}
+                style={{ width: 80, height: 80 }}
+              />
+            </View>
+            <View
+              style={{
+                width: '50%',
+                alignItems: 'flex-end',
+              }}
+            >
+              <Icon
+                name="dots-two-vertical"
+                size={22}
+                color="white"
+                style={{ marginRight: -7, marginTop: 7 }}
+              />
+            </View>
+          </View>
+          <Text
+            style={{
+              fontSize: 40,
+              color: '#FFF',
+              left:55
+            }}
+          >
+            Find Your coiff
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              borderColor: '#9ca1a2',
+              borderRadius: 20,
+              borderWidth: 0.2,
+              paddingVertical: 5,
+              alignContent: 'center',
+            }}
+          >
+            <TextInput
+              placeholder="search"
+              style={{
+                paddingHorizontal: 20,
+                // fontFamily:'Medium',
+                fontSize: 15,
+                width: '90%',
+                color: '#9ca1a2',
+              }}
+            />
+            <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
+          </View>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#FFF',
+            borderTopLeftRadius: 40,
+            borderTopRightRadius: 40,
+            height: 1000,
+            paddingHorizontal: 35,
+          }}
+        >
+          <View
+            style={{
+              flexDirection: 'row',
+              paddingTop: 20,
+            }}
+          >
+            <TouchableOpacity
+              onPress={onTabPressed}
+              style={{
+                borderBottomColor: popularSelected ? '#CCC9C0' : '#FFF',
+                borderBottomWidth: 4,
+                paddingVertical: 6,
+              }}
+            >
+              <Text
+                style={{
+                  color: popularSelected ? '#CCC9C0' : '#d9d5ca',
+                }}
+              >
+                MOST POPULAR
+              </Text>
+            </TouchableOpacity>
 
+            <TouchableOpacity
+              onPress={onTabPressed}
+              style={{
+                borderBottomColor: popularSelected ?  '#FFF' :'#CCC9C0',
+                borderBottomWidth: 4,
+                paddingVertical: 6,
+                marginLeft:30
+              }}
+            >
+              <Text
+                style={{
+                  color: popularSelected ?  '#d9d5ca' :'#CCC9C0',
+                }}
+              >
+                RECENT
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+
+          </View>
+        </View>
+      </ScrollView>
       <Navbar navigation={navigation} />
     </SafeAreaView>
   );
@@ -175,57 +163,4 @@ const Home = ({ navigation }) => {
 export default Home;
 const { width, height } = Dimensions.get('window');
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    backgroundColor: '#CCC9C0',
-    width: '60%',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 70,
-    top:-190,
-    left:50
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '700',
-    fontSize: 16,
-  },
-  header: {
-    position: 'absolute',
-    width: width -10,
-    height: height - 440,
-    backgroundColor: '#CCC9C0',
-    borderBottomLeftRadius: 1000,
-    borderBottomRightRadius: 1000,
-    top:8
-  },
-  circleButton: {
-    width: 50,
-    height: 50,
-  },
-  scroll_view: {
-    flex: 1,
-  },
-  fake_post: {
-    height: 250,
-    marginHorizontal: 16,
-    marginTop: 16,
-    borderRadius: 8,
-  },
-  // fake_icon_box: {
-  //   backgroundColor: '#e4e6eb',
-  //   width: width,
-  //   height: 100,
-  //   borderRadius: 40,
-  //   flexDirection: 'row',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   top:200
-  // },
-});
+const styles = StyleSheet.create({});
