@@ -42,6 +42,9 @@ const data = [
 const Shop = ({ navigation }) => {
   const [item, setItem] = useState(data);
   // console.log(item, "<-------->");
+
+
+  
   return (
     <View>
       <SafeAreaView>
