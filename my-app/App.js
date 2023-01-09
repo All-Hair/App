@@ -13,12 +13,12 @@ import OneShop from './screens/shop/OneShop';
 import Cart from './screens/cart/cart';
 import Pricelist from './screens/pricelist/Pricelist.jsx';
 import Uprofile from './screens/UserProfile/Uprofile.js';
-import Appointment from './screens/rating/rating.jsx'
+import BookList from './screens/booking/bookList.js';
 import UpdateUpro from './screens/UserProfile/UpdateUpro';
 import Mainbutton from './screens/mainbutton/mainbutton.jsx';
-
-
-
+import DateSelect from './screens/booking/dateSelect.js';
+import PickTime from  './screens/booking/pickTime.js'
+import Appointment from './screens/booking/appointment.js';
 const Stack = createNativeStackNavigator();
 
 const App =() => {
@@ -38,8 +38,11 @@ const App =() => {
 <Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
 <Stack.Screen name ='UpdateUpro' options = {{headerShown :false}}  component={UpdateUpro}/> 
 <Stack.Screen name ='Pricelist' options = {{headerShown :false}}  component={Pricelist}/>
-<Stack.Screen name ='Appointment' options = {{headerShown :false}}  component={Appointment}/>
-<Stack.Screen name ='Mainbutton' options = {{headerShown :false}}  component={Mainbutton}/>
+<Stack.Screen name = "DateSelect" component={DateSelect} options={{ headerShown: false }} />
+<Stack.Screen name = "PickTime" component={PickTime} options={{ headerShown: false }} />
+<Stack.Screen name = 'Mainbutton' options = {{headerShown :false}}  component={Mainbutton}/>
+<Stack.Screen name = 'BookList' options = {{headerShown :false}}  component={BookList}/>
+<Stack.Screen name = 'Appointment' options = {{headerShown :false}}  component={Appointment}/>
 </Stack.Navigator>
 </NavigationContainer>
    
