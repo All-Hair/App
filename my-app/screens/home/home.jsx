@@ -6,6 +6,7 @@ import {
   Button,
   Dimensions,
   Image,
+  ImageBackground,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -14,7 +15,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Animated, { Easing, interpolate } from 'react-native-reanimated';
+
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
 
@@ -39,7 +40,10 @@ const Home = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
         style={{ height: '100%', backgroundColor: '#CCC9C0' }}
       >
-        <View style={{ height: 260, width: '100%', paddingHorizontal: 35 }}>
+        <View style={{ height: 240, width: '100%', paddingHorizontal: 35 }}>
+          <ImageBackground
+            source={require('my-app/assets/profilbackground.png')}
+          />
           <View
             style={{
               flexDirection: 'row',
@@ -72,8 +76,8 @@ const Home = ({ navigation }) => {
             style={{
               fontSize: 40,
               color: '#FFF',
-              left: 55,
-              paddingTop: 20,
+              left: 45,
+              // paddingTop: 20,
             }}
           >
             Find Your coiff
@@ -87,7 +91,7 @@ const Home = ({ navigation }) => {
               paddingVertical: 5,
               alignContent: 'center',
               backgroundColor: '#fff',
-              top:10
+              top: 10,
             }}
           >
             <TextInput
@@ -106,7 +110,7 @@ const Home = ({ navigation }) => {
         <View
           style={{
             backgroundColor: '#FFF',
-            borderTopLeftRadius: 100,
+            borderTopLeftRadius: 110,
             // borderTopRightRadius: 40,
             height: 1000,
             paddingHorizontal: 35,
@@ -116,7 +120,7 @@ const Home = ({ navigation }) => {
             style={{
               flexDirection: 'row',
               paddingTop: 20,
-              left:30
+              left: 30,
             }}
           >
             <TouchableOpacity
