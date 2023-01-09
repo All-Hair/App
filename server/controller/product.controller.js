@@ -6,29 +6,7 @@ module.exports = {
 
   create: async (req, res) => {
     try {
-      // Validate request
-      if (!req.body.name) {
-        res.status(400).send({
-          message: "Content can not be empty!",
-        });
-        return;
-      }
-
-      // Create a product
-      const product = {
-        brand: req.body.brand,
-        name: req.body.name,
-        price: req.body.price,
-        stock: req.body.stock,
-        color: req.body.color,
-        category: req.body.category,
-        description: req.body.description,
-        date: req.body.date,
-        image: req.body.image,
-      };
-
-      // Save product in the database
-      await Product.create(product);
+      await Product.create(req.body);
       res.send("product created successfuly");
     } catch (error) {
       res.status(500).send({

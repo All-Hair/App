@@ -5,25 +5,7 @@ module.exports = {
   // Create and Save a new menu
   create: async (req, res) => {
     try {
-      // Validate request
-      if (!req.body.service) {
-        res.status(400).send({
-          message: "Content can not be empty!",
-        });
-        return;
-      }
-
-      // Create a menu
-      const menu = {
-        service: req.body.service,
-        price: req.body.price,
-        image: req.body.image,
-        category: req.body.category,
-      };
-
-      // Save menu in the database
-      await Menu.create(menu);
-
+      await Menu.create(req.body);
       res.send("added successfully");
     } catch (error) {
       res.status(500).send({
