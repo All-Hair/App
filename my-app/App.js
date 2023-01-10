@@ -13,7 +13,7 @@ import Sprofile from './screens/sprofile/sprofile';
 import Shop from './screens/shop/Shop';
 import OneShop from './screens/shop/OneShop';
 import Cart from './screens/cart/cart';
-import Pricelist from './screens/pricelist/pricelist';
+import Pricelist from './screens/pricelist/Pricelist';
 import Uprofile from './screens/UserProfile/Uprofile.js';
 import BookList from './screens/booking/bookList.js';
 import UpdateUpro from './screens/UserProfile/UpdateUpro';
@@ -22,6 +22,8 @@ import DateSelect from './screens/booking/dateSelect.js';
 import PickTime from  './screens/booking/pickTime.js'
 import Appointment from './screens/booking/appointment.js';
 import SliderPhotos from './screens/shop/Slider'
+import MyCart from './screens/cart/MyCart.js';
+import ProductInfo from './screens/cart/ProductInfo.js';
 
 
 const Stack = createNativeStackNavigator();
@@ -49,7 +51,8 @@ const App =() => {
 <Stack.Screen name = 'BookList' options = {{headerShown :false}}  component={BookList}/>
 <Stack.Screen name = 'Appointment' options = {{headerShown :false}}  component={Appointment}/>
 <Stack.Screen name ='Slider' options = {{headerShown :false}}  component={SliderPhotos}/>
-
+<Stack.Screen name ='MyCart' options = {{headerShown :false}}  component={MyCart}/>
+<Stack.Screen name ='ProductInfo' options = {{headerShown :false}}  component={ProductInfo}/>
 </Stack.Navigator>
 </NavigationContainer>   
 </NativeBaseProvider>
