@@ -189,6 +189,30 @@ const Home = ({ navigation }) => {
               flexDirection: 'row',
             }}
           >
+            <View
+              style={{
+                height: 160,
+                backgroundColor: '#d9d5ca',
+                width: 20,
+                marginLeft: -40,
+                marginRight: 20,
+                marginTop: 120,
+                borderBottomRightRadius: 20,
+                borderTopRightRadius: 20,
+              }}
+            ></View>
+            <Posts
+              onPress={() => navigation.navigate('Detail')}
+              name="boulbeba"
+              profile={require('my-app/assets/profile-pic.jpg')}
+              photo={require('my-app/assets/profile-pic.jpg')}
+            />
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+            }}
+          >
             <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
@@ -200,14 +224,14 @@ const Home = ({ navigation }) => {
                 height: 160,
                 backgroundColor: '#d9d5ca',
                 width: 20,
-                marginLeft: -40,
-                marginRight:20,
+                marginLeft: 20,
                 marginTop: 120,
-                borderBottomRightRadius: 20,
-                borderTopRightRadius: 20,
+                borderBottomLeftRadius: 20,
+                borderTopLeftRadius: 20,
               }}
             ></View>
           </View>
+          
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />
