@@ -73,4 +73,27 @@ module.exports = {
       });
     }
   },
+
+    // get one user by email
+
+    findOneByEmail: async (req, res) => {
+      try {
+        const email = req.params.email;
+
+       const oneUser = await User.findOne({ where: { email: email } })
+       if (oneUser === null) {
+  console.log('Not found!');
+  res.send(null)
+} else {
+  res.send(oneUser);
+}
+      } catch (error) {
+        res.status(500).send({
+          message:
+            error.message || "Some error occurred while retrieving user.",
+        });
+      }
+    },
+
+
 };
