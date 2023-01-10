@@ -169,8 +169,9 @@ const Home = ({ navigation }) => {
             <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
-              profile={require('my-app/assets/profile-pic.jpg')}
-              photo={require('my-app/assets/profile-pic.jpg')}
+              photo={{
+                uri: 'https://www.menshairstylestoday.com/wp-content/uploads/2016/09/Barber-Haircut-Styles-Fade-with-Brush-Up.jpg',
+              }}
             />
             <View
               style={{
@@ -205,7 +206,9 @@ const Home = ({ navigation }) => {
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
-              photo={require('my-app/assets/profile-pic.jpg')}
+              photo={{
+                uri: 'https://i.pinimg.com/originals/db/6f/52/db6f52a815dedfac62b5339989470eec.jpg',
+              }}
             />
           </View>
           <View
@@ -217,7 +220,9 @@ const Home = ({ navigation }) => {
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
-              photo={require('my-app/assets/profile-pic.jpg')}
+              photo={{
+                uri: 'https://global-uploads.webflow.com/5cb569e54ca2fddd5451cbb2/5d3078b775ae2c83a149e209_Barber-Industries-Kotara-29.jpg',
+              }}
             />
             <View
               style={{
@@ -231,7 +236,6 @@ const Home = ({ navigation }) => {
               }}
             ></View>
           </View>
-          
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />
