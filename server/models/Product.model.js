@@ -1,5 +1,5 @@
 // const Appointment = require("./Appointment");
-const {models}=require('../models')
+// const {models}=require('../models')
 
 module.exports = (sequelize, DataType) => {
   const Product = sequelize.define("Product", {

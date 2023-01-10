@@ -1,5 +1,5 @@
 
-const {models}=require('../models')
+// const {models}=require('../models')
 
 module.exports=(sequelize,Datatype)=>{
  const Saloon = sequelize.define("Saloon",{

@@ -50,7 +50,9 @@ const Uprofile = ({ navigation }) => {
               {/* Interact Buttons View */}
               <View style={styles.interactButtonsView}>
                 <TouchableOpacity style={styles.interactButton}>
-                  <Text style={styles.interactButtonText}>Edit Profile</Text>
+                  <Text style={styles.interactButtonText} onPress={() => {
+                          navigation.navigate("UpdateUpro")
+                        }}>Edit Profile</Text>
                 </TouchableOpacity>
               </View>
               {/* Mutual Followed By Text */}
