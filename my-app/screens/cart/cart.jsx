@@ -2,64 +2,25 @@ import React from 'react';
 import { View, Text, Button, StyleSheet, Image, SafeAreaView } from 'react-native';
 import Navbar from '../../components/Navbar';
 
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 50,
-    paddingHorizontal: 120,
-    borderRadius: 50,
-    alignSelf: 'center',
-    maxWidth: '100%',
-    alignSelf: 'center',
-    alignItems: 'center'
 
-  },
-  timings: {
-    color: '#fff',
-    fontSize: '14px'
-  },
-  metaContainer: {
-    justifyContent: 'space-between'
-  },
-  topContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  avatar: {
-    height: 200,
-    width: 250,
-    // borderRadius: 100
-  },
-  description: {
-    color: 'white',
-    marginTop: 5,
-    fontSize: 20
-  },
-  button: {
-    backgroundColor: '#CCC9C0',
-    width: '60%',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 40,
-    alignSelf: 'center'
-  },
-  buttonText: {
-    fontWeight: 'bold',
-    color: 'white',
-    textTransform: 'uppercase',
-    fontSize: 14
-  }
-});
 
 const Cart = () => {
-  const [items, setItems] = React.useState([]);
-
+  const [items, setItems] = React.useState(data);
+  const data = [
+    {
+      id: "1",
+      name: "Water Spray",
+      price: "150 DT ",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU",
+    },
+  ]
   const addItem = () => {
-    setItems([...items, { name: 'Item ' + (items.length + 1) }]);
+    setItems([...items, { name: 'Item ' + (data.length + 1) }]);
   };
 
   const removeItem = index => {
-    const newItems = [...items];
+    const newItems = [...data];
     newItems.splice(index, 1);
     setItems(newItems);
   };
@@ -67,38 +28,40 @@ const Cart = () => {
   return (
     <SafeAreaView >
       
-      <Text style={{
-            fontSize: 45,
-            fontWeight: "bold",
-            marginVertical: 20,
-            marginTop: 20 ,
-            alignSelf: 'center',
-
-            }}>Cart</Text>
-    <View style={styles.container} >
-      
-      <Text>Shopping Cart</Text>
-      <View style={styles.items}>
-        {items.map((item, index) => (
-          <View key={item.name} style={styles.item}>
-            <Text style={styles.itemName}>{item.name}</Text>
-            <Image
-           style={styles.avatar}
-            source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_qb00E2YueF-BC5-CX3nzZLwoaEZfJ_8fw&usqp=CAU'}}
-               />
-            <Button
-              title="Remove"
-              onPress={() => removeItem(index)}
-              buttonStyle={styles.removeButton}
-            />
+      <View style={styles.root}>
+      <View style={styles.row}>
+        <Image style={styles.image} source={{uri: data.image}} />
+        <View style={styles.rightContainer}>
+          <Text style={styles.title} numberOfLines={3}>
+            {data.name}
+          </Text>
+          {/* Ratings */}
+          <View style={styles.ratingsContainer}>
+            {/* {[0, 0, 0, 0, 0].map((el, i) => (
+              <FontAwesome
+                key={`${items.id}-${i}`}
+                style={styles.star}
+                // name={i < Math.floor(product.avgRating) ? 'star' : 'star-o'}
+                size={18}
+                color={'#e47911'}
+              />
+            ))} */}
+            {/* <Text>{product.ratings}</Text> */}
           </View>
-        ))}
+          <Text style={styles.price}>
+            from ${data.price}
+            {/* {product.oldPrice && (
+              <Text style={styles.oldPrice}> ${product.oldPrice}</Text>
+            )} */}
+          </Text>
+        </View>
       </View>
-      <Button
-        title="Add Item"
-        onPress={addItem}
-        buttonStyle={styles.addButton}
-      />
+      <View style={styles.quantityContainer}>
+        {/* <QuantitySelector
+          quantity={cartProduct.quantity}
+          setQuantity={updateQuantity}
+        /> */}
+      </View>
     </View>
     <Navbar />
   
@@ -108,6 +71,50 @@ const Cart = () => {
    
   );
 };
+const styles = StyleSheet.create({
+  root: {
+    borderWidth: 1,
+    borderColor: '#d1d1d1',
+    borderRadius: 10,
+    backgroundColor: '#fff',
+    marginVertical: 5,
+  },
+  row: {
+    flexDirection: 'row',
+  },
+  image: {
+    flex: 2,
+    height: 150,
+    resizeMode: 'contain',
+  },
+  rightContainer: {
+    padding: 10,
+    flex: 3,
+  },
+  title: {
+    fontSize: 18,
+  },
+  price: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  oldPrice: {
+    fontSize: 12,
+    fontWeight: 'normal',
+    textDecorationLine: 'line-through',
+  },
+  ratingsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 5,
+  },
+  star: {
+    margin: 2,
+  },
+  quantityContainer: {
+    margin: 5,
+  },
+});
 
 
 

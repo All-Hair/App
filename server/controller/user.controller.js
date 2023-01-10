@@ -12,20 +12,8 @@ module.exports = {
         });
         return;
       }
-
-      // Create a user
-      const user = {
-        name: req.body.name,
-        phone: req.body.phone,
-        email: req.body.email,
-        gender: req.body.gender,
-        adress: req.body.adress,
-        image: req.body.image,
-
-      };
-
       // Save user in the database
-      await User.create(user);
+      await User.create(req.body);
 
       res.send("added successfully");
     } catch (error) {
