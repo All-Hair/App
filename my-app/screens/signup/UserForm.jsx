@@ -15,21 +15,21 @@ import SwitchSelector from "react-native-switch-selector";
 const imageMale = require("../../assets/male.png");
 const imageFemale = require("../../assets/female.png");
 
-const UserForm = ({ navigation , uform ,setUform} )=> {
+const UserForm = ({ navigation , changeForm, uform ,setUform} )=> {
 
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [adress, setAdress] = useState("");
-  const [email, setEmail] = useState("");
-  const [gender, setGender] = useState("");
-  const [image, setImage] = useState("");
+  // const [name, setName] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [adress, setAdress] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [gender, setGender] = useState("");
+  // const [image, setImage] = useState("");
 
   return (
     <View>
       <View>
         <SwitchSelector
           initial={0}
-          onPress={(value) => setUform({gender:value})}
+          onPress={(value) => changeForm({gender:value})}
           textColor="gray"
           selectedColor="white"
           buttonColor="gray"
@@ -43,28 +43,29 @@ const UserForm = ({ navigation , uform ,setUform} )=> {
       </View>
 
       <Field
-        value={name}
-        onChangeText={(text) =>  setUform({name:text})}
+        value={uform.name}
+        onChangeText={(text) => changeForm({name:text})}
         placeholder="Enter your name"
-        secureTextEntry={true}
+        secureTextEntry={false}
       />
       <Field
-        value={phone}
-        onChangeText={(text) => setUform({phone:text})}
+        value={uform.phone}
+        onChangeText={(text) => changeForm({phone:text})}
         placeholder="Enter your phone number"
-        secureTextEntry={true}
+        keyboardType={'phone-pad'}
+        secureTextEntry={false}
       />
       <Field
-        value={adress}
-        onChangeText={(text) => setUform({adress:text})}
+        value={uform.adress}
+        onChangeText={(text) => changeForm({adress:text})}
         placeholder="Enter your adress"
-        secureTextEntry={true}
+        secureTextEntry={false}
       />
       <Field
-        value={image}
-        onChangeText={(text) => setImage(text)}
+        value={uform.image}
+        onChangeText={(text) => changeForm({image:text})}
         placeholder="Enter your image kifkif tetbadel"
-        secureTextEntry={true}
+        secureTextEntry={false}
       />
     </View>
   );

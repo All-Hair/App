@@ -39,21 +39,21 @@ import {
     const [data, setData] = useState([]);
   // function to get data 
   
-//   const getData = async ()=>{
-//     try {
-//       const req = await client.get("/saloon")
-//       setItem(req.data);
-//       console.log(req.data);
-//     } catch (error) {
-//       console.log(error) 
-//     }
-//       }
+  const getData = async ()=>{
+    try {
+      const req = await client.get("/saloon/getAll")
+      setItem(req.data);
+      console.log(req.data);
+    } catch (error) {
+      console.log(error) 
+    }
+      }
   
 
-//     useEffect(() => {
-//     getData()
-//     console.log("hi");
-//     }, []);
+    useEffect(() => {
+    getData()
+    console.log("hi");
+    }, []);
   
     return (
       <ScrollView>
