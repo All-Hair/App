@@ -37,9 +37,19 @@ const Login = ({ navigation }) => {
       if (userType == "user") {
         const req = await client.get(`/user/getone/${email}`);
         console.log(req.data);
+        if (req.data == null) {
+          console.log("not existing user !!!!");
+        } else {
+          handleLogin();
+        }
       } else {
         const req = await client.get(`/saloon/getone/${email}`);
         console.log(req.data);
+        if (req.data == null) {
+          console.log("not existing saloon !!!!");
+        } else {
+          handleLogin();
+        }
       }
     } catch (error) {
       console.log(error);
@@ -164,7 +174,9 @@ const Login = ({ navigation }) => {
             textColor="white"
             bgColor={primary}
             btnLabel="Login"
-            Press={loginToDB}
+            Press={() => {
+              loginToDB();
+            }}
           />
           <TouchableOpacity
             style={{
