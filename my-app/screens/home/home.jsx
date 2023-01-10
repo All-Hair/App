@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
-import Icon from 'react-native-vector-icons/Entypo';
+import {Entypo,AntDesign}from 'react-native-vector-icons';
 
 import {
   Button,
@@ -35,7 +35,11 @@ const Home = ({ navigation }) => {
   console.log(auth.currentUser?.email);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView  style={{
+      width: '100%',
+      height: '100%',
+      
+    }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={{ height: '100%', backgroundColor: '#CCC9C0' }}
@@ -46,14 +50,14 @@ const Home = ({ navigation }) => {
             style={{
               flexDirection: 'row',
               width: '100%',
-              paddingTop: 40,
+              paddingTop: 30,
               alignItems: 'center',
             }}
           >
             <View style={{ width: '50%' }}>
               <Image
                 source={require('my-app/assets/logo-removebg-preview.png')}
-                style={{ width: 80, height: 80 }}
+                style={{ width: 90, height: 90 }}
               />
             </View>
             <View
@@ -62,11 +66,12 @@ const Home = ({ navigation }) => {
                 alignItems: 'flex-end',
               }}
             >
-              <Icon
-                name="dots-two-vertical"
-                size={22}
+              <AntDesign
+                name="logout"
+                size={30}
                 color="white"
                 style={{ marginRight: -7, marginTop: 7 }}
+                onPress={handleSignOut}
               />
             </View>
           </View>
@@ -102,7 +107,7 @@ const Home = ({ navigation }) => {
                 color: '#fff',
               }}
             />
-            <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
+            <Entypo name="magnifying-glass" size={25} color="#9ca1a2" />
           </View>
         </View>
         </ImageBackground>

@@ -37,7 +37,7 @@ export default (BookList = ({ navigation }) => {
 					{lists.map((list, i) => {
 						return (
 							<TouchableOpacity key={i} onPress={() => navigation.navigate('Appointment',list)}>
-								<Card key={i}>
+								<Card key={i}  >
 									{/* <Card.Divider/> */}
 									<View key={i} style={styles.cardContainer}>
 										<View key={i} style={styles.user}>
