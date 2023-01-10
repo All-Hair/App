@@ -18,6 +18,7 @@ import {
 
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
+import Posts from './Posts';
 
 const Home = ({ navigation }) => {
   const [popularSelected, setPop] = useState(true);
@@ -40,73 +41,75 @@ const Home = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
         style={{ height: '100%', backgroundColor: '#CCC9C0' }}
       >
-        <View style={{ height: 240, width: '100%', paddingHorizontal: 35 }}>
-          <ImageBackground
-            source={require('my-app/assets/profilbackground.png')}
-          />
-          <View
-            style={{
-              flexDirection: 'row',
-              width: '100%',
-              paddingTop: 40,
-              alignItems: 'center',
-            }}
-          >
-            <View style={{ width: '50%' }}>
-              <Image
-                source={require('my-app/assets/logo-removebg-preview.png')}
-                style={{ width: 80, height: 80 }}
-              />
-            </View>
+        <ImageBackground
+          source={require('my-app/assets/profilbackground.png')}
+          style={{ width: '100%' }}
+        >
+          <View style={{ height: 240, width: '100%', paddingHorizontal: 35 }}>
             <View
               style={{
-                width: '50%',
-                alignItems: 'flex-end',
+                flexDirection: 'row',
+                width: '100%',
+                paddingTop: 40,
+                alignItems: 'center',
               }}
             >
-              <Icon
-                name="dots-two-vertical"
-                size={22}
-                color="white"
-                style={{ marginRight: -7, marginTop: 7 }}
+              <View style={{ width: '50%' }}>
+                <Image
+                  source={require('my-app/assets/logo-removebg-preview.png')}
+                  style={{ width: 80, height: 80 }}
+                />
+              </View>
+              <View
+                style={{
+                  width: '50%',
+                  alignItems: 'flex-end',
+                }}
+              >
+                <Icon
+                  name="dots-two-vertical"
+                  size={22}
+                  color="white"
+                  style={{ marginRight: -7, marginTop: 7 }}
+                />
+              </View>
+            </View>
+            <Text
+              style={{
+                fontSize: 40,
+                color: '#FFF',
+                left: 45,
+                // paddingTop: 20,
+              }}
+            >
+              Find Your coiff
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                borderColor: '#fff',
+                borderRadius: 20,
+                borderWidth: 0.2,
+                paddingVertical: 5,
+                alignContent: 'center',
+                backgroundColor: '#fff',
+                top: 10,
+              }}
+            >
+              <TextInput
+                placeholder="search"
+                style={{
+                  paddingHorizontal: 20,
+                  // fontFamily:'Medium',
+                  fontSize: 15,
+                  width: '90%',
+                  color: '#fff',
+                }}
               />
+              <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
             </View>
           </View>
-          <Text
-            style={{
-              fontSize: 40,
-              color: '#FFF',
-              left: 45,
-              // paddingTop: 20,
-            }}
-          >
-            Find Your coiff
-          </Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              borderColor: '#fff',
-              borderRadius: 20,
-              borderWidth: 0.2,
-              paddingVertical: 5,
-              alignContent: 'center',
-              backgroundColor: '#fff',
-              top: 10,
-            }}
-          >
-            <TextInput
-              placeholder="search"
-              style={{
-                paddingHorizontal: 20,
-                // fontFamily:'Medium',
-                fontSize: 15,
-                width: '90%',
-                color: '#fff',
-              }}
-            />
-            <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
-          </View>
-        </View>
+        </ImageBackground>
         <View
           style={{
             backgroundColor: '#FFF',
@@ -158,7 +161,53 @@ const Home = ({ navigation }) => {
               </Text>
             </TouchableOpacity>
           </View>
-          <View></View>
+          <View
+            style={{
+              flexDirection: 'row',
+            }}
+          >
+            <Posts
+              onPress={() => navigation.navigate('Detail')}
+              name="boulbeba"
+              profile={require('my-app/assets/profile-pic.jpg')}
+              photo={require('my-app/assets/profile-pic.jpg')}
+            />
+            <View
+              style={{
+                height: 160,
+                backgroundColor: '#d9d5ca',
+                width: 20,
+                marginLeft: 20,
+                marginTop: 120,
+                borderBottomLeftRadius: 20,
+                borderTopLeftRadius: 20,
+              }}
+            ></View>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+            }}
+          >
+            <Posts
+              onPress={() => navigation.navigate('Detail')}
+              name="boulbeba"
+              profile={require('my-app/assets/profile-pic.jpg')}
+              photo={require('my-app/assets/profile-pic.jpg')}
+            />
+            <View
+              style={{
+                height: 160,
+                backgroundColor: '#d9d5ca',
+                width: 20,
+                marginLeft: -40,
+                marginRight:20,
+                marginTop: 120,
+                borderBottomRightRadius: 20,
+                borderTopRightRadius: 20,
+              }}
+            ></View>
+          </View>
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />
