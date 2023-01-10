@@ -14,8 +14,9 @@ import client from "../../api/client";
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [isUser, setIsUser] =useState(true)
   const [userType, setUserType] = useState("user");
+  const [checkEmail, setCheckEmail] = useState(true);
+
 
   // const { width, height } = Dimensions.get('window');
   const windowWidth = Dimensions.get("window").width;
@@ -37,17 +38,23 @@ const Login = ({ navigation }) => {
       if (userType == "user") {
         const req = await client.get(`/user/getone/${email}`);
         console.log(req.data);
-        if (req.data == null) {
+        if (req.data == 'Not found!') {
           console.log("not existing user !!!!");
+          setCheckEmail(false)
         } else {
+          setCheckEmail(true)
           handleLogin();
         }
       } else {
         const req = await client.get(`/saloon/getone/${email}`);
         console.log(req.data);
-        if (req.data == null) {
-          console.log("not existing saloon !!!!");
+        if (req.data == 'Not found!') {
+          console.log("not existing saloon !");
+          setCheckEmail(false)
+
         } else {
+          setCheckEmail(true)
+
           handleLogin();
         }
       }
@@ -147,6 +154,19 @@ const Login = ({ navigation }) => {
             keyboardType={"email-address"}
             onChangeText={(text) => setEmail(text)}
           />
+                      {!checkEmail ? (
+              <Text
+                style={{
+                  alignItems: "flex-end",
+                  width: "78%",
+                  color: "red",
+                }}
+              >
+                check your email
+              </Text>
+            ) : (
+              <Text></Text>
+            )}
           <Field
             value={password}
             onChangeText={(text) => setPassword(text)}
