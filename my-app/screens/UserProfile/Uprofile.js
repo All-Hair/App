@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Navbar from "../../components/Navbar";
 import {
   StyleSheet,
@@ -10,12 +10,32 @@ import {
   Dimensions,
 } from "react-native";
 import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,} from 'react-native-vector-icons'
-
+// import axios from 'axios'
+import client from "../../api/client";
 // import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 // import Navbar from '../../components/Navbar';
 const Uprofile = ({ navigation }) => {
-  return (
-    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+  const [users,setUsers]= useState([])
+
+   const getAll =async()=>{
+    try{
+    const req= await client.get('/user')
+    setUsers(req)
+    console.log(req.data);
+   // console.log(res,'------,,,.,.,.,.,.,.,<<<???????>>>>>>>>>>>---');
+   
+    }catch(error){
+    console.log(error);
+  }
+  
+}
+// console.log(req.data,'---');
+useEffect(()=>{
+  console.log('<----->');
+  getAll()
+},[])
+   return (
+     <View style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView>
         <>
           <View>
@@ -35,7 +55,7 @@ const Uprofile = ({ navigation }) => {
                   source={{
                     uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
                   }}
-                />
+                  />
                 
               </View>
            
@@ -51,8 +71,9 @@ const Uprofile = ({ navigation }) => {
               <View style={styles.interactButtonsView}>
                 <TouchableOpacity style={styles.interactButton}>
                   <Text style={styles.interactButtonText} onPress={() => {
-                          navigation.navigate("UpdateUpro")
-                        }}>Edit Profile</Text>
+                    navigation.navigate("UpdateUpro")
+                  // console.log('--------');
+                  }}>Edit Profile</Text>
                 </TouchableOpacity>
               </View>
               {/* Mutual Followed By Text */}

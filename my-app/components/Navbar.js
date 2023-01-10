@@ -109,7 +109,7 @@ const Navbar = ({navigation}) => {
                         }}>
 
                             <TouchableOpacity
-                             onPress={() => { navigation.navigate('Shop') }}
+                             onPress={() => { navigation.navigate('Cart') }}
 
                             >
                                 <Image

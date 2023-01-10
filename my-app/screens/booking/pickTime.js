@@ -3,9 +3,10 @@ import { View, Text, TouchableOpacity, StyleSheet, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TimeRange } from './util/content';
 import Navbar from '../../components/Navbar';
+
 export default (PickTime = ({ navigation }) => {
 	const [ dayTime, setTime ] = React.useState('');
-	const [ color, setColor ] = React.useState('grey');
+	const [ color, setColor ] = React.useState('#ccc9c0');
 	const [ colors, setColors ] = React.useState({});
 	const [ selectColor, setSelectColor ] = React.useState('green');
 	const { color1, color2, color3, color4,color5,color6 } = colors;
@@ -23,14 +24,14 @@ export default (PickTime = ({ navigation }) => {
 				return ( */}
 			<View style={styles.dayTime}>
 				<Button
-					onPress={() => setColors({ color1: 'green', color2: 'grey', color3: 'grey', color4: 'grey' })}
+					onPress={() => setColors({ color1: 'green', color2: '#ccc9c0', color3: '#CCC9c0', color4: '#ccc9c0' })}
 					title={TimeRange.dayTime.time1}
 					color={color1 ? color1 : color}
 					accessibilityLabel="Learn more about this purple button"
 					style={styles.dayTime1}
 				/>
 				<Button
-					onPress={() => setColors({ color2: 'green', color1: 'grey', color3: 'grey', color4: 'grey' })}
+					onPress={() => setColors({ color2: 'green', color1: '#ccc9c0', color3: '#ccc9c0', color4: '#ccc9c0' })}
 					title={TimeRange.dayTime.time2}
 					color={color2 ? color2 : color}
 					accessibilityLabel="Learn more about this purple button"
@@ -39,7 +40,7 @@ export default (PickTime = ({ navigation }) => {
 			</View>
 			<View style={styles.dayTime}>
 				<Button
-					onPress={() => setColors({ color3: 'green', color1: 'grey', color2: 'grey', color4: 'grey' })}
+					onPress={() => setColors({ color3: 'green', color1: '#ccc9c0', color2: '#ccc9c0', color4: '#ccc9c0' })}
 					title={TimeRange.dayTime.time3}
 					color={color3 ? color3 : color}
 					accessibilityLabel="Learn more about this purple button"
@@ -55,7 +56,7 @@ export default (PickTime = ({ navigation }) => {
 			</View>
 			<View style={styles.dayTime}>
 				<Button
-					onPress={() => setColors({ color5: 'green', color1: 'grey', color2: 'grey',color4: 'grey', color4: 'grey' })}
+					onPress={() => setColors({ color5: 'green', color1: '#ccc9c0', color2: '#ccc9c0',color4: '#ccc9c0', color4: '#ccc9c0' })}
 					title={TimeRange.dayTime.time5}
 					color={color5 ? color5 : color}
 					accessibilityLabel="Learn more about this purple button"
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-around',
-		marginTop: 40
+		marginTop: 40,
 	},
 	dayTime1: {
 		marginTop: 10,
@@ -143,7 +144,8 @@ const styles = StyleSheet.create({
 		backgroundColor: "#CCC9C0",
 		width: 100,
 		height: 30,
-		textAlign: 'center'
+		textAlign: 'center',
+		borderRadius: 20
 	},
 	dayTime2: {
 		marginTop: 10,
@@ -151,7 +153,9 @@ const styles = StyleSheet.create({
 		backgroundColor: "#CCC9C0",
 		width: 100,
 		height: 30,
-		textAlign: 'center'
+		textAlign: 'center',
+		borderRadius: 20
+		
 	},
 	iconBtn: {
 		width: 150,
