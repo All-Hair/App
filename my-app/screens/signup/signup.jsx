@@ -18,7 +18,7 @@ import SaloonForm from "./SaloonForm.jsx";
 
 
 const Signup = ({ navigation }) => {
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
@@ -28,6 +28,7 @@ const Signup = ({ navigation }) => {
   const [userType, setUserType] = useState("user");
   const [show, setShow] = useState(false);
   const [cont, setCont] = useState('');
+  const [uform,setUform]=useState({})
 
   // console.log(password)
 
@@ -40,6 +41,16 @@ const Signup = ({ navigation }) => {
 
   //   return unsubscribe
   // }, [])
+  const registerToDB = async()=>{
+      try {
+        const req = await client.put("/user")
+        setItem(req.data);
+        console.log(req.data);
+      } catch (error) {
+        console.log(error)
+      }
+        }
+  
 
   const handleSignUp = () => {
     auth
@@ -101,6 +112,7 @@ const Signup = ({ navigation }) => {
               marginBottom: 15,
             }}
           >
+            
             <SwitchSelector
               initial={0}
               onPress={(value) => {
@@ -153,7 +165,7 @@ const Signup = ({ navigation }) => {
             ) : (
               <Text></Text>
             )}
-            {userType === "user" ? <UserForm /> : <SaloonForm />}
+            {userType === "user" ? <UserForm uform={uform} setUform={setUform} /> : <SaloonForm />}
 
             <View
               style={{
@@ -179,7 +191,7 @@ const Signup = ({ navigation }) => {
                   setCheckP(false);
                 } else {
                   setCheckP(true);
-                  handleSignUp();
+                  registerToDB();
                 }
               }}
             />

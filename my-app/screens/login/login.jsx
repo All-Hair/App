@@ -126,6 +126,7 @@ const [userType, setUserType] =useState("user")
   ]}
  />
   </View>
+
           <Field
             placeholder="Email"
             value={email}
@@ -138,6 +139,7 @@ const [userType, setUserType] =useState("user")
             placeholder="Password"
             secureTextEntry={true}
           />
+
           <View
             style={{
               alignItems: 'flex-end',

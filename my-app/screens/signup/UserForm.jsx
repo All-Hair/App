@@ -15,7 +15,8 @@ import SwitchSelector from "react-native-switch-selector";
 const imageMale = require("../../assets/male.png");
 const imageFemale = require("../../assets/female.png");
 
-const UserForm = ({ navigation }) => {
+const UserForm = ({ navigation , uform ,setUform} )=> {
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [adress, setAdress] = useState("");
@@ -28,7 +29,7 @@ const UserForm = ({ navigation }) => {
       <View>
         <SwitchSelector
           initial={0}
-          onPress={(value) => setGender(value)}
+          onPress={(value) => setUform({gender:value})}
           textColor="gray"
           selectedColor="white"
           buttonColor="gray"
@@ -43,19 +44,19 @@ const UserForm = ({ navigation }) => {
 
       <Field
         value={name}
-        onChangeText={(text) => setName(text)}
+        onChangeText={(text) =>  setUform({name:text})}
         placeholder="Enter your name"
         secureTextEntry={true}
       />
       <Field
         value={phone}
-        onChangeText={(text) => setPhone(text)}
+        onChangeText={(text) => setUform({phone:text})}
         placeholder="Enter your phone number"
         secureTextEntry={true}
       />
       <Field
         value={adress}
-        onChangeText={(text) => setAdress(text)}
+        onChangeText={(text) => setUform({adress:text})}
         placeholder="Enter your adress"
         secureTextEntry={true}
       />

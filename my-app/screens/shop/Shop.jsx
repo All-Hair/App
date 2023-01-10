@@ -6,10 +6,14 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import { Button } from "react-native";
+
+import client from "../../api/client";
+
+
 const data = [
   {
     id: "1",
@@ -44,7 +48,23 @@ const Shop = ({ navigation }) => {
   // console.log(item, "<-------->");
 
 
-  
+  // function to get data 
+
+const getData = async ()=>{
+  try {
+    const req = await client.get("/product")
+    setItem(req.data);
+    console.log(req.data);
+  } catch (error) {
+    console.log(error)
+  }
+    }
+
+    useEffect(() => {
+      getData()
+      console.log("hi");
+      }, []);
+    
   return (
     <View>
       <SafeAreaView>
