@@ -72,7 +72,7 @@ const Home = ({ navigation }) => {
                   alignItems: 'flex-end',
                 }}
               >
-                <Icon
+                <Entypo
                   name="dots-two-vertical"
                   size={22}
                   color="white"
@@ -112,7 +112,7 @@ const Home = ({ navigation }) => {
                   color: '#fff',
                 }}
               />
-              <Icon name="magnifying-glass" size={25} color="#9ca1a2" />
+              <Entypo name="magnifying-glass" size={25} color="#9ca1a2" />
             </View>
           </View>
         </ImageBackground>
