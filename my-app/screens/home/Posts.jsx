@@ -69,7 +69,7 @@ export default function Posts(props) {
               justifyContent: 'flex-end',
             }}
           >
-            {/* <TouchableOpacity onPress={onPress}
+            <TouchableOpacity onPress={onPress}
             style={{
               marginBottom:20,
               borderRadius:5,
@@ -80,7 +80,7 @@ export default function Posts(props) {
               color='#044244'
               size={20}/>
 
-            </TouchableOpacity> */}
+            </TouchableOpacity>
             <TouchableOpacity onPress={onLike}
             style={{
               marginBottom:20,
