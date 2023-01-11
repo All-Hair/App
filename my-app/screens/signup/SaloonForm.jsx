@@ -12,10 +12,8 @@ const imageFemale = require("../../assets/female.png");
 
 
 
-const SaloonForm = ({navigation}) => {
-   const [name,setName]=useState('');
-   const [adress,setAdress]=useState('');
-   const [gender, setGender] = useState("");
+const SaloonForm = ({navigation , changeSForm , sform}) => {
+
 
 
 
@@ -29,7 +27,7 @@ const SaloonForm = ({navigation}) => {
 <View>
         <SwitchSelector
           initial={0}
-          onPress={(value) => setGender(value)}
+          onPress={(value) => changeSForm({gender:value})}
           textColor="gray"
           selectedColor="white"
           buttonColor="gray"
@@ -42,8 +40,13 @@ const SaloonForm = ({navigation}) => {
           ]}
         />
       </View>
-<Field  value={name} onChangeText={text=>setName(text)} placeholder="Enter the saloon name" secureTextEntry={true} />
-<Field  value={adress} onChangeText={text=>setAdress(text)} placeholder="Enter the saloon name" secureTextEntry={true} />
+<Field  value={sform.name} onChangeText={text=>changeSForm({name:text})} placeholder="Enter the saloon name"  />
+<Field  value={sform.adress} onChangeText={text=>changeSForm({adress:text})} placeholder="Enter the saloon adress"  />
+<Field  value={sform.city} onChangeText={text=>changeSForm({city:text})} placeholder="Enter the saloon city"  />
+<Field  value={sform.type} onChangeText={text=>changeSForm({type:text})} placeholder="Enter the saloon type"  />
+<Field  value={sform.description} onChangeText={text=>changeSForm({description:text})} placeholder="Enter the saloon description"  />
+<Field  value={sform.image} onChangeText={text=>changeSForm({image:text})} placeholder="Enter the saloon image"  />
+<Field  value={sform.home_service} onChangeText={text=>changeSForm({home_service:text})} placeholder="Enter the saloon home_service"  />
 
 </View>
   );
