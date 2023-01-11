@@ -3,17 +3,18 @@ import {
   View,
   Text,
   StatusBar,
-  ScrollView,
+  
   TouchableOpacity,
   Image,
+  ImageBackground
 } from 'react-native';
 import {COLOURS, Items} from './database/Database';
-import Entypo from 'react-native-vector-icons/Entypo';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Zocial from 'react-native-vector-icons/Zocial';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Navbar from '../../components/Navbar';
+import {ScrollView,Box} from 'native-base'
 const Cartt = ({navigation}) => {
-  const [products, setProducts] = useState([]);
   const [accessory, setAccessory] = useState([]);
 
   //get called on screen loads
@@ -28,17 +29,15 @@ const Cartt = ({navigation}) => {
   //get data from DB
 
   const getDataFromDB = () => {
-    let productList = [];
+    
     let accessoryList = [];
     for (let index = 0; index < Items.length; index++) {
-      if (Items[index].category == 'product') {
-        productList.push(Items[index]);
-      } else if (Items[index].category == 'accessory') {
+       if (Items[index].category == 'accessory') {
         accessoryList.push(Items[index]);
       }
     }
 
-    setProducts(productList);
+    
     setAccessory(accessoryList);
   };
 
@@ -57,37 +56,17 @@ const Cartt = ({navigation}) => {
             width: '100%',
             height: 100,
             borderRadius: 10,
-            backgroundColor: COLOURS.backgroundLight,
+            backgroundColor: COLOURS.white,
             position: 'relative',
             justifyContent: 'center',
             alignItems: 'center',
             marginBottom: 8,
+            borderWidth: 1,
+            borderColor:'black'
+            
           }}>
-          {data.isOff ? (
-            <View
-              style={{
-                position: 'absolute',
-                width: '20%',
-                height: '24%',
-                backgroundColor: COLOURS.green,
-                top: 0,
-                left: 0,
-                borderTopLeftRadius: 10,
-                borderBottomRightRadius: 10,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Text
-                style={{
-                  fontSize: 12,
-                  color: COLOURS.white,
-                  fontWeight: 'bold',
-                  letterSpacing: 1,
-                }}>
-                {data.offPercentage}%
-              </Text>
-            </View>
-          ) : null}
+         
+         
           <Image
             source={data.productImage}
             style={{
@@ -106,8 +85,7 @@ const Cartt = ({navigation}) => {
           }}>
           {data.productName}
         </Text>
-        {data.category == 'accessory' ? (
-          data.isAvailable ? (
+       
             <View
               style={{
                 flexDirection: 'row',
@@ -116,7 +94,7 @@ const Cartt = ({navigation}) => {
               
               
             </View>
-          ) : (
+           
             <View
               style={{
                 flexDirection: 'row',
@@ -124,53 +102,61 @@ const Cartt = ({navigation}) => {
               }}>
               
             </View>
-          )
-        ) : null}
+          
+        
         <Text> {data.productPrice} DT</Text>
       </TouchableOpacity>
     );
   };
 
   return (
+
     <View
       style={{
         width: '100%',
         height: '100%',
         backgroundColor: COLOURS.white,
+        
       }}>
+
       <StatusBar backgroundColor={COLOURS.white} barStyle="dark-content" />
-      <ScrollView showsVerticalScrollIndicator={false}>
+     
+      <ImageBackground source={require('../../assets/profilbackground.png')} >
         <View
           style={{
             width: '100%',
             flexDirection: 'row',
             justifyContent: 'space-between',
             padding: 16,
+           
           }}>
-          <TouchableOpacity>
-            <Entypo
-              name="shopping-bag"
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}  >
+            <Ionicons
+              name="arrow-back"
               style={{
                 fontSize: 18,
-                color: COLOURS.backgroundMedium,
+                color: COLOURS.black,
+                borderColor:COLOURS.black,
                 padding: 15,
                 borderRadius: 10,
-                backgroundColor: COLOURS.backgroundLight,
+                borderWidth: 1,
+                backgroundColor: COLOURS.white,
                 top:20
               }}
             />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('MyCart')}>
-            <MaterialCommunityIcons
+            <Zocial
               name="cart"
               style={{
                 fontSize: 18,
-                color: COLOURS.backgroundMedium,
-                padding: 17,
+                color: COLOURS.black,
+                padding: 14,
                 borderRadius: 10,
                 borderWidth: 1,
-                borderColor: COLOURS.backgroundLight,
-                top:20
+                borderColor: COLOURS.black,
+                top:20,
+                backgroundColor: COLOURS.white,
               }}
             />
           </TouchableOpacity>
@@ -194,7 +180,7 @@ const Cartt = ({navigation}) => {
           </Text>
           <Text
             style={{
-              fontSize: 14,
+              fontSize: 15,
               color: COLOURS.black,
               fontWeight: '400',
               letterSpacing: 1,
@@ -204,10 +190,15 @@ const Cartt = ({navigation}) => {
            
             This shop offers both products and services
           </Text>
+          
         </View>
         <View
           style={{
             padding: 16,
+            top:60,
+            backgroundColor:'#FFF',
+            borderTopLeftRadius: 110,
+
           }}>
           <View
             style={{
@@ -215,99 +206,60 @@ const Cartt = ({navigation}) => {
               alignItems: 'center',
               justifyContent: 'space-between',
               backgroundColor:'#ccc9c0',
-              borderRadius:5
+              borderRadius:7,
+              top:50,
+              borderTopLeftRadius: 110,
+              borderTopRightRadius: 120,
+              
             }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
+            
               <Text
                 style={{
                   fontSize: 18,
                   color: COLOURS.black,
                   fontWeight: '500',
                   letterSpacing: 1,
-                  left:10
+                  left:150,
+                  flexDirection: 'row',
+                  alignItems: 'center'
+                  
                 }}>
                 Products
-              </Text>
-              
-            </View>
-            
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              justifyContent: 'space-around',
-            }}>
-            {products.map(data => {
-              return <ProductCard data={data} key={data.id} />;
-            })}
-          </View>
-        </View>
-
-        <View
-          style={{
-            padding: 16,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              backgroundColor:'#ccc9c0',
-              borderRadius:5,
-              
-            }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  color: COLOURS.black,
-                  fontWeight: '500',
-                  letterSpacing: 1,
-                  left:10
-                }}>
-                Accessories
               </Text>
              
             </View>
             
-          </View>
-          <View
+    <ScrollView showsVerticalScrollIndicator={false}>
+
+          <Box
             style={{
               flexDirection: 'row',
               flexWrap: 'wrap',
               justifyContent: 'space-around',
+              top:50,
+              height:500
+              
             }}>
             {accessory.map(data => {
-              return <ProductCard data={data} key={data.id} />;
+              return < ProductCard data={data} key={data.id} />;
             })}
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              justifyContent: 'space-around',
-            }}>
-            {accessory.map(data => {
-              return <ProductCard data={data} key={data.id} />;
-            })}
-          </View>
+          </Box>
+         </ScrollView>
         </View>
-      </ScrollView>
+       
+        
+
+        </ImageBackground>
+        
       
       <View>
      
       </View>
+      
       <Navbar navigation={navigation}/>
     </View>
+  
+
     
   );
 };
