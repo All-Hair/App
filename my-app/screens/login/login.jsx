@@ -152,6 +152,7 @@ const Login = ({ navigation }) => {
             placeholder="Email"
             value={email}
             keyboardType={"email-address"}
+            // autoCapitalize={characters}
             onChangeText={(text) => setEmail(text)}
           />
                       {!checkEmail ? (
