@@ -40,7 +40,28 @@ module.exports = {
     catch(error){
         res.status(404).json(error)
     }
-   }
+   },
+   
+    // get one saloon by email
+
+    findOneByEmail: async (req, res) => {
+        try {
+          const email = req.params.email;
+  
+         const oneSaloon = await Saloon.findOne({ where: { email: email } })
+         if (oneSaloon === null) {
+    console.log('Not found!');
+    res.send(null)
+  } else {
+    res.send(oneSaloon);
+  }
+        } catch (error) {
+          res.status(500).send({
+            message:
+              error.message || "Some error occurred while retrieving saloon.",
+          });
+        }
+      },
    
 
 }

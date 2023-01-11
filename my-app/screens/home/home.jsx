@@ -18,6 +18,8 @@ import {
 import Animated, { Easing, interpolate } from 'react-native-reanimated';
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
+import Saloon from '../saloon/Saloon';
+
 
 const Home = ({ navigation }) => {
   const [popularSelected, setPop] = useState(true);
@@ -171,7 +173,17 @@ const Home = ({ navigation }) => {
               </Text>
             </TouchableOpacity>
           </View>
-          <View></View>
+          <View>
+
+          <View>
+          <Text >
+                test 
+              </Text>
+              <Saloon />
+
+            </View>
+
+          </View>
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />

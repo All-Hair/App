@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
+  SafeAreaView,
 } from "react-native";
 import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,} from 'react-native-vector-icons'
 // import axios from 'axios'
@@ -17,11 +18,11 @@ import client from "../../api/client";
 const Uprofile = ({ navigation }) => {
   const [users,setUsers]= useState([])
 
-   const getAll =async()=>{
+   const getAll =async(email)=>{
     try{
-    const req= await client.get('/user')
-    setUsers(req)
-    console.log(req.data);
+    const req= await client.get(`/user/getone/${email}`)
+    setUsers(req.data)
+    console.log(req,'----');
    // console.log(res,'------,,,.,.,.,.,.,.,<<<???????>>>>>>>>>>>---');
    
     }catch(error){
@@ -29,13 +30,14 @@ const Uprofile = ({ navigation }) => {
   }
   
 }
+// console.log(users);
 // console.log(req.data,'---');
 useEffect(()=>{
-  console.log('<----->');
+  // console.log('<----->');
   getAll()
 },[])
    return (
-     <View style={{ flex: 1, backgroundColor: "#fff" }}>
+     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView>
         <>
           <View>
@@ -112,7 +114,7 @@ useEffect(()=>{
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />
-    </View>
+    </SafeAreaView>
   );
 };
 

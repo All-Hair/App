@@ -15,10 +15,9 @@ import { auth } from "../../firebase";
 import SwitchSelector from "react-native-switch-selector";
 import UserForm from "./UserForm.jsx";
 import SaloonForm from "./SaloonForm.jsx";
-
+import client from "../../api/client";
 
 const Signup = ({ navigation }) => {
-  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
@@ -27,7 +26,12 @@ const Signup = ({ navigation }) => {
 
   const [userType, setUserType] = useState("user");
   const [show, setShow] = useState(false);
-  const [cont, setCont] = useState('');
+  const [cont, setCont] = useState("");
+  const [uform, setUform] = useState({});
+  const [sform, setSform] = useState({});
+
+  console.log(uform);
+  console.log(sform);
 
   // console.log(password)
 
@@ -40,6 +44,26 @@ const Signup = ({ navigation }) => {
 
   //   return unsubscribe
   // }, [])
+
+  const changeForm = (element) => {
+    setUform({ ...uform, ...element });
+  };
+  const changeSForm = (element) => {
+    setSform({ ...sform, ...element });
+  };
+  const registerToDB = async () => {
+    try {
+      if (userType == "user") {
+        const req = await client.post("/user", { ...uform, email: email });
+        console.log(req.data);
+      } else {
+        const req = await client.post("/saloon/add", { ...sform, email: email });
+        console.log(req.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSignUp = () => {
     auth
@@ -113,8 +137,8 @@ const Signup = ({ navigation }) => {
               borderColor="black"
               hasPadding
               options={[
-                { label: "user", value: "user" }, //, imageIcon: images.feminino const imagesFeminino = require('./path_to/assets/img/feminino.png')
-                { label: "saloon", value: "saloon" }, //, imageIcon: images.masculino const imagesMasculino = require('./path_to/assets/img/masculino.png')
+                { label: "user", value: "user" }, 
+                { label: "saloon", value: "saloon" }, 
               ]}
             />
           </View>
@@ -125,6 +149,7 @@ const Signup = ({ navigation }) => {
               keyboardType={"email-address"}
               onChangeText={(text) => setEmail(text)}
             />
+
             <Field
               value={password}
               onChangeText={(text) => setPassword(text)}
@@ -150,7 +175,15 @@ const Signup = ({ navigation }) => {
             ) : (
               <Text></Text>
             )}
-            {userType === "user" ? <UserForm /> : <SaloonForm />}
+            {userType === "user" ? (
+              <UserForm
+                changeForm={changeForm}
+                uform={uform}
+                setUform={setUform}
+              />
+            ) : (
+              <SaloonForm changeSForm={changeSForm} sform={sform} />
+            )}
 
             <View
               style={{
@@ -176,6 +209,8 @@ const Signup = ({ navigation }) => {
                   setCheckP(false);
                 } else {
                   setCheckP(true);
+
+                  registerToDB();
                   handleSignUp();
                 }
               }}

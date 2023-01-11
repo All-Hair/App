@@ -21,7 +21,7 @@ import Mainbutton from './screens/mainbutton/mainbutton.jsx';
 import DateSelect from './screens/booking/dateSelect.js';
 import PickTime from  './screens/booking/pickTime.js'
 import Appointment from './screens/booking/appointment.js';
-import SliderPhotos from './screens/shop/Slider'
+// import SliderPhotos from './screens/shop/Slider'
 import MyCart from './screens/cart/MyCart.js';
 import ProductInfo from './screens/cart/ProductInfo.js';
 
@@ -40,6 +40,8 @@ const App =() => {
 <Stack.Screen name ='Home' options = {{headerShown :false}}  component={Home}/> 
 {/* <Stack.Screen name ="Shop" options = {{headerShown :false}} component={Shop} /> */}
 {/* <Stack.Screen name ="OneShop" options = {{headerShown :false}} component={OneShop} /> */}
+{/* <Stack.Screen name ="Shop" options = {{headerShown :false}} component={Shop} />
+<Stack.Screen name ="OneShop" options = {{headerShown :false}} component={OneShop} /> */}
 <Stack.Screen name ="Cart" options = {{headerShown :false}} component={Cart} />
 <Stack.Screen name ='Sprofile' options = {{headerShown :false}}  component={Sprofile}/> 
 <Stack.Screen name ='Uprofile' options = {{headerShown :false}}  component={Uprofile}/> 
@@ -50,7 +52,6 @@ const App =() => {
 <Stack.Screen name = 'Mainbutton' options = {{headerShown :false}}  component={Mainbutton}/>
 <Stack.Screen name = 'BookList' options = {{headerShown :false}}  component={BookList}/>
 <Stack.Screen name = 'Appointment' options = {{headerShown :false}}  component={Appointment}/>
-<Stack.Screen name ='Slider' options = {{headerShown :false}}  component={SliderPhotos}/>
 <Stack.Screen name ='MyCart' options = {{headerShown :false}}  component={MyCart}/>
 <Stack.Screen name ='ProductInfo' options = {{headerShown :false}}  component={ProductInfo}/>
 </Stack.Navigator>

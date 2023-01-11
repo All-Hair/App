@@ -1,6 +1,6 @@
 const express = require("express");
 var router = require("express").Router();
-const { create, findAll , del , update } = require("../controller/user.controller");
+const { create, findAll , del , update , findOneByEmail} = require("../controller/user.controller");
 
 // Create a new user
 router.post("/", create);
@@ -10,5 +10,7 @@ router.get("/", findAll);
 router.delete("/delete/:id", del);
 // update user
 router.put("/update/:id", update);
+// get one user by email
+router.get("/getone/:email", findOneByEmail);
 
 module.exports = router;
