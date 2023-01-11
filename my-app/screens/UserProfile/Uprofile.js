@@ -13,18 +13,28 @@ import {
 import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,} from 'react-native-vector-icons'
 // import axios from 'axios'
 import client from "../../api/client";
-// import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-// import Navbar from '../../components/Navbar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Uprofile = ({ navigation }) => {
   const [users,setUsers]= useState([])
 
-   const getAll =async(email)=>{
-    try{
-    const req= await client.get(`/user/getone/${email}`)
-    setUsers(req.data)
-    console.log(req,'----');
-   // console.log(res,'------,,,.,.,.,.,.,.,<<<???????>>>>>>>>>>>---');
+  // const 
+ 
+  const getUser = async () => {
+    try {
+      const savedUser = await AsyncStorage.getItem("user");
+      const currentUser = JSON.parse(savedUser);
+      setUsers(currentUser,'dslsdkkskskkskksksksk')
+      console.log('storage--------------------------------------------',users);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+   const getAll =async()=>{
+     let email = users.email
+     try{
+    const res= await client.get(`/user/getone/${email}`)
    
+   console.log(res,'-------------');
     }catch(error){
     console.log(error);
   }
@@ -34,6 +44,8 @@ const Uprofile = ({ navigation }) => {
 // console.log(req.data,'---');
 useEffect(()=>{
   // console.log('<----->');
+  // console.log(users);
+  getUser()
   getAll()
 },[])
    return (
@@ -65,7 +77,7 @@ useEffect(()=>{
               {/* Profile Name and Bio */}
 
               <View style={styles.nameAndBioView}>
-                <Text style={styles.userFullName}>{"USER SAIF"}</Text>
+                <Text style={styles.userFullName}>{users.name}</Text>
               </View>
               {/* Posts/Followers/Following View */}
 
@@ -103,7 +115,7 @@ useEffect(()=>{
           <Text style={[styles.text, { color: "#000000" }]}>
           <Fontisto  size ={19} name='email'>  </Fontisto>
             Email :{"                "}
-            <Text style={{ fontWeight: "600" }}>Jake Challeahe</Text>
+            <Text style={{ fontWeight: "600" }}>{users.email}</Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>

@@ -10,13 +10,14 @@ import Btn from "./button.jsx";
 import { primary } from "./constants.jsx";
 import Field from "./field.jsx";
 import client from "../../api/client";
+import AsynStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [isUser, setIsUser] =useState(true)
   const [userType, setUserType] = useState("user");
-
+//  const [users,setUsers] = useState("")
   // const { width, height } = Dimensions.get('window');
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
@@ -26,6 +27,9 @@ const Login = ({ navigation }) => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         navigation.replace("Home");
+       
+        // setUsers(user)
+        this.storeUser(user)
       }
     });
 
@@ -36,7 +40,7 @@ const Login = ({ navigation }) => {
     try {
       if (userType == "user") {
         const req = await client.get(`/user/getone/${email}`);
-        console.log(req.data);
+         // setUsers(req.body)
         if (req.data == null) {
           console.log("not existing user !!!!");
         } else {
@@ -61,11 +65,21 @@ const Login = ({ navigation }) => {
       .signInWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log(userCredentials);
+        console.log(userCredentials,'-----');
         console.log("Logged in with:", user.email);
       })
       .catch((error) => alert(error.message));
   };
+   storeUser = async (value) => {
+    try {
+      console.log("1",value);
+      await AsynStorage.setItem("user", JSON.stringify(value));
+      console.log();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+ 
 
   return (
     <Background>
