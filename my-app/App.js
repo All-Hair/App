@@ -1,25 +1,26 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NativeBaseProvider } from 'native-base';
-import * as React from 'react';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NativeBaseProvider } from "native-base";
+import * as React from "react";
 
-import Appointment from './screens/booking/appointment.js';
-import BookList from './screens/booking/bookList.js';
-import DateSelect from './screens/booking/dateSelect.js';
-import PickTime from './screens/booking/pickTime.js';
-import Cart from './screens/cart/cart';
-import MyCart from './screens/cart/MyCart.js';
-import ProductInfo from './screens/cart/ProductInfo.js';
-import Detail from './screens/home/Detail.jsx';
-import Home from './screens/home/home.jsx';
-import Forgotpassword from './screens/login/forgotpassword.jsx';
-import Login from './screens/login/login.jsx';
-import Mainbutton from './screens/mainbutton/mainbutton.jsx';
-import Pricelist from './screens/pricelist/Pricelist.jsx';
-import Signup from './screens/signup/signup';
-import Sprofile from './screens/sprofile/sprofile';
-import UpdateUpro from './screens/UserProfile/UpdateUpro';
-import Uprofile from './screens/UserProfile/Uprofile.js';
+import Home from "./screens/home/home.jsx";
+import Signup from "./screens/signup/signup";
+import Login from "./screens/login/login.jsx";
+import Forgotpassword from "./screens/login/forgotpassword.jsx";
+import Sprofile from "./screens/sprofile/sprofile";
+import Cart from "./screens/cart/cart";
+import Pricelist from "./screens/pricelist/Pricelist";
+import Uprofile from "./screens/UserProfile/Uprofile.js";
+import BookList from "./screens/booking/bookList.js";
+import UpdateUpro from "./screens/UserProfile/UpdateUpro";
+import Mainbutton from "./screens/mainbutton/mainbutton.jsx";
+import DateSelect from "./screens/booking/dateSelect.js";
+import PickTime from "./screens/booking/pickTime.js";
+import Appointment from "./screens/booking/appointment.js";
+
+import MyCart from "./screens/cart/MyCart.js";
+import ProductInfo from "./screens/cart/ProductInfo.js";
+import Detail from "./screens/home/Detail.jsx";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -47,7 +48,6 @@ const App = () => {
             options={{ headerShown: false }}
             component={Home}
           />
-         
           <Stack.Screen
             name="Cart"
             options={{ headerShown: false }}
@@ -94,26 +94,26 @@ const App = () => {
             component={BookList}
           />
           <Stack.Screen
-            name="Detail"
-            options={{ headerShown: false }}
-            component={Detail}
-          />
-          <Stack.Screen
             name="Appointment"
             options={{ headerShown: false }}
             component={Appointment}
           />
+          <Stack.Screen
+            name="MyCart"
+            options={{ headerShown: false }}
+            component={MyCart}
+          />
+          <Stack.Screen
+            name="ProductInfo"
+            options={{ headerShown: false }}
+            component={ProductInfo}
+          />
+          <Stack.Screen
+            name="Detail"
+            options={{ headerShown: false }}
+            component={Detail}
+          />
         </Stack.Navigator>
-        <Stack.Screen
-          name="ProductInfo"
-          options={{ headerShown: false }}
-          component={ProductInfo}
-        />
-        <Stack.Screen
-          name="MyCart"
-          options={{ headerShown: false }}
-          component={MyCart}
-        />
       </NavigationContainer>
     </NativeBaseProvider>
   );
