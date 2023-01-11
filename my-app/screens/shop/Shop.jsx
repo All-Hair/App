@@ -6,10 +6,14 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import { Button } from "react-native";
+
+import client from "../../api/client";
+
+
 const data = [
   {
     id: "1",
@@ -31,27 +35,52 @@ const data = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU",
   },
+  {
+    id: "4",
+    name: "Salvator",
+    price: "80 DT",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-7hByhjV3B_CWuKlyQ3OmY7bNyqfInaatww&usqp=CAU",
+  },
 ];
 const Shop = ({ navigation }) => {
   const [item, setItem] = useState(data);
   // console.log(item, "<-------->");
+
+
+  // function to get data 
+
+const getData = async ()=>{
+  try {
+    const req = await client.get("/product")
+    setItem(req.data);
+    console.log(req.data);
+  } catch (error) {
+    console.log(error)
+  }
+    }
+
+    useEffect(() => {
+      getData()
+      console.log("hi");
+      }, []);
+    
   return (
     <View>
       <SafeAreaView>
         <Text
           style={{
-            fontSize: 30,
+            fontSize: 35,
             fontWeight: "bold",
-            marginVertical: 20,
-            marginTop: 170,
+            marginVertical: -40,
+            marginTop: 100,
             alignSelf: "center",
-            bottom:85
+            bottom: 85,
           }}
         >
           shop
         </Text>
         {item.map((e, i) => {
-          console.log("<<<<<<<<<", i);
           return (
             <View style={styles.item} key={i}>
               <Image style={styles.itemImage} source={{ uri: e.image }} />
@@ -59,23 +88,28 @@ const Shop = ({ navigation }) => {
                 <Text style={styles.itemName}>{e.name} </Text>
                 <Text style={styles.itemName}>{e.price}</Text>
               </View>
-              {/* <Button
-                title="More"
+
+              <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate("OneShop"), e.id;
+                  navigation.navigate("Slider"), e.id;
                 }}
-              /> */}
-                <TouchableOpacity onPress={() => {
-                  navigation.navigate("OneShop"), e.id;
-                }}  
-                style={styles.button}>
-        <Text style={styles.buttonText}>More</Text>
-      </TouchableOpacity>
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>More</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("Cart");
+                }}
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>Buy</Text>
+              </TouchableOpacity>
             </View>
           );
         })}
 
-        <Navbar navigation={navigation}/>
+        <Navbar navigation={navigation} />
       </SafeAreaView>
     </View>
   );
@@ -127,7 +161,7 @@ const styles = StyleSheet.create({
     padding: 30,
     marginBottom: 10,
     backgroundColor: "#fff",
-    borderRadius:40
+    borderRadius: 40,
   },
   itemImage: {
     width: 90,
@@ -147,20 +181,19 @@ const styles = StyleSheet.create({
   itemAdd: {
     alignSelf: "stretch",
   },
-  
+
   button: {
     marginLeft: 10,
 
-    backgroundColor: '#CCC9C0',
-    width: '23%',
+    backgroundColor: "#CCC9C0",
+    width: "23%",
     padding: 15,
     borderRadius: 10,
-    alignItems: 'center',
-  
+    alignItems: "center",
   },
   buttonText: {
-    color: 'white',
-    fontWeight: '700',
+    color: "white",
+    fontWeight: "700",
     fontSize: 16,
   },
 });

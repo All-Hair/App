@@ -34,13 +34,34 @@ module.exports = {
     let id = req.params.id
     const update =req.body
     try{
-        const saloonUpdated =await Saloon.update(update,{where:{id:id}})
+        const saloonUpdated = await Saloon.update(update,{where:{id:id}})
         res.status(201).json(saloonUpdated)
     }
     catch(error){
         res.status(404).json(error)
     }
-   }
+   },
+   
+    // get one saloon by email
+
+    findOneByEmail: async (req, res) => {
+        try {
+          const email = req.params.email;
+  
+         const oneSaloon = await Saloon.findOne({ where: { email: email } })
+         if (oneSaloon === null) {
+    console.log('Not found!');
+    res.send(null)
+  } else {
+    res.send(oneSaloon);
+  }
+        } catch (error) {
+          res.status(500).send({
+            message:
+              error.message || "Some error occurred while retrieving saloon.",
+          });
+        }
+      },
    
 
 }

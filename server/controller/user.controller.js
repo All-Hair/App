@@ -12,20 +12,8 @@ module.exports = {
         });
         return;
       }
-
-      // Create a user
-      const user = {
-        name: req.body.name,
-        phone: req.body.phone,
-        email: req.body.email,
-        gender: req.body.gender,
-        adress: req.body.adress,
-        image: req.body.image,
-
-      };
-
       // Save user in the database
-      await User.create(user);
+      await User.create(req.body);
 
       res.send("added successfully");
     } catch (error) {
@@ -85,4 +73,27 @@ module.exports = {
       });
     }
   },
+
+    // get one user by email
+
+    findOneByEmail: async (req, res) => {
+      try {
+        const email = req.params.email;
+
+       const oneUser = await User.findOne({ where: { email: email } })
+       if (oneUser === null) {
+  console.log('Not found!');
+  res.send(null)
+} else {
+  res.send(oneUser);
+}
+      } catch (error) {
+        res.status(500).send({
+          message:
+            error.message || "Some error occurred while retrieving user.",
+        });
+      }
+    },
+
+
 };

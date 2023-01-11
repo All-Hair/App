@@ -26,5 +26,10 @@ module.exports=(sequelize,DataType)=>{
         allowNull:true
     }
   }) 
+  Post.associate=(models)=>{
+    Post.belongsTo(models.Saloon)
+    Post.belongsToMany(models.User,{through:"UserPost"})
+
+}
   return Post
 }

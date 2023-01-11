@@ -3,12 +3,12 @@ var router = require("express").Router();
 const { create, findAll , del , update } = require("../controller/menu.controller");
 
 // Create a new menu
-router.post("/menu/", create);
+router.post("/", create);
 // get all menu
-router.get("/menu/", findAll);
+router.get("/", findAll);
 // delete a service
-router.delete("/menu/delete/:id", del);
+router.delete("/delete/:id", del);
 // update menu
-router.put("/menu/update/:id", update);
+router.put("/update/:id", update);
 
 module.exports = router;

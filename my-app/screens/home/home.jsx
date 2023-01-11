@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
-import Icon from 'react-native-vector-icons/Entypo';
+import {Entypo,AntDesign}from 'react-native-vector-icons';
 
 import {
   Button,
@@ -19,6 +19,8 @@ import {
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
 import Posts from './Posts';
+import Saloon from '../saloon/Saloon';
+
 
 const Home = ({ navigation }) => {
   const [popularSelected, setPop] = useState(true);
@@ -36,7 +38,11 @@ const Home = ({ navigation }) => {
   console.log(auth.currentUser?.email);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView  style={{
+      width: '100%',
+      height: '100%',
+      
+    }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={{ height: '100%', backgroundColor: '#CCC9C0' }}
@@ -117,6 +123,7 @@ const Home = ({ navigation }) => {
             // borderTopRightRadius: 40,
             height: 1000,
             paddingHorizontal: 35,
+            
           }}
         >
           <View

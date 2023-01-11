@@ -1,12 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
+import * as React from 'react';
 
 import Appointment from './screens/booking/appointment.js';
 import BookList from './screens/booking/bookList.js';
 import DateSelect from './screens/booking/dateSelect.js';
 import PickTime from './screens/booking/pickTime.js';
 import Cart from './screens/cart/cart';
+import MyCart from './screens/cart/MyCart.js';
+import ProductInfo from './screens/cart/ProductInfo.js';
 import Detail from './screens/home/Detail.jsx';
 import Home from './screens/home/home.jsx';
 import Forgotpassword from './screens/login/forgotpassword.jsx';
@@ -112,6 +115,16 @@ const App = () => {
             component={Appointment}
           />
         </Stack.Navigator>
+        <Stack.Screen
+          name="ProductInfo"
+          options={{ headerShown: false }}
+          component={ProductInfo}
+        />
+        <Stack.Screen
+          name="MyCart"
+          options={{ headerShown: false }}
+          component={MyCart}
+        />
       </NavigationContainer>
     </NativeBaseProvider>
   );
