@@ -35,10 +35,10 @@ const Home = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
-  console.log(auth.currentUser?.email);
+  // console.log(auth.currentUser?.email);
 
   return (
-    <SafeAreaView  style={{
+    <View  style={{
       width: '100%',
       height: '100%',
       
@@ -72,12 +72,13 @@ const Home = ({ navigation }) => {
                   alignItems: 'flex-end',
                 }}
               >
-                <Entypo
-                  name="dots-two-vertical"
-                  size={22}
-                  color="white"
-                  style={{ marginRight: -7, marginTop: 7 }}
-                />
+              <AntDesign
+                name="logout"
+                size={30}
+                color="white"
+                style={{ marginRight: -7, marginTop: 7 }}
+                onPress={handleSignOut}
+              />
               </View>
             </View>
             <Text
@@ -246,7 +247,7 @@ const Home = ({ navigation }) => {
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />
-    </SafeAreaView>
+    </View>
   );
 };
 

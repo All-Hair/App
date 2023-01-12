@@ -2,6 +2,8 @@ import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, An
 
 import React from 'react'
 const { width, height } = Dimensions.get('window');
+import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 
 const Navbar = ({navigation}) => {
@@ -72,70 +74,45 @@ const Navbar = ({navigation}) => {
                         flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
                     }}>
                         <TouchableOpacity  onPress={() => {navigation.navigate('Home')}} >
-                            <Image
-
-                                style={{ width: 30, height: 30 }}
-
-                                source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/6178238-removebg-preview_cpuyde.png' }}
-
-                               
-                            >
-
-                            </Image>
+                        <AntDesign name="home" size={30} color="black" />
 
                         </TouchableOpacity>
                         <Text style={{justifyContent:'center',alignItems:'center'}}>Home</Text>
                     </View>
                     
                     <View style={{
-                        flexDirection: 'column', alignItems: 'center',justifyContent:'center',marginStart:30
+                        flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-1
                     }}>
 
                         <TouchableOpacity
                             
                         >
-                            <Image
-                                style={{  width: 30, height: 30 }}
-                                source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/5043688-removebg-preview_v3u4hm.png' }}
-                                
-                            />
+                          <Ionicons name="notifications-outline" size={30} color="black" />
                        
                         </TouchableOpacity>
-                        <Text style={{justifyContent:'center',alignItems:'center' }}>search </Text>
+                        <Text style={{justifyContent:'center',alignItems:'center' }}>notifications</Text>
                     </View>
 
                         <View style={{
-                             flexDirection: 'column', alignItems: 'center',justifyContent:'space-between',marginStart:85,
+                             flexDirection: 'column', right:    12, alignItems: 'center',justifyContent:'space-between',marginStart:85,
                         }}>
 
                             <TouchableOpacity
                              onPress={() => { navigation.navigate('Cart') }}
 
                             >
-                                <Image
-                                    source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/2838838-removebg-preview_xksvd2.png' }}
-                                    onPress={() => { navigation.navigate('shop') }}
-                                    style={{ marginHorizontal: 16, width: 30, height: 30 }}
-                                    containerStyle={{ marginHorizontal: 16 }}
-                                />
-                       
+                             <AntDesign name="shoppingcart" size={30} color="black" />
                             </TouchableOpacity>
                             <Text style={{justifyContent:'center',alignItems:'center' }}>Shop</Text>
                         </View>
                         <View style={{
-                            flexDirection: 'column', alignItems: 'center',justifyContent:'flex-end',
+                            flexDirection: 'column', alignItems: 'center',justifyContent:'flex-end', top:2
                           
                         }}>
                             <TouchableOpacity
                                 onPress={() => {navigation.navigate("Sprofile")}}
                             >
-                                <Image
-                                    source={{ uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672691231/3661442-removebg-preview_cwdejl.png' }}
-
-                                    
-                                    style={{ marginHorizontal: 16, width: 30, height: 30 }}
-                                    containerStyle={{ marginHorizontal: 16 }}
-                                />
+                                <AntDesign name="user" size={30} color="black" />
                      
                             </TouchableOpacity>
                             <Text style={{justifyContent:'center',alignItems:'center' }}> Profile </Text>

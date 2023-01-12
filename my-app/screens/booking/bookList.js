@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { Card, ListItem } from 'react-native-elements';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { getBookedData } from './service/StoreData';
+import Box from 'native-base'
 import Navbar from '../../components/Navbar';
 
 export default (BookList = ({ navigation }) => {
@@ -37,7 +38,7 @@ export default (BookList = ({ navigation }) => {
 					{lists.map((list, i) => {
 						return (
 							<TouchableOpacity key={i} onPress={() => navigation.navigate('Appointment',list)}>
-								<Card key={i}  >
+								<Card key={i} containerStyle={{borderRadius: 10 ,borderWidth:1.4 ,borderColor:'black'}}  >
 									{/* <Card.Divider/> */}
 									<View key={i} style={styles.cardContainer}>
 										<View key={i} style={styles.user}>
@@ -48,7 +49,7 @@ export default (BookList = ({ navigation }) => {
 											</View>
 										</View>
 									</View>
-									<Text style={styles.name3}>${list.price}</Text>
+									<Text style={styles.name3}> {list.price} DT</Text>
 								</Card>
 							</TouchableOpacity>
 						);
@@ -119,10 +120,12 @@ const styles = StyleSheet.create({
 		marginTop: 5,
 		color: 'white',
 		textAlign: 'center',
-		left: 300,
+		left: 290,
 		bottom: 90,
-		width: 35,
-		backgroundColor: 'green'
+		width: 45,
+		backgroundColor: '#ccc9c0',
+		borderBottomLeftRadius:10,
+		borderTopRightRadius:10
 	},
 	forgot_button: {
 		marginLeft: 10
