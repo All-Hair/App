@@ -230,6 +230,8 @@ const Cartt = ({ navigation }) => {
       </View>
           </View>
         </View>
+        <View style={{height:130}}></View>
+
       </ScrollView>
 
       <Navbar navigation={navigation} />

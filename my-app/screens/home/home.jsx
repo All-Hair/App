@@ -273,6 +273,7 @@ const Home = ({ navigation }) => {
             ></View>
           </View>
         </View>
+        <View style={{height:100}}></View>
       </ScrollView>
 
       <Navbar navigation={navigation} />
