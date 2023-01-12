@@ -14,27 +14,33 @@ import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,} from 'react-nati
 // import axios from 'axios'
 import client from "../../api/client";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { auth } from "../../firebase";
 const Uprofile = ({ navigation }) => {
   const [users,setUsers]= useState([])
-
+ console.log(users,"----");
+ console.log(auth.currentUser.email,'<<<<<<<<<<<<<<<<<<<<');
+ const[email,setEmail]= useState(auth.currentUser.email)
   // const 
+ 
  
   const getUser = async () => {
     try {
       const savedUser = await AsyncStorage.getItem("user");
       const currentUser = JSON.parse(savedUser);
-      setUsers(currentUser,'dslsdkkskskkskksksksk')
-      console.log('storage--------------------------------------------',users);
+    // setUsers(currentUser.email,'------------------------------')
+     
+      // console.log('storage--------------------------------------------',users);
     } catch (error) {
       console.log(error);
     }
   };
    const getAll =async()=>{
-     let email = users.email
+    //  let email = users
+     console.log(email,'----aaa--aaa');
      try{
     const res= await client.get(`/user/getone/${email}`)
-   
-   console.log(res,'-------------');
+    setUsers(res.data)
+  //  console.log(res.data,'--------AHMEDDD-----');
     }catch(error){
     console.log(error);
   }
@@ -45,6 +51,7 @@ const Uprofile = ({ navigation }) => {
 useEffect(()=>{
   // console.log('<----->');
   // console.log(users);
+
   getUser()
   getAll()
 },[])
@@ -102,14 +109,14 @@ useEffect(()=>{
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialCommunityIcons  size ={19} name='hair-dryer'>  </MaterialCommunityIcons>
             Name :{"                "}
-            <Text style={{ fontWeight: "600" }}>Jake Challeahe</Text>
+            <Text style={{ fontWeight: "600" }}></Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>
           <Feather  size ={19} name='phone-call'>  </Feather>
              Phone :{"                "}
             
-            <Text style={{ fontWeight: "600" }}>Jake Challeahe</Text>
+            <Text style={{ fontWeight: "600" }}>{users.phone}</Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>
@@ -121,7 +128,7 @@ useEffect(()=>{
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialIcons  size ={19} name='place'>  </MaterialIcons>
             Adress :{"                "}
-            <Text style={{ fontWeight: "600" }}>Jake Challeahe</Text>
+            <Text style={{ fontWeight: "600" }}>{users.adress}</Text>
           </Text>
         </View>
       </ScrollView>

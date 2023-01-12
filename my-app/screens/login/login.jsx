@@ -29,7 +29,10 @@ const Login = ({ navigation }) => {
         navigation.replace("Home");
        
         // setUsers(user)
-        this.storeUser(user)
+        storeUser(user)
+        console.log('====================================');
+        console.log(user);
+        console.log('====================================');
       }
     });
 
@@ -40,6 +43,8 @@ const Login = ({ navigation }) => {
     try {
       if (userType == "user") {
         const req = await client.get(`/user/getone/${email}`);
+        console.log(req.data,'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+       
          // setUsers(req.body)
         if (req.data == null) {
           console.log("not existing user !!!!");
@@ -70,7 +75,7 @@ const Login = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
-   storeUser = async (value) => {
+   const  storeUser = async (value) => {
     try {
       console.log("1",value);
       await AsynStorage.setItem("user", JSON.stringify(value));
