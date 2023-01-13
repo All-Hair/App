@@ -9,6 +9,7 @@ import {
   Image,
   Dimensions,
   SafeAreaView,
+  Button,
 } from 'react-native';
 import MapView,{Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
@@ -90,8 +91,8 @@ function Albums() {
 
 function Tags({ photos }) {
   const[mapRegion,setMapregion] = useState({
-    latitude:37.78825,
-    longitude: -122.4324,
+    latitude:36.866537,
+    longitude: 10.164723,
     latitudeDelta:0.0922,
     longitudeDelta:0.0421,
   })
@@ -108,8 +109,11 @@ function Tags({ photos }) {
       latitudeDelta:0.0922,
       longitudeDelta:0.0421,
     })
-    console.log(location);
+    console.log(location.coords.latitude,location.coords.longitude);
   }
+  useEffect(()=>{
+    userLocation()
+  },[])
   return (
     <View style={{}}>
       <View
@@ -126,6 +130,7 @@ function Tags({ photos }) {
         >
         <Marker coordinate={mapRegion} title="Marker"/>
         </MapView>
+        <Button title=' Get Location ' onPress={userLocation}/>
           <View>
             <Image
               style={{ width: imgWidth, height: imgWidth }}
