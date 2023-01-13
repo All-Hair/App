@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import {
   StyleSheet,
@@ -10,7 +10,9 @@ import {
   Dimensions,
   SafeAreaView,
 } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView,{Marker} from 'react-native-maps';
+import * as Location from 'expo-location';
+
 // import Pricelist from '../pricelist/Pricelist.jsx';
 
 function Photos() {
@@ -18,11 +20,11 @@ function Photos() {
   return (
     <View style={{}}>
       <View
-        // style={{
-        //   flexDirection: 'row',
-        //   flexWrap: 'wrap',
-        //   alignItems: 'flex-start',
-        // }}
+        style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          alignItems: 'flex-start',
+        }}
       >
         
           <View>
@@ -87,7 +89,27 @@ function Albums() {
 }
 
 function Tags({ photos }) {
+  const[mapRegion,setMapregion] = useState({
+    latitude:37.78825,
+    longitude: -122.4324,
+    latitudeDelta:0.0922,
+    longitudeDelta:0.0421,
+  })
   const imgWidth = Dimensions.get('screen').width * 0.33333;
+  const userLocation =async ()=>{
+    let {status} = await Location.requestForegroundPermissionsAsync()
+    if(status !== 'granted'){
+      setErrorMsg('Permission to accses location was denied ')
+    }
+    let location = await Location.getCurrentPositionAsync({enableHighAccuracy:true})
+    setMapregion({
+      latitude:location.coords.latitude,
+      longitude:Location.coords.longitude,
+      latitudeDelta:0.0922,
+      longitudeDelta:0.0421,
+    })
+    console.log(location);
+  }
   return (
     <View style={{}}>
       <View
@@ -97,7 +119,13 @@ function Tags({ photos }) {
           alignItems: 'flex-start',
         }}
       >
-        <MapView style={{ width: '100%', height: '200%',}} />
+        <MapView style={{ width: '100%', height: '200%',}}  
+        
+        region={mapRegion}
+        
+        >
+        <Marker coordinate={mapRegion} title="Marker"/>
+        </MapView>
           <View>
             <Image
               style={{ width: imgWidth, height: imgWidth }}
