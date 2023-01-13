@@ -29,7 +29,8 @@ const Navbar = ({navigation}) => {
                     height: 70,
                     borderRadius: 35,
                     bottom: 35,
-                    zIndex: 10
+                    zIndex: 10,
+                    
 
 
                 }}>
