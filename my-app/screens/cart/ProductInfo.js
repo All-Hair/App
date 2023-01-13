@@ -9,11 +9,12 @@ import {
   Image,
   Dimensions,
   Animated,
-  ToastAndroid,
+  ToastAndroid, 
 } from 'react-native';
+import {Center, HStack} from 'native-base'
+
 import {COLOURS, Items} from './database/Database';
 import Entypo from 'react-native-vector-icons/Entypo';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProductInfo = ({route, navigation}) => {
@@ -61,7 +62,7 @@ const ProductInfo = ({route, navigation}) => {
           'Item Added Successfully to cart',
           ToastAndroid.SHORT,
         );
-        navigation.navigate('Home');
+        navigation.navigate('Cart');
       } catch (error) {
         return error;
       }
@@ -74,7 +75,7 @@ const ProductInfo = ({route, navigation}) => {
           'Item Added Successfully to cart',
           ToastAndroid.SHORT,
         );
-        navigation.navigate('Home');
+        navigation.navigate('Cart');
       } catch (error) {
         return error;
       }
@@ -197,28 +198,23 @@ const ProductInfo = ({route, navigation}) => {
           style={{
             paddingHorizontal: 16,
             marginTop: 6,
-          }}>
+          }}><HStack>
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
               marginVertical: 14,
             }}>
+              
             <Entypo
               name="shopping-cart"
               style={{
-                fontSize: 18,
-                color: COLOURS.blue,
+                fontSize: 33,
+                color: COLOURS.maincolor,
                 marginRight: 6,
               }}
             />
-            <Text
-              style={{
-                fontSize: 12,
-                color: COLOURS.black,
-              }}>
-              Shopping
-            </Text>
+           
           </View>
           <View
             style={{
@@ -227,6 +223,7 @@ const ProductInfo = ({route, navigation}) => {
               alignItems: 'center',
               justifyContent: 'space-between',
             }}>
+              
             <Text
               style={{
                 fontSize: 24,
@@ -234,21 +231,15 @@ const ProductInfo = ({route, navigation}) => {
                 letterSpacing: 0.5,
                 marginVertical: 4,
                 color: COLOURS.black,
-                maxWidth: '84%',
+                maxWidth: '100%',
+                left:44
               }}>
               {product.productName}
             </Text>
-            <Ionicons
-              name="link-outline"
-              style={{
-                fontSize: 24,
-                color: COLOURS.blue,
-                backgroundColor: COLOURS.blue + 10,
-                padding: 8,
-                borderRadius: 100,
-              }}
-            />
-          </View>
+           
+          </View> 
+          </HStack>
+          <Center>
           <Text
             style={{
               fontSize: 12,
@@ -263,14 +254,15 @@ const ProductInfo = ({route, navigation}) => {
             }}>
             {product.description}
           </Text>
+          </Center>
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              marginVertical: 14,
-              borderBottomColor: COLOURS.backgroundLight,
-              borderBottomWidth: 1,
+              marginVertical: 18,
+              borderBottomColor: COLOURS.maincolor,
+              borderBottomWidth: 3,
               paddingBottom: 20,
             }}>
             <View
@@ -279,53 +271,41 @@ const ProductInfo = ({route, navigation}) => {
                 width: '80%',
                 alignItems: 'center',
               }}>
-              <View
-                style={{
-                  color: COLOURS.blue,
-                  backgroundColor: COLOURS.backgroundLight,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: 12,
-                  borderRadius: 100,
-                  marginRight: 10,
-                }}>
-                <Entypo
-                  name="location-pin"
-                  style={{
-                    fontSize: 16,
-                    color: COLOURS.blue,
-                  }}
-                />
-              </View>
-              <Text> Rustaveli Ave 57,{'\n'}17-001, Batume</Text>
+             
+            
             </View>
-            <Entypo
-              name="chevron-right"
-              style={{
-                fontSize: 22,
-                color: COLOURS.backgroundDark,
-              }}
-            />
+           
           </View>
           <View
             style={{
-              paddingHorizontal: 16,
+              paddingHorizontal: 18,
             }}>
+              <Center>
             <Text
               style={{
-                fontSize: 18,
+                fontSize: 25,
                 fontWeight: '500',
                 maxWidth: '85%',
                 color: COLOURS.black,
-                marginBottom: 4,
+                marginBottom: 6,
+                top:10,
+               
+        
               }}>
-              &#8377; {product.productPrice}.00
-            </Text>
-            <Text>
-              Tax Rate 2%~ &#8377;{product.productPrice / 20} (&#8377;
-              {product.productPrice + product.productPrice / 20})
-            </Text>
+               {product.productPrice} DT 
+            </Text></Center>
+           
           </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginVertical: 18,
+              borderBottomColor: COLOURS.maincolor,
+              borderBottomWidth: 3,
+              paddingBottom: 20,
+            }}></View>
         </View>
       </ScrollView>
 
@@ -339,18 +319,30 @@ const ProductInfo = ({route, navigation}) => {
           alignItems: 'center',
         }}>
         <TouchableOpacity
-          onPress={() => (product.isAvailable ? addToCart(product.id) : null)}
+          onPress={() => {(product.isAvailable ? addToCart(product.id)    : null)  }}
           style={{
-            width: '86%',
+            width: '50%',
             height: '90%',
-            backgroundColor: COLOURS.blue,
-            borderRadius: 20,
+            backgroundColor: COLOURS.maincolor,
+            borderRadius: 10,
             justifyContent: 'center',
             alignItems: 'center',
+            top:-50,
+            shadowOpacity: 0.7,
+            shadowRadius: 7.49,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 6,
+            },
+            shadowOpacity: 0.37,
+            shadowRadius: 7.49,
+            
+            elevation: 6,
           }}>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 18,
               fontWeight: '500',
               letterSpacing: 1,
               color: COLOURS.white,
