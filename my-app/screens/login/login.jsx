@@ -10,12 +10,12 @@ import Btn from "./button.jsx";
 import { primary } from "./constants.jsx";
 import Field from "./field.jsx";
 import client from "../../api/client";
-import AsynStorage from '@react-native-async-storage/async-storage';
+import { AntDesign } from '@expo/vector-icons'; 
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [isUser, setIsUser] =useState(true)
+  const [show, setShow] =useState(true)
   const [userType, setUserType] = useState("user");
 //  const [users,setUsers] = useState("")
   // const { width, height } = Dimensions.get('window');
@@ -170,9 +170,12 @@ const Login = ({ navigation }) => {
             value={password}
             onChangeText={(text) => setPassword(text)}
             placeholder="Password"
-            secureTextEntry={true}
+            secureTextEntry={show}
           />
-
+          <View style={{top:-40,left:120}}>
+              <TouchableOpacity onPress={()=>{setShow(!show); setTimeout(() => { setShow(show) 
+                
+              }, 800); }}><AntDesign name="eyeo" size={30} color="#ccc9c0" /></ TouchableOpacity></View>
           <View
             style={{
               alignItems: "flex-end",
