@@ -84,12 +84,12 @@ const Navbar = ({navigation}) => {
                         flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-1
                     }}>
 
-                        <TouchableOpacity
+                        <TouchableOpacity onPress={() => {navigation.navigate("Notifications")}}
                             
                         >
-                          <Ionicons name="notifications-outline" size={30} color="black" />
+                          <Ionicons name="notifications-outline" size={30} color="black"  />
                        
-                        </TouchableOpacity>
+                        </TouchableOpacity >
                         <Text style={{justifyContent:'center',alignItems:'center' }}>notifications</Text>
                     </View>
 

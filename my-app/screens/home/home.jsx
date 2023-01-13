@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 import {Entypo,AntDesign}from 'react-native-vector-icons';
-
+import Suggested from '../suggested/suggested';
 import {
   Button,
   Dimensions,
@@ -19,8 +19,7 @@ import {
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
 import Posts from './Posts';
-import Saloon from '../saloon/Saloon';
-
+import Saloon from '../saloon/Saloon'
 
 const Home = ({ navigation }) => {
   const [popularSelected, setPop] = useState(true);
@@ -174,6 +173,7 @@ const Home = ({ navigation }) => {
               flexDirection: 'row',
             }}
           >
+           
             <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
@@ -197,7 +197,8 @@ const Home = ({ navigation }) => {
             style={{
               flexDirection: 'row',
             }}
-          >
+          > 
+         
             <View
               style={{
                 height: 160,
@@ -210,6 +211,7 @@ const Home = ({ navigation }) => {
                 borderTopRightRadius: 20,
               }}
             ></View>
+            
             <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
@@ -219,6 +221,7 @@ const Home = ({ navigation }) => {
               }}
             />
           </View>
+          
           <View
             style={{
               flexDirection: 'row',
@@ -244,8 +247,10 @@ const Home = ({ navigation }) => {
               }}
             ></View>
           </View>
+          
         </View>
       </ScrollView>
+      
       <Navbar navigation={navigation} />
     </View>
   );

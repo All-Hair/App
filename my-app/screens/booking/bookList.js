@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { Card, ListItem } from 'react-native-elements';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { getBookedData } from './service/StoreData';
-import Box from 'native-base'
 import Navbar from '../../components/Navbar';
 
 export default (BookList = ({ navigation }) => {

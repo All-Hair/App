@@ -174,7 +174,7 @@ const Sprofile = ({navigation}) => {
                   <Text style={styles.interactButtonText}>APPOINTMENT</Text>
                 </TouchableOpacity>
                 
-                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Notifications')}}>
+                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Pricelist')}}>
                   <Text style={styles.interactButtonText}>PRICE LIST</Text>
                 </TouchableOpacity>
                 

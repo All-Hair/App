@@ -21,6 +21,7 @@ import Notifications from "./screens/notifications/notifications.js";
 import MyCart from "./screens/cart/MyCart.js";
 import ProductInfo from "./screens/cart/ProductInfo.js";
 import Detail from "./screens/home/Detail.jsx";
+import Suggested from "./screens/suggested/suggested.jsx";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -117,6 +118,11 @@ const App = () => {
             name="Notifications"
             options={{ headerShown: false }}
             component={Notifications}
+          />
+            <Stack.Screen
+            name="Suggested"
+            options={{ headerShown: false }}
+            component={Suggested}
           />
         </Stack.Navigator>
       </NavigationContainer>
