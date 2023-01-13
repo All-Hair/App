@@ -72,12 +72,13 @@ const Home = ({ navigation }) => {
                   alignItems: 'flex-end',
                 }}
               >
-                <Entypo
-                  name="dots-two-vertical"
-                  size={22}
-                  color="white"
-                  style={{ marginRight: -7, marginTop: 7 }}
-                />
+              <AntDesign
+                name="logout"
+                size={30}
+                color="white"
+                style={{ marginRight: -7, marginTop: 7 }}
+                onPress={handleSignOut}
+              />
               </View>
             </View>
             <Text

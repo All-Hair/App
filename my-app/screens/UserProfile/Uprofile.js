@@ -15,25 +15,14 @@ import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,} from 'react-nati
 import client from "../../api/client";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { auth } from "../../firebase";
+import UpdateUpro from "./UpdateUpro";
 const Uprofile = ({ navigation }) => {
   const [users,setUsers]= useState([])
  console.log(users,"----");
  console.log(auth.currentUser.email,'<<<<<<<<<<<<<<<<<<<<');
  const[email,setEmail]= useState(auth.currentUser.email)
-  // const 
- 
- 
-  const getUser = async () => {
-    try {
-      const savedUser = await AsyncStorage.getItem("user");
-      const currentUser = JSON.parse(savedUser);
-    // setUsers(currentUser.email,'------------------------------')
-     
-      // console.log('storage--------------------------------------------',users);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
+
    const getAll =async()=>{
     //  let email = users
      console.log(email,'----aaa--aaa');
@@ -46,13 +35,8 @@ const Uprofile = ({ navigation }) => {
   }
   
 }
-// console.log(users);
-// console.log(req.data,'---');
-useEffect(()=>{
-  // console.log('<----->');
-  // console.log(users);
 
-  getUser()
+useEffect(()=>{ 
   getAll()
 },[])
    return (
@@ -109,7 +93,7 @@ useEffect(()=>{
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialCommunityIcons  size ={19} name='hair-dryer'>  </MaterialCommunityIcons>
             Name :{"                "}
-            <Text style={{ fontWeight: "600" }}></Text>
+            <Text style={{ fontWeight: "600" }}>{users.name}</Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>
@@ -133,6 +117,7 @@ useEffect(()=>{
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />
+ 
     </SafeAreaView>
   );
 };

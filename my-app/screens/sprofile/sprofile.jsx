@@ -10,7 +10,7 @@ import {
   Dimensions,
   SafeAreaView,
 } from 'react-native';
-
+import MapView from 'react-native-maps';
 // import Pricelist from '../pricelist/Pricelist.jsx';
 
 function Photos() {
@@ -18,20 +18,14 @@ function Photos() {
   return (
     <View style={{}}>
       <View
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          alignItems: 'flex-start',
-        }}
+        // style={{
+        //   flexDirection: 'row',
+        //   flexWrap: 'wrap',
+        //   alignItems: 'flex-start',
+        // }}
       >
         
           <View>
-            <Image
-              style={{ width: imgWidth, height: imgWidth }}
-              source={{
-                uri: `https://previews.123rf.com/images/seamartini/seamartini1809/seamartini180901112/109734896-barber-shop-haircut-salon-vector-retro-poster-man-with-beard-and-mustaches-haircut-made-with-scissor.jpg`,
-              }}
-            />
           </View>
         
       </View>
@@ -103,12 +97,12 @@ function Tags({ photos }) {
           alignItems: 'flex-start',
         }}
       >
-       
+        <MapView style={{ width: '100%', height: '200%',}} />
           <View>
             <Image
               style={{ width: imgWidth, height: imgWidth }}
               source={{
-                uri: `https://picsum.photos/200/300?random=7`,
+                // uri: `https://picsum.photos/200/300?random=7`,
               }}
             />
           </View>
