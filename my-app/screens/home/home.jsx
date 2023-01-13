@@ -1,5 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
+
+import {Entypo,AntDesign}from 'react-native-vector-icons';
+import Suggested from '../suggested/suggested';
+
 import {
   Button,
   Dimensions,
@@ -19,8 +23,10 @@ const { width, height } = Dimensions.get('window');
 
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
+
 import Saloon from '../saloon/Saloon';
 import Posts from './Posts';
+
 
 const Home = ({ navigation }) => {
   const [popularSelected, setPop] = useState(true);
@@ -35,15 +41,17 @@ const Home = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
-  console.log(auth.currentUser?.email);
+  // console.log(auth.currentUser?.email);
 
   return (
+
     <SafeAreaView
       style={{
         width: '100%',
         height: '100%',
       }}
     >
+
       <ScrollView
         contentContainerStyle={{
           flexGrow: height,
@@ -76,6 +84,7 @@ const Home = ({ navigation }) => {
                   alignItems: 'flex-end',
                 }}
               >
+
                 {/* <Menu /> */}
                 <AntDesign
                   name="logout"
@@ -84,6 +93,7 @@ const Home = ({ navigation }) => {
                   style={{ marginRight: -7, marginTop: 7 }}
                   onPress={handleSignOut}
                 />
+
               </View>
             </View>
             <Text
@@ -178,6 +188,7 @@ const Home = ({ navigation }) => {
               flexDirection: 'row',
             }}
           >
+           
             <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
@@ -201,7 +212,8 @@ const Home = ({ navigation }) => {
             style={{
               flexDirection: 'row',
             }}
-          >
+          > 
+         
             <View
               style={{
                 height: 160,
@@ -214,6 +226,7 @@ const Home = ({ navigation }) => {
                 borderTopRightRadius: 20,
               }}
             ></View>
+            
             <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
@@ -223,6 +236,7 @@ const Home = ({ navigation }) => {
               }}
             />
           </View>
+          
           <View
             style={{
               flexDirection: 'row',
@@ -248,6 +262,7 @@ const Home = ({ navigation }) => {
               }}
             ></View>
           </View>
+
           <View
             style={{
               flexDirection: 'row',
@@ -272,12 +287,13 @@ const Home = ({ navigation }) => {
               }}
             ></View>
           </View>
+
         </View>
         <View style={{height:100}}></View>
       </ScrollView>
 
       <Navbar navigation={navigation} />
-    </SafeAreaView>
+    </View>
   );
 };
 
