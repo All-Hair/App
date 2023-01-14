@@ -139,11 +139,12 @@ const Cartt = ({ navigation }) => {
                       fontSize: 18,
                       color: COLOURS.black,
                       borderColor: COLOURS.black,
-                      padding: 12,
+                      padding: 10,
                       borderRadius: 10,
                       borderWidth: 1,
                       backgroundColor: COLOURS.white,
-                      top: 20,
+                      opacity: 0.9,
+                      top: 10,
                     }}
                   />
                 </TouchableOpacity>
@@ -164,7 +165,7 @@ const Cartt = ({ navigation }) => {
                       borderRadius: 10,
                       borderWidth: 1,
                       borderColor: COLOURS.black,
-                      top: 20,
+                      top: 10,
                       backgroundColor: COLOURS.white,
                     }}
                   />

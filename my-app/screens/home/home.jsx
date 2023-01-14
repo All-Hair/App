@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 
 import {Entypo,AntDesign}from 'react-native-vector-icons';
-import Suggested from '../suggested/suggested';
+import Suggested from '../suggested/KeyboardAvoider';
 
 import {
   Button,
@@ -17,7 +17,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { AntDesign, Entypo } from 'react-native-vector-icons';
+
 import Menu from '../../components/Menu';
 const { width, height } = Dimensions.get('window');
 
@@ -26,6 +26,7 @@ import { auth } from '../../firebase';
 
 import Saloon from '../saloon/Saloon';
 import Posts from './Posts';
+import { StatusBar } from 'native-base';
 
 
 const Home = ({ navigation }) => {
@@ -51,6 +52,7 @@ const Home = ({ navigation }) => {
         height: '100%',
       }}
     >
+      <StatusBar hidden />
 
       <ScrollView
         contentContainerStyle={{
@@ -98,9 +100,10 @@ const Home = ({ navigation }) => {
             </View>
             <Text
               style={{
-                fontSize: 40,
+                fontSize: 35,
                 color: '#000000',
-                left: 45,
+                left: 42,
+                fontWeight: 'bold'
                 // paddingTop: 20,
               }}
             >
@@ -136,7 +139,7 @@ const Home = ({ navigation }) => {
           style={{
             backgroundColor: '#FFF',
             borderTopLeftRadius: 110,
-            borderTopRightRadius: 40,
+            // borderTopRightRadius: 40,
             height: '100%',
             paddingHorizontal: 35,
           }}
@@ -199,7 +202,7 @@ const Home = ({ navigation }) => {
             <View
               style={{
                 height: 160,
-                backgroundColor: '#d9d5ca',
+                // backgroundColor: '#d9d5ca'
                 width: 20,
                 marginLeft: 20,
                 marginTop: 120,
@@ -217,7 +220,6 @@ const Home = ({ navigation }) => {
             <View
               style={{
                 height: 160,
-                backgroundColor: '#d9d5ca',
                 width: 20,
                 marginLeft: -40,
                 marginRight: 20,
@@ -253,7 +255,6 @@ const Home = ({ navigation }) => {
             <View
               style={{
                 height: 160,
-                backgroundColor: '#d9d5ca',
                 width: 20,
                 marginLeft: 20,
                 marginTop: 120,
@@ -278,7 +279,6 @@ const Home = ({ navigation }) => {
             <View
               style={{
                 height: 160,
-                backgroundColor: '#d9d5ca',
                 width: 20,
                 marginLeft: 20,
                 marginTop: 120,
@@ -293,7 +293,7 @@ const Home = ({ navigation }) => {
       </ScrollView>
 
       <Navbar navigation={navigation} />
-    </View>
+    </SafeAreaView>
   );
 };
 

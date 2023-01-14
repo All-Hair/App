@@ -56,6 +56,7 @@ export default (BookList = ({ navigation }) => {
 				</ScrollView>
 			</View>
 		</View>
+		<View style={{height:300}}></View>
 		<Navbar navigation={navigation}/>
 		</View>
 	);

@@ -14,7 +14,7 @@ import {
 import {Center, HStack} from 'native-base'
 
 import {COLOURS, Items} from './database/Database';
-import Entypo from 'react-native-vector-icons/Entypo';
+import {Entypo,Ionicons} from 'react-native-vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProductInfo = ({route, navigation}) => {
@@ -136,18 +136,21 @@ const ProductInfo = ({route, navigation}) => {
               paddingTop: 16,
               paddingLeft: 16,
             }}>
-            <TouchableOpacity onPress={() => navigation.goBack('Home')}>
-              <Entypo
-                name="chevron-left"
-                style={{
-                  fontSize: 18,
-                  color: COLOURS.backgroundDark,
-                  padding: 12,
-                  backgroundColor: COLOURS.white,
-                  borderRadius: 10,
-                }}
-              />
-            </TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+                  <Ionicons
+                    name="arrow-back"
+                    style={{
+                      fontSize: 18,
+                      color: COLOURS.black,
+                      borderColor: COLOURS.black,
+                      padding: 12,
+                      borderRadius: 10,
+                      borderWidth: 1,
+                      backgroundColor: COLOURS.white,
+                      top: 20,
+                    }}
+                  />
+                </TouchableOpacity>
           </View>
           <FlatList
             data={product.productImageList ? product.productImageList : null}
