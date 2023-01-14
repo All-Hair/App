@@ -3,13 +3,22 @@ import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Field from './field';
 import Btn from '../login/button';
+import client from '../../api/client';
 
-const UpdateUpro = ({navigation}) => {
-  const [email, setEmail] = useState('');
-  const [Name, setName] = useState('');
+const UpdateUpro = ({navigation,route}) => {
+  const updatePro=route.params.users
+  const [update,setUpdate]=useState(updatePro)
 
   const { width, height } = Dimensions.get('window');
 
+const handeleSubmit = async()=>{
+  try{
+     const updated = await client.update()
+  }catch(error){
+   console.log(error);
+  }
+   
+}
   return (
     <SafeAreaView
     >
@@ -25,29 +34,30 @@ const UpdateUpro = ({navigation}) => {
       <Text>Update User profile</Text>
       <Field
         placeholder="Name"
-        value={Name}
+        value={updatePro.name}
         onChangeText={(text) => setName(text)}
         // secureTextEntry={true}
       />
       <Field
         placeholder="Email"
-        value={email}
+        value={updatePro.email}
         onChangeText={(text) => setEmail(text)}
       />
             <Field
         placeholder="Email"
-        value={email}
+        value={updatePro.adress}
         onChangeText={(text) => setEmail(text)}
       />
             <Field
         placeholder="Email"
-        value={email}
+        value={updatePro.gender}
         onChangeText={(text) => setEmail(text)}
       />
             <Field
         placeholder="Email"
-        value={email}
+        value={updatePro.image}
         onChangeText={(text) => setEmail(text)}
+
       />
 </View>
 <Navbar/>

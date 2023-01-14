@@ -76,7 +76,9 @@ useEffect(()=>{
               <View style={styles.interactButtonsView}>
                 <TouchableOpacity style={styles.interactButton}>
                   <Text style={styles.interactButtonText} onPress={() => {
-                    navigation.navigate("UpdateUpro")
+                    navigation.navigate("UpdateUpro",{
+                      users:users
+                    })
                   // console.log('--------');
                   }}>Edit Profile</Text>
                 </TouchableOpacity>
