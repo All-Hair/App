@@ -241,7 +241,7 @@ const Sprofile = ({navigation}) => {
                   }}
                   onPress={() => setShowContent('Tags')}
                 >
-                  <Text style={styles.showContentButtonText}>Tags</Text>
+                  <Text style={styles.showContentButtonText}>Location</Text>
                 </TouchableOpacity>
               </View>
               {showContent === 'Photos' ? (

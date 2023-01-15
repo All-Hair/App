@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
 		width: 150,
 		backgroundColor: '#CCC9C0',
 		alignItems: 'center',
+		left:5,
 		borderRadius: 10,
 		padding:5,
 		height:50,
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
 		width: 70,
 		fontSize: 25,
 		height: 40,
-		borderRadius: 20
+		borderRadius: 20,
+		
 	}
 });
