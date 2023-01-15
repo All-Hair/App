@@ -69,7 +69,7 @@ module.exports = {
       });
     } catch (error) {
       res.status(500).send({
-        message: "Error updating user with id=" + id,
+        message: "Error updating user with id=" ,
       });
     }
   },
