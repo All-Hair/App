@@ -43,7 +43,7 @@ export default function Notifications () {
     <View style={styles.container}>
       <Button title={"Open Notification"} onPress={handleNotification} />
     </View>
-  );
+  ); 
 }
 
 const styles = StyleSheet.create({
