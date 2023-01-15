@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 
 import {Entypo,AntDesign}from 'react-native-vector-icons';
-import Suggested from '../suggested/KeyboardAvoider';
+import Videos from '../videoss/videos';
 
 import {
   Button,
@@ -11,7 +11,7 @@ import {
   ImageBackground,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
+  StyleSheet, 
   Text,
   TextInput,
   TouchableOpacity,
@@ -193,11 +193,14 @@ const Home = ({ navigation }) => {
           >
            
             <Posts
+            url={'https://res.cloudinary.com/drd0uckic/video/upload/c_scale,h_887,w_900/v1673783419/dkeils6ocvlub2aiz9sj.mp4'}
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               photo={{
                 uri: 'https://www.menshairstylestoday.com/wp-content/uploads/2016/09/Barber-Haircut-Styles-Fade-with-Brush-Up.jpg',
+                
               }}
+              profile={require('my-app/assets/profile-pic.jpg')}
             />
             <View
               style={{
@@ -230,12 +233,12 @@ const Home = ({ navigation }) => {
             ></View>
             
             <Posts
+            url={'https://res.cloudinary.com/drd0uckic/video/upload/c_scale,h_800,w_800/v1673786898/hl5emizftvrjrmokror0.mp4'}
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
-              photo={{
-                uri: 'https://i.pinimg.com/originals/db/6f/52/db6f52a815dedfac62b5339989470eec.jpg',
-              }}
+              
+             
             />
           </View>
           
@@ -245,12 +248,11 @@ const Home = ({ navigation }) => {
             }}
           >
             <Posts
+             url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786891/ztwjv9lavtk3pcqvgpo1.mp4'}
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
-              photo={{
-                uri: 'https://global-uploads.webflow.com/5cb569e54ca2fddd5451cbb2/5d3078b775ae2c83a149e209_Barber-Industries-Kotara-29.jpg',
-              }}
+             
             />
             <View
               style={{
@@ -272,9 +274,30 @@ const Home = ({ navigation }) => {
             <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
-              photo={{
-                uri: 'https://www.menshairstylestoday.com/wp-content/uploads/2016/09/Barber-Haircut-Styles-Fade-with-Brush-Up.jpg',
+              profile={require('my-app/assets/profile-pic.jpg')}
+              url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786887/zlp6gogdikhdcstdtklk.mp4'}
+            />
+            <View
+              style={{
+                height: 160,
+                width: 20,
+                marginLeft: 20,
+                marginTop: 120,
+                borderBottomLeftRadius: 20,
+                borderTopLeftRadius: 20,
               }}
+            ></View>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+            }}
+          >
+            <Posts
+              onPress={() => navigation.navigate('Detail')}
+              name="boulbeba"
+              profile={require('my-app/assets/profile-pic.jpg')}
+              url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786886/kgzgquhzog9cefqylyhj.mp4'}
             />
             <View
               style={{
