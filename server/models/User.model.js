@@ -1,4 +1,4 @@
-const {models}=require('../models')
+// const {models}=require('../models')
 // const Appointment = require('./Appointment')
 module.exports=(sequelize,DataType)=>{
     const User = sequelize.define('User',{

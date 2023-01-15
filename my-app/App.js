@@ -12,7 +12,6 @@ import Login from "./screens/login/login.jsx";
 import Forgotpassword from "./screens/login/forgotpassword.jsx";
 import Sprofile from "./screens/sprofile/sprofile";
 import Cart from "./screens/cart/cart";
-import Pricelist from "./screens/pricelist/Pricelist";
 import Uprofile from "./screens/UserProfile/Uprofile.js";
 import BookList from "./screens/booking/bookList.js";
 import UpdateUpro from "./screens/UserProfile/UpdateUpro";
@@ -72,11 +71,11 @@ const App = () => {
             options={{ headerShown: false }}
             component={UpdateUpro}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Pricelist"
             options={{ headerShown: false }}
             component={Pricelist}
-          />
+          /> */}
           <Stack.Screen
             name="DateSelect"
             component={DateSelect}

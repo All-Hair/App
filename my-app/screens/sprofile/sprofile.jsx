@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import {
   StyleSheet,
@@ -8,7 +8,11 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
+  SafeAreaView,
+  Button,
 } from 'react-native';
+import MapView,{Marker} from 'react-native-maps';
+import * as Location from 'expo-location';
 
 // import Pricelist from '../pricelist/Pricelist.jsx';
 
@@ -25,12 +29,6 @@ function Photos() {
       >
         
           <View>
-            <Image
-              style={{ width: imgWidth, height: imgWidth }}
-              source={{
-                uri: `https://previews.123rf.com/images/seamartini/seamartini1809/seamartini180901112/109734896-barber-shop-haircut-salon-vector-retro-poster-man-with-beard-and-mustaches-haircut-made-with-scissor.jpg`,
-              }}
-            />
           </View>
         
       </View>
@@ -81,7 +79,7 @@ function Albums() {
               borderRadius: 6,
             }}
           >
-            <Text style={{ color: '#fff', fontFamily: '', fontSize: 20 }}>
+            <Text style={{ color: '#fff', fontSize: 20 }}>
               {album.name}
             </Text>
           </View>
@@ -92,7 +90,30 @@ function Albums() {
 }
 
 function Tags({ photos }) {
+  const[mapRegion,setMapregion] = useState({
+    latitude:36.866537,
+    longitude: 10.164723,
+    latitudeDelta:0.0922,
+    longitudeDelta:0.0421,
+  })
   const imgWidth = Dimensions.get('screen').width * 0.33333;
+  const userLocation =async ()=>{
+    let {status} = await Location.requestForegroundPermissionsAsync()
+    if(status !== 'granted'){
+      setErrorMsg('Permission to accses location was denied ')
+    }
+    let location = await Location.getCurrentPositionAsync({enableHighAccuracy:true})
+    setMapregion({
+      latitude:location.coords.latitude,
+      longitude:Location.coords.longitude,
+      latitudeDelta:0.0922,
+      longitudeDelta:0.0421,
+    })
+    console.log(location.coords.latitude,location.coords.longitude);
+  }
+  useEffect(()=>{
+    userLocation()
+  },[])
   return (
     <View style={{}}>
       <View
@@ -102,12 +123,19 @@ function Tags({ photos }) {
           alignItems: 'flex-start',
         }}
       >
-       
+        <MapView style={{ width: '100%', height: '200%',}}  
+        
+        region={mapRegion}
+        
+        >
+        <Marker coordinate={mapRegion} title="Marker"/>
+        </MapView>
+        <Button title=' Get Location ' onPress={userLocation}/>
           <View>
             <Image
               style={{ width: imgWidth, height: imgWidth }}
               source={{
-                uri: `https://picsum.photos/200/300?random=7`,
+                // uri: `https://picsum.photos/200/300?random=7`,
               }}
             />
           </View>
@@ -123,7 +151,7 @@ const Sprofile = ({navigation}) => {
   const [showContent, setShowContent] = useState('Photos');
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView showsVerticalScrollIndicator={true}>
         <>
           <View>
@@ -230,7 +258,7 @@ const Sprofile = ({navigation}) => {
         
       </ScrollView>
       <Navbar  navigation ={navigation} />
-    </View>
+    </SafeAreaView>
     
   );
 }
@@ -253,9 +281,9 @@ const styles = StyleSheet.create({
     borderColor: '#CCC9C0',
   },
   nameAndBioView: { alignItems: 'center', marginTop: 10 },
-  userFullName: { fontFamily: '', fontSize: 26 ,  textDecorationLine: 'underline'},
+  userFullName: { fontSize: 26 ,  textDecorationLine: 'underline'},
   userBio: {
-    fontFamily: '',
+
     fontSize: 18,
     color: '#333',
     marginTop: 4,
@@ -265,8 +293,8 @@ const styles = StyleSheet.create({
   },
   countsView: { flexDirection: 'row', marginTop: 20 },
   countView: { flex: 1, alignItems: 'center' },
-  countNum: { fontFamily: '', fontSize: 20 },
-  countText: { fontFamily: '', fontSize: 18, color: '#333' },
+  countNum: {  fontSize: 20 },
+  countText: {  fontSize: 18, color: '#333' },
   interactButtonsView: {
     flexDirection: 'row',
     marginTop: 10,

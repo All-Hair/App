@@ -18,6 +18,10 @@ import {
   View,
 } from 'react-native';
 
+// import { AntDesign, Entypo } from 'react-native-vector-icons';
+
+
+
 import Menu from '../../components/Menu';
 const { width, height } = Dimensions.get('window');
 
@@ -168,6 +172,14 @@ const Home = ({ navigation }) => {
               </Text>
             </TouchableOpacity>
 
+                <TouchableOpacity
+                        onPress={() => {
+                          navigation.navigate("Uprofile")
+                        }}
+                        style={styles.button}
+                      >
+                        <Text style={styles.buttonText}>More</Text>
+                      </TouchableOpacity>
             <TouchableOpacity
               onPress={onTabPressed}
               style={{
@@ -322,4 +334,14 @@ const Home = ({ navigation }) => {
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  button: {
+    marginLeft: 10,
+
+    backgroundColor: "#CCC9C0",
+    width: "23%",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+});

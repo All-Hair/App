@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Navbar from "../../components/Navbar";
 import {
   StyleSheet,
@@ -8,14 +8,39 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
+  SafeAreaView,
 } from "react-native";
 import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,} from 'react-native-vector-icons'
-
-// import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-// import Navbar from '../../components/Navbar';
+// import axios from 'axios'
+import client from "../../api/client";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { auth } from "../../firebase";
+import UpdateUpro from "./UpdateUpro";
 const Uprofile = ({ navigation }) => {
-  return (
-    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+  const [users,setUsers]= useState([])
+ console.log(users,"----");
+ console.log(auth.currentUser.email,'<<<<<<<<<<<<<<<<<<<<');
+ const[email,setEmail]= useState(auth.currentUser.email)
+
+
+   const getAll =async()=>{
+    //  let email = users
+     console.log(email,'----aaa--aaa');
+     try{
+    const res= await client.get(`/user/getone/${email}`)
+    setUsers(res.data)
+  //  console.log(res.data,'--------AHMEDDD-----');
+    }catch(error){
+    console.log(error);
+  }
+  
+}
+
+useEffect(()=>{ 
+  getAll()
+},[])
+   return (
+     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView>
         <>
           <View>
@@ -35,7 +60,7 @@ const Uprofile = ({ navigation }) => {
                   source={{
                     uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
                   }}
-                />
+                  />
                 
               </View>
            
@@ -43,14 +68,17 @@ const Uprofile = ({ navigation }) => {
               {/* Profile Name and Bio */}
 
               <View style={styles.nameAndBioView}>
-                <Text style={styles.userFullName}>{"USER SAIF"}</Text>
+                <Text style={styles.userFullName}>{users.name}</Text>
               </View>
               {/* Posts/Followers/Following View */}
 
               {/* Interact Buttons View */}
               <View style={styles.interactButtonsView}>
                 <TouchableOpacity style={styles.interactButton}>
-                  <Text style={styles.interactButtonText}>Edit Profile</Text>
+                  <Text style={styles.interactButtonText} onPress={() => {
+                    navigation.navigate("UpdateUpro")
+                  // console.log('--------');
+                  }}>Edit Profile</Text>
                 </TouchableOpacity>
               </View>
               {/* Mutual Followed By Text */}
@@ -65,31 +93,32 @@ const Uprofile = ({ navigation }) => {
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialCommunityIcons  size ={19} name='hair-dryer'>  </MaterialCommunityIcons>
             Name :{"                "}
-            <Text style={{ fontWeight: "600" }}>Jake Challeahe</Text>
+            <Text style={{ fontWeight: "600" }}>{users.name}</Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>
           <Feather  size ={19} name='phone-call'>  </Feather>
              Phone :{"                "}
             
-            <Text style={{ fontWeight: "600" }}>Jake Challeahe</Text>
+            <Text style={{ fontWeight: "600" }}>{users.phone}</Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>
           <Fontisto  size ={19} name='email'>  </Fontisto>
             Email :{"                "}
-            <Text style={{ fontWeight: "600" }}>Jake Challeahe</Text>
+            <Text style={{ fontWeight: "600" }}>{users.email}</Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialIcons  size ={19} name='place'>  </MaterialIcons>
             Adress :{"                "}
-            <Text style={{ fontWeight: "600" }}>Jake Challeahe</Text>
+            <Text style={{ fontWeight: "600" }}>{users.adress}</Text>
           </Text>
         </View>
       </ScrollView>
       <Navbar navigation={navigation} />
-    </View>
+ 
+    </SafeAreaView>
   );
 };
 
