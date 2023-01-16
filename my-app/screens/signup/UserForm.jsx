@@ -11,18 +11,14 @@ import {
 import Field from "./field.jsx";
 import { auth } from "../../firebase";
 import SwitchSelector from "react-native-switch-selector";
+import ImageJS from "./Image.jsx";
 
 const imageMale = require("../../assets/male.png");
 const imageFemale = require("../../assets/female.png");
 
-const UserForm = ({ navigation , changeForm, uform ,setUform} )=> {
+const UserForm = ({ navigation , changeForm, uform} )=> {
 
-  // const [name, setName] = useState("");
-  // const [phone, setPhone] = useState("");
-  // const [adress, setAdress] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [gender, setGender] = useState("");
-  // const [image, setImage] = useState("");
+
 
   return (
     <View>
@@ -67,6 +63,7 @@ const UserForm = ({ navigation , changeForm, uform ,setUform} )=> {
         placeholder="Enter your image kifkif tetbadel"
         secureTextEntry={false}
       />
+      <ImageJS  changeForm={changeForm} uform={uform} />
     </View>
   );
 };

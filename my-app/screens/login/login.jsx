@@ -17,7 +17,6 @@ const Login = ({ navigation }) => {
   const [userType, setUserType] = useState("user");
   const [checkEmail, setCheckEmail] = useState(true);
 
-
   // const { width, height } = Dimensions.get('window');
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
@@ -38,22 +37,21 @@ const Login = ({ navigation }) => {
       if (userType == "user") {
         const req = await client.get(`/user/getone/${email}`);
         console.log(req.data);
-        if (req.data == 'Not found!') {
+        if (req.data == "Not found!") {
           console.log("not existing user !!!!");
-          setCheckEmail(false)
+          setCheckEmail(false);
         } else {
-          setCheckEmail(true)
+          setCheckEmail(true);
           handleLogin();
         }
       } else {
         const req = await client.get(`/saloon/getone/${email}`);
         console.log(req.data);
-        if (req.data == 'Not found!') {
+        if (req.data == "Not found!") {
           console.log("not existing saloon !");
-          setCheckEmail(false)
-
+          setCheckEmail(false);
         } else {
-          setCheckEmail(true)
+          setCheckEmail(true);
 
           handleLogin();
         }
@@ -152,22 +150,22 @@ const Login = ({ navigation }) => {
             placeholder="Email"
             value={email}
             keyboardType={"email-address"}
-            // autoCapitalize={characters}
+            autoCapitalize="none"
             onChangeText={(text) => setEmail(text)}
           />
-                      {!checkEmail ? (
-              <Text
-                style={{
-                  alignItems: "flex-end",
-                  width: "78%",
-                  color: "red",
-                }}
-              >
-                check your email
-              </Text>
-            ) : (
-              <Text></Text>
-            )}
+          {!checkEmail ? (
+            <Text
+              style={{
+                alignItems: "flex-end",
+                width: "78%",
+                color: "red",
+              }}
+            >
+              check your email
+            </Text>
+          ) : (
+            <Text></Text>
+          )}
           <Field
             value={password}
             onChangeText={(text) => setPassword(text)}

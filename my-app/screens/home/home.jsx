@@ -66,19 +66,27 @@ const Home = ({ navigation }) => {
                   style={{ width: 80, height: 80 }}
                 />
               </View>
+             
+             
+              <TouchableOpacity >
+                
               <View
                 style={{
                   width: '50%',
                   alignItems: 'flex-end',
                 }}
+                onPress={handleSignOut}
               >
-                <Entypo
-                  name="dots-two-vertical"
-                  size={22}
-                  color="white"
-                  style={{ marginRight: -7, marginTop: 7 }}
-                />
+                              <AntDesign
+                name="logout"
+                size={30}
+                color="white"
+                style={{ marginRight: -7, marginTop: 7 }}
+                onPress={handleSignOut}
+              />
               </View>
+              
+              </TouchableOpacity>
             </View>
             <Text
               style={{
