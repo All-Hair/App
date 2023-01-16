@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { getBookedData } from './service/StoreData';
@@ -10,7 +10,7 @@ export default (BookList = ({ navigation }) => {
 	const [ showAlert, setShowAlert ] = React.useState(true);
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 		<View style={styles.container1}>
 		<Text style={styles.title}>Booklist</Text>
 			<AwesomeAlert
@@ -37,7 +37,7 @@ export default (BookList = ({ navigation }) => {
 					{lists.map((list, i) => {
 						return (
 							<TouchableOpacity key={i} onPress={() => navigation.navigate('Appointment',list)}>
-								<Card key={i}  >
+								<Card key={i} containerStyle={{borderRadius: 10 ,borderWidth:1.4 ,borderColor:'black'}}  >
 									{/* <Card.Divider/> */}
 									<View key={i} style={styles.cardContainer}>
 										<View key={i} style={styles.user}>
@@ -48,7 +48,7 @@ export default (BookList = ({ navigation }) => {
 											</View>
 										</View>
 									</View>
-									<Text style={styles.name3}>${list.price}</Text>
+									<Text style={styles.name3}> {list.price} DT</Text>
 								</Card>
 							</TouchableOpacity>
 						);
@@ -56,8 +56,9 @@ export default (BookList = ({ navigation }) => {
 				</ScrollView>
 			</View>
 		</View>
+		<View style={{height:300}}></View>
 		<Navbar navigation={navigation}/>
-		</View>
+		</SafeAreaView >
 	);
 });
 
@@ -119,10 +120,12 @@ const styles = StyleSheet.create({
 		marginTop: 5,
 		color: 'white',
 		textAlign: 'center',
-		left: 300,
+		left: 290,
 		bottom: 90,
-		width: 35,
-		backgroundColor: 'green'
+		width: 45,
+		backgroundColor: '#ccc9c0',
+		borderBottomLeftRadius:10,
+		borderTopRightRadius:10
 	},
 	forgot_button: {
 		marginLeft: 10

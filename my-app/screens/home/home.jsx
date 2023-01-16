@@ -1,6 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
+
 import {Entypo,AntDesign}from 'react-native-vector-icons';
+import Videos from '../videoss/videos';
 
 import {
   Button,
@@ -9,17 +11,26 @@ import {
   ImageBackground,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
+  StyleSheet, 
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 
+// import { AntDesign, Entypo } from 'react-native-vector-icons';
+
+
+
+import Menu from '../../components/Menu';
+const { width, height } = Dimensions.get('window');
+
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
-import Posts from './Posts';
+
 import Saloon from '../saloon/Saloon';
+import Posts from './Posts';
+import { StatusBar } from 'native-base';
 
 
 const Home = ({ navigation }) => {
@@ -35,15 +46,22 @@ const Home = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
-  console.log(auth.currentUser?.email);
+  // console.log(auth.currentUser?.email);
 
   return (
-    <SafeAreaView  style={{
-      width: '100%',
-      height: '100%',
-      
-    }}>
+
+    <SafeAreaView
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
+    >
+      <StatusBar hidden />
+
       <ScrollView
+        contentContainerStyle={{
+          flexGrow: height,
+        }}
         showsVerticalScrollIndicator={false}
         style={{ height: '100%', backgroundColor: '#CCC9C0' }}
       >
@@ -61,10 +79,10 @@ const Home = ({ navigation }) => {
               }}
             >
               <View style={{ width: '50%' }}>
-                <Image
+                {/* <Image
                   source={require('my-app/assets/logo-removebg-preview.png')}
                   style={{ width: 80, height: 80 }}
-                />
+                /> */}
               </View>
              
              
@@ -77,22 +95,26 @@ const Home = ({ navigation }) => {
                 }}
                 onPress={handleSignOut}
               >
-                              <AntDesign
-                name="logout"
-                size={30}
-                color="white"
-                style={{ marginRight: -7, marginTop: 7 }}
-                onPress={handleSignOut}
-              />
+
+                {/* <Menu /> */}
+                <AntDesign
+                  name="logout"
+                  size={30}
+                  color="white"
+                  style={{ marginRight: -7, marginTop: 7 }}
+                  onPress={handleSignOut}
+                />
+
               </View>
               
               </TouchableOpacity>
             </View>
             <Text
               style={{
-                fontSize: 40,
-                color: '#FFF',
-                left: 45,
+                fontSize: 35,
+                color: '#000000',
+                left: 42,
+                fontWeight: 'bold'
                 // paddingTop: 20,
               }}
             >
@@ -129,9 +151,8 @@ const Home = ({ navigation }) => {
             backgroundColor: '#FFF',
             borderTopLeftRadius: 110,
             // borderTopRightRadius: 40,
-            height: 1000,
+            height: '100%',
             paddingHorizontal: 35,
-            
           }}
         >
           <View
@@ -158,6 +179,14 @@ const Home = ({ navigation }) => {
               </Text>
             </TouchableOpacity>
 
+                <TouchableOpacity
+                        onPress={() => {
+                          navigation.navigate("Uprofile")
+                        }}
+                        style={styles.button}
+                      >
+                        <Text style={styles.buttonText}>More</Text>
+                      </TouchableOpacity>
             <TouchableOpacity
               onPress={onTabPressed}
               style={{
@@ -181,17 +210,21 @@ const Home = ({ navigation }) => {
               flexDirection: 'row',
             }}
           >
+           
             <Posts
+            url={'https://res.cloudinary.com/drd0uckic/video/upload/c_scale,h_887,w_900/v1673783419/dkeils6ocvlub2aiz9sj.mp4'}
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               photo={{
                 uri: 'https://www.menshairstylestoday.com/wp-content/uploads/2016/09/Barber-Haircut-Styles-Fade-with-Brush-Up.jpg',
+                
               }}
+              profile={require('my-app/assets/profile-pic.jpg')}
             />
             <View
               style={{
                 height: 160,
-                backgroundColor: '#d9d5ca',
+                // backgroundColor: '#d9d5ca'
                 width: 20,
                 marginLeft: 20,
                 marginTop: 120,
@@ -204,11 +237,11 @@ const Home = ({ navigation }) => {
             style={{
               flexDirection: 'row',
             }}
-          >
+          > 
+         
             <View
               style={{
                 height: 160,
-                backgroundColor: '#d9d5ca',
                 width: 20,
                 marginLeft: -40,
                 marginRight: 20,
@@ -217,14 +250,62 @@ const Home = ({ navigation }) => {
                 borderTopRightRadius: 20,
               }}
             ></View>
+            
+            <Posts
+            url={'https://res.cloudinary.com/drd0uckic/video/upload/c_scale,h_800,w_800/v1673786898/hl5emizftvrjrmokror0.mp4'}
+              onPress={() => navigation.navigate('Detail')}
+              name="boulbeba"
+              profile={require('my-app/assets/profile-pic.jpg')}
+              
+             
+            />
+          </View>
+          
+          <View
+            style={{
+              flexDirection: 'row',
+            }}
+          >
+            <Posts
+             url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786891/ztwjv9lavtk3pcqvgpo1.mp4'}
+              onPress={() => navigation.navigate('Detail')}
+              name="boulbeba"
+              profile={require('my-app/assets/profile-pic.jpg')}
+             
+            />
+            <View
+              style={{
+                height: 160,
+                width: 20,
+                marginLeft: 20,
+                marginTop: 120,
+                borderBottomLeftRadius: 20,
+                borderTopLeftRadius: 20,
+              }}
+            ></View>
+          </View>
+
+          <View
+            style={{
+              flexDirection: 'row',
+            }}
+          >
             <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
-              photo={{
-                uri: 'https://i.pinimg.com/originals/db/6f/52/db6f52a815dedfac62b5339989470eec.jpg',
-              }}
+              url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786887/zlp6gogdikhdcstdtklk.mp4'}
             />
+            <View
+              style={{
+                height: 160,
+                width: 20,
+                marginLeft: 20,
+                marginTop: 120,
+                borderBottomLeftRadius: 20,
+                borderTopLeftRadius: 20,
+              }}
+            ></View>
           </View>
           <View
             style={{
@@ -235,14 +316,11 @@ const Home = ({ navigation }) => {
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
-              photo={{
-                uri: 'https://global-uploads.webflow.com/5cb569e54ca2fddd5451cbb2/5d3078b775ae2c83a149e209_Barber-Industries-Kotara-29.jpg',
-              }}
+              url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786886/kgzgquhzog9cefqylyhj.mp4'}
             />
             <View
               style={{
                 height: 160,
-                backgroundColor: '#d9d5ca',
                 width: 20,
                 marginLeft: 20,
                 marginTop: 120,
@@ -251,14 +329,26 @@ const Home = ({ navigation }) => {
               }}
             ></View>
           </View>
+
         </View>
+        <View style={{height:100}}></View>
       </ScrollView>
+
       <Navbar navigation={navigation} />
     </SafeAreaView>
   );
 };
 
 export default Home;
-const { width, height } = Dimensions.get('window');
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  button: {
+    marginLeft: 10,
+
+    backgroundColor: "#CCC9C0",
+    width: "23%",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+});

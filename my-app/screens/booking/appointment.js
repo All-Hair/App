@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { Card, ListItem, Icon } from 'react-native-elements';
 import Navbar from '../../components/Navbar';
+import { EvilIcons } from '@expo/vector-icons';
+import { Fontisto } from '@expo/vector-icons'; 
 // import getStyleData from './service/StyleData';
 
 export default (Appointment = ({ navigation }) => {
@@ -28,30 +30,27 @@ export default (Appointment = ({ navigation }) => {
 				</View>
 			</ImageBackground>
 			<View style={styles.styleinList}>
-				<Card style={styles.cardContainer}>
+				<Card style={styles.cardContainer} containerStyle={{borderRadius: 10 ,borderWidth:1.4 ,borderColor:'black' ,top:20}} >
 					{/* <ListItem style={styles.cardContainer}> */}
 					<View style={styles.user}>
-						<View style={styles.columnText}>
-							<Icon name="home" style={styles.IconView} size={25} color="gold" />
-							<Text style={{ fontSize: 18}}>adress</Text>
+						<View style={styles.columnText} >
+						<EvilIcons name="location" size={30} color="black" />
+							<Text style={{ fontSize: 18}}>  adress</Text>
 						</View>
+						
 						<View style={styles.columnText}>
-							<Icon name="star" style={styles.IconView} size={25} color="gold" />
-							<Text style={{ fontSize: 18}}>Starting price </Text>
-						</View>
-						<View style={styles.columnText}>
-							<Icon name="star" style={styles.IconView} size={25} color="gold" />
-							<Text style={{ fontSize: 18}} >date min </Text>
+						<Fontisto name="date" size={20} color="black" />
+							<Text style={{ fontSize: 18}} >    date min </Text>
 						</View>
 						<View>
 							<Text style={{ fontSize: 20, fontWeight: '700' }}>Service</Text>
 							<View style={styles.serviceText}>
 								<Text style={{ fontSize: 18}}>Hair Styling</Text>
-								<Text style={{ fontSize: 18}}>$12</Text>
+								<Text style={{ fontSize: 18}}>12 DT</Text>
 							</View>
 							<View style={styles.serviceText}>
 								<Text style={{ fontSize: 18}}>Total Price</Text>
-								<Text style={{ fontSize: 18}}>$123</Text>
+								<Text style={{ fontSize: 18}}> 123 DT</Text>
 							</View>
 						</View>
 					</View>
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
 	},
 	user: {
 		backgroundColor: '#fff',
-		borderRadius:3
+		borderRadius:3,
 	},
 	coverImage: {
 		width: '100%',
@@ -121,6 +120,7 @@ const styles = StyleSheet.create({
 		width: 300,
 		height: 300,
 		
+		
 	},
 	styleinList: {
 		bottom: 180,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
 	},
 	columnText: {
 		flexDirection: 'row',
-		margin: 12
+		margin: 15,
 		
 	},
 	serviceText: {
