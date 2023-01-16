@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, An
 import React from 'react'
 const { width, height } = Dimensions.get('window');
 import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons ,MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 const Navbar = ({navigation}) => {
@@ -12,7 +12,7 @@ const Navbar = ({navigation}) => {
 
    
         return (
-            <SafeAreaView style={{
+            <View style={{
                 flex: 1,
                 top:height -70,
                 flexDirection: 'column',
@@ -102,7 +102,8 @@ const Navbar = ({navigation}) => {
                              onPress={() => { navigation.navigate('Cart') }}
 
                             >
-                             <AntDesign name="shoppingcart" size={30} color="black" />
+                             {/* <AntDesign name="shoppingcart" size={30} color="black" /> */}
+                             <MaterialCommunityIcons name="shopping-outline" size={25} color="black" />
                             </TouchableOpacity>
                             <Text style={{justifyContent:'center',alignItems:'center' }}>Shop</Text>
                         </View>
@@ -122,7 +123,7 @@ const Navbar = ({navigation}) => {
 
                     
                 </View>
-            </SafeAreaView>
+            </View>
         );
     
 

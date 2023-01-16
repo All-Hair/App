@@ -2,6 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 import * as React from "react";
+// import { LogBox } from 'react-native';
+// LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+// LogBox.ignoreAllLogs()
 
 import Home from "./screens/home/home.jsx";
 import Signup from "./screens/signup/signup";
@@ -20,7 +23,7 @@ import Notifications from "./screens/notifications/notifications.js";
 import MyCart from "./screens/cart/MyCart.js";
 import ProductInfo from "./screens/cart/ProductInfo.js";
 import Detail from "./screens/home/Detail.jsx";
-import Suggested from "./screens/suggested/suggested.jsx";
+import Videos from "./screens/videoss/videos.jsx";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -119,10 +122,11 @@ const App = () => {
             component={Notifications}
           />
             <Stack.Screen
-            name="Suggested"
+            name="Videos"
             options={{ headerShown: false }}
-            component={Suggested}
+            component={Videos}
           />
+           
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

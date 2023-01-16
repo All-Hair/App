@@ -24,8 +24,8 @@ const Uprofile = ({ navigation }) => {
 
 
    const getAll =async()=>{
-    //  let email = users
-     console.log(email,'----aaa--aaa');
+   
+
      try{
     const res= await client.get(`/user/getone/${email}`)
     setUsers(res.data)
