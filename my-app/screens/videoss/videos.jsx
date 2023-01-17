@@ -1,5 +1,5 @@
 import * as ScreenOrientation from 'expo-screen-orientation'
-import { Dimensions, View, StyleSheet, Text } from 'react-native'
+import { Dimensions, View, StyleSheet, TouchableOpacity} from 'react-native'
 
 import { setStatusBarHidden } from 'expo-status-bar'
 import React, { useRef, useState } from 'react'
@@ -12,7 +12,7 @@ const Videos = ({url}) => {
   const [isMute, setIsMute] = useState(false)
   const [paused, setPaused] = useState(true);
 
-  const togglePaused = () => setPaused(prev => !prev) // add this toggle function
+  
   const refVideo2 = useRef(null)
   const refScrollView = useRef(null)
  
@@ -30,8 +30,7 @@ const Videos = ({url}) => {
       contentContainerStyle={styles.contentContainer}
     >
       
-
-      
+    
       <VideoPlayer
         videoProps={{
           shouldPlay: false,
@@ -60,11 +59,12 @@ const Videos = ({url}) => {
          
         }}
         style={{
-          videoBackgroundColor: 'black',
+          BackgroundColor: '#ccc9c0',
           height: inFullscreen2 ? Dimensions.get('window').width : 210,
           width: inFullscreen2 ? Dimensions.get('window').height : 340,
+          
         }}
-        thumbnail={{uri:''}}
+        
       />
 
       

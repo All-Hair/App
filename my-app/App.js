@@ -25,6 +25,11 @@ import MyCart from "./screens/cart/MyCart.js";
 import ProductInfo from "./screens/cart/ProductInfo.js";
 import Detail from "./screens/home/Detail.jsx";
 import Videos from "./screens/videoss/videos.jsx";
+import Pricelist from "./screens/pricelist/Pricelist.jsx";
+
+
+
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -72,11 +77,11 @@ const App = () => {
             options={{ headerShown: false }}
             component={UpdateUpro}
           />
-          {/* <Stack.Screen
+          <Stack.Screen
             name="Pricelist"
             options={{ headerShown: false }}
             component={Pricelist}
-          /> */}
+          />
           <Stack.Screen
             name="DateSelect"
             component={DateSelect}
