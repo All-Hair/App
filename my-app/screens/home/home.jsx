@@ -38,6 +38,7 @@ const Home = ({ navigation }) => {
   onTabPressed = () => {
     setPop(!popularSelected);
   };
+
   const handleSignOut = () => {
     auth
       .signOut()
@@ -47,7 +48,9 @@ const Home = ({ navigation }) => {
       .catch((error) => alert(error.message));
   };
   // console.log(auth.currentUser?.email);
-
+// const userr = localStorage.getItem("user")
+// console.log(userr);
+   
   return (
 
     <SafeAreaView
@@ -84,11 +87,16 @@ const Home = ({ navigation }) => {
                   style={{ width: 80, height: 80 }}
                 /> */}
               </View>
+             
+             
+              <TouchableOpacity >
+                
               <View
                 style={{
                   width: '50%',
                   alignItems: 'flex-end',
                 }}
+                onPress={handleSignOut}
               >
 
                 {/* <Menu /> */}
@@ -101,6 +109,8 @@ const Home = ({ navigation }) => {
                 />
 
               </View>
+              
+              </TouchableOpacity>
             </View>
             <Text
               style={{

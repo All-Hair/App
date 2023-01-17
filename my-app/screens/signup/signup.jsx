@@ -6,6 +6,9 @@ import {
   Image,
   Alert,
   ScrollView,
+  StyleSheet,
+  KeyboardAvoidingView,
+  SafeAreaView,
 } from "react-native";
 import Background from "./background.jsx";
 import Btn from "./button.jsx";
@@ -17,6 +20,7 @@ import UserForm from "./UserForm.jsx";
 import SaloonForm from "./SaloonForm.jsx";
 import client from "../../api/client";
 
+
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,12 +31,12 @@ const Signup = ({ navigation }) => {
   const [userType, setUserType] = useState("user");
   const [show, setShow] = useState(false);
   const [cont, setCont] = useState("");
-  const [uform, setUform] = useState({});
-  const [sform, setSform] = useState({});
+  const [uform, setUform] = useState({gender:"male"});
+  const [sform, setSform] = useState({gender:"male"});
 
   console.log(uform);
   console.log(sform);
-
+ 
   // console.log(password)
 
   // useEffect(() => {
@@ -57,7 +61,10 @@ const Signup = ({ navigation }) => {
         const req = await client.post("/user", { ...uform, email: email });
         console.log(req.data);
       } else {
-        const req = await client.post("/saloon/add", { ...sform, email: email });
+        const req = await client.post("/saloon/add", {
+          ...sform,
+          email: email,
+        });
         console.log(req.data);
       }
     } catch (error) {
@@ -122,7 +129,6 @@ const Signup = ({ navigation }) => {
               alignItems: "flex-end",
               width: "60%",
               paddingRight: 20,
-              marginBottom: 15,
             }}
           >
             <SwitchSelector
@@ -137,62 +143,66 @@ const Signup = ({ navigation }) => {
               borderColor="black"
               hasPadding
               options={[
-                { label: "user", value: "user" }, 
-                { label: "saloon", value: "saloon" }, 
+                { label: "user", value: "user" },
+                { label: "saloon", value: "saloon" },
               ]}
             />
           </View>
-          <ScrollView>
-            <Field
-              placeholder="Enter your Email"
-              value={email}
-              keyboardType={"email-address"}
-              onChangeText={(text) => setEmail(text)}
-            />
 
-            <Field
-              value={password}
-              onChangeText={(text) => setPassword(text)}
-              placeholder="Enter your Password"
-              secureTextEntry={true}
-            />
-            <Field
-              value={secondPassword}
-              onChangeText={(text) => setSecondPassword(text)}
-              placeholder="Enter your Password again"
-              secureTextEntry={true}
-            />
-            {!checkP ? (
-              <Text
-                style={{
-                  alignItems: "flex-end",
-                  width: "78%",
-                  color: "red",
-                }}
-              >
-                check your password
-              </Text>
-            ) : (
-              <Text></Text>
-            )}
-            {userType === "user" ? (
-              <UserForm
-                changeForm={changeForm}
-                uform={uform}
-                setUform={setUform}
-              />
-            ) : (
-              <SaloonForm changeSForm={changeSForm} sform={sform} />
-            )}
+          <KeyboardAvoidingView behavior="position" style={styles.ScrollView}>
+            <ScrollView contentContainerStyle={styles.contentContainer}>
+              <View>
+                {/* <ScrollView> */}
+                <Field
+                  placeholder="Enter your Email"
+                  value={email}
+                  keyboardType={"email-address"}
+                  onChangeText={(text) => setEmail(text)}
+                  autoCapitalize="none"
+                />
 
-            <View
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            ></View>
-          </ScrollView>
+                <Field
+                  value={password}
+                  onChangeText={(text) => setPassword(text)}
+                  placeholder="Enter your Password"
+                  secureTextEntry={true}
+                />
+                <Field
+                  value={secondPassword}
+                  onChangeText={(text) => setSecondPassword(text)}
+                  placeholder="Enter your Password again"
+                  secureTextEntry={true}
+                />
+                {!checkP ? (
+                  <Text
+                    style={{
+                      alignItems: "flex-end",
+                      width: "78%",
+                      color: "red",
+                    }}
+                  >
+                    check your password
+                  </Text>
+                ) : (
+                  <Text></Text>
+                )}
+                {userType === "user" ? (
+                  <UserForm changeForm={changeForm} uform={uform} />
+                ) : (
+                  <SaloonForm changeSForm={changeSForm} sform={sform} />
+                )}
+
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                  }}
+                ></View>
+                {/* </ScrollView> */}
+              </View>
+            </ScrollView>
+          </KeyboardAvoidingView>
           <View
             style={{
               alignItems: "center",
@@ -209,7 +219,6 @@ const Signup = ({ navigation }) => {
                   setCheckP(false);
                 } else {
                   setCheckP(true);
-
                   registerToDB();
                   handleSignUp();
                 }
@@ -222,4 +231,18 @@ const Signup = ({ navigation }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  ScrollView: {
+    flex: 1,
+    scrollEnabled: false,
+  },
+  contentContainer: {
+    flexGrow: 1,
+  },
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 80,
+  },
+});
 export default Signup;
