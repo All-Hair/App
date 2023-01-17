@@ -50,19 +50,11 @@ module.exports = {
   
          const oneSaloon = await Saloon.findOne({ where: { email: email } })
          if (oneSaloon === null) {
-<<<<<<< HEAD
     console.log('Not found!');
     res.send('Not found!')
   } else {
     res.send(oneSaloon);
   }
-=======
-         console.log('Not found!');
-         res.send(null)
-         } else {
-         res.send(oneSaloon);
-          }
->>>>>>> c9f4c43128f103a8e22ff09f66e401d5342de292
         } catch (error) {
           res.status(500).send({
             message:

@@ -12,6 +12,23 @@ import Field from "./field.jsx";
 import client from "../../api/client";
 import { AntDesign } from '@expo/vector-icons'; 
 
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// import {localStoreData} from '../../components/localStorage'
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const localStoreData = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value)
+      await AsyncStorage.setItem('user', jsonValue)
+    } catch (e) {
+      // saving error
+      console.log(e);
+    }
+  }
+  
+
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,7 +49,7 @@ const Login = ({ navigation }) => {
         navigation.replace("Home");
        
         // setUsers(user)
-        storeUser(user)
+        // storeUser(user)
         console.log('====================================');
         console.log(user);
         console.log('====================================');
@@ -53,6 +70,7 @@ const Login = ({ navigation }) => {
         } else {
           setCheckEmail(true);
           handleLogin();
+          localStoreData({role:'user'})
         }
       } else {
         const req = await client.get(`/saloon/getone/${email}`);
@@ -62,8 +80,9 @@ const Login = ({ navigation }) => {
           setCheckEmail(false);
         } else {
           setCheckEmail(true);
-
           handleLogin();
+          localStoreData({role:'saloon'})
+          console.log('-->req.data--> ' + req.data);
         }
       }
     } catch (error) {
@@ -81,15 +100,15 @@ const Login = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
-   const  storeUser = async (value) => {
-    try {
-      console.log("1",value);
-      await AsynStorage.setItem("user", JSON.stringify(value));
-      console.log();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //  const  storeUser = async (value) => {
+  //   try {
+  //     console.log("1",value);
+  //     await AsynStorage.setItem("user", JSON.stringify(value));
+  //     console.log();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
  
 
   return (
@@ -132,7 +151,7 @@ const Login = ({ navigation }) => {
               color: "grey",
               fontSize: 20,
               fontWeight: "bold",
-              marginBottom: 50,
+              marginBottom: 30,
               paddingTop: 80,
               shadowColor: "#CCC9C0",
             }}
@@ -241,6 +260,7 @@ const Login = ({ navigation }) => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "center",
+              marginBottom:20,
             }}
           >
             <Text style={{ fontSize: 16, fontWeight: "bold" }}>
@@ -253,6 +273,16 @@ const Login = ({ navigation }) => {
                 Signup
               </Text>
             </TouchableOpacity>
+            <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              marginBottom:20,
+            }}
+          >
+            
+          </View>
           </View>
         </View>
       </SafeAreaView>

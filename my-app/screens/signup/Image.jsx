@@ -91,7 +91,9 @@ const ImageJS = ({ navigation, changeForm, uform }) => {
   };
 
   return (
-    <View>
+    <View 
+    style={{alignItems: "center"  }}
+    >
       <TouchableOpacity>
         <Btn
           textColor="gray"
@@ -99,35 +101,31 @@ const ImageJS = ({ navigation, changeForm, uform }) => {
           btnLabel="add picture"
           Press={openImagePickerAsync}
         />
-      </TouchableOpacity>
-      <Field
-        value={uform.image}
-        onChangeText={(text) => changeForm({ image: text })}
-        placeholder="Enter your image kifkif tetbadel"
-        secureTextEntry={false}
-      />
-          <View>
-          <Btn
-textColor="gray"
-bgColor="white"
-btnLabel="add picture"
-Press={()=>{console.log(selectedImage);}}
-/>
-<Image
-           source={{
-            uri: selectedImage["localUri"] ,
+
+<Btn
+          textColor="gray"
+          bgColor="white"
+          btnLabel="log pic"
+          Press={() => {
+            console.log(selectedImage);
           }}
-            />
+        />
+
+      </TouchableOpacity>
+
+      <View>
+
+        <Image 
+                      style={{alignItems: "center", width: 100, height: 100  }}
+                      source={{ 
+            uri: 'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'
+          }}
+        />
+      </View>
 
 
-          <Image
-
-              source={require("my-app/assets/profilbackground.png")}
-            />
-          </View>
     </View>
   );
 };
-
 
 export default ImageJS;
