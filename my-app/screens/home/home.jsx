@@ -90,7 +90,7 @@ const Home = ({ navigation }) => {
                 /> */}
               </View>
              
-
+              <TouchableOpacity >
               <View
                 style={{
                   width: '50%',
@@ -338,7 +338,9 @@ const Home = ({ navigation }) => {
       </ScrollView>
 
       <Navbar navigation={navigation} />
+      
     </SafeAreaView>
+    
   );
 };
 
