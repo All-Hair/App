@@ -128,14 +128,15 @@ function Tags({ photos }) {
         region={mapRegion}
         
         >
-        <Marker coordinate={mapRegion} title="Marker"/>
+        <Marker coordinate={mapRegion} title="all hair saloon"/>
+        
         </MapView>
         <Button title=' Get Location ' onPress={userLocation}/>
           <View>
             <Image
-              style={{ width: imgWidth, height: imgWidth }}
+              style={{ width: imgWidth, height: imgWidth+110 }}
               source={{
-                // uri: `https://picsum.photos/200/300?random=7`,
+           
               }}
             />
           </View>
