@@ -44,7 +44,9 @@ const SaloonForm = ({navigation , changeSForm , sform}) => {
 <Field  value={sform.adress} onChangeText={text=>changeSForm({adress:text})} placeholder="Enter the saloon adress"  />
 <Field  value={sform.city} onChangeText={text=>changeSForm({city:text})} placeholder="Enter the saloon city"  />
 <Field  value={sform.type} onChangeText={text=>changeSForm({type:text})} placeholder="Enter the saloon type"  />
-<Field  value={sform.description} onChangeText={text=>changeSForm({description:text})} placeholder="Enter the saloon description"  />
+<Field  value={sform.description} onChangeText={text=>changeSForm({description:text})} placeholder="Enter the saloon description"  
+          multiline={true}
+ />
 <Field  value={sform.image} onChangeText={text=>changeSForm({image:text})} placeholder="Enter the saloon image"  />
 <Field  value={sform.home_service} onChangeText={text=>changeSForm({home_service:text})} placeholder="Enter the saloon home_service"  />
 
