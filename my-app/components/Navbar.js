@@ -34,7 +34,7 @@ const Navbar = ({navigation}) => {
     
   localGetData()
   
-  console.log("hedha el user ",user.role);
+//   console.log("hedha el user",user.role);
   }, []);
 
 
@@ -112,7 +112,7 @@ const Navbar = ({navigation}) => {
                         flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-2,right:    -4
                     }}>
 
-                        <TouchableOpacity onPress={() => {navigation.navigate("Notifications")}}
+                        <TouchableOpacity onPress={() => {navigation.navigate("Location")}}
                             
                         >
                           <Ionicons name="md-location-outline" size={32} color="black"  />
@@ -139,7 +139,7 @@ const Navbar = ({navigation}) => {
                           
                         }}>
 { 
-          user.role=="saloon" ?
+        user &&  user.role==="saloon" ?
           
           <TouchableOpacity
           onPress={() => {navigation.navigate("Sprofile")}}

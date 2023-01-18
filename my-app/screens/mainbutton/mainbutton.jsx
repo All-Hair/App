@@ -119,7 +119,7 @@ export default function Mainbutton ({navigation}) {
           return (
             
             <View style={{ width: CONTAINER_WIDTH }}>
-                <TouchableOpacity onPress={()=>{navigation.navigate('Sprofile')}}>
+               
               <Animated.View 
                 style={{
                   marginHorizontal: SPACE,
@@ -134,7 +134,7 @@ export default function Mainbutton ({navigation}) {
                 
                 <Image source={{ uri: item }} alt={'walid'} style={styles.posterImage} />  
                 
-                
+                <TouchableOpacity onPress={()=>{navigation.navigate('Sprofile')}}>
                 
                 <VStack>
                     
@@ -159,7 +159,7 @@ export default function Mainbutton ({navigation}) {
                 </HStack>
                 
                 </VStack>
-                
+                </TouchableOpacity>
                 
                 <Box  width={100} height={20}>
                
@@ -167,7 +167,7 @@ export default function Mainbutton ({navigation}) {
                 </Box >
                 
               </Animated.View>
-              </TouchableOpacity>
+             
             </View>
           );
         }}

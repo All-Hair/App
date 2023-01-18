@@ -4,7 +4,7 @@ import SwitchSelector from "react-native-switch-selector";
 import { Dimensions, Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { auth } from "../../firebase";
-import { MaterialIcons } from "@expo/vector-icons";
+
 import Background from "./background.jsx";
 import Btn from "./button.jsx";
 import { primary } from "./constants.jsx";

@@ -16,7 +16,6 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  
 } from 'react-native';
 
 // import { AntDesign, Entypo } from 'react-native-vector-icons';
@@ -29,17 +28,16 @@ const { width, height } = Dimensions.get('window');
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
 
-
+import Saloon from '../saloon/Saloon';
 import Posts from './Posts';
 import { StatusBar } from 'native-base';
-import Example from '../../components/example'
+
 
 const Home = ({ navigation }) => {
   const [popularSelected, setPop] = useState(true);
   onTabPressed = () => {
     setPop(!popularSelected);
   };
-
   const handleSignOut = () => {
     auth
       .signOut()
@@ -49,9 +47,7 @@ const Home = ({ navigation }) => {
       .catch((error) => alert(error.message));
   };
   // console.log(auth.currentUser?.email);
-// const userr = localStorage.getItem("user")
-// console.log(userr);
-   
+
   return (
 
     <SafeAreaView
@@ -73,7 +69,6 @@ const Home = ({ navigation }) => {
           source={require('my-app/assets/profilbackground.png')}
           style={{ width: '100%' }}
         >
-          
           <View style={{ height: 240, width: '100%', paddingHorizontal: 35 }}>
             <View
               style={{
@@ -82,24 +77,21 @@ const Home = ({ navigation }) => {
                 paddingTop: 40,
                 alignItems: 'center',
               }}
-            >  
+            >
               <View style={{ width: '50%' }}>
                 {/* <Image
                   source={require('my-app/assets/logo-removebg-preview.png')}
                   style={{ width: 80, height: 80 }}
                 /> */}
               </View>
-             
-              <TouchableOpacity >
               <View
                 style={{
                   width: '50%',
                   alignItems: 'flex-end',
                 }}
-                onPress={handleSignOut}
               >
-               
-               
+
+                {/* <Menu /> */}
                 <AntDesign
                   name="logout"
                   size={30}
@@ -109,8 +101,6 @@ const Home = ({ navigation }) => {
                 />
 
               </View>
-              
-              </TouchableOpacity>
             </View>
             <Text
               style={{
@@ -338,9 +328,7 @@ const Home = ({ navigation }) => {
       </ScrollView>
 
       <Navbar navigation={navigation} />
-      
     </SafeAreaView>
-    
   );
 };
 
