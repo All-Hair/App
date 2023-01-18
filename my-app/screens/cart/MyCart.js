@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {COLOURS, Items} from './database/Database';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {Ionicons , MaterialCommunityIcons} from 'react-native-vector-icons';
 
 const MyCart = ({navigation}) => {
   const [product, setProduct] = useState();
@@ -241,13 +241,16 @@ const MyCart = ({navigation}) => {
             alignItems: 'center',
           }}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <MaterialCommunityIcons
-              name="chevron-left"
+            <Ionicons
+              name="arrow-back"
               style={{
                 fontSize: 18,
-                color: COLOURS.backgroundDark,
+                color: COLOURS.black,
+                borderColor: COLOURS.black,
+                borderRadius: 10,
+                borderWidth: 1,
                 padding: 12,
-                backgroundColor: COLOURS.backgroundLight,
+                backgroundColor: COLOURS.white,
                 borderRadius: 12,
               }}
             />

@@ -20,7 +20,7 @@ import Mainbutton from "./screens/mainbutton/mainbutton.jsx";
 import DateSelect from "./screens/booking/dateSelect.js";
 import PickTime from "./screens/booking/pickTime.js";
 import Appointment from "./screens/booking/appointment.js";
-import Notifications from "./screens/notifications/notifications.js";
+import Location from "./screens/location/location.js";
 import MyCart from "./screens/cart/MyCart.js";
 import ProductInfo from "./screens/cart/ProductInfo.js";
 import Detail from "./screens/home/Detail.jsx";
@@ -123,9 +123,9 @@ const App = () => {
             component={Detail}
           />
            <Stack.Screen
-            name="Notifications"
+            name="Location"
             options={{ headerShown: false }}
-            component={Notifications}
+            component={Location}
           />
             <Stack.Screen
             name="Videos"
