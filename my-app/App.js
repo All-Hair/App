@@ -12,7 +12,7 @@ import Login from "./screens/login/login.jsx";
 import Forgotpassword from "./screens/login/forgotpassword.jsx";
 import Sprofile from "./screens/sprofile/sprofile";
 import Cart from "./screens/cart/cart";
-import Pricelist from "./screens/pricelist/Pricelist.jsx";
+import Pricelist from "./screens/pricelist/pricelist.jsx";
 import Uprofile from "./screens/UserProfile/Uprofile.js";
 import BookList from "./screens/booking/bookList.js";
 import UpdateUpro from "./screens/UserProfile/UpdateUpro";
@@ -25,10 +25,6 @@ import MyCart from "./screens/cart/MyCart.js";
 import ProductInfo from "./screens/cart/ProductInfo.js";
 import Detail from "./screens/home/Detail.jsx";
 import Videos from "./screens/videoss/videos.jsx";
-
-
-
-
 
 const Stack = createNativeStackNavigator();
 
@@ -122,17 +118,16 @@ const App = () => {
             options={{ headerShown: false }}
             component={Detail}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="Notifications"
             options={{ headerShown: false }}
             component={Notifications}
           />
-            <Stack.Screen
+          <Stack.Screen
             name="Videos"
             options={{ headerShown: false }}
             component={Videos}
           />
-           
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

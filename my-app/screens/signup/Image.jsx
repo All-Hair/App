@@ -15,6 +15,18 @@ import { Button } from "native-base";
 import Btn from "./button.jsx";
 
 import * as ImagePicker from "expo-image-picker";
+
+// const cloudinary = require('cloudinary').v2;
+// // import cloudinary from 'cloudinary';
+
+
+// cloudinary.config({
+//   cloud_name: 'df2tk0rvs',
+//   api_key: '827153953378228',
+//   api_secret: '2owtgQGqST9_bfJRWGtMhUgL7hI'
+// });
+
+
 let CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/df2tk0rvs/upload";
 
 const ImageJS = ({ navigation, changeForm, uform }) => {
@@ -70,8 +82,6 @@ const ImageJS = ({ navigation, changeForm, uform }) => {
     };
 
     //sends photo to cloudinary
-    //**I initially tried using an axios request but it did NOT work** I was
-    //not able to get this to work until I changed it to a fetch request.
 
     fetch(CLOUDINARY_URL, {
       body: JSON.stringify(data),
@@ -102,14 +112,15 @@ const ImageJS = ({ navigation, changeForm, uform }) => {
           Press={openImagePickerAsync}
         />
 
-<Btn
+{/* <Btn
           textColor="gray"
           bgColor="white"
           btnLabel="log pic"
           Press={() => {
             console.log(selectedImage);
           }}
-        />
+        /> */}
+
 
       </TouchableOpacity>
 
