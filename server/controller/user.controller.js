@@ -6,7 +6,7 @@ module.exports = {
   create: async (req, res) => {
     try {
       // Validate request
-      if (!req.body.name) {
+      if (!req.body.email) {
         res.status(400).send({
           message: "Content can not be empty!",
         });

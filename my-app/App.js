@@ -5,7 +5,6 @@ import * as React from "react";
 // import { LogBox } from 'react-native';
 // LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 // LogBox.ignoreAllLogs()
-
 import Home from "./screens/home/home.jsx";
 import Signup from "./screens/signup/signup";
 import Login from "./screens/login/login.jsx";

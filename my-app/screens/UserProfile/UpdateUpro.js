@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, View, Dimensions, Button, Alert } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Dimensions, Button,  } from 'react-native';
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Field from './field';
@@ -7,18 +7,15 @@ import client from '../../api/client';
 
 const UpdateUpro = ({navigation,route}) => {
   const {users}=route.params
-  console.log(route.params,'-----');
-  // console.log(users,'000000000000');
-  // const [update,setUpdate]=useState()
   const [name,setName] = useState("")
   const [email,setEmail] = useState("")
   const [adress ,setAdress] = useState("")
   const [gender , setGender] = useState("")
   const [image,setImage]=useState("")
   const [phone,setPhone] = useState("")
-const form = {
+ const form = {
   name,email,adress,gender,image,phone
-}
+ }
 console.log(form,'-------------------------------–––-----------------------–––----------–––––––––––––––––');
 //  console.log(update,',,,,,,,,,,,,,,');
   const { width, height } = Dimensions.get('window');
@@ -26,7 +23,7 @@ console.log(form,'-------------------------------–––----------------------
 const handeleSubmit = async()=>{
   try{
     await client.put(`/user/update/${users.id}`,form)
-    navigation.navigate('')
+    // navigation.navigate('Uprofile')
   }
   catch(error){
    console.log(error);

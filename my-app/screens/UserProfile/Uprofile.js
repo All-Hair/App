@@ -20,16 +20,16 @@ const Uprofile = ({ navigation }) => {
   const [users,setUsers]= useState([])
  console.log(users,"----");
  console.log(auth.currentUser.email,'<<<<<<<<<<<<<<<<<<<<');
- const[email,setEmail]= useState(auth.currentUser.email)
+
 
 
    const getAll =async()=>{
    
-
+  const email = auth.currentUser.email
      try{
     const res= await client.get(`/user/getone/${email}`)
     setUsers(res.data)
-  //  console.log(res.data,'--------AHMEDDD-----');
+   console.log(res.data,'--------AHMEDDD-----');
     }catch(error){
     console.log(error);
   }

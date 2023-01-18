@@ -17,22 +17,20 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [show, setShow] =useState(true)
   const [userType, setUserType] = useState("user");
-//  const [users,setUsers] = useState("")
-  // const { width, height } = Dimensions.get('window');
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
   // console.log(password)
-
+ 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         navigation.replace("Home");
        
         // setUsers(user)
-        storeUser(user)
-        console.log('====================================');
-        console.log(user);
-        console.log('====================================');
+        // storeUser(user)
+        // console.log('====================================');
+        // console.log(user);
+        // console.log('==============================mm======');
       }
     });
 
@@ -43,7 +41,7 @@ const Login = ({ navigation }) => {
     try {
       if (userType == "user") {
         const req = await client.get(`/user/getone/${email}`);
-        console.log(req.data,'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+        // console.log(req.data,'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
        
          // setUsers(req.body)
         if (req.data == null) {
@@ -70,20 +68,20 @@ const Login = ({ navigation }) => {
       .signInWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log(userCredentials,'-----');
+        console.log(userCredentials);
         console.log("Logged in with:", user.email);
       })
       .catch((error) => alert(error.message));
   };
-   const  storeUser = async (value) => {
-    try {
-      console.log("1",value);
-      await AsynStorage.setItem("user", JSON.stringify(value));
-      console.log();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //  const  storeUser = async (value) => {
+  //   try {
+  //     console.log("1",value);
+  //     await AsynStorage.setItem("user", JSON.stringify(value));
+  //     console.log();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
  
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   View,
   Text,
@@ -16,13 +16,14 @@ import SwitchSelector from "react-native-switch-selector";
 import UserForm from "./UserForm.jsx";
 import SaloonForm from "./SaloonForm.jsx";
 import client from "../../api/client";
+import axios from "axios";
 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
   const [checkP, setCheckP] = useState(true);
-  const [form, setForm] = useState({});
+  // const [form, setForm] = useState({});
 
   const [userType, setUserType] = useState("user");
   const [show, setShow] = useState(false);
@@ -30,50 +31,60 @@ const Signup = ({ navigation }) => {
   const [uform, setUform] = useState({});
   const [sform, setSform] = useState({});
 
-  console.log(uform);
-  console.log(sform);
-
-  // console.log(password)
-
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged(user => {
-  //     if (user) {
-
-  //     }
-  //   })
-
-  //   return unsubscribe
-  // }, [])
-
+ 
+  
   const changeForm = (element) => {
     setUform({ ...uform, ...element });
   };
   const changeSForm = (element) => {
     setSform({ ...sform, ...element });
   };
-  const registerToDB = async () => {
-    try {
-      if (userType == "user") {
-        const req = await client.post("/user", { ...uform, email: email });
-        console.log(req.data);
-      } else {
-        const req = await client.post("/saloon/add", { ...sform, email: email });
-        console.log(req.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
 
   const handleSignUp = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Registered with:", user.email);
+        const res = userCredentials.user.email;
+         console.log("🚀 ~ file: signup.jsx:48 ~ .then ~ res", res)
+         registerToDB(res)
       })
       .catch((error) => alert(error.message));
   };
+
+
+  const registerToDB = async (res) => {
+    // console.log("🚀 ~ file: signup.jsx:56 ~ registerToDB ~ email", res)
+    
+    try {
+      // if (userType == "user") {
+        console.log("🚀 ~ file: signup.jsx:59 ~ registerToDB ~ email====================================", res)
+        await axios.post('http://172.20.10.9:5000/user',res );
+      
+       
+      // } else {
+      //   const req = await client.post("/saloon/add",  res );
+      //   console.log(req.data);
+      // }
+    } catch (error) {
+      console.log("🚀 ~ file: signup.jsx:69 ~ registerToDB ~ error", error)
+      console.log(error);
+    }
+  };
+
+ 
+
+  // const x =async (email)=> {
+//   try {
+//     await client.post('/user/',email)
+//     console.log("🚀 ~ file: signup.jsx:81 ~ x ~ email", email)
+    
+//      // console.log("🚀 ~ file: home.jsx:56 ~ addUserTodb ~ data", data)
+//     }catch(error){
+//      // console.log("🚀 ~ file: home.jsx:56 ~ addUserTodb ~ error", error)
+     
+//     }
+// }
 
   return (
     <Background>
