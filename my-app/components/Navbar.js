@@ -8,15 +8,12 @@ import { Ionicons ,MaterialCommunityIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-  
+//   import localStorage from '../components/localStorage'
 
 
 const Navbar = ({navigation}) => {
     
     const [user,setUser]= useState ({})
-
-// const userr = localStorage.getItem("user")
-// console.log(userr);
 
 
 
@@ -33,8 +30,10 @@ const Navbar = ({navigation}) => {
       }
     
   localGetData()
-  
-//   console.log("hedha el user",user.role);
+// const u = localStorage.localGetData()
+//     setUser(u)
+
+//   console.log("hedha el user ",user.role);
   }, []);
 
 
@@ -109,16 +108,16 @@ const Navbar = ({navigation}) => {
                     </View>
                     
                     <View style={{
-                        flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-2,right:    -4
+                        flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-1
                     }}>
 
                         <TouchableOpacity onPress={() => {navigation.navigate("Location")}}
                             
                         >
-                          <Ionicons name="md-location-outline" size={32} color="black"  />
+                          <Ionicons name="notifications-outline" size={30} color="black"  />
                        
                         </TouchableOpacity >
-                        <Text style={{justifyContent:'center',alignItems:'center' }}>Location</Text>
+                        <Text style={{justifyContent:'center',alignItems:'center' }}>notifications</Text>
                     </View>
 
                         <View style={{
