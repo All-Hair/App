@@ -33,7 +33,7 @@ const Navbar = ({navigation}) => {
 // const u = localStorage.localGetData()
 //     setUser(u)
 
-  console.log("hedha el user ",user.role);
+//   console.log("hedha el user ",user.role);
   }, []);
 
 
@@ -111,7 +111,7 @@ const Navbar = ({navigation}) => {
                         flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-1
                     }}>
 
-                        <TouchableOpacity onPress={() => {navigation.navigate("Notifications")}}
+                        <TouchableOpacity onPress={() => {navigation.navigate("Location")}}
                             
                         >
                           <Ionicons name="notifications-outline" size={30} color="black"  />
@@ -138,7 +138,7 @@ const Navbar = ({navigation}) => {
                           
                         }}>
 { 
-          user.role=="saloon" ?
+        user &&  user.role==="saloon" ?
           
           <TouchableOpacity
           onPress={() => {navigation.navigate("Sprofile")}}
