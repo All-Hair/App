@@ -1,16 +1,42 @@
 import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, Animated, Text, Alert,Dimensions,SafeAreaView} from 'react-native';
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 const { width, height } = Dimensions.get('window');
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons ,MaterialCommunityIcons } from '@expo/vector-icons';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+//   import localStorage from '../components/localStorage'
+
 
 const Navbar = ({navigation}) => {
     
+    const [user,setUser]= useState ({})
 
 
-   
+
+  useEffect(() => {
+    const localGetData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem('user')
+          const jsonparseValue = JSON.parse(jsonValue) 
+          setUser(jsonparseValue)
+          return jsonValue != null ? JSON.parse(jsonValue) : null;
+        } catch(e) {
+          // error reading value
+        }
+      }
+    
+  localGetData()
+// const u = localStorage.localGetData()
+//     setUser(u)
+
+//   console.log("hedha el user ",user.role);
+  }, []);
+
+
         return (
             <View style={{
                 flex: 1,
@@ -85,7 +111,7 @@ const Navbar = ({navigation}) => {
                         flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-1
                     }}>
 
-                        <TouchableOpacity onPress={() => {navigation.navigate("Notifications")}}
+                        <TouchableOpacity onPress={() => {navigation.navigate("Location")}}
                             
                         >
                           <Ionicons name="notifications-outline" size={30} color="black"  />
@@ -111,12 +137,30 @@ const Navbar = ({navigation}) => {
                             flexDirection: 'column', alignItems: 'center',justifyContent:'flex-end', top:2
                           
                         }}>
-                            <TouchableOpacity
-                                onPress={() => {navigation.navigate("Sprofile")}}
+{ 
+        user &&  user.role==="saloon" ?
+          
+          <TouchableOpacity
+          onPress={() => {navigation.navigate("Sprofile")}}
+                  
                             >
                                 <AntDesign name="user" size={30} color="black" />
                      
                             </TouchableOpacity>
+                           : 
+                           <TouchableOpacity
+                           onPress={() => {navigation.navigate("Uprofile")}}    
+                                   
+                                             >
+                                                 <AntDesign name="user" size={30} color="black" />
+                                      
+                                             </TouchableOpacity>    
+                        
+                        }
+
+
+
+
                             <Text style={{justifyContent:'center',alignItems:'center' }}> Profile </Text>
                            
                         </View>

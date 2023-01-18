@@ -22,7 +22,7 @@ import {
 
 
 
-import Menu from '../../components/Menu';
+
 const { width, height } = Dimensions.get('window');
 
 import Navbar from '../../components/Navbar';

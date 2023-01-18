@@ -82,11 +82,11 @@ module.exports = {
 
        const oneUser = await User.findOne({ where: { email: email } })
        if (oneUser === null) {
-      console.log('Not found!');
-       res.send(null)
-      } else {
-      res.send(oneUser);
-      }
+  console.log('Not found!');
+  res.send('Not found!')
+} else {
+  res.send(oneUser);
+}
       } catch (error) {
         res.status(500).send({
           message:

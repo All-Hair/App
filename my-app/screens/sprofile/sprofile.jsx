@@ -14,6 +14,9 @@ import {
 import MapView,{Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import localStorage from '../../components/localStorage'
+
 // import Pricelist from '../pricelist/Pricelist.jsx';
 
 function Photos() {
@@ -113,6 +116,7 @@ function Tags({ photos }) {
   }
   useEffect(()=>{
     userLocation()
+
   },[])
   return (
     <View style={{}}>
@@ -128,14 +132,15 @@ function Tags({ photos }) {
         region={mapRegion}
         
         >
-        <Marker coordinate={mapRegion} title="Marker"/>
+        <Marker coordinate={mapRegion} title="all hair saloon"/>
+        
         </MapView>
         <Button title=' Get Location ' onPress={userLocation}/>
           <View>
             <Image
-              style={{ width: imgWidth, height: imgWidth }}
+              style={{ width: imgWidth, height: imgWidth+110 }}
               source={{
-                // uri: `https://picsum.photos/200/300?random=7`,
+           
               }}
             />
           </View>
@@ -149,6 +154,33 @@ const Sprofile = ({navigation}) => {
   
 
   const [showContent, setShowContent] = useState('Photos');
+
+  const [user,setUser]= useState ({})
+
+
+
+
+  useEffect(() => {
+    const localGetData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem('user')
+          const jsonparseValue = JSON.parse(jsonValue) 
+          setUser(jsonparseValue)
+          return jsonValue != null ? JSON.parse(jsonValue) : null;
+        } catch(e) {
+          // error reading value
+        }
+      }
+    
+  localGetData()
+  
+// const u = localStorage.localGetData()
+//     setUser(u)
+
+  console.log("user fil saloon profile  ",user.role);
+  }, []);
+
+
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -198,9 +230,13 @@ const Sprofile = ({navigation}) => {
               </View>
               {/* Interact Buttons View */}
               <View style={styles.interactButtonsView}>
-                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
-                  <Text style={styles.interactButtonText}>APPOINTMENT</Text>
-                </TouchableOpacity>
+{   user.role=='saloon' ?             <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
+                  <Text style={styles.interactButtonText}>update profile</Text>
+                </TouchableOpacity>:
+                 <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
+                 <Text style={styles.interactButtonText}>APPOINTMENT</Text>
+               </TouchableOpacity>
+                }
                 
                 <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Pricelist')}}>
                   <Text style={styles.interactButtonText}>PRICE LIST</Text>

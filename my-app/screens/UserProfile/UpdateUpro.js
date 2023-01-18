@@ -7,12 +7,12 @@ import client from '../../api/client';
 
 const UpdateUpro = ({navigation,route}) => {
   const {users}=route.params
-  const [name,setName] = useState("")
-  const [email,setEmail] = useState("")
-  const [adress ,setAdress] = useState("")
-  const [gender , setGender] = useState("")
-  const [image,setImage]=useState("")
-  const [phone,setPhone] = useState("")
+  const [name,setName] = useState(users?.name)
+  const [email,setEmail] = useState(users?.email)
+  const [adress ,setAdress] = useState(users?.adress)
+  const [gender , setGender] = useState(users?.gender)
+  const [image,setImage]=useState(users?.image)
+  const [phone,setPhone] = useState(users?.phone)
  const form = {
   name,email,adress,gender,image,phone
  }
@@ -26,7 +26,7 @@ const handeleSubmit = async()=>{
     // navigation.navigate('Uprofile')
   }
   catch(error){
-   console.log(error);
+   console.log(error.message);
   }
    
 }
@@ -47,34 +47,34 @@ const handeleSubmit = async()=>{
       <Button title='update' onPress={handeleSubmit}/>
       <Field
         placeholder="Name"
-        defaultValue={users.name}
+        value={name}
         onChangeText={(text) => setName(text)}
         // secureTextEntry={true}
       />
       <Field
         placeholder="Email"
-        defaultValue={users.email}
+        value={email}
         onChangeText={(text) => setEmail(text)}
       />
             <Field
         placeholder="Adress"
-        defaultValue={users.adress}
+        value={adress}
         onChangeText={(text) => setAdress(text)}
       />
             <Field
         placeholder="gender"
-        defaultValue={users.gender}
+        value={gender}
         onChangeText={(text) => setGender(text)}
       />
             <Field
         placeholder="image"
-        defaultValue={users.image}
+        value={image}
         onChangeText={(text) => setImage(text)}
 
       />
            <Field
         placeholder="image"
-        defaultValue={users.phone}
+        value={phone}
         onChangeText={(text) => setPhone(text)}
 
       />

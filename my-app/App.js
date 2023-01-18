@@ -11,6 +11,7 @@ import Login from "./screens/login/login.jsx";
 import Forgotpassword from "./screens/login/forgotpassword.jsx";
 import Sprofile from "./screens/sprofile/sprofile";
 import Cart from "./screens/cart/cart";
+import Pricelist from "./screens/pricelist/pricelist.jsx";
 import Uprofile from "./screens/UserProfile/Uprofile.js";
 import BookList from "./screens/booking/bookList.js";
 import UpdateUpro from "./screens/UserProfile/UpdateUpro";
@@ -18,11 +19,12 @@ import Mainbutton from "./screens/mainbutton/mainbutton.jsx";
 import DateSelect from "./screens/booking/dateSelect.js";
 import PickTime from "./screens/booking/pickTime.js";
 import Appointment from "./screens/booking/appointment.js";
-import Notifications from "./screens/notifications/notifications.js";
+import Location from "./screens/location/location.js";
 import MyCart from "./screens/cart/MyCart.js";
 import ProductInfo from "./screens/cart/ProductInfo.js";
 import Detail from "./screens/home/Detail.jsx";
 import Videos from "./screens/videoss/videos.jsx";
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -70,11 +72,11 @@ const App = () => {
             options={{ headerShown: false }}
             component={UpdateUpro}
           />
-          {/* <Stack.Screen
+          <Stack.Screen
             name="Pricelist"
             options={{ headerShown: false }}
             component={Pricelist}
-          /> */}
+          />
           <Stack.Screen
             name="DateSelect"
             component={DateSelect}
@@ -116,16 +118,15 @@ const App = () => {
             component={Detail}
           />
            <Stack.Screen
-            name="Notifications"
+            name="Location"
             options={{ headerShown: false }}
-            component={Notifications}
+            component={Location}
           />
-            <Stack.Screen
+          <Stack.Screen
             name="Videos"
             options={{ headerShown: false }}
             component={Videos}
           />
-           
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
