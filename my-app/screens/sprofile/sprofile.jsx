@@ -13,14 +13,31 @@ import {
 } from 'react-native';
 import MapView,{Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
-
+import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import client from '../../api/client';
 // import localStorage from '../../components/localStorage'
 
 // import Pricelist from '../pricelist/Pricelist.jsx';
 
 function Photos() {
+  const [data,setData]= useState([])
   const imgWidth = Dimensions.get('screen').width * 0.33333;
+      
+  const allPost =async()=>{
+    try{
+      const res = await client.get('/post/')
+      setData(res.data)
+    
+      console.log("🚀 ~ file: sprofile.jsx:32 ~ allPost ~ res", res.data)
+    }
+    catch(error){
+   console.log(error);
+    }
+  }
+  useEffect(()=>{
+   allPost()
+  },[])
   return (
     <View style={{}}>
       <View
@@ -30,7 +47,22 @@ function Photos() {
           alignItems: 'flex-start',
         }}
       >
-        
+        <View style={{ flex: 1, backgroundColor: '#fff', paddingBottom: 20 }}>
+          {data.map((e,i)=>{
+            return(
+              <View style={{ color: '#fff', fontSize: 20 ,flex: 1, backgroundColor: '#fff', paddingBottom: 20 }}>
+            <Text >{e.title}</Text>
+            {/* <Text>{e.date}</Text> */}
+            <Image  
+              style={{ width: imgWidth + 50, height: imgWidth + 50 }}
+              source={{ uri: e.image }}
+            />
+            <Text >{e.description}</Text>
+            <Text>{e.media}</Text>
+
+            </View>
+            ) })}
+        </View>
           <View>
           </View>
         
@@ -288,6 +320,7 @@ const Sprofile = ({navigation}) => {
               </View>
               {showContent === 'Photos' ? (
                 <Photos photos={new Array(13).fill(1)} />
+                
               ) : showContent === 'Albums' ? (
                 <Albums />
               ) : (

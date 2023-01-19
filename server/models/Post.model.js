@@ -17,6 +17,10 @@ module.exports=(sequelize,DataType)=>{
         type:DataType.TEXT,
         allowNull:true
     },
+    image:{
+      type:DataType.STRING,
+      allowNull:true
+  },
     date:{
         type:DataType.DATE,
         allowNull:true

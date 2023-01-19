@@ -29,7 +29,6 @@ const Uprofile = ({ navigation }) => {
      try{
     const res= await client.get(`/user/getone/${email}`)
     setUsers(res.data)
-   console.log(res.data,'--------AHMEDDD-----');
     }catch(error){
     console.log(error);
   }
