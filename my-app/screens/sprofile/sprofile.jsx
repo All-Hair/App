@@ -156,6 +156,7 @@ const Sprofile = ({navigation}) => {
   const [showContent, setShowContent] = useState('Photos');
 
   const [user,setUser]= useState ({})
+  console.log("🚀 ~ file: sprofile.jsx:159 ~ Sprofile ~ user", user)
 
 
 
@@ -230,16 +231,21 @@ const Sprofile = ({navigation}) => {
               </View>
               {/* Interact Buttons View */}
               <View style={styles.interactButtonsView}>
-{   user.role=='saloon' ?             <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
+           {/* {   user.role ==='saloon' ?              */}
+           <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
                   <Text style={styles.interactButtonText}>update profile</Text>
-                </TouchableOpacity>:
+                </TouchableOpacity>
+                {/* : */}
                  <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
                  <Text style={styles.interactButtonText}>APPOINTMENT</Text>
                </TouchableOpacity>
-                }
+                {/* } */}
                 
                 <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Pricelist')}}>
                   <Text style={styles.interactButtonText}>PRICE LIST</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('addPost')}}>
+                  <Text style={styles.interactButtonText}>ADD POST </Text>
                 </TouchableOpacity>
                 
               </View>

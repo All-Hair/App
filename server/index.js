@@ -12,13 +12,13 @@ const SaloonRoute = require ('./routes/Saloon.routes')
 const product = require("./routes/product.routes");
 const menu = require("./routes/menu.routes");
 const user = require("./routes/user.routes")
- 
+const Post =require("./routes/Post.routes")
 //Add Routes to the middleware 
 app.use('/saloon',SaloonRoute)
 app.use('/product',product)
 app.use('/menu',menu)
 app.use('/user',user)
-
+app.use('/post',Post)
 
 
 app.get('/', (req, res) => {

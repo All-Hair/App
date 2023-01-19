@@ -1,5 +1,5 @@
 import { SafeAreaView, StyleSheet, Text, View, Dimensions, Button,  } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import Navbar from '../../components/Navbar';
 import Field from './field';
 import Btn from '../login/button';
@@ -23,13 +23,15 @@ console.log(form,'-------------------------------–––----------------------
 const handeleSubmit = async()=>{
   try{
     await client.put(`/user/update/${users.id}`,form)
-    // navigation.navigate('Uprofile')
+    navigation.navigate('Uprofile')
+    
   }
   catch(error){
    console.log(error.message);
   }
    
 }
+
   return (
     <SafeAreaView
     >

@@ -24,6 +24,7 @@ import MyCart from "./screens/cart/MyCart.js";
 import ProductInfo from "./screens/cart/ProductInfo.js";
 import Detail from "./screens/home/Detail.jsx";
 import Videos from "./screens/videoss/videos.jsx";
+import AddPost from "./screens/sprofile/AddPost.jsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -127,6 +128,12 @@ const App = () => {
             options={{ headerShown: false }}
             component={Videos}
           />
+           <Stack.Screen
+            name="addPost"
+            options={{ headerShown: false }}
+            component={AddPost}
+          />
+
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

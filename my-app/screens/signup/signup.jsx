@@ -21,7 +21,9 @@ import SaloonForm from "./SaloonForm.jsx";
 import client from "../../api/client";
 import axios from "axios";
 
-
+// web : 1004724493628-t7ppg7i58ul4k5tvsrkaai9tj3sqgfgd.apps.googleusercontent.com
+// ios : 1004724493628-cookht6lqj26lsbs3ujf22ss27829etq.apps.googleusercontent.com
+// android : 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +36,8 @@ const Signup = ({ navigation }) => {
   const [cont, setCont] = useState("");
   const [uform, setUform] = useState({gender:"male"});
   const [sform, setSform] = useState({gender:"male"});
-
+ const [saloon,setSaloon] = useState({})
+ console.log("🚀 ~ file: signup.jsx:40 ~ Signup ~ saloon", saloon)
  
   
   console.log(uform);
@@ -69,6 +72,8 @@ const Signup = ({ navigation }) => {
           email: email,
         });
         console.log(req.data);
+        console.log("🚀 ~ file: signup.jsx:74 ~ registerToDB ~ req.data", req.data)
+        setSaloon(req.data)
       }
     } catch (error) {
       console.log(error);
