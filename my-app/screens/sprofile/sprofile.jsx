@@ -52,7 +52,6 @@ function Photos() {
             return(
               <View style={{ color: '#fff', fontSize: 20 ,flex: 1, backgroundColor: '#fff', paddingBottom: 20 }}>
             <Text >{e.title}</Text>
-            {/* <Text>{e.date}</Text> */}
             <Image  
               style={{ width: imgWidth + 50, height: imgWidth + 50 }}
               source={{ uri: e.image }}
@@ -263,21 +262,25 @@ const Sprofile = ({navigation}) => {
               </View>
               {/* Interact Buttons View */}
               <View style={styles.interactButtonsView}>
-           {/* {   user.role ==='saloon' ?              */}
+           {   user.role ==='saloon' ?   
+           <View >          
            <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
                   <Text style={styles.interactButtonText}>update profile</Text>
                 </TouchableOpacity>
-                {/* : */}
+                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('addPost')}}>
+                  <Text style={styles.interactButtonText}>ADD POST </Text>
+                </TouchableOpacity>
+
+                </View>
+                : 
                  <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
                  <Text style={styles.interactButtonText}>APPOINTMENT</Text>
                </TouchableOpacity>
-                {/* } */}
+                 } 
+              
                 
                 <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('Pricelist')}}>
                   <Text style={styles.interactButtonText}>PRICE LIST</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('addPost')}}>
-                  <Text style={styles.interactButtonText}>ADD POST </Text>
                 </TouchableOpacity>
                 
               </View>
@@ -399,7 +402,7 @@ const styles = StyleSheet.create({
     
     borderRadius: 10,
     
-        
+    textAlign:"center",  
     color: '#FFF',
     fontSize: 18,
     paddingVertical: 6,

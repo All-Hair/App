@@ -27,8 +27,6 @@ const { width, height } = Dimensions.get('window');
 
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
-// console.log("🚀 ~ file: home.jsx:30 ~ auth", auth.currentUser.email)
-
 import Saloon from '../saloon/Saloon';
 import Posts from './Posts';
 import { StatusBar } from 'native-base';
@@ -57,13 +55,7 @@ const Home = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
-  // console.log(auth.currentUser,'----------');
-  //  console.log("🚀 ~ file: home.jsx:53 ~ Home ~ auth.currentUser", auth.currentUser.phoneNumber)
-  //  const addUserTodb = async()=>{
-   
-  //  useEffect(()=>{
-  //   addUserTodb()
-  //  },[])
+  
 
   return (
 
@@ -207,14 +199,14 @@ const Home = ({ navigation }) => {
                 RECENT
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity
+            {/* <TouchableOpacity
                         onPress={() => {
                           navigation.navigate("Uprofile")
                         }}
                         style={styles.button}
                       >
                         <Text style={styles.buttonText}>More</Text>
-                      </TouchableOpacity>
+                      </TouchableOpacity> */}
           </View>
           <View
             style={{

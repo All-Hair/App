@@ -2,7 +2,7 @@ import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, An
 
 import React, { useEffect, useState } from 'react'
 const { width, height } = Dimensions.get('window');
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign,Feather } from '@expo/vector-icons';
 import { Ionicons ,MaterialCommunityIcons } from '@expo/vector-icons';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -116,10 +116,10 @@ const Navbar = ({navigation}) => {
                         <TouchableOpacity onPress={() => {navigation.navigate("Location")}}
                             
                         >
-                          <Ionicons name="notifications-outline" size={30} color="black"  />
+                          <Feather name="map" size={25} color="black"  />
                        
                         </TouchableOpacity >
-                        <Text style={{justifyContent:'center',alignItems:'center' }}>notifications</Text>
+                        <Text style={{justifyContent:'center',alignItems:'center' }}>map</Text>
                     </View>
 
                         <View style={{
@@ -143,15 +143,15 @@ const Navbar = ({navigation}) => {
         user &&  user.role==="saloon" ?(
           
           <TouchableOpacity
-          onPress={() => {navigation.navigate("Sprofile")}}
+            onPress={() => {navigation.navigate("Sprofile")}}
                   
                             >
-                                <AntDesign name="user" size={30} color="black" />
+                <AntDesign name="user" size={30} color="black" />
                      
                             </TouchableOpacity>
                            ): (
                            <TouchableOpacity
-                           onPress={() => {navigation.navigate("Sprofile")}}    
+                           onPress={() => {navigation.navigate("Uprofile")}}    
                                    
                                              >
                                                  <AntDesign name="user" size={30} color="black" />
