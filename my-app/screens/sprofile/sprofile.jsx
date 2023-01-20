@@ -16,6 +16,7 @@ import * as Location from 'expo-location';
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import client from '../../api/client';
+import { auth } from "../../firebase";
 // import localStorage from '../../components/localStorage'
 
 // import Pricelist from '../pricelist/Pricelist.jsx';
@@ -29,7 +30,7 @@ function Photos({navigation}) {
       const res = await client.get('/post/')
       setData(res.data)
     
-      console.log("🚀 ~ file: sprofile.jsx:32 ~ allPost ~ res", res.data)
+      // console.log("🚀 ~ file: sprofile.jsx:32 ~ allPost ~ res", res.data)
     }
     catch(error){
    console.log(error);
@@ -57,7 +58,7 @@ function Photos({navigation}) {
              onPress={() => {
               navigation.navigate("photoDetails")}}
               style={{ width: imgWidth + 50, height: imgWidth + 50 }}
-              source={{ uri: e.image }}
+              source={{ uri: e.image  ? e.image : null}}
             />
     
 
@@ -185,14 +186,26 @@ function Tags({ photos }) {
 
 const Sprofile = ({navigation}) => {
   
-
+ const [saloon,setSaloon]=useState([])
   const [showContent, setShowContent] = useState('Photos');
 
   const [user,setUser]= useState ({})
   console.log("🚀 ~ file: sprofile.jsx:159 ~ Sprofile ~ user", user)
 
-
-
+const GetProfile = async()=>{
+  const email = auth.currentUser.email
+  console.log("🚀 ~ file: sprofile.jsx:197 ~ GetProfile ~ auth.currentUser.email", auth.currentUser.email)
+  try{
+     const res = await client.get(`/saloon/getone/${email}`)
+     setSaloon(res.data)
+  }catch(error){
+    console.log("🚀 ~ file: sprofile.jsx:198 ~ GetProfile ~ error", error)
+    
+  }
+}
+console.log('================hh====================');
+console.log(saloon);
+console.log('====================================');
 
   useEffect(() => {
     const localGetData = async () => {
@@ -207,7 +220,7 @@ const Sprofile = ({navigation}) => {
       }
     
   localGetData()
-  
+  GetProfile()
 // const u = localStorage.localGetData()
 //     setUser(u)
 
@@ -235,7 +248,7 @@ const Sprofile = ({navigation}) => {
                 <Image
                   style={styles.profileImage}
                   source={{
-                    uri: 'https://img.freepik.com/vecteurs-premium/gentleman-barber-shop-logo_96485-97.jpg?w=2000',
+                    uri: saloon.image
                   }}
                 />
                 
@@ -244,7 +257,7 @@ const Sprofile = ({navigation}) => {
               {/* Profile Name and Bio */}
               
               <View style={styles.nameAndBioView}>
-                <Text style={styles.userFullName}>{'ALL Hair Saloon'}</Text>
+                <Text style={styles.userFullName}>{saloon.name}</Text>
                 
               </View>
               {/* Posts/Followers/Following View */}
@@ -266,8 +279,8 @@ const Sprofile = ({navigation}) => {
               <View style={styles.interactButtonsView}>
            {   user.role ==='saloon' ?   
            <View >          
-           <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('UpdateProfile')}}>
-                  <Text style={styles.interactButtonText}>update profile</Text>
+           <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('UpdateProfile',{saloon:saloon})}}>
+                  <Text style={styles.interactButtonText}>Update profile</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('addPost')}}>
                   <Text style={styles.interactButtonText}>ADD POST </Text>
