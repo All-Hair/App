@@ -12,7 +12,7 @@ import Login from "./screens/login/login.jsx";
 import Forgotpassword from "./screens/login/forgotpassword.jsx";
 import Sprofile from "./screens/sprofile/sprofile";
 import Cart from "./screens/cart/cart";
-import Pricelist from "./screens/pricelist/pricelist.jsx";
+import Pricelist from "./screens/pricelist/Pricelist.jsx";
 import Uprofile from "./screens/UserProfile/Uprofile.js";
 import BookList from "./screens/booking/bookList.js";
 import UpdateUpro from "./screens/UserProfile/UpdateUpro";

@@ -107,18 +107,20 @@ const Navbar = ({navigation}) => {
                         <Text style={{justifyContent:'center',alignItems:'center'}}>Home</Text>
                     </View>
                     
+                   
                     <View style={{
-                        flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-1
+                        flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-2,right:    -4
                     }}>
 
                         <TouchableOpacity onPress={() => {navigation.navigate("Location")}}
                             
                         >
-                          <Ionicons name="notifications-outline" size={30} color="black"  />
+                          <Ionicons name="md-location-outline" size={32} color="black"  />
                        
                         </TouchableOpacity >
-                        <Text style={{justifyContent:'center',alignItems:'center' }}>notifications</Text>
+                        <Text style={{justifyContent:'center',alignItems:'center' }}>Location</Text>
                     </View>
+
 
                         <View style={{
                              flexDirection: 'column', right:    12, alignItems: 'center',justifyContent:'space-between',marginStart:85,
