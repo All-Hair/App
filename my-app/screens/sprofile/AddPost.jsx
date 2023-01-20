@@ -1,8 +1,9 @@
-import { Button, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Button, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React,{useState} from 'react'
 import axios from 'axios'
 import client from '../../api/client'
 import Field from '../login/field'
+import Btn from '../login/button'
 const AddPost = ({navigation}) => {
     const [description,setDescription] = useState("")
     const [title,setTitle] = useState("")
@@ -23,12 +24,8 @@ const AddPost = ({navigation}) => {
     <SafeAreaView style={{flex:1}}>
     <View style={styles.container}>
       <Text style={styles.title}>AddPost</Text>
-      {/* <TextInput placeholder='content'  style={styles.input} onChangeText={(text)=>{setTitle(text)}} />
-      <TextInput placeholder='content'  style={styles.input} onChangeText={(text)=>{setDescription(text)}} />
-      <TextInput placeholder='content'  style={styles.input} onChangeText={(text)=>{setMedia(text)}} />
-      <TextInput placeholder='content'  style={styles.input} onChangeText={(text)=>{setImage(text)}} /> */}
       <Field
-            placeholder="Email"
+            placeholder="Title"
             keyboardType={"email-address"}
             autoCapitalize="none"
             onChangeText={(text) => setTitle(text)}
@@ -40,7 +37,7 @@ const AddPost = ({navigation}) => {
             onChangeText={(text) => setDescription(text)}
           />
            <Field
-            placeholder="Email"
+            placeholder=""
             keyboardType={"email-address"}
             autoCapitalize="none"
             onChangeText={(text) => setMedia(text)}
@@ -52,8 +49,11 @@ const AddPost = ({navigation}) => {
             onChangeText={(text) => setImage(text)}
           />
       
-      <Button title='Add'onPress={()=>{AddPost()}} /> 
     </View>
+         {/* <Button title='Add' style={styles.interactButtonText} onPress={()=>{AddPost()}} />  */}
+         <TouchableOpacity style={styles.interactButton} onPress={()=>{AddPost()}}>
+                  <Text style={styles.interactButtonText}>Add Post </Text>
+        </TouchableOpacity>
     </SafeAreaView >
   )
 }
@@ -64,22 +64,59 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems:'center'
+        alignItems:'center',
+        top:-60
       },
       input:{
-    borderColor: "gray",
-    width: "100%",
-    borderWidth: 1,
-    borderRadius: 10,
-    padding: 10,
+      borderColor: "gray",
+      width: "100%",
+      borderWidth: 1,
+      borderRadius: 10,
+      padding: 10,
+    },
+    button :{
+        
     },
     title:{
-        top:-200,
+        top:-150,
         fontSize: 35,
         color: '#000000',
         left: 42,
         fontWeight: 'bold',
         marginRight:60
 
-    }
+    },
+    interactButton: {
+        // flex: 1,
+        // flexDirection: 'row',
+        alignContent: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#CCC9C0',
+        margin: 9,
+        borderRadius: 10,
+        shadowOpacity: 0.7,
+            shadowRadius: 7.49,
+            shadowColor: "#000",
+             width: 300,
+             height:40,
+            shadowOffset: {
+              width: 10,
+              height: 10,
+            },
+            shadowOpacity: 0.37,
+            shadowRadius: 7.49,
+            top:-250,
+            left:45,
+            elevation: 6,
+      },
+    interactButtonText: {
+    
+        borderRadius: 10,
+        
+        textAlign:"center",  
+        color: '#FFF',
+        fontSize: 18,
+        paddingVertical: 6,
+      },
+      
 })

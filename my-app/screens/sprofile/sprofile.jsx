@@ -20,7 +20,7 @@ import client from '../../api/client';
 
 // import Pricelist from '../pricelist/Pricelist.jsx';
 
-function Photos() {
+function Photos({navigation}) {
   const [data,setData]= useState([])
   const imgWidth = Dimensions.get('screen').width * 0.33333;
       
@@ -39,7 +39,7 @@ function Photos() {
    allPost()
   },[])
   return (
-    <View style={{}}>
+    <View >
       <View
         style={{
           flexDirection: 'row',
@@ -48,18 +48,20 @@ function Photos() {
         }}
       >
         <View style={{ flex: 1, backgroundColor: '#fff', paddingBottom: 20 }}>
+          {/* <Text onPress={()=>{navigation.navigate('photoDetails')}}> hellohhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh-------------------------------------------------------------</Text> */}
           {data.map((e,i)=>{
             return(
-              <View style={{ color: '#fff', fontSize: 20 ,flex: 1, backgroundColor: '#fff', paddingBottom: 20 }}>
-            <Text >{e.title}</Text>
-            <Image  
+              // <View style={{ color: '#fff', fontSize: 20 ,flex: 1, backgroundColor: '#fff', paddingBottom: 20 }} >
+             
+            <Image  key={e.id}
+             onPress={() => {
+              navigation.navigate("photoDetails")}}
               style={{ width: imgWidth + 50, height: imgWidth + 50 }}
               source={{ uri: e.image }}
             />
-            <Text >{e.description}</Text>
-            <Text>{e.media}</Text>
+    
 
-            </View>
+            // </View>
             ) })}
         </View>
           <View>

@@ -6,7 +6,8 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
-  ActivityIndicator
+  ActivityIndicator,
+  SafeAreaView
 } from "react-native";
 
 import Navbar from "../../components/Navbar";
@@ -28,7 +29,7 @@ export default function Location ({ navigation }) {
   ];
   
   return (
-    <View>
+    <SafeAreaView>
       <MapView
         style={styles.map}
         initialRegion={{
@@ -121,7 +122,7 @@ export default function Location ({ navigation }) {
       </View>
       
       <Navbar navigation={navigation}  />
-    </View>
+    </SafeAreaView>
   );
 }
 
