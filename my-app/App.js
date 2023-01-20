@@ -26,6 +26,7 @@ import Detail from "./screens/home/Detail.jsx";
 import Videos from "./screens/videoss/videos.jsx";
 import AddPost from "./screens/sprofile/AddPost.jsx";
 import PhotoDetails from "./screens/sprofile/PhotoDetails.jsx";
+import UpdateProfile from "./screens/sprofile/UpdateProfile.jsx";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -137,6 +138,11 @@ const App = () => {
             name="photoDetails"
             options={{ headerShown: false }}
             component={PhotoDetails}
+          />
+           <Stack.Screen
+            name="UpdateProfile"
+            options={{ headerShown: false }}
+            component={UpdateProfile}
           />
 
         </Stack.Navigator>

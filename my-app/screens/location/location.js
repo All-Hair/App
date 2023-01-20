@@ -29,7 +29,7 @@ export default function Location ({ navigation }) {
   ];
   
   return (
-    <SafeAreaView>
+    <View>
       <MapView
         style={styles.map}
         initialRegion={{
@@ -122,7 +122,7 @@ export default function Location ({ navigation }) {
       </View>
       
       <Navbar navigation={navigation}  />
-    </SafeAreaView>
+    </View>
   );
 }
 

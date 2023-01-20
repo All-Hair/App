@@ -266,7 +266,7 @@ const Sprofile = ({navigation}) => {
               <View style={styles.interactButtonsView}>
            {   user.role ==='saloon' ?   
            <View >          
-           <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('DateSelect')}}>
+           <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('UpdateProfile')}}>
                   <Text style={styles.interactButtonText}>update profile</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.interactButton} onPress={()=>{navigation.navigate('addPost')}}>
