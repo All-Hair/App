@@ -1,11 +1,17 @@
+// const { default: Saloon } = require('../../my-app/screens/saloon/Saloon')
 const {Post} = require('../models')
 const { post } = require('../routes/Saloon.routes')
+const {Saloon} = require ("../models")
 
 module.exports={
      
     getAll:async(req,res)=>{
         try {
-            const post = await Post.findAll()
+            const post = await Post.findAll({ 
+                include: [{
+                model: Saloon
+              }]
+            })
             res.status(200).json(post)
         }
         catch(error){

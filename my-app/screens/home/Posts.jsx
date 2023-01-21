@@ -9,8 +9,9 @@ import {
 import { Entypo } from 'react-native-vector-icons';
 import Videos from '../videoss/videos';
 export default function Posts(props) {
+  console.log("🚀 ~ file: Posts.jsx:12 ~ Posts ~ props", props.url)
   const [liked, setLike] = useState(false);
-  const { name, profile,  onPress } = props;
+  const { name, profile,  onPress ,url} = props;
 
   const onLike = () => {
     setLike(!liked);
@@ -32,10 +33,12 @@ export default function Posts(props) {
         >
           <Image
             source={profile}
+            url={props.url}
             style={{
               width: 45,
               height: 45,
               borderRadius: 13,
+            
             }}
           />
         </View>
@@ -48,7 +51,7 @@ export default function Posts(props) {
         </View>
       </View>
       < Videos  url={props.url}/>
-
+     <Image url={props.url} />
       <View
         style={{
           

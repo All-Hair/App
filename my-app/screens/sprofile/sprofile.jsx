@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import MapView,{Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
-import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import client from '../../api/client';
 import { auth } from "../../firebase";
@@ -23,6 +22,7 @@ import { auth } from "../../firebase";
 
 function Photos({navigation}) {
   const [data,setData]= useState([])
+  console.log("🚀 ~ file: sprofile.jsx:26 ~ Photos ~ data", data)
   const imgWidth = Dimensions.get('screen').width * 0.33333;
       
   const allPost =async()=>{
@@ -41,28 +41,26 @@ function Photos({navigation}) {
   },[])
   return (
     <View >
-      <View
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          alignItems: 'flex-start',
-        }}
-      >
-        <View style={{ flex: 1, backgroundColor: '#fff', paddingBottom: 20 }}>
-          {/* <Text onPress={()=>{navigation.navigate('photoDetails')}}> hellohhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh-------------------------------------------------------------</Text> */}
+      <View>
+        <View  style={{     
+        flex: 1,
+        flexDirection:'row',
+        flexWrap: "wrap",}}>
+    
           {data.map((e,i)=>{
             return(
-              // <View style={{ color: '#fff', fontSize: 20 ,flex: 1, backgroundColor: '#fff', paddingBottom: 20 }} >
-             
+             <View  onPress={() => {
+              navigation.navigate("photoDetails")}} style={{  
+              
+              margin: 4,}}>
             <Image  key={e.id}
-             onPress={() => {
-              navigation.navigate("photoDetails")}}
-              style={{ width: imgWidth + 50, height: imgWidth + 50 }}
+            
+              style={{ width: imgWidth + 50, height: imgWidth + 50 , }}
               source={{ uri: e.image  ? e.image : null}}
             />
-    
+            <Text>{e.title}</Text>
 
-            // </View>
+           </View>
             ) })}
         </View>
           <View>

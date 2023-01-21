@@ -35,15 +35,20 @@ import client from '../../api/client';
 
 const Home = ({ navigation }) => {
   const [popularSelected, setPop] = useState(true);
-  const [email,setEmail]=useState(auth.currentUser.email)
-  const [name,setName]=useState("")
-  const [phone,setPhone]=useState("")
-  const [gender,setGender]=useState("")
-  const [adress,setAdress]=useState("")
-  const [image,setImage]=useState("")
-
-  const data = {email,name,phone,gender,adress,image}
+  // const [email,setEmail]=useState(auth.currentUser.email)
+  // const [name,setName]=useState("")
+  // const [phone,setPhone]=useState("")
+  // const [gender,setGender]=useState("")
+  // const [adress,setAdress]=useState("")
+  // const [image,setImage]=useState("")
+  const [posts,setPosts] = useState([])
+  console.log("🚀 ~ file: home.jsx:45 ~ Home ~ posts", posts)
+  // const data = {email,name,phone,gender,adress,image}
   // console.log("🚀 ~ file: home.jsx:48 ~ Home ~ data", data)
+  const getAllPost =async()=>{
+     const res = await client.get('/post/')
+     setPosts(res.data)
+  }
   onTabPressed = () => {
     setPop(!popularSelected);
   };
@@ -55,7 +60,9 @@ const Home = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
-  
+   useEffect(()=>{
+    getAllPost()
+   },[])
 
   return (
 
@@ -210,18 +217,56 @@ const Home = ({ navigation }) => {
           </View>
           <View
             style={{
-              flexDirection: 'row',
+              // flexDirection: 'row',
+              
             }}
           >
+            {posts.map((e,i)=>{
+              return (
+                // <Posts  
+                // url={e?.Saloon?.image}
+                // name={e?.Saloon?.name}
+                // photo={e?.Saloon?.image}
+                // profile={e?.Saloon?.image}
+                // // photo={e.image}
+                // />
+                <View   style={{
+                  // flexDirection: 'row',
+                  
+                  alignItems: 'center',
+                  // bottom:10
+                }}>
+                  <Text style={{ fontSize: 14, color: '#d9d5ca' ,marginRight:100,top:-15}}>{e?.Saloon?.name}</Text>
+                  <Text style={{ fontSize: 12 ,marginRight:80,top:-15}}>2 mins ago</Text>
+                  <Image  key={e.id}
+            
+            style={{ width: 340, height: 220 , }}
+            source={{ uri: e?.image }}
+          />
+           <Image  key={e.id}
+            
+            style={{
+              width: 45,
+              height: 45,
+              borderRadius: 13,
+              marginRight:300,
+              marginTop:20,
+              top:20 
+            }}
+            source={{ uri: e?.Saloon?.image}}
+          />
+                </View>
+              )
+            })}
            
             <Posts
             url={'https://res.cloudinary.com/drd0uckic/video/upload/c_scale,h_887,w_900/v1673783419/dkeils6ocvlub2aiz9sj.mp4'}
               onPress={() => navigation.navigate('Detail')}
-              name="boulbeba"
-              photo={{
-                uri: 'https://www.menshairstylestoday.com/wp-content/uploads/2016/09/Barber-Haircut-Styles-Fade-with-Brush-Up.jpg',
+              name="hello"
+              // photo={{
+              //   uri: 'https://www.menshairstylestoday.com/wp-content/uploads/2016/09/Barber-Haircut-Styles-Fade-with-Brush-Up.jpg',
                 
-              }}
+              // }}
               profile={require('my-app/assets/profile-pic.jpg')}
             />
             <View
