@@ -5,7 +5,6 @@ import * as React from "react";
 // import { LogBox } from 'react-native';
 // LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 // LogBox.ignoreAllLogs()
-
 import Home from "./screens/home/home.jsx";
 import Signup from "./screens/signup/signup";
 import Login from "./screens/login/login.jsx";
@@ -25,7 +24,9 @@ import MyCart from "./screens/cart/MyCart.js";
 import ProductInfo from "./screens/cart/ProductInfo.js";
 import Detail from "./screens/home/Detail.jsx";
 import Videos from "./screens/videoss/videos.jsx";
-
+import AddPost from "./screens/sprofile/AddPost.jsx";
+import PhotoDetails from "./screens/sprofile/PhotoDetails.jsx";
+import UpdateProfile from "./screens/sprofile/UpdateProfile.jsx";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -128,6 +129,22 @@ const App = () => {
             options={{ headerShown: false }}
             component={Videos}
           />
+           <Stack.Screen
+            name="addPost"
+            options={{ headerShown: false }}
+            component={AddPost}
+          />
+           <Stack.Screen
+            name="photoDetails"
+            options={{ headerShown: false }}
+            component={PhotoDetails}
+          />
+           <Stack.Screen
+            name="UpdateProfile"
+            options={{ headerShown: false }}
+            component={UpdateProfile}
+          />
+
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

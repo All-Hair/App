@@ -19,17 +19,16 @@ import UpdateUpro from "./UpdateUpro";
 const Uprofile = ({ navigation }) => {
   const [users,setUsers]= useState([])
  console.log(users,"----");
- console.log(auth.currentUser.email,'<<<<<<<<<<<<<<<<<<<<');
- const[email,setEmail]= useState(auth.currentUser.email)
+//  console.log(auth.currentUser.email,'<<<<<<<<<<<<<<<<<<<<');
+
 
 
    const getAll =async()=>{
-    //  let email = users
-     console.log(email,'----aaa--aaa');
+   
+  const email = auth.currentUser.email
      try{
     const res= await client.get(`/user/getone/${email}`)
     setUsers(res.data)
-  //  console.log(res.data,'--------AHMEDDD-----');
     }catch(error){
     console.log(error);
   }
@@ -58,7 +57,7 @@ useEffect(()=>{
                 <Image
                   style={styles.profileImage}
                   source={{
-                    uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+                    uri:users.image
                   }}
                   />
                 
@@ -76,7 +75,9 @@ useEffect(()=>{
               <View style={styles.interactButtonsView}>
                 <TouchableOpacity style={styles.interactButton}>
                   <Text style={styles.interactButtonText} onPress={() => {
-                    navigation.navigate("UpdateUpro")
+                    navigation.navigate("UpdateUpro",{
+                      users:users
+                    })
                   // console.log('--------');
                   }}>Edit Profile</Text>
                 </TouchableOpacity>

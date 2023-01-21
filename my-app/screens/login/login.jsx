@@ -42,7 +42,7 @@ const Login = ({ navigation }) => {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
   // console.log(password)
-
+ 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -95,7 +95,7 @@ const Login = ({ navigation }) => {
       .signInWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log(userCredentials,'-----');
+        console.log(userCredentials);
         console.log("Logged in with:", user.email);
       })
       .catch((error) => alert(error.message));

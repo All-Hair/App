@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 36,
-    marginBottom: 12,
+    marginBottom: 120,
   },
 })
 

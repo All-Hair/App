@@ -2,7 +2,7 @@ import { View, Image, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, An
 
 import React, { useEffect, useState } from 'react'
 const { width, height } = Dimensions.get('window');
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign,Feather } from '@expo/vector-icons';
 import { Ionicons ,MaterialCommunityIcons } from '@expo/vector-icons';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,6 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Navbar = ({navigation}) => {
     
     const [user,setUser]= useState ({})
+    console.log("🚀 ~ file: Navbar.js:17 ~ Navbar ~ user", user.role)
 
 
 
@@ -23,6 +24,7 @@ const Navbar = ({navigation}) => {
           const jsonValue = await AsyncStorage.getItem('user')
           const jsonparseValue = JSON.parse(jsonValue) 
           setUser(jsonparseValue)
+          
           return jsonValue != null ? JSON.parse(jsonValue) : null;
         } catch(e) {
           // error reading value
@@ -115,10 +117,10 @@ const Navbar = ({navigation}) => {
                         <TouchableOpacity onPress={() => {navigation.navigate("Location")}}
                             
                         >
-                          <Ionicons name="md-location-outline" size={32} color="black"  />
+                          <Feather name="map" size={25} color="black"  />
                        
                         </TouchableOpacity >
-                        <Text style={{justifyContent:'center',alignItems:'center' }}>Location</Text>
+                        <Text style={{justifyContent:'center',alignItems:'center' }}>map</Text>
                     </View>
 
 
@@ -140,16 +142,16 @@ const Navbar = ({navigation}) => {
                           
                         }}>
 { 
-        user &&  user.role==="saloon" ?
+        user &&  user.role==="saloon" ?(
           
           <TouchableOpacity
-          onPress={() => {navigation.navigate("Sprofile")}}
+            onPress={() => {navigation.navigate("Sprofile")}}
                   
                             >
-                                <AntDesign name="user" size={30} color="black" />
+                <AntDesign name="user" size={30} color="black" />
                      
                             </TouchableOpacity>
-                           : 
+                           ): (
                            <TouchableOpacity
                            onPress={() => {navigation.navigate("Uprofile")}}    
                                    
@@ -157,11 +159,11 @@ const Navbar = ({navigation}) => {
                                                  <AntDesign name="user" size={30} color="black" />
                                       
                                              </TouchableOpacity>    
-                        
-                        }
+                       
 
 
-
+                       )
+                    }
 
                             <Text style={{justifyContent:'center',alignItems:'center' }}> Profile </Text>
                            

@@ -6,7 +6,7 @@ module.exports = {
   create: async (req, res) => {
     try {
       // Validate request
-      if (!req.body.name) {
+      if (!req.body.email) {
         res.status(400).send({
           message: "Content can not be empty!",
         });
@@ -69,7 +69,7 @@ module.exports = {
       });
     } catch (error) {
       res.status(500).send({
-        message: "Error updating user with id=" + id,
+        message: "Error updating user with id=" ,
       });
     }
   },

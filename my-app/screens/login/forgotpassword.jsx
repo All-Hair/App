@@ -14,43 +14,7 @@
   const Forgotpassword = ({navigation}) => {
 
      const [email,setEmail]=useState('');
-     
-    //  const resetPassword =()=>{
-
-    //   if (email!=null)
-    //   {
-    //     sendPasswordResetEmail(auth, email)
-    //     .then(() => {
-    //       alert ("password reset email has been sent successfully")
-    //     })
-    //     .catch((error) => {
-    //       const errorCode = error.code;
-    //       const errorMessage = error.message;
-    //     alert(errorMessage);
-    //     });
-    //   }
-    //   else{
-    //   alert ("Please enter a valid email")
-      // }}
-  // const forgotpassword =()=>{
-  //  firebase.auth().sendPasswordResetEmail(email)
-  //  .then(()=>{ alert("password reset email sent") }).catch((error)=>{alert(error);})
-   
-
-
-  // }
   
-  
-    // useEffect(() => {
-    //   const unsubscribe = auth.onAuthStateChanged(user => {
-    //     if (user) {
-   
-    //     }
-    //   })
-  
-    //   return unsubscribe
-    // }, [])
-   
   
   
     return (

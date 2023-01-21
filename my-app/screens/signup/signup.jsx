@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   View,
   Text,
@@ -19,21 +19,27 @@ import SwitchSelector from "react-native-switch-selector";
 import UserForm from "./UserForm.jsx";
 import SaloonForm from "./SaloonForm.jsx";
 import client from "../../api/client";
+import axios from "axios";
 
-
+// web : 1004724493628-t7ppg7i58ul4k5tvsrkaai9tj3sqgfgd.apps.googleusercontent.com
+// ios : 1004724493628-cookht6lqj26lsbs3ujf22ss27829etq.apps.googleusercontent.com
+// android : 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
   const [checkP, setCheckP] = useState(true);
-  const [form, setForm] = useState({});
+  // const [form, setForm] = useState({});
 
   const [userType, setUserType] = useState("user");
   const [show, setShow] = useState(false);
   const [cont, setCont] = useState("");
   const [uform, setUform] = useState({gender:"male"});
   const [sform, setSform] = useState({gender:"male"});
-
+ const [saloon,setSaloon] = useState({})
+ console.log("🚀 ~ file: signup.jsx:40 ~ Signup ~ saloon", saloon)
+ 
+  
   console.log(uform);
   console.log(sform);
  
@@ -66,6 +72,8 @@ const Signup = ({ navigation }) => {
           email: email,
         });
         console.log(req.data);
+        console.log("🚀 ~ file: signup.jsx:74 ~ registerToDB ~ req.data", req.data)
+        setSaloon(req.data)
       }
     } catch (error) {
       console.log(error);
@@ -76,11 +84,29 @@ const Signup = ({ navigation }) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Registered with:", user.email);
+        const res = userCredentials.user.email;
+         console.log("🚀 ~ file: signup.jsx:48 ~ .then ~ res", res)
+         registerToDB(res)
       })
       .catch((error) => alert(error.message));
   };
+
+
+
+
+ 
+
+  // const x =async (email)=> {
+//   try {
+//     await client.post('/user/',email)
+//     console.log("🚀 ~ file: signup.jsx:81 ~ x ~ email", email)
+    
+//      // console.log("🚀 ~ file: home.jsx:56 ~ addUserTodb ~ data", data)
+//     }catch(error){
+//      // console.log("🚀 ~ file: home.jsx:56 ~ addUserTodb ~ error", error)
+     
+//     }
+// }
 
   return (
     <Background>
