@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import {Entypo,AntDesign}from 'react-native-vector-icons';
 import Videos from '../videoss/videos';
@@ -27,14 +27,23 @@ const { width, height } = Dimensions.get('window');
 
 import Navbar from '../../components/Navbar';
 import { auth } from '../../firebase';
-
 import Saloon from '../saloon/Saloon';
 import Posts from './Posts';
 import { StatusBar } from 'native-base';
+import client from '../../api/client';
 
 
 const Home = ({ navigation }) => {
   const [popularSelected, setPop] = useState(true);
+  const [email,setEmail]=useState(auth.currentUser.email)
+  const [name,setName]=useState("")
+  const [phone,setPhone]=useState("")
+  const [gender,setGender]=useState("")
+  const [adress,setAdress]=useState("")
+  const [image,setImage]=useState("")
+
+  const data = {email,name,phone,gender,adress,image}
+  // console.log("🚀 ~ file: home.jsx:48 ~ Home ~ data", data)
   onTabPressed = () => {
     setPop(!popularSelected);
   };
@@ -46,7 +55,7 @@ const Home = ({ navigation }) => {
       })
       .catch((error) => alert(error.message));
   };
-  // console.log(auth.currentUser?.email);
+  
 
   return (
 
@@ -172,14 +181,7 @@ const Home = ({ navigation }) => {
               </Text>
             </TouchableOpacity>
 
-                <TouchableOpacity
-                        onPress={() => {
-                          navigation.navigate("Uprofile")
-                        }}
-                        style={styles.button}
-                      >
-                        <Text style={styles.buttonText}>More</Text>
-                      </TouchableOpacity>
+        
             <TouchableOpacity
               onPress={onTabPressed}
               style={{
@@ -197,6 +199,14 @@ const Home = ({ navigation }) => {
                 RECENT
               </Text>
             </TouchableOpacity>
+            {/* <TouchableOpacity
+                        onPress={() => {
+                          navigation.navigate("Uprofile")
+                        }}
+                        style={styles.button}
+                      >
+                        <Text style={styles.buttonText}>More</Text>
+                      </TouchableOpacity> */}
           </View>
           <View
             style={{
@@ -338,7 +348,7 @@ const styles = StyleSheet.create({
   button: {
     marginLeft: 10,
 
-    backgroundColor: "#CCC9C0",
+   
     width: "23%",
     padding: 15,
     borderRadius: 10,

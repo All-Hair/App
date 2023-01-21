@@ -6,7 +6,8 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
-  ActivityIndicator
+  ActivityIndicator,
+  SafeAreaView
 } from "react-native";
 
 import Navbar from "../../components/Navbar";

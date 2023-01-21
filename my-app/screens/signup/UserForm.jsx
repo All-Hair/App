@@ -40,7 +40,7 @@ const UserForm = ({ navigation , changeForm, uform} )=> {
 
       <Field
         value={uform.name}
-        onChangeText={(text) => changeForm({name:text})}
+        onChangeText={(text) => changeForm({name:text},console.log(text))}
         placeholder="Enter your name"
         secureTextEntry={false}
       />

@@ -22,6 +22,7 @@ export default function Posts(props) {
           flexDirection: 'row',
           
           alignItems: 'center',
+          bottom:10
         }}
       >
         <View
@@ -43,21 +44,21 @@ export default function Posts(props) {
           <Text style={{ fontSize: 12 }}>2 mins ago</Text>
         </View>
         <View style={{ width: '20%', alignItems: 'flex-end' }}>
-          <Entypo name="sound-mix" size={20} />
+          {/* <Entypo name="sound-mix" size={20} /> */}
         </View>
       </View>
+      < Videos  url={props.url}/>
+
       <View
         style={{
           
           width: '100%',
-          paddingTop:20,
+          paddingTop:10,
           flex: 1,
-    flexDirection: 'column',
-    
-    alignItems: 'center',
+         flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
-      < Videos  url={props.url}/>
        
           <View
             style={{
@@ -67,7 +68,7 @@ export default function Posts(props) {
               justifyContent: 'flex-end',
             }}
           >
-            <TouchableOpacity onPress={onPress}
+            {/* <TouchableOpacity onPress={onPress}
             style={{
               marginBottom:20,
               borderRadius:5,
@@ -78,15 +79,15 @@ export default function Posts(props) {
               color='#044244'
               size={20}/>
 
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity onPress={onLike}
             style={{
-              marginBottom:20,
+              // marginBottom:20,
               borderRadius:5,
               padding:5,
               backgroundColor:'#e8e8e8',
-              marginLeft:10,
-              marginRight:20
+              marginLeft:270,
+              // marginRight:20
               
             }}>
               <Entypo name={liked === true?'heart':'heart-outlined'}
