@@ -16,6 +16,8 @@ import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import client from '../../api/client';
 import { auth } from "../../firebase";
+import { black } from '../login/constants';
+
 // console.log("🚀 ~ file: sprofile.jsx:19 ~ auth", auth.currentUser.email)
 
 // import localStorage from '../../components/localStorage'
@@ -69,7 +71,8 @@ function Photos({navigation}) {
         <View  style={{     
         flex: 1,
         flexDirection:'row',
-        flexWrap: "wrap",}}>
+        flexWrap: "wrap",
+        }}>
     
           {data.filter((e)=>e?.Saloon?.email === Email)
           .map((e,i)=>{
@@ -77,14 +80,21 @@ function Photos({navigation}) {
             return(
              <View key={e.i} onPress={() => {
               navigation.navigate("photoDetails")}} style={{  
-              
+                color: black,
+                // paddingHorizontal: 18,
+                width: - 100,
+                backgroundColor: 'white',
+                borderColor: '#CCC9C0',
+                borderWidth: 1,
+                marginTop:14,
               margin: 4,}}>
+                <Text style={{left:50}}>{e.title}</Text>
             <Image  
             
               style={{ width: imgWidth + 50, height: imgWidth + 50 , }}
               source={{ uri: e.image  ? e.image : null}}
             />
-            <Text>{e.title}</Text>
+            
 
            </View>
             ) })}
@@ -208,8 +218,9 @@ function Tags({ photos }) {
   );
 }
 
-const Sprofile = ({navigation}) => {
-  
+const Sprofile = ({navigation,route}) => {
+  //  const {email}=route.params
+  //  console.log("🚀 ~ file: sprofile.jsx:223 ~ Sprofile ~ id", email)
  const [saloon,setSaloon]=useState([])
   const [showContent, setShowContent] = useState('Photos');
   const [userId,setUserId] = useState({})
@@ -264,8 +275,7 @@ const GetProfile = async()=>{
 // const u = localStorage.localGetData()
 //     setUser(u)
 
-  console.log("user fil saloon profile  ",user.role);
-  }, []);
+    }, []);
 
 
 

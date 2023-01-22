@@ -226,7 +226,7 @@ const Home = ({ navigation }) => {
                   // bottom:10
                 }}>
                   <Text  onPress={() => {
-                 navigation.navigate("Sprofile"), e.id;
+                 navigation.navigate("Sprofile",{ email:e?.Saloon?.email}) 
              }} style={{ fontSize: 14, color: '#d9d5ca' ,marginRight:100,top:-15}}>{e?.Saloon?.name}</Text>
                   <Text style={{ fontSize: 12 ,marginRight:80,top:-15}}>2 mins ago</Text>
                   <Image  key={e.id}
