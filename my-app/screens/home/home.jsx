@@ -17,7 +17,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage' 
 // import { AntDesign, Entypo } from 'react-native-vector-icons';
 
 
@@ -34,17 +34,13 @@ import client from '../../api/client';
 
 
 const Home = ({ navigation }) => {
+  // const {user}=route.params
+  // console.log("🚀 ~ file: home.jsx:38 ~ Home ~ user", user)
+  
   const [popularSelected, setPop] = useState(true);
-  // const [email,setEmail]=useState(auth.currentUser.email)
-  // const [name,setName]=useState("")
-  // const [phone,setPhone]=useState("")
-  // const [gender,setGender]=useState("")
-  // const [adress,setAdress]=useState("")
-  // const [image,setImage]=useState("")
   const [posts,setPosts] = useState([])
   console.log("🚀 ~ file: home.jsx:45 ~ Home ~ posts", posts)
-  // const data = {email,name,phone,gender,adress,image}
-  // console.log("🚀 ~ file: home.jsx:48 ~ Home ~ data", data)
+
   const getAllPost =async()=>{
      const res = await client.get('/post/')
      setPosts(res.data)
@@ -218,40 +214,36 @@ const Home = ({ navigation }) => {
           <View
             style={{
               // flexDirection: 'row',
-              
+              top:50
             }}
           >
             {posts.map((e,i)=>{
               return (
-                // <Posts  
-                // url={e?.Saloon?.image}
-                // name={e?.Saloon?.name}
-                // photo={e?.Saloon?.image}
-                // profile={e?.Saloon?.image}
-                // // photo={e.image}
-                // />
-                <View   style={{
+                <View key={i}  style={{
                   // flexDirection: 'row',
                   
                   alignItems: 'center',
                   // bottom:10
                 }}>
-                  <Text style={{ fontSize: 14, color: '#d9d5ca' ,marginRight:100,top:-15}}>{e?.Saloon?.name}</Text>
+                  <Text  onPress={() => {
+                 navigation.navigate("Sprofile"), e.id;
+             }} style={{ fontSize: 14, color: '#d9d5ca' ,marginRight:100,top:-15}}>{e?.Saloon?.name}</Text>
                   <Text style={{ fontSize: 12 ,marginRight:80,top:-15}}>2 mins ago</Text>
                   <Image  key={e.id}
             
             style={{ width: 340, height: 220 , }}
-            source={{ uri: e?.image }}
+            source={{ uri: e.image ? e.image : null }}
           />
-           <Image  key={e.id}
-            
+        
+           <Image
+        
             style={{
               width: 45,
               height: 45,
               borderRadius: 13,
               marginRight:300,
               marginTop:20,
-              top:20 
+              top:-300 
             }}
             source={{ uri: e?.Saloon?.image}}
           />
@@ -259,7 +251,7 @@ const Home = ({ navigation }) => {
               )
             })}
            
-            <Posts
+            {/* <Posts
             url={'https://res.cloudinary.com/drd0uckic/video/upload/c_scale,h_887,w_900/v1673783419/dkeils6ocvlub2aiz9sj.mp4'}
               onPress={() => navigation.navigate('Detail')}
               name="hello"
@@ -268,7 +260,7 @@ const Home = ({ navigation }) => {
                 
               // }}
               profile={require('my-app/assets/profile-pic.jpg')}
-            />
+            /> */}
             <View
               style={{
                 height: 160,
@@ -299,14 +291,14 @@ const Home = ({ navigation }) => {
               }}
             ></View>
             
-            <Posts
+            {/* <Posts
             url={'https://res.cloudinary.com/drd0uckic/video/upload/c_scale,h_800,w_800/v1673786898/hl5emizftvrjrmokror0.mp4'}
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
               
              
-            />
+            /> */}
           </View>
           
           <View
@@ -314,13 +306,13 @@ const Home = ({ navigation }) => {
               flexDirection: 'row',
             }}
           >
-            <Posts
+            {/* <Posts
              url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786891/ztwjv9lavtk3pcqvgpo1.mp4'}
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
              
-            />
+            /> */}
             <View
               style={{
                 height: 160,
@@ -338,12 +330,12 @@ const Home = ({ navigation }) => {
               flexDirection: 'row',
             }}
           >
-            <Posts
+            {/* <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
               url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786887/zlp6gogdikhdcstdtklk.mp4'}
-            />
+            /> */}
             <View
               style={{
                 height: 160,
@@ -360,12 +352,12 @@ const Home = ({ navigation }) => {
               flexDirection: 'row',
             }}
           >
-            <Posts
+            {/* <Posts
               onPress={() => navigation.navigate('Detail')}
               name="boulbeba"
               profile={require('my-app/assets/profile-pic.jpg')}
               url={'https://res.cloudinary.com/drd0uckic/video/upload/v1673786886/kgzgquhzog9cefqylyhj.mp4'}
-            />
+            /> */}
             <View
               style={{
                 height: 160,

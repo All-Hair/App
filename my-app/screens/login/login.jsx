@@ -27,7 +27,39 @@ const localStoreData = async (value) => {
       console.log(e);
     }
   }
+  // const  getAllKeys = async () => {
+  //   let keys = []
+  //   try {
+  //     keys = await AsyncStorage.getAllKeys()
+  //   } catch(e) {
+  //     // read key error
+  //   }
+  //   // console.log(keys)
+  //   console.log("🚀 ~ file: login.jsx:38 ~ getAllKeys= ~ keys", keys)
+  // }
+//  const getMultiple = async () => {
+
+//     let values
+//     try {
+//       values = await AsyncStorage.multiGet(['user', 'key'])
+//     } catch(e) {
+//       // read error
+//     }
+//     // console.log(values)
+//     console.log("🚀 ~ file: login.jsx:49 ~ getMultiple ~ values", values)
   
+//     // example console.log output:
+//     // [ ['@MyApp_user', 'myUserValue'], ['@MyApp_key', 'myKeyValue'] ]
+//   }
+  // const localStoreID = async (value) => {
+  //   try {
+  //     const jsonValue = JSON.stringify(value)
+  //     await AsyncStorage.setItem('id', jsonValue)
+  //   } catch (e) {
+  //     // saving error
+  //     console.log(e);
+  //   }
+  // }
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -46,14 +78,17 @@ const Login = ({ navigation }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.replace("Home");
+        navigation.replace("Home",{user:user});
        
         // setUsers(user)
         // storeUser(user)
         console.log('====================================');
         console.log(user);
         console.log('====================================');
+        // localStoreData({user:user})
       }
+      // getAllKeys()
+      // getMultiple()
     });
 
     return unsubscribe;
@@ -64,6 +99,7 @@ const Login = ({ navigation }) => {
       if (userType == "user") {
         const req = await client.get(`/user/getone/${email}`);
         console.log(req.data);
+        console.log("🚀 ~ file: login.jsx:67 ~ loginToDB ~ req.data", req.data)
         if (req.data == "Not found!") {
           console.log("not existing user !!!!");
           setCheckEmail(false);
@@ -97,6 +133,7 @@ const Login = ({ navigation }) => {
         const user = userCredentials.user;
         console.log(userCredentials);
         console.log("Logged in with:", user.email);
+        // localStoreID({email:user.email})
       })
       .catch((error) => alert(error.message));
   };

@@ -16,15 +16,21 @@ import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import client from '../../api/client';
 import { auth } from "../../firebase";
+// console.log("🚀 ~ file: sprofile.jsx:19 ~ auth", auth.currentUser.email)
+
 // import localStorage from '../../components/localStorage'
 
 // import Pricelist from '../pricelist/Pricelist.jsx';
 
 function Photos({navigation}) {
   const [data,setData]= useState([])
+  // const [posts,setPosts] = useState([])
+  // console.log("🚀 ~ file: sprofile.jsx:28 ~ Photos ~ posts", posts)
   console.log("🚀 ~ file: sprofile.jsx:26 ~ Photos ~ data", data)
   const imgWidth = Dimensions.get('screen').width * 0.33333;
-      
+  const Email = auth.currentUser.email
+
+  
   const allPost =async()=>{
     try{
       const res = await client.get('/post/')
@@ -36,9 +42,27 @@ function Photos({navigation}) {
    console.log(error);
     }
   }
+  // const getMyObject = async () => {
+  //   try {
+  //     const jsonValue = await AsyncStorage.getItem('user')
+  //     return jsonValue != null ? JSON.parse(jsonValue) : null
+  //   } catch(e) {
+  //     // read error
+  //   }
+  //   console.log("🚀 ~ file: sprofile.jsx:45 ~ getMyObject= ~ jsonValue", jsonValue)
+  
+  //   // console.log('Done.')
+  // }
   useEffect(()=>{
    allPost()
+  //  getMyObject()
   },[])
+  // const email = auth?.currentUser?.email
+  // console.log("🚀 ~ file: sprofile.jsx:45 ~ Photos ~ email", email)
+//  const filtredData= data?.filter((e)=>{e.email ===email})
+  // console.log("🚀 ~ file: sprofile.jsx:46 ~ Photos ~ filtredData", filtredData)
+
+  
   return (
     <View >
       <View>
@@ -47,13 +71,15 @@ function Photos({navigation}) {
         flexDirection:'row',
         flexWrap: "wrap",}}>
     
-          {data.map((e,i)=>{
+          {data.filter((e)=>e?.Saloon?.email === Email)
+          .map((e,i)=>{
+            
             return(
-             <View  onPress={() => {
+             <View key={e.i} onPress={() => {
               navigation.navigate("photoDetails")}} style={{  
               
               margin: 4,}}>
-            <Image  key={e.id}
+            <Image  
             
               style={{ width: imgWidth + 50, height: imgWidth + 50 , }}
               source={{ uri: e.image  ? e.image : null}}
@@ -186,7 +212,8 @@ const Sprofile = ({navigation}) => {
   
  const [saloon,setSaloon]=useState([])
   const [showContent, setShowContent] = useState('Photos');
-
+  const [userId,setUserId] = useState({})
+  console.log("🚀 ~ file: sprofile.jsx:190 ~ Sprofile ~ userId", userId)
   const [user,setUser]= useState ({})
   console.log("🚀 ~ file: sprofile.jsx:159 ~ Sprofile ~ user", user)
 
@@ -196,14 +223,13 @@ const GetProfile = async()=>{
   try{
      const res = await client.get(`/saloon/getone/${email}`)
      setSaloon(res.data)
-  }catch(error){
+     console.log("🚀 ~ file: sprofile.jsx:222 ~ GetProfile ~ res.data", res.data)
+    }catch(error){
     console.log("🚀 ~ file: sprofile.jsx:198 ~ GetProfile ~ error", error)
     
   }
 }
-console.log('================hh====================');
-console.log(saloon);
-console.log('====================================');
+
 
   useEffect(() => {
     const localGetData = async () => {
@@ -216,7 +242,23 @@ console.log('====================================');
           // error reading value
         }
       }
+    const   getMultiple = async () => {
+
+        let values
+        try {
+          values = await AsyncStorage.multiGet(['user', 'id'])
+        } catch(e) {
+          // read error
+        }
+        // console.log(values)
+        console.log("🚀 ~ file: sprofile.jsx:227 ~ getMultiple ~ values", values)
+      
+        // example console.log output:
+        // [ ['@MyApp_user', 'myUserValue'], ['@MyApp_key', 'myKeyValue'] ]
+      }
     
+  // localGetDataID()
+  getMultiple()
   localGetData()
   GetProfile()
 // const u = localStorage.localGetData()

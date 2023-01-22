@@ -18,6 +18,22 @@ module.exports={
             res.status(404).json(error)
         }
     },
+    getByEmail:async(req,res)=>{
+     const   email = req.params.email
+        try {
+            const post = await Post.findAll({ 
+             where: { email: email } ,
+                include: [{
+                model: Saloon
+              }]
+              
+            })
+            res.status(200).json(post)
+        }
+        catch(error){
+            res.status(404).json(error)
+        }
+    },
     
     create: async(req,res) =>{
         try {
