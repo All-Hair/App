@@ -19,7 +19,7 @@ const UpdateUpro = ({navigation,route}) => {
 console.log(form,'-------------------------------–––-----------------------–––----------–––––––––––––––––');
 //  console.log(update,',,,,,,,,,,,,,,');
   const { width, height } = Dimensions.get('window');
-
+console.log(users);
 const handeleSubmit = async()=>{
   try{
     await client.put(`/user/update/${users.id}`,form)
@@ -81,7 +81,7 @@ const handeleSubmit = async()=>{
 
       />
 </View>
-<Navbar/>
+<Navbar navigation={navigation}/>
     </SafeAreaView>
   );
 };

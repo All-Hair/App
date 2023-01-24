@@ -14,9 +14,16 @@ import {
 import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import { StatusBar } from "expo-status-bar";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as ImagePicker from 'expo-image-picker';
 // import Pricelist from '../pricelist/Pricelist.jsx';
 import Videos from "../videoss/videos";
+import client from "../../api/client";
+import { auth } from "../../firebase";
+
 function Photos() {
+
+  
   const [photos] = useState([
     "https://www.shutterstock.com/image-photo/hands-young-barber-making-haircut-260nw-451276396.jpg",
     "https://pbs.twimg.com/media/DQ3w7xPX4AEIABM.jpg",
@@ -139,9 +146,92 @@ function Tags({ photos }) {
   );
 }
 
-const Sprofile = ({ navigation }) => {
-  const [showContent, setShowContent] = useState("Photos");
 
+const Sprofiles = ({ navigation }) => {
+
+
+  // const cloudinaryUpload = (photo) => {
+  //   const data = new FormData()
+  //   data.append('file', photo)
+  //   data.append('upload_preset', 'walidslim')
+  //   data.append("cloud_name", "drd0uckic")
+  //   fetch("https://api.cloudinary.com/v1_1/drd0uckic/upload", {
+  //     method: "post",
+  //     body: data
+  //   }).then(res => res.json()).
+  //     then(data => {
+  //       setPhoto(data.secure_url)
+
+  //     }).catch(err => {
+  //       Alert.alert("An Error Occured While Uploading")
+  //     })
+  // }
+
+
+
+
+
+  const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
+  const [user,setUser] = useState([])
+  // console.log(auth.currentUser.email,"authhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+  const [email,setEmail] = useState(auth.currentUser.email)
+  console.log(user,"============lllllllllllllllllllllllllllllllllll=========");
+  const [image, setImage] = useState(null);
+  console.log(image,'rrrrrrrrrrrrrrr');
+useEffect(() => {
+    (async () => {
+const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      setHasGalleryPermission(galleryStatus.status === 'granted');
+     
+})();
+  }, []);
+  const getone =async()=>{
+    try{
+  const res = await client.get(`/saloon/getone/${email}`)
+  setUser(res.data)
+    }catch(error){
+   console.log(error);
+    }
+  }
+const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 1,
+    });
+console.log(result);
+if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+if (hasGalleryPermission === false) {
+    return <Text>No access to camera</Text>;
+  }
+  
+  const [showContent, setShowContent] = useState("Photos");
+  useEffect(() => {
+    const localGetData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem('user')
+          const jsonparseValue = JSON.parse(jsonValue) 
+          setUser(jsonparseValue.user)
+          console.log(jsonparseValue.user);
+          return jsonValue != null ? JSON.parse(jsonValue) : null;
+        } catch(e) {
+          // error reading value
+        }
+      }
+      
+      getone()
+  localGetData()
+// const u = localStorage.localGetData()
+//     setUser(u)
+
+//   console.log("hedha el user ",user.role);
+  }, []);
+
+const [like,seTlike]=useState(Math.ceil( Math.random()*59))
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView showsVerticalScrollIndicator={true}>
@@ -160,7 +250,7 @@ const Sprofile = ({ navigation }) => {
                 <Image
                   style={styles.profileImage}
                   source={{
-                    uri: "https://img.freepik.com/vecteurs-premium/gentleman-barber-shop-logo_96485-97.jpg?w=2000",
+                    uri: user.image,
                   }}
                 />
               </View>
@@ -168,7 +258,7 @@ const Sprofile = ({ navigation }) => {
               {/* Profile Name and Bio */}
 
               <View style={styles.nameAndBioView}>
-                <Text style={styles.userFullName}>{"ALL Hair Saloon"}</Text>
+                <Text style={styles.userFullName}>{user.name}</Text>
               </View>
               {/* Posts/Followers/Following View */}
               <View style={styles.countsView}>
@@ -177,11 +267,11 @@ const Sprofile = ({ navigation }) => {
                   <Text style={styles.countText}>Posts</Text>
                 </View>
                 <View style={styles.countView}>
-                  <Text style={styles.countNum}>4/5</Text>
+                  <Text style={styles.countNum}>{user.rate}/5</Text>
                   <Text style={styles.countText}>Rate</Text>
                 </View>
                 <View style={styles.countView}>
-                  <Text style={styles.countNum}>348</Text>
+                  <Text style={styles.countNum}>{like}</Text>
                   <Text style={styles.countText}>Likes</Text>
                 </View>
               </View>
@@ -189,21 +279,19 @@ const Sprofile = ({ navigation }) => {
               <View style={styles.interactButtonsView}>
                 <TouchableOpacity
                   style={styles.interactButton}
-                  onPress={() => {
-                    navigation.navigate("DateSelect");
-                  }}
+                  onPress={() => pickImage()}
                 >
-                  <Text style={styles.interactButtonText}>APPOINTMENT</Text>
+                  <Text style={styles.interactButtonText}>Add Posts</Text>
                 </TouchableOpacity>
-
                 <TouchableOpacity
                   style={styles.interactButton}
                   onPress={() => {
-                    navigation.navigate("Pricelist");
+                    navigation.navigate("UpdateProfile",{user});
                   }}
                 >
-                  <Text style={styles.interactButtonText}>PRICE LIST</Text>
+                  <Text style={styles.interactButtonText}>Edit profile</Text>
                 </TouchableOpacity>
+                
               </View>
               {/* Mutual Followed By Text */}
               <View style={{ paddingHorizontal: 25, marginTop: 10 }}></View>
@@ -254,7 +342,7 @@ const Sprofile = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-export default Sprofile;
+export default Sprofiles;
 const styles = StyleSheet.create({
   coverImage: { height: 300, width: "100%" },
   profileContainer: {

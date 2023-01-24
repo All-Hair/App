@@ -1,39 +1,62 @@
-import { StyleSheet, Text, View ,Image,ScrollView,TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View ,Image,ScrollView,TouchableOpacity,ImageBackground} from 'react-native'
 import React from 'react'
 
 import Navbar from '../../components/Navbar'
-import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,} from 'react-native-vector-icons'
+import {Feather,Fontisto,MaterialIcons,MaterialCommunityIcons,Ionicons} from 'react-native-vector-icons'
 const Pricelist = ({navigation}) => {
-  return (
+  return (<ImageBackground source={{
+                    uri: "https://res.cloudinary.com/drd0uckic/image/upload/v1674347444/wo6hevke949lukzosslc.png",
+                  }} style={{height:750,left:-6, }}>
     <View>
-       <View style={styles.info}>
-          <Text style={[styles.subText]}>SALOON NAME</Text>
+    <View style={{ width: '50%', alignItems: 'flex-start' }}>
+                <TouchableOpacity onPress={() => navigation.navigate('Sprofile')}>
+                  <Ionicons
+                    name="arrow-back"
+                    style={{
+                      fontSize: 18,
+                      color: 'black',
+                      borderColor: 'black',
+                      padding: 10,
+                      borderRadius: 10,
+                      borderWidth: 1,
+                      backgroundColor: 'white',
+                      opacity: 0.9,
+                      top: 10,
+                      left:20
+                    }}
+                  />
+                </TouchableOpacity>
+              </View>
+        
+      <View style={styles.info}>
+     
+         
           
              <Image
                   style={styles.profileImage}
                   source={{
-                    uri: 'https://res.cloudinary.com/dxvvdq91a/image/upload/v1672933058/logo-removebg-preview_zqqgbr.png',
+                   
                   }}
                 />
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialCommunityIcons  size ={30} name='hair-dryer'>  </MaterialCommunityIcons>
-          hair cut  :{"                                       "}
+          Hair cut  :{"                                       "}
             <Text style={{ fontWeight: "400" }}>10 DT</Text>
           </Text>
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialCommunityIcons  size ={30} name='hair-dryer'>  </MaterialCommunityIcons>
-          hair cut  :{"                                       "}
-            <Text style={{ fontWeight: "400" }}>10 DT</Text>
+          Shaves :{"                                       "}
+            <Text style={{ fontWeight: "400" }}>5 DT</Text>
           </Text>
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialCommunityIcons  size ={30} name='hair-dryer'>  </MaterialCommunityIcons>
-          hair cut  :{"                                       "}
-            <Text style={{ fontWeight: "400" }}>10 DT</Text>
+          Kids Cut  :{"                                       "}
+            <Text style={{ fontWeight: "400" }}>7 DT</Text>
           </Text>
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialCommunityIcons  size ={30} name='hair-dryer'>  </MaterialCommunityIcons>
-          hair cut  :{"                                       "}
-            <Text style={{ fontWeight: "400" }}>10 DT</Text>
+          Razor cut  :{"                                       "}
+            <Text style={{ fontWeight: "400" }}>12DT</Text>
           </Text>
           
           
@@ -41,11 +64,12 @@ const Pricelist = ({navigation}) => {
           
           
          
-        </View>
         
+       </View>
+      
       <Navbar navigation={navigation} />
       
-    </View>
+    </View></ImageBackground>
   )
 }
 
@@ -63,7 +87,7 @@ const styles = StyleSheet.create({
     
         alignSelf: "center",
         alignItems: "center",
-        backgroundColor: "#CCC9C0",
+        
         height: 630,
         width: 350,
         borderRadius: 20,
@@ -120,6 +144,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         paddingVertical: 6,
       },
-     
+      
 })
 

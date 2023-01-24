@@ -70,7 +70,7 @@ const Login = ({ navigation }) => {
         } else {
           setCheckEmail(true);
           handleLogin();
-          localStoreData({role:'user'})
+          localStoreData({role:'user',user:req.data})
         }
       } else {
         const req = await client.get(`/saloon/getone/${email}`);
@@ -81,7 +81,7 @@ const Login = ({ navigation }) => {
         } else {
           setCheckEmail(true);
           handleLogin();
-          localStoreData({role:'saloon'})
+          localStoreData({role:'saloon',user:req.data})
           console.log('-->req.data--> ' + req.data);
         }
       }

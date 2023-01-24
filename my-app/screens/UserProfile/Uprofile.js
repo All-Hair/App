@@ -19,16 +19,17 @@ import UpdateUpro from "./UpdateUpro";
 const Uprofile = ({ navigation }) => {
   const [users,setUsers]= useState([])
  console.log(users,"----");
-//  console.log(auth.currentUser.email,'<<<<<<<<<<<<<<<<<<<<');
-
+ console.log(auth.currentUser.email,'<<<<<<<<<<<<<<<<<<<<');
+ const[email,setEmail]= useState(auth.currentUser.email)
 
 
    const getAll =async()=>{
-   
-  const email = auth.currentUser.email
+    //  let email = users
+     console.log(email,'----aaa--aaa');
      try{
     const res= await client.get(`/user/getone/${email}`)
     setUsers(res.data)
+  //  console.log(res.data,'--------AHMEDDD-----');
     }catch(error){
     console.log(error);
   }
@@ -57,7 +58,7 @@ useEffect(()=>{
                 <Image
                   style={styles.profileImage}
                   source={{
-                    uri:users.image
+                    uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
                   }}
                   />
                 
@@ -75,9 +76,7 @@ useEffect(()=>{
               <View style={styles.interactButtonsView}>
                 <TouchableOpacity style={styles.interactButton}>
                   <Text style={styles.interactButtonText} onPress={() => {
-                    navigation.navigate("UpdateUpro",{
-                      users:users
-                    })
+                    navigation.navigate("UpdateUpro",{users:users})
                   // console.log('--------');
                   }}>Edit Profile</Text>
                 </TouchableOpacity>
@@ -93,7 +92,7 @@ useEffect(()=>{
           <Text style={[styles.subText]}>informations</Text>
           <Text style={[styles.text, { color: "#000000" }]}>
           <MaterialCommunityIcons  size ={19} name='hair-dryer'>  </MaterialCommunityIcons>
-            Name :{"                "}
+            Name :      {"                "}
             <Text style={{ fontWeight: "600" }}>{users.name}</Text>
           </Text>
 
@@ -107,7 +106,7 @@ useEffect(()=>{
           <Text style={[styles.text, { color: "#000000" }]}>
           <Fontisto  size ={19} name='email'>  </Fontisto>
             Email :{"                "}
-            <Text style={{ fontWeight: "600" }}>{users.email}</Text>
+            <Text style={{ fontWeight: "600" }}> {users.email}</Text>
           </Text>
 
           <Text style={[styles.text, { color: "#000000" }]}>
@@ -168,7 +167,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "center",
     justifyContent: "center",
-    backgroundColor: "#e4dedc",
+    backgroundColor: "#CCC9C0",
     margin: 9,
     borderRadius: 10,
     shadowOpacity: 0.7,
@@ -186,7 +185,7 @@ const styles = StyleSheet.create({
   interactButtonText: {
     borderRadius: 10,
 
-    color: "#000000",
+    color: "#fff",
     fontSize: 18,
     paddingVertical: 6,
   },

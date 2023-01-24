@@ -94,9 +94,9 @@ export const getBookedData = () => {
 	const res = [
 		{
 			name: 'beauty center',
-			date: '2021-10-01',
+			date: '2023-01-24',
 			address: 'Bentota Kanda, Galle',
-			price: '10',
+			price: '07',
 			validity: 'New',
 			color: 'green',
 			avatar:
@@ -106,9 +106,9 @@ export const getBookedData = () => {
 			name: 'saloon coiff',
 			date: '2021-10-01',
 			address: 'Bentota Kanda, Galle',
-			price: '10',
-			validity: 'New',
-			color: 'green',
+			price: '15',
+			validity: 'Expired',
+			color: 'red',
 			avatar:
 				'https://media.istockphoto.com/photos/business-woman-lady-boss-in-beauty-salon-making-hairdress-and-looking-picture-id1147811403?k=20&m=1147811403&s=612x612&w=0&h=lBbmmhPxES33OgnJgkzvtURRSs_gRvD7kX65gETQ9r8='
 		},
@@ -117,14 +117,15 @@ export const getBookedData = () => {
 			date: '2021-10-01',
 			address: 'Bentota Kanda, Galle',
 			price: '10',
-			validity: 'New',
-			color: 'green',
+			validity: 'Expired',
+			color: 'red',
 			avatar:
 				'https://media.istockphoto.com/photos/business-woman-lady-boss-in-beauty-salon-making-hairdress-and-looking-picture-id1147811403?k=20&m=1147811403&s=612x612&w=0&h=lBbmmhPxES33OgnJgkzvtURRSs_gRvD7kX65gETQ9r8='
 		},
+		
 		{
-			name: 'Hashika Maduranga',
-			date: '2021-10-01',
+			name: 'starts coif',
+			date: '2023-10-01',
 			address: 'Bentota Kanda, Galle',
 			price: '10',
 			validity: 'Expired',
@@ -136,27 +137,7 @@ export const getBookedData = () => {
 			name: 'Hashika Maduranga',
 			date: '2021-10-01',
 			address: 'Bentota Kanda, Galle',
-			price: '10',
-			validity: 'New',
-			color: 'green',
-			avatar:
-				'https://media.istockphoto.com/photos/business-woman-lady-boss-in-beauty-salon-making-hairdress-and-looking-picture-id1147811403?k=20&m=1147811403&s=612x612&w=0&h=lBbmmhPxES33OgnJgkzvtURRSs_gRvD7kX65gETQ9r8='
-		},
-		{
-			name: 'Hashika Maduranga',
-			date: '2021-10-01',
-			address: 'Bentota Kanda, Galle',
-			price: '10',
-			validity: 'Expired',
-			color: 'red',
-			avatar:
-				'https://media.istockphoto.com/photos/business-woman-lady-boss-in-beauty-salon-making-hairdress-and-looking-picture-id1147811403?k=20&m=1147811403&s=612x612&w=0&h=lBbmmhPxES33OgnJgkzvtURRSs_gRvD7kX65gETQ9r8='
-		},
-		{
-			name: 'Hashika Maduranga',
-			date: '2021-10-01',
-			address: 'Bentota Kanda, Galle',
-			price: '10',
+			price: '12',
 			validity: 'Expired',
 			color: 'red',
 			avatar:

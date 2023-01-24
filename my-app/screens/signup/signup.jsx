@@ -67,10 +67,13 @@ const Signup = ({ navigation }) => {
         const req = await client.post("/user", { ...uform, email: email });
         console.log(req.data);
       } else {
-        const req = await client.post("/saloon/add", {
-          ...sform,
-          email: email,
-        });
+       axios.post("http://192.168.43.208:5000/saloon/add", { ...sform, email: email ,
+    
+      
+       "state":"hi",
+       
+       "rate":2
+      }).then(res=>console.log(res)).catch(err=>console.log(err))
         console.log(req.data);
         console.log("🚀 ~ file: signup.jsx:74 ~ registerToDB ~ req.data", req.data)
         setSaloon(req.data)

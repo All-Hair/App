@@ -16,6 +16,7 @@ import Field from "../signup/field";
 
 
 export default function Location ({ navigation }) {
+  
   const[direction,setDirection]=useState(false)
   const[mark,setMark]=useState(false)
   const[load,setLoad]=useState(false)
@@ -61,7 +62,9 @@ export default function Location ({ navigation }) {
           coordinate={{
             latitude: 36.89420428096015,
             longitude: 10.187029838562012,
+            
           }}
+         
           
         />
         { mark==true?
@@ -87,7 +90,7 @@ export default function Location ({ navigation }) {
          }, 2500);}}
           style={{
             width: '50%',
-            height: '50%',
+            height: '35%',
             backgroundColor:'#ccc9c0',
             borderRadius: 10,
             justifyContent: 'center',

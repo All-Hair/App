@@ -48,7 +48,7 @@ const SaloonForm = ({navigation , changeSForm , sform}) => {
           multiline={true}
  />
 <Field  value={sform.image} onChangeText={text=>changeSForm({image:text})} placeholder="Enter the saloon image"  />
-<Field  value={sform.home_service} onChangeText={text=>changeSForm({home_service:text})} placeholder="Enter the saloon home_service"  />
+<Field  value={sform.home_service} onChangeText={text=>changeSForm({home_service:+text})} placeholder="Enter the saloon home_service"  />
 
 </View>
   );

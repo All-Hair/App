@@ -18,7 +18,7 @@ export default (Appointment = ({ navigation }) => {
 				}}
 			>
 				<View style={styles.textView}>
-					<Text style={styles.imageText}>bolbelba coiff</Text>
+					<Text style={styles.imageText}>all hair saloon</Text>
 					<Text style={styles.subimageText}>15 styling Staff </Text>
 					<View style={styles.starIconView}>
 						<Icon name="star" style={styles.IconView} size={25} color={25 > 10 ? 'gold' : 'red'} />
@@ -35,22 +35,22 @@ export default (Appointment = ({ navigation }) => {
 					<View style={styles.user}>
 						<View style={styles.columnText} >
 						<EvilIcons name="location" size={30} color="black" />
-							<Text style={{ fontSize: 18}}>  adress</Text>
+							<Text style={{ fontSize: 18}}>  adress : ariana </Text>
 						</View>
 						
 						<View style={styles.columnText}>
 						<Fontisto name="date" size={20} color="black" />
-							<Text style={{ fontSize: 18}} >    date min </Text>
+							<Text style={{ fontSize: 18}} >    2023-01-24  at 3:00 PM</Text>
 						</View>
 						<View>
-							<Text style={{ fontSize: 20, fontWeight: '700' }}>Service</Text>
+							<Text style={{ fontSize: 20, fontWeight: '700' }}>Service :</Text>
 							<View style={styles.serviceText}>
 								<Text style={{ fontSize: 18}}>Hair Styling</Text>
 								<Text style={{ fontSize: 18}}>12 DT</Text>
 							</View>
 							<View style={styles.serviceText}>
 								<Text style={{ fontSize: 18}}>Total Price</Text>
-								<Text style={{ fontSize: 18}}> 123 DT</Text>
+								<Text style={{ fontSize: 18}}> 12 DT</Text>
 							</View>
 						</View>
 					</View>
