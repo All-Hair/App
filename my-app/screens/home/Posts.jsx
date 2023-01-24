@@ -11,7 +11,7 @@ import Videos from '../videoss/videos';
 export default function Posts(props) {
   const [liked, setLike] = useState(false);
   const { name, profile,  onPress } = props;
-
+  const [time, setTime] = useState(Math.ceil( Math.random()*59));
   const onLike = () => {
     setLike(!liked);
   };
@@ -41,7 +41,7 @@ export default function Posts(props) {
         </View>
         <View style={{ width: '60%' }}>
           <Text style={{ fontSize: 14, color: '#d9d5ca' }}>{name}</Text>
-          <Text style={{ fontSize: 12 }}>2 mins ago</Text>
+          <Text style={{ fontSize: 12 }}>{time} mins ago</Text>
         </View>
         <View style={{ width: '20%', alignItems: 'flex-end' }}>
           {/* <Entypo name="sound-mix" size={20} /> */}

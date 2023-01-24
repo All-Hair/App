@@ -14,7 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Navbar = ({navigation}) => {
     
     const [user,setUser]= useState ({})
-    console.log("🚀 ~ file: Navbar.js:17 ~ Navbar ~ user", user.role)
+    // console.log("🚀 ~ file: Navbar.js:17 ~ Navbar ~ user", user.role)
 
 
 
@@ -24,7 +24,7 @@ const Navbar = ({navigation}) => {
           const jsonValue = await AsyncStorage.getItem('user')
           const jsonparseValue = JSON.parse(jsonValue) 
           setUser(jsonparseValue)
-          
+          console.log(jsonparseValue);
           return jsonValue != null ? JSON.parse(jsonValue) : null;
         } catch(e) {
           // error reading value
@@ -111,7 +111,7 @@ const Navbar = ({navigation}) => {
                     
                    
                     <View style={{
-                        flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:-2,right:    -4
+                        flexDirection: 'column', alignItems: 'center',justifyContent:'center', top:1,right:    -10
                     }}>
 
                         <TouchableOpacity onPress={() => {navigation.navigate("Location")}}
@@ -145,7 +145,7 @@ const Navbar = ({navigation}) => {
         user &&  user.role==="saloon" ?(
           
           <TouchableOpacity
-            onPress={() => {navigation.navigate("Sprofile")}}
+            onPress={() => {navigation.navigate("Sprofiles")}}
                   
                             >
                 <AntDesign name="user" size={30} color="black" />

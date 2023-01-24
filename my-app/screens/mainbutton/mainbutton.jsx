@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useEffect } from "react";
 import { Box ,Button,HStack,Image, VStack} from "native-base";
 import {Video} from 'react-native-video'
 import {
@@ -15,6 +15,8 @@ import {
 import Navbar from "../../components/Navbar";
 import { LinearGradient } from "expo-linear-gradient";
 import Rating from "../rating/rating";
+import { useState } from "react";
+import axios from "axios";
 
 const imagenes = [
     'https://www.shutterstock.com/image-photo/hands-young-barber-making-haircut-260nw-451276396.jpg',
@@ -83,7 +85,18 @@ function Backdrop({ scrollX }) {
 }
 
 export default function Mainbutton ({navigation}) {
+const [saloons,setSaloons]=useState('')
   const scrollX = React.useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    
+  
+    axios.get("http://192.168.104.4:5000/saloon/getAll").then(
+    res=>{setSaloons(res.data)
+     imagenes= res.data.map(e=>e.image)
+    console.log(res.data);}
+    )
+  }, [])
+  
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar hidden />
@@ -103,7 +116,7 @@ export default function Mainbutton ({navigation}) {
         snapToInterval={CONTAINER_WIDTH}
         decelerationRate={0}
         scrollEventThrottle={16}
-        data={imagenes}
+        data={saloons}
         keyExtractor={(item) => item}
         renderItem={({ item, index }) => {
           const inputRange = [
@@ -132,7 +145,7 @@ export default function Mainbutton ({navigation}) {
               >
                
                 
-                <Image source={{ uri: item }} alt={'walid'} style={styles.posterImage} />  
+                <Image source={{ uri: item.image }} alt={'walid'} style={styles.posterImage} />  
                 
                 <TouchableOpacity onPress={()=>{navigation.navigate('Sprofile')}}>
                 
@@ -140,7 +153,7 @@ export default function Mainbutton ({navigation}) {
                     
                 <Text style={{ fontWeight: "bold", fontSize: 19 ,padding:8 }} >
                   {" "}
-                 boulbeba COIFF
+                 {item.name}
                 </Text>
                 
                 <HStack>
@@ -153,7 +166,7 @@ export default function Mainbutton ({navigation}) {
                 />
                 <Text style={{ fontSize: 17 } }>
                   {" "}
-                 ariana tunis
+                 {item.adress}
                 </Text>
                 
                 </HStack>

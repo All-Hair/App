@@ -26,7 +26,10 @@ import Detail from "./screens/home/Detail.jsx";
 import Videos from "./screens/videoss/videos.jsx";
 import AddPost from "./screens/sprofile/AddPost.jsx";
 import PhotoDetails from "./screens/sprofile/PhotoDetails.jsx";
-import UpdateProfile from "./screens/sprofile/UpdateProfile.jsx";
+import UpdateProfile from "./screens/sprofiles/UpdateProfile.js";
+import Sprofiles from "./screens/sprofiles/sprofiles";
+import Pick from "./screens/pick image/pick.js";
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -143,6 +146,16 @@ const App = () => {
             name="UpdateProfile"
             options={{ headerShown: false }}
             component={UpdateProfile}
+          />
+          <Stack.Screen
+            name="Sprofiles"
+            options={{ headerShown: false }}
+            component={Sprofiles}
+          />
+           <Stack.Screen
+            name="Pick"
+            options={{ headerShown: false }}
+            component={Pick}
           />
 
         </Stack.Navigator>
